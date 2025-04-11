@@ -2,9 +2,9 @@
   "name": "prettier-plugin-xquery",
   "version": "1.0.0",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+	"scripts": {
+		"test": "node --experimental-strip-types --test"
+	},
   "author": "",
   "license": "ISC",
   "description": "",
