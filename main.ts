@@ -3,7 +3,7 @@ import  prettier from 'prettier';
 import type {Printer, Parser, Plugin, AstPath, Doc} from 'prettier'
 
 import {Parser as XQueryParser, ParseException} from './parser.ts';
-import {Tree, Node, LeafNode} from './tree.ts';
+import {Tree, Node, LeafNode, NonTerminalNode} from './tree.ts';
 
 const evaluateXPathToString = fontoxpath.evaluateXPathToString;
 
@@ -30,8 +30,6 @@ const xqueryParser: Parser<Node> = {
 		}
 
 		return handler.root;
-
-//        return fontoxpath.parseScript(text, {debug: true}, new Document()) as Element;
     },
     astFormat: 'xquery-ast',
     locStart(node) {
@@ -44,38 +42,54 @@ const xqueryParser: Parser<Node> = {
     },
 };
 
-const opByOpName = {
-	'addOp': '+',
-	'minOp': '-'
-}
-
 const space = ' ';
+
+const makePairs = (rest: Doc[]): [Doc, Doc][] => {
+	const pairs: [Doc,Doc][] = [];
+	for (let i = 0; i < rest.length; ++i) {
+		pairs.push([rest[i], rest[++i]])
+	}
+	return pairs
+};
+
 
 const xqueryPrinter: Printer<Node> = {
     print(path: AstPath<Node>, options, print, args) {
-        const value = path.node;
+
+		if (path.node instanceof LeafNode ) {
+			switch(path.node.name) {
+				case "'declare'":
+					return group(['declare', line])
+				case "'function'":
+					return group(['function', line])
+				default:
+					return path.node.value;
+			}
+		}
+
+        const value = path.node as NonTerminalNode;
+		const _path = path as AstPath<NonTerminalNode>
 
         switch (value.name) {
             case 'AdditiveExpr': {
-				const [lhs, ...rest] = path.map(print, 'children');
-				console.log(value.children.map(c=>c.name));
+				const [lhs, ...rest] = _path.map(print, 'children');
 
-				const pairs: Doc[][] = [];
-				for (let i = 0; i < rest.length; ++i) {
-					pairs.push([rest[i], rest[++i]])
-				}
-
+				const pairs= makePairs(rest);
 				return group([lhs, indent([pairs.map(([op, rhs]) => [space , op, line, rhs])])]);
 			}
-			case "'+'":
-				return '+';
-            case 'IntegerLiteral':
-				return (value as LeafNode).value;
-			case 'WhiteSpace':
-				return null;
+			// case 'FunctionDecl': {
+			// 	const [lhs, ...rest] = _path.map(print, 'children');
+
+			// 	const pairs: Doc[][] = [];
+			// 	for (let i = 0; i < rest.length; ++i) {
+			// 		pairs.push([rest[i], rest[++i]])
+			// 	}
+			// 	return group([lhs, indent([pairs.map(([op, rhs]) => [space , op, line, rhs])]), line]);
+
+			// }
             default:
 //                console.log(`Got passed a ${value.name}`)
-                return group(path.map(print, 'children'))
+                return group(_path.map(print, 'children'))
         }
     },
 }
