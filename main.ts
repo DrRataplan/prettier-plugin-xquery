@@ -1,15 +1,37 @@
 import fontoxpath from 'fontoxpath'
-import {Document, Element} from 'slimdom'
 import  prettier from 'prettier';
-import type {Printer, Parser, Plugin} from 'prettier'
+import type {Printer, Parser, Plugin, AstPath, Doc} from 'prettier'
+
+import {Parser as XQueryParser, ParseException} from './parser.ts';
+import {Tree, Node, LeafNode} from './tree.ts';
 
 const evaluateXPathToString = fontoxpath.evaluateXPathToString;
 
 const { join, line, ifBreak, group, indent } = prettier.doc.builders;
 
-const xqueryParser: Parser<Element> = {
+const xqueryParser: Parser<Node> = {
     parse(text, options) {
-        return fontoxpath.parseScript(text, {debug: true}, new Document()) as Element;
+		const handler= new Tree();
+		var parser = new XQueryParser(text, handler);
+		try
+		{
+			parser.parse_XQuery();
+		}
+		catch (pe)
+		{
+			if (! (pe instanceof ParseException))
+			{
+				throw pe;
+			}
+			else
+			{
+				throw parser.getErrorMessage(pe);
+			}
+		}
+
+		return handler.root;
+
+//        return fontoxpath.parseScript(text, {debug: true}, new Document()) as Element;
     },
     astFormat: 'xquery-ast',
     locStart(node) {
@@ -22,35 +44,43 @@ const xqueryParser: Parser<Element> = {
     },
 };
 
-const xqueryPrinter: Printer<Element|null> = {
-    print(path, options, print, args) {
+const opByOpName = {
+	'addOp': '+',
+	'minOp': '-'
+}
+
+const space = ' ';
+
+const xqueryPrinter: Printer<Node> = {
+    print(path: AstPath<Node>, options, print, args) {
         const value = path.node;
 
-		if (!value) {
-			return '';
-		}
+        switch (value.name) {
+            case 'AdditiveExpr': {
+				const [lhs, ...rest] = path.map(print, 'children');
+				console.log(value.children.map(c=>c.name));
 
-        if (value.nodeType === value.TEXT_NODE) {
-            return (value as Node as Text).data;
-        }
+				const pairs: Doc[][] = [];
+				for (let i = 0; i < rest.length; ++i) {
+					pairs.push([rest[i], rest[++i]])
+				}
 
-        switch (value.localName) {
-            case 'addOp':
-                const lhs = path.call(print, 'firstElementChild');
-                const rhs = path.call(print, 'lastElementChild');
-
-                return group([lhs, ' +', indent([line, rhs])]);
-            case 'value':
-
-                return evaluateXPathToString('.', value)
+				return group([lhs, indent([pairs.map(([op, rhs]) => [space , op, line, rhs])])]);
+			}
+			case "'+'":
+				return '+';
+            case 'IntegerLiteral':
+				return (value as LeafNode).value;
+			case 'WhiteSpace':
+				return null;
             default:
-                console.log('Got passed a ' + value.nodeName)
+//                console.log(`Got passed a ${value.name}`)
                 return group(path.map(print, 'children'))
         }
     },
 }
 
-const pluginDefinition: Plugin<Element> = {
+const pluginDefinition: Plugin<Node> = {
     languages: [{
         name: 'XQuery',
         parsers: ['xquery-parser']
