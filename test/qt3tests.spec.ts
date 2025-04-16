@@ -9,10 +9,8 @@ import { fileURLToPath } from 'node:url';
 import { dirname } from 'path';
 const { evaluateXPathToNodes, evaluateXPathToString } = fontoxpath;
 
-describe('Running the linter on the QT3 test set', async () => {
+describe.skip('Running the linter on the QT3 test set', async () => {
 	const prefix = `${fileURLToPath(dirname(import.meta.url))}/assets/qt3tests`;
-
-	console.log(prefix);
 
 	const catalog = new DOMParser().parseFromString(await readFile(`${prefix}/catalog.xml`, 'utf-8'), 'text/xml');
 

@@ -74,6 +74,7 @@ const xqueryPrinter: Printer<Node> = {
 				const typeDeclarationPart = _path.map(print, 'childrenByName', 'TypeDeclaration');
 				return group(['$', namePart, space, typeDeclarationPart]);
 			}
+			case 'MultiplicativeExpr':
 			case 'AdditiveExpr': {
 				const [lhs, ...rest] = _path.map(print, 'children');
 
@@ -85,9 +86,45 @@ const xqueryPrinter: Printer<Node> = {
 					'{',
 					indent([hardline, _path.map(print, 'childrenByName', 'EnclosedExpr', '0', 'childrenByName', 'Expr')]),
 					hardline,
-
 					'}',
 				]);
+			}
+			case 'RangeExpr': {
+				return join([space, 'to', space], _path.map(print, 'childrenByName', 'AdditiveExpr'));
+			}
+			case 'FLWORExpr': {
+				const initialClausePart = _path.map(print, 'childrenByName', 'InitialClause');
+				const intermediateClausePart = value.childrenByName['IntermediateClause']
+					? _path.map(print, 'childrenByName', 'IntermediateClause')
+					: [];
+				const returnClausePart = _path.map(print, 'childrenByName', 'ReturnClause');
+
+				return group([join(hardline, initialClausePart), intermediateClausePart, indent(returnClausePart)]);
+			}
+			case 'InitialClause': {
+				return group([_path.map(print, 'children'), hardline]);
+			}
+			case 'ForClause': {
+				return group(['for', space, indent([join(line, _path.map(print, 'childrenByName', 'ForBinding'))])]);
+			}
+			case 'LetClause': {
+				return group(['let', space, indent([join(line, _path.map(print, 'childrenByName', 'LetBinding'))])]);
+			}
+			case 'LetBinding': {
+				const varNamePart = _path.map(print, 'childrenByName', 'VarName');
+				const exprSinglePart = _path.map(print, 'childrenByName', 'ExprSingle');
+				// TODO typings
+				return group(['$', varNamePart, space, ':=', line, exprSinglePart]);
+			}
+			case 'ForBinding': {
+				const varNamePart = _path.map(print, 'childrenByName', 'VarName');
+				const exprSinglePart = _path.map(print, 'childrenByName', 'ExprSingle');
+				// TODO typings
+				return group(['$', varNamePart, space, 'in', line, exprSinglePart]);
+			}
+			case 'ReturnClause': {
+				const exprSinglePart = _path.map(print, 'childrenByName', 'ExprSingle');
+				return group(['return', space, exprSinglePart]);
 			}
 			case 'FunctionDecl': {
 				const eQNamePart = _path.map(print, 'childrenByName', 'EQName');

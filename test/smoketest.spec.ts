@@ -42,4 +42,24 @@ local:bla(2)`.trim();
 
 		assert.strictEqual(result, code, 'The input was already formatted correctly');
 	});
+
+
+	it('formats FLWOR expressions', async (t) => {
+		const code = `
+for $x in (1, 2, 3)
+let $y := $x + 1
+let $x :=
+  for $q in $y to $z
+  return $q * $q
+return $y + sum(($q))
+`.trim();
+
+		const result = await prettier.format(code, {
+			parser: 'xquery-parser',
+			plugins: [xqueryPlugin],
+		});
+
+		assert.strictEqual(result, code, 'The input was already formatted correctly');
+	});
+
 });

@@ -27,7 +27,7 @@ export class NonTerminalNode extends Node {
 	 */
 	get childrenByName(): Record<string, Node[]> {
 		return this.children.reduce((childrenByName, child) => {
-			childrenByName[child.name] = [child, ...(childrenByName[child.name] ?? [])];
+			childrenByName[child.name] = [...(childrenByName[child.name] ?? []), child];
 			return childrenByName;
 		}, Object.create(null));
 	}
