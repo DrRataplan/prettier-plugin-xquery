@@ -18,8 +18,11 @@ export class NonTerminalNode extends Node {
         this.children = children
     }
 
-	getChildren(name: string): Node[] {
-		return this.children.filter(child => child.name == name);
+	get childrenByName(): Record<string, Node[]> {
+		return this.children.reduce((childrenByName, child) => {
+			childrenByName[child.name] = [child, ...(childrenByName[child.name]??[])]
+			return childrenByName;
+		}, Object.create(null));
 	}
 }
 
@@ -44,14 +47,12 @@ export class Tree {
     }
 
     reset (code: string) {
-		console.log(code);
         this.code = code
 		this.root = new NonTerminalNode('root', 0, code.length);
         this.stack = [this.root];
     }
 
     startNonterminal(name: string, begin: number) {
-        console.log('startNonterminal', name, begin)
         const current = new NonTerminalNode(name, begin)
 
 		const parent = this.peek() as NonTerminalNode;
@@ -69,14 +70,12 @@ export class Tree {
 	terminal(name: string, begin: number, end: number) {
         const leaf = new LeafNode(name, begin, end)
         leaf.value = this.code.substring(begin, end)
-		console.log('Leaf', name, leaf.value);
 		const parent = this.peek();
 		parent.children.push(leaf);
     }
 
 	whitespace(begin: number, end: number) {
-		return;
-		this.terminal('WhiteSpace', begin, end)
+		// this.terminal('WhiteSpace', begin, end)
     }
 
 	peek (): NonTerminalNode {

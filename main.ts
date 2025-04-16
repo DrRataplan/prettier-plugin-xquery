@@ -7,7 +7,7 @@ import {Tree, Node, LeafNode, NonTerminalNode} from './tree.ts';
 
 const evaluateXPathToString = fontoxpath.evaluateXPathToString;
 
-const { join, line, ifBreak, group, indent } = prettier.doc.builders;
+const { join, line, ifBreak, group, indent, softline, hardline } = prettier.doc.builders;
 
 const xqueryParser: Parser<Node> = {
     parse(text, options) {
@@ -62,6 +62,10 @@ const xqueryPrinter: Printer<Node> = {
 					return group(['declare', line])
 				case "'function'":
 					return group(['function', line])
+				case "','":
+					return group([',', line])
+				case "';'":
+					return group([';', hardline, hardline])
 				default:
 					return path.node.value;
 			}
@@ -71,22 +75,59 @@ const xqueryPrinter: Printer<Node> = {
 		const _path = path as AstPath<NonTerminalNode>
 
         switch (value.name) {
+			case 'TypeDeclaration': {
+				const sequenceTypePart = _path.map(print, 'childrenByName', 'SequenceType');
+				return group(['as', space, sequenceTypePart])
+
+			}
+			case 'Param': {
+				const namePart = _path.map(print, 'childrenByName', 'EQName')
+				if (!value.childrenByName['TypeDeclaration']) {
+					return group(['$', namePart])
+				}
+				const typeDeclarationPart = _path.map(print, 'childrenByName', 'TypeDeclaration')
+				return group(['$', namePart, space, typeDeclarationPart])
+
+			}
             case 'AdditiveExpr': {
 				const [lhs, ...rest] = _path.map(print, 'children');
 
 				const pairs= makePairs(rest);
 				return group([lhs, indent([pairs.map(([op, rhs]) => [space , op, line, rhs])])]);
 			}
-			// case 'FunctionDecl': {
-			// 	const [lhs, ...rest] = _path.map(print, 'children');
+			case 'FunctionBody': {
+				return group([
+					'{',
+					indent([
+						hardline,
+						_path.map(print, 'childrenByName', 'EnclosedExpr', '0', 'childrenByName', 'Expr'),
+					]),
+					hardline,
 
-			// 	const pairs: Doc[][] = [];
-			// 	for (let i = 0; i < rest.length; ++i) {
-			// 		pairs.push([rest[i], rest[++i]])
-			// 	}
-			// 	return group([lhs, indent([pairs.map(([op, rhs]) => [space , op, line, rhs])]), line]);
+					'}']);
+			}
+			case 'FunctionDecl': {
+				const eQNamePart = _path.map(print, 'childrenByName', 'EQName');
+				const paramListPart = value.childrenByName['ParamList'] ? _path.map(print, 'childrenByName', 'ParamList') : [];
+				const typeDeclarationPart = value.childrenByName['SequenceType'] ?
+					['as', space, _path.map(print, 'childrenByName', 'SequenceType'), space] :
+					[];
 
-			// }
+				const functionBodyPart = _path.map(print, 'childrenByName', 'FunctionBody');
+
+				return group([
+					'function',
+					space,
+					eQNamePart,
+					'(',
+					indent([softline, paramListPart]),
+					softline,
+					')',
+					space,
+					typeDeclarationPart,
+					functionBodyPart,
+				])
+			}
             default:
 //                console.log(`Got passed a ${value.name}`)
                 return group(_path.map(print, 'children'))

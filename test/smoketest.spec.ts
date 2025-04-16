@@ -26,15 +26,20 @@ describe('smoke tests', async (d) => {
 
 	});
 
-	it.only('formats function definitions', async (t) => {
-		const code = `declare function local:bla () {1}; local:bla()`;
+	it('formats function definitions', async (t) => {
+		const code = `
+declare function local:bla(
+  $a as xs:integer
+) as xs:double {
+  1 + $a
+};
+
+local:bla(2)`.trim();
 
 		const result = await prettier.format(code, {
 			parser: "xquery-parser",
 			plugins: [xqueryPlugin],
 		});
-
-		console.log(`result ${result}`)
 
 		assert.strictEqual(result, code, 'The input was already formatted correctly');
 	});
