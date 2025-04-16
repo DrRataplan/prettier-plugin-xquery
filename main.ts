@@ -1,117 +1,100 @@
-import fontoxpath from 'fontoxpath'
-import  prettier from 'prettier';
-import type {Printer, Parser, Plugin, AstPath, Doc} from 'prettier'
+import prettier from 'prettier';
+import type { Printer, Parser, Plugin, AstPath, Doc } from 'prettier';
 
-import {Parser as XQueryParser, ParseException} from './parser.ts';
-import {Tree, Node, LeafNode, NonTerminalNode} from './tree.ts';
-
-const evaluateXPathToString = fontoxpath.evaluateXPathToString;
+import { Parser as XQueryParser, ParseException } from './parser.ts';
+import { Tree, Node, LeafNode, NonTerminalNode } from './tree.ts';
 
 const { join, line, ifBreak, group, indent, softline, hardline } = prettier.doc.builders;
 
 const xqueryParser: Parser<Node> = {
-    parse(text, options) {
-		const handler= new Tree();
+	parse(text, _options) {
+		const handler = new Tree();
 		var parser = new XQueryParser(text, handler);
-		try
-		{
+		try {
 			parser.parse_XQuery();
-		}
-		catch (pe)
-		{
-			if (! (pe instanceof ParseException))
-			{
+		} catch (pe) {
+			if (!(pe instanceof ParseException)) {
 				throw pe;
-			}
-			else
-			{
+			} else {
 				throw parser.getErrorMessage(pe);
 			}
 		}
 
 		return handler.root;
-    },
-    astFormat: 'xquery-ast',
-    locStart(node) {
-        const start = fontoxpath.evaluateXPathToNumber('ancestor-or-self::*/fontoxpath:stackTrace/@start', node);
-        return isNaN(start) ? -1 : start;
-    },
-    locEnd(node) {
-        const end = fontoxpath.evaluateXPathToNumber('ancestor-or-self::*/fontoxpath:stackTrace/@end', node);
-        return isNaN(end) ? -1 : end;
-    },
+	},
+	astFormat: 'xquery-ast',
+	locStart(node) {
+		return node.begin;
+	},
+	locEnd(node) {
+		return node.end;
+	},
 };
 
 const space = ' ';
 
 const makePairs = (rest: Doc[]): [Doc, Doc][] => {
-	const pairs: [Doc,Doc][] = [];
+	const pairs: [Doc, Doc][] = [];
 	for (let i = 0; i < rest.length; ++i) {
-		pairs.push([rest[i], rest[++i]])
+		pairs.push([rest[i], rest[++i]]);
 	}
-	return pairs
+	return pairs;
 };
 
-
 const xqueryPrinter: Printer<Node> = {
-    print(path: AstPath<Node>, options, print, args) {
-
-		if (path.node instanceof LeafNode ) {
-			switch(path.node.name) {
+	print(path: AstPath<Node>, options, print, args) {
+		if (path.node instanceof LeafNode) {
+			switch (path.node.name) {
 				case "'declare'":
-					return group(['declare', line])
+					return group(['declare', line]);
 				case "'function'":
-					return group(['function', line])
+					return group(['function', line]);
 				case "','":
-					return group([',', line])
+					return group([',', line]);
 				case "';'":
-					return group([';', hardline, hardline])
+					return group([';', hardline, hardline]);
 				default:
 					return path.node.value;
 			}
 		}
 
-        const value = path.node as NonTerminalNode;
-		const _path = path as AstPath<NonTerminalNode>
+		const value = path.node as NonTerminalNode;
+		const _path = path as AstPath<NonTerminalNode>;
 
-        switch (value.name) {
+		switch (value.name) {
 			case 'TypeDeclaration': {
 				const sequenceTypePart = _path.map(print, 'childrenByName', 'SequenceType');
-				return group(['as', space, sequenceTypePart])
-
+				return group(['as', space, sequenceTypePart]);
 			}
 			case 'Param': {
-				const namePart = _path.map(print, 'childrenByName', 'EQName')
+				const namePart = _path.map(print, 'childrenByName', 'EQName');
 				if (!value.childrenByName['TypeDeclaration']) {
-					return group(['$', namePart])
+					return group(['$', namePart]);
 				}
-				const typeDeclarationPart = _path.map(print, 'childrenByName', 'TypeDeclaration')
-				return group(['$', namePart, space, typeDeclarationPart])
-
+				const typeDeclarationPart = _path.map(print, 'childrenByName', 'TypeDeclaration');
+				return group(['$', namePart, space, typeDeclarationPart]);
 			}
-            case 'AdditiveExpr': {
+			case 'AdditiveExpr': {
 				const [lhs, ...rest] = _path.map(print, 'children');
 
-				const pairs= makePairs(rest);
-				return group([lhs, indent([pairs.map(([op, rhs]) => [space , op, line, rhs])])]);
+				const pairs = makePairs(rest);
+				return group([lhs, indent([pairs.map(([op, rhs]) => [space, op, line, rhs])])]);
 			}
 			case 'FunctionBody': {
 				return group([
 					'{',
-					indent([
-						hardline,
-						_path.map(print, 'childrenByName', 'EnclosedExpr', '0', 'childrenByName', 'Expr'),
-					]),
+					indent([hardline, _path.map(print, 'childrenByName', 'EnclosedExpr', '0', 'childrenByName', 'Expr')]),
 					hardline,
 
-					'}']);
+					'}',
+				]);
 			}
 			case 'FunctionDecl': {
 				const eQNamePart = _path.map(print, 'childrenByName', 'EQName');
 				const paramListPart = value.childrenByName['ParamList'] ? _path.map(print, 'childrenByName', 'ParamList') : [];
-				const typeDeclarationPart = value.childrenByName['SequenceType'] ?
-					['as', space, _path.map(print, 'childrenByName', 'SequenceType'), space] :
-					[];
+				const typeDeclarationPart = value.childrenByName['SequenceType']
+					? ['as', space, _path.map(print, 'childrenByName', 'SequenceType'), space]
+					: [];
 
 				const functionBodyPart = _path.map(print, 'childrenByName', 'FunctionBody');
 
@@ -126,26 +109,28 @@ const xqueryPrinter: Printer<Node> = {
 					space,
 					typeDeclarationPart,
 					functionBodyPart,
-				])
+				]);
 			}
-            default:
-//                console.log(`Got passed a ${value.name}`)
-                return group(_path.map(print, 'children'))
-        }
-    },
-}
+			default:
+				//                console.log(`Got passed a ${value.name}`)
+				return group(_path.map(print, 'children'));
+		}
+	},
+};
 
 const pluginDefinition: Plugin<Node> = {
-    languages: [{
-        name: 'XQuery',
-        parsers: ['xquery-parser']
-    }],
-    parsers: {
-        'xquery-parser': xqueryParser
-    },
-    printers: {
-        'xquery-ast': xqueryPrinter
-    }
-}
+	languages: [
+		{
+			name: 'XQuery',
+			parsers: ['xquery-parser'],
+		},
+	],
+	parsers: {
+		'xquery-parser': xqueryParser,
+	},
+	printers: {
+		'xquery-ast': xqueryPrinter,
+	},
+};
 
 export default pluginDefinition;

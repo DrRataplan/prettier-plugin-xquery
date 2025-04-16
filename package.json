@@ -9,9 +9,7 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "fontoxpath": "^3.33.2",
-    "prettier": "^3.5.3",
-    "slimdom": "^4.3.5"
+    "prettier": "^3.5.3"
   },
   "type": "module",
   "devDependencies": {
