@@ -62,4 +62,31 @@ return $y + sum(($q))
 		assert.strictEqual(result, code, 'The input was already formatted correctly');
 	});
 
+	it('formats short arrow expressions on one line', async (t) => {
+		const code = `1 => xs:string() => concat(' ')
+`.trim();
+
+		const result = await prettier.format(code, {
+			parser: 'xquery-parser',
+			plugins: [xqueryPlugin],
+		});
+
+		assert.strictEqual(result, code, 'The input was already formatted correctly');
+	});
+
+	it('formats list of arrow expressions on separate indented lines', async (t) => {
+		const code = "1 => xs:string() => concat(' ') => concat(' ')";
+		const formatted = `1
+  => xs:string()
+  => concat(' ')
+  => concat(' ')`;
+
+		const result = await prettier.format(code, {
+			parser: 'xquery-parser',
+			plugins: [xqueryPlugin],
+		});
+
+		assert.strictEqual(result, formatted, 'The input was already formatted correctly');
+	});
+
 });

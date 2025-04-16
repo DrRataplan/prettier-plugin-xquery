@@ -41,6 +41,14 @@ const makePairs = (rest: Doc[]): [Doc, Doc][] => {
 	return pairs;
 };
 
+const makeTriplets = (rest: Doc[]): [Doc, Doc, Doc][] => {
+	const triplets: [Doc, Doc, Doc][] = [];
+	for (let i = 0; i < rest.length; i+=3) {
+		triplets.push([rest[i], rest[i+1], rest[i+2]]);
+	}
+	return triplets;
+};
+
 const xqueryPrinter: Printer<Node> = {
 	print(path: AstPath<Node>, options, print, args) {
 		if (path.node instanceof LeafNode) {
@@ -147,6 +155,15 @@ const xqueryPrinter: Printer<Node> = {
 					typeDeclarationPart,
 					functionBodyPart,
 				]);
+			}
+			case 'ArrowExpr': {
+				const [lhs, ...rest] = _path.map(print, 'children');
+
+				const triplets = makeTriplets(rest);
+				const choice = triplets.length == 2 ? line : hardline
+				return group([
+					lhs,
+					indent([triplets.map(([op, arr, args]) => [choice, op, space, arr, args])])]);
 			}
 			default:
 				//                console.log(`Got passed a ${value.name}`)
