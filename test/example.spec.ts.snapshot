@@ -1,0 +1,114 @@
+exports[`Formatting a whole module > Can format a whole module nicely 1`] = `
+xquery version "3.1" ;
+
+module namespace body = "http://e-editiones.org/roaster/body";
+import module namespace errors = "http://e-editiones.org/roaster/errors";
+;
+declare function body:parse(
+  $request as map(*)
+) {
+  if(not(exists($request?media-type)))then()else(try{switch($request?format)case"form-data"returnbody:parse-form-data($request?schema)case"json"returnlet $data :=
+    request:get-data()
+  return typeswitch($data)casexs:stringreturnparse-json($data)defaultreturnutil:binary-to-string($data)=>parse-json()case"xml"returnlet $data :=
+    request:get-data()
+  return typeswitch($data)casenode()return$datadefaultreturnparse-xml($data)defaultreturnrequest:get-data()}catch*{error($errors:BODY_CONTENT_TYPE,
+  "Body with media type '"||$request?media-type||"' could not be parsed (invalid "||upper-case($request?format)||").",
+  $err:description)})
+}
+;
+declare function body:content-type(
+  $request as map(*)
+) as map(*) {
+  if(not(exists($request?config?requestBody?content)))then(map{})elseif(not($request?config?requestBody?contentinstanceofmap(*)))thenerror($errors:OPERATION,
+  "requestBody.content is not defined correctly",
+  $request?config)else(let $content := $request?config?requestBody?content
+  let $defined-content-types := map:keys($content)
+  let $raw-content-type-header-value := request:get-header("Content-Type")
+  let $media-type :=
+    if(contains($raw-content-type-header-value,
+    ";"))thensubstring-before($raw-content-type-header-value,
+    ";")else$raw-content-type-header-value
+  let $charset :=
+    if(contains($raw-content-type-header-value,
+    "charset="))then(substring-after($raw-content-type-header-value,
+    "charset=")=>lower-case()=>replace("^([a-z0-9\\-]+).*$", "$1"))else()
+  let $registry := substring-before($media-type, "/")
+  return if($media-type=$defined-content-typesor($defined-content-types="*/*"and$registry=("application",
+    "audio", "example", "font", "image", "message", "model", "multipart",
+    "text", "video")))thenmap{"media-type":$media-type, "charset":$charset,
+    "registry":$registry, "schema":$content?($media-type)?schema,
+    "format":if($media-type=("application/json",
+    "text/json"))then"json"elseif($media-type=("application/xml", "text/xml",
+    "image/svg+xml"))then"xml"elseif($media-type=("multipart/form-data",
+    "application/x-www-form-urlencoded"))then"form-data"elseif(starts-with($media-type,
+    "application/")and(ends-with($media-type, "+json")orends-with($media-type,
+    "+xml")))thensubstring-after($media-type,
+    "+")else"binary"}elseerror($errors:BODY_CONTENT_TYPE,
+    "Body with media-type '"||$media-type||"' is not allowed", $request))
+}
+;
+declare %privatefunction body:get-form-data-value(
+  $name as xs:string, $format as xs:string?
+) as item()* {
+  switch($format)case'binary'returnif(request:is-multipart-content())thenlet $names :=
+    request:get-uploaded-file-name($name)
+  let $data := request:get-uploaded-file-data($name)
+  let $sizes := request:get-uploaded-file-size($name)
+  return for $_name in $names
+    return map{"name":$_name, "data":$data[$index],
+      "size":$sizes[$index]}elserequest:get-parameter($name,
+  ())case'base64'returnxs:base64Binary(request:get-parameter($name,
+  ()))defaultreturnrequest:get-parameter($name, ())
+}
+;
+declare %privatefunction body:additional-property(
+  $name as xs:string
+) as map(*) {
+  map{$name:request:get-parameter($name, ())}
+}
+;
+declare %privatefunction body:validate-value(
+  $schema as map(*)
+) as function (*) {
+  let $required-props := $schema?required?*
+  let $property-definitions := $schema?properties
+  return function ($name as xs:string)asmap(*){
+      if(not(map:contains($property-definitions,
+      $name)))thenbody:additional-property($name)elselet $property :=
+        $property-definitions?($name)
+      let $is-array := $property?type="array"
+      let $is-required := $name=$required-props
+      let $format :=
+        if($property?type="array")then$property?items?formatelse$property?format
+      let $value := body:get-form-data-value($name, $format)
+      return if(not(exists($value))and$is-required)thenerror($errors:BAD_REQUEST,
+        'Property "'||$name||'" is required!')elseif(count($value)>1andnot($is-array))thenerror($errors:BAD_REQUEST,
+        'Property "'||$name||'" only allows one item. Got '||count($value),
+        $value)elsemap:entry($name, $value)
+    }
+}
+;
+declare %privatefunction body:ensure-required-properties(
+  $received-property-names as xs:string*, $required-properties as xs:string*
+) as xs:string* {
+  for-each($required-properties, function
+  ($required-prop-name as xs:string)asempty-sequence(){
+    if($required-properties=$received-property-names)then()elseerror($errors:BAD_REQUEST,
+    'Property "'||$required-prop-name||'" is required!')
+  }), $received-property-names
+}
+;
+declare %privatefunction body:parse-form-data(
+  $schema as map(*)?
+) as map(*) {
+  if(exists($schema))thenmap:merge(for-each(body:ensure-required-properties(request:get-parameter-names(),
+  $schema?required?*),
+  body:validate-value($schema)))elsemap:merge(for-each(request:get-parameter-names(),
+  body:additional-property#1))
+}
+;
+
+
+
+
+`;

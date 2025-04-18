@@ -52,7 +52,7 @@ const xqueryPrinter: Printer<Node> = {
 				case "','":
 					return group([',', line]);
 				case "';'":
-					return group([';', hardline, hardline]);
+				//return group([';', hardline, hardline]);
 				default:
 					return path.node.value;
 			}
@@ -62,6 +62,36 @@ const xqueryPrinter: Printer<Node> = {
 		const _path = path as AstPath<NonTerminalNode>;
 
 		switch (value.name) {
+			case 'VersionDecl':
+				return group([join(space, _path.map(print, 'children')), hardline, hardline]);
+			case 'LibraryModule': {
+				return group([join(hardline, _path.map(print, 'children')), hardline, hardline]);
+			}
+			case 'ModuleDecl':
+				const prefixPart = _path.map(print, 'childrenByName', 'NCName');
+				const uriPart = _path.map(print, 'childrenByName', 'URILiteral');
+				return group(['module', space, 'namespace', space, prefixPart, space, '=', space, uriPart, ';']);
+			case 'ModuleImport': {
+				const prefixPart = value.childrenByName['NCName']
+					? ['namespace', space, _path.map(print, 'childrenByName', 'NCName'), space, '=', space]
+					: [];
+				// First is the module URI, the rest are location hints
+				const [uriPart, ...locationHints] = _path.map(print, 'childrenByName', 'URILiteral');
+				const locationHintParts = locationHints.length
+					? [
+							space,
+							'at',
+							space,
+							join(
+								',',
+								locationHints.map((locationHint) => ['space', locationHint]),
+							),
+						]
+					: [];
+				return group(['import', space, 'module', space, prefixPart, uriPart, locationHintParts, ';']);
+			}
+			case 'Prolog':
+				return group([join(hardline, _path.map(print, 'children')), hardline, hardline]);
 			case 'TypeDeclaration': {
 				const sequenceTypePart = _path.map(print, 'childrenByName', 'SequenceType');
 				return group(['as', space, sequenceTypePart]);
