@@ -47,9 +47,12 @@ declare function body:parse(
             :)
           case "json" return
             let $data := request:get-data()
-            return typeswitch($data)casexs:stringreturnparse-json(
-                $data
-              )defaultreturnutil:binary-to-string($data)=>parse-json()
+            return typeswitch ($data)
+                case xs:string return
+                  parse-json($data)
+
+                default return
+                  util:binary-to-string($data)=>parse-json()
           (:
                 Workaround for eXist-DB specific behaviour,
                 this way we will get parse errors as early as possible
@@ -57,15 +60,18 @@ declare function body:parse(
             :)
           case "xml" return
             let $data := request:get-data()
-            return typeswitch($data)casenode()return$datadefaultreturnparse-xml(
-                $data
-              )
+            return typeswitch ($data)
+                case node() return
+                  $data
+
+                default return
+                  parse-xml($data)
 
           (: Treat everything else as binary data :)
           default return
             request:get-data()
       }
-      catch*{
+      catch * {
         error(
           $errors:BODY_CONTENT_TYPE,
           "Body with media type '" ||

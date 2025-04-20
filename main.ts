@@ -127,7 +127,7 @@ const xqueryPrinter: Printer<Node> = {
 				}
 				const argumentsPart = _path.map(print, 'childrenByName', 'Argument');
 
-				return group(['(', indent([softline, join([',', line], argumentsPart)]), softline,')']);
+				return group(['(', indent([softline, join([',', line], argumentsPart)]), softline, ')']);
 			}
 			case 'IfExpr': {
 				const conditionPart = _path.map(print, 'childrenByName', 'Expr');
@@ -178,12 +178,7 @@ const xqueryPrinter: Printer<Node> = {
 				return group([indent([softline, join([',', line], exprSingles)]), softline]);
 			}
 			case 'EnclosedExpr': {
-				return group([
-					'{',
-					indent([hardline, _path.map(print, 'childrenByName', 'Expr')]),
-					hardline,
-					'}',
-				]);
+				return group(['{', indent([hardline, _path.map(print, 'childrenByName', 'Expr')]), hardline, '}']);
 			}
 			case 'RangeExpr': {
 				return join([space, 'to', space], _path.map(print, 'childrenByName', 'AdditiveExpr'));
@@ -223,8 +218,9 @@ const xqueryPrinter: Printer<Node> = {
 				return group(['return', space, exprSinglePart]);
 			}
 			case 'AnnotatedDecl': {
-				return group([join(space, _path.map(print, 'children')), hardline, hardline])
+				return group([join(space, _path.map(print, 'children')), hardline, hardline]);
 			}
+			
 			case 'FunctionDecl': {
 				const eQNamePart = _path.map(print, 'childrenByName', 'EQName');
 				const paramListPart = value.childrenByName['ParamList'] ? _path.map(print, 'childrenByName', 'ParamList') : [];
@@ -272,16 +268,68 @@ const xqueryPrinter: Printer<Node> = {
 					]),
 				]);
 			}
-			case 'TryCatchExpr': {
-				const tryClausePart = _path.map(print, 'childrenByName', "TryClause");
-				const catchClausePart = _path.map(print, 'childrenByName', "CatchClause");
-				return group([tryClausePart, hardline, catchClausePart])
 
+			case 'TypeswitchExpr': {
+				const switchPart = _path.map(print, 'childrenByName', "'typeswitch'");
+				const exprPart = _path.map(print, 'childrenByName', 'Expr');
+				const switchCaseClausePart = _path.map(print, 'childrenByName', 'CaseClause');
+				const defaultPart = _path.map(print, 'childrenByName', "'default'");
+				const returnPart = _path.map(print, 'childrenByName', "'return'");
+				const exprSinglePart = _path.map(print, 'childrenByName', 'ExprSingle');
+
+				return group([
+					switchPart,
+					space,
+					'(',
+					exprPart,
+					')',
+					indent([
+						hardline,
+						switchCaseClausePart,
+						hardline,
+						defaultPart,
+						space,
+						returnPart,
+						indent([hardline, exprSinglePart]),
+					]),
+				]);
+			}
+
+			case 'TryCatchExpr': {
+				const tryClausePart = _path.map(print, 'childrenByName', 'TryClause');
+				const catchClausePart = _path.map(print, 'childrenByName', 'CatchClause');
+				return group([tryClausePart, hardline, catchClausePart]);
 			}
 			case 'TryClause': {
 				const tryKeyword = _path.map(print, 'childrenByName', "'try'");
-				const expr = 			 _path.map(print, 'childrenByName', "EnclosedTryTargetExpr");
-				return group([tryKeyword, space, expr])
+				const expr = _path.map(print, 'childrenByName', 'EnclosedTryTargetExpr');
+				return group([tryKeyword, space, expr]);
+			}
+			case 'CatchClause': {
+				console.log(Object.keys(value.childrenByName));
+
+				const catchKeyword = _path.map(print, 'childrenByName', "'catch'");
+				const catchErrorListPart = _path.map(print, 'childrenByName', 'CatchErrorList');
+				const expr = _path.map(print, 'childrenByName', 'EnclosedExpr');
+				return group([catchKeyword, space, catchErrorListPart, space, expr]);
+			}
+			case 'CaseClause': {
+				console.log(Object.keys(value.childrenByName));
+
+				const caseParts = _path.map(print, 'childrenByName', "'case'");
+				const switchCaseOperandParts = _path.map(print, 'childrenByName', 'SequenceTypeUnion');
+				const returnParts = _path.map(print, 'childrenByName', "'return'");
+				const exprSingleParts = _path.map(print, 'childrenByName', 'ExprSingle');
+
+				const cases = caseParts.map((casePart, i) => {
+					const operand = switchCaseOperandParts[i];
+					const returnPart = returnParts[i];
+					const exprSinglePart = exprSingleParts[i];
+
+					return group([casePart, space, operand, space, returnPart, indent([hardline, exprSinglePart]), hardline]);
+				});
+
+				return join(hardline, cases);
 			}
 			case 'SwitchCaseClause': {
 				const caseParts = _path.map(print, 'childrenByName', "'case'");
@@ -297,7 +345,7 @@ const xqueryPrinter: Printer<Node> = {
 					return group([casePart, space, operand, space, returnPart, indent([hardline, exprSinglePart]), hardline]);
 				});
 
-				return join(hardline, cases)
+				return join(hardline, cases);
 			}
 			default:
 				//				console.log(`Got passed a ${value.name}`);
