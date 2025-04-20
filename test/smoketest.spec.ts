@@ -14,6 +14,15 @@ describe('smoke tests', async (d) => {
 		assert.strictEqual(result, code, 'The input was already formatted correctly');
 	});
 
+	it.only('indents sequence expressions', async () => {
+		const code = `(1, 2)`;
+		const result = await prettier.format(code, {
+			parser: 'xquery-parser',
+			plugins: [xqueryPlugin],
+		});
+		assert.strictEqual(result, code, 'The input was already formatted correctly');
+	});
+
 	it('indents long lines', async () => {
 		const code = `1111111111111111111111111111111111111111111111111 +
   2222222222222222222222222222222222222222222 +

@@ -11,9 +11,10 @@ import assert from "node:assert";
 describe('Formatting a whole module', () => {
 	it.only('Can format a whole module nicely', async (t) => {
 		const tuttleAppScript = await readFile(path.join(prefix, 'roaster-body.xqm'), 'utf-8');
-		const prettification = prettier.format(tuttleAppScript, {
-							parser: 'xquery-parser',
-							plugins: [xqueryPlugin],
+		const prettification = prettier.format(
+			tuttleAppScript, {
+				parser: 'xquery-parser',
+				plugins: [xqueryPlugin],
 		});
 		await assert.doesNotReject(prettification);
 		const result = await prettification;
