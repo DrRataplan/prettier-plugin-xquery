@@ -58,8 +58,12 @@ const xqueryPrinter: Printer<Node> = {
 				case "'function'":
 					return group(['function', line]);
 				case "','":
+					console.log('!!!', path.parent.name);
 					return group([',', line]);
-				case "';'":
+				case '"':
+					return [];
+				case "'":
+					return [];
 				//return group([';', hardline, hardline]);
 				default:
 					return path.node.value;
@@ -69,9 +73,35 @@ const xqueryPrinter: Printer<Node> = {
 		const value = path.node as NonTerminalNode;
 		const _path = path as AstPath<NonTerminalNode>;
 
+		const printIfExist = (
+			path: AstPath<NonTerminalNode>,
+			print: (path: AstPath<NonTerminalNode>) => Doc,
+			item: string,
+		): Doc[] | null => {
+			if (!path.node.childrenByName[item]) {
+				return null;
+			}
+			return path.map(print, 'childrenByName', item);
+		};
+
 		switch (value.name) {
 			case 'VersionDecl':
-				return group([join(space, _path.map(print, 'children')), hardline, hardline]);
+				const xqueryKeyword = printIfExist(_path, print, "'xquery'");
+				const encodingKeyword = printIfExist(_path, print, "'encoding'");
+				const versionKeyword = printIfExist(_path, print, "'version'");
+				const [firstStringLiteral, secondStringLiteral] = printIfExist(_path, print, 'StringLiteral');
+
+				const items = [xqueryKeyword, space];
+				if (versionKeyword) {
+					items.push(versionKeyword, space, firstStringLiteral);
+					if (encodingKeyword) {
+						items.push(space, encodingKeyword, space, secondStringLiteral);
+					}
+				} else {
+					items.push(encodingKeyword, space, firstStringLiteral);
+				}
+
+				return group([items, ';', hardline, hardline]);
 			case 'LibraryModule': {
 				return group([join(hardline, _path.map(print, 'children')), hardline, hardline]);
 			}
@@ -96,13 +126,32 @@ const xqueryPrinter: Printer<Node> = {
 							),
 						]
 					: [];
-				return group(['import', space, 'module', space, prefixPart, uriPart, locationHintParts, ';']);
+				return group(['import', space, 'module', space, prefixPart, uriPart, locationHintParts]);
 			}
 			case 'Prolog':
 				if (!value.children.length) {
 					return [];
 				}
-				return group([join(hardline, _path.map(print, 'children')), hardline, hardline]);
+				const endWithSeparator = (part: Doc[] | null, joinWithHardlines = false) =>
+					part ? [part.map((p) => [p, ';', hardline, joinWithHardlines ? hardline : []]), hardline] : [];
+
+				const defaultNamespaceDeclPart = endWithSeparator(printIfExist(_path, print, 'DefaultNamespaceDecl'));
+				const setterPart = endWithSeparator(printIfExist(_path, print, 'Setter'));
+				const namespaceDeclPart = endWithSeparator(printIfExist(_path, print, 'NamespaceDecl'));
+				const importPart = endWithSeparator(printIfExist(_path, print, 'Import'));
+				const contextItemDeclPart = endWithSeparator(printIfExist(_path, print, 'ContextItemDecl'));
+				const annotatedDeclPart = endWithSeparator(printIfExist(_path, print, 'AnnotatedDecl'), true);
+				const optionDeclPart = endWithSeparator(printIfExist(_path, print, 'OptionDecl'));
+
+				return group([
+					defaultNamespaceDeclPart,
+					setterPart,
+					namespaceDeclPart,
+					importPart,
+					contextItemDeclPart,
+					annotatedDeclPart,
+					optionDeclPart,
+				]);
 			case 'TypeDeclaration': {
 				const sequenceTypePart = _path.map(print, 'childrenByName', 'SequenceType');
 				return group(['as', space, sequenceTypePart]);
@@ -114,6 +163,10 @@ const xqueryPrinter: Printer<Node> = {
 				}
 				const typeDeclarationPart = _path.map(print, 'childrenByName', 'TypeDeclaration');
 				return group(['$', namePart, space, typeDeclarationPart]);
+			}
+			case 'ParamList': {
+				const params = _path.map(print, 'childrenByName', 'Param');
+				return join([',', line], params);
 			}
 			case 'FunctionCall': {
 				const functionEQNamePart = _path.map(print, 'childrenByName', 'FunctionEQName');
@@ -150,6 +203,19 @@ const xqueryPrinter: Printer<Node> = {
 					indent([hardline, elsePart]),
 				]);
 			}
+			case 'MapConstructor': {
+				const mapKeyword = _path.map(print, 'childrenByName', "'map'");
+				const mapConstructorEntries = printIfExist(_path, print, 'MapConstructorEntry') ?? [];
+
+				return group([mapKeyword, space, '{', indent([softline, join([',', line], mapConstructorEntries)])]);
+			}
+			case 'MapConstructorEntry': {
+				const mapKeyExprPart = _path.map(print, 'childrenByName', 'MapKeyExpr');
+				const mapValueExprPart = _path.map(print, 'childrenByName', 'MapValueExpr');
+
+				return group([mapKeyExprPart, space, ':', indent([line, mapValueExprPart])]);
+			}
+			case 'MapConstructorEntry':
 			case 'StringConcatExpr':
 			case 'ComparisonExpr':
 			case 'IntersectExceptExpr':
@@ -169,13 +235,35 @@ const xqueryPrinter: Printer<Node> = {
 				}
 				return group(['(', indent([softline, _path.map(print, 'childrenByName', 'Expr')]), softline, ')']);
 			}
+			case 'ArrowExpr': {
+				const unaryExprPart = _path.map(print, 'childrenByName', 'UnaryExpr');
+				const arrowFunctionSpecifierPart = printIfExist(_path, print, 'ArrowFunctionSpecifier');
+				const argumentListPart = printIfExist(_path, print, 'ArgumentList');
+
+				if (!arrowFunctionSpecifierPart) {
+					return unaryExprPart;
+				}
+
+				return group([
+					unaryExprPart,
+					space,
+					indent([
+						'=>',
+						line,
+						join(
+							[space, '=>', line],
+							arrowFunctionSpecifierPart.map((afs, i) => [afs, argumentListPart[i]]),
+						),
+					]),
+				]);
+			}
 			case 'Expr': {
 				const exprSingles = _path.map(print, 'childrenByName', 'ExprSingle');
 
 				if (value.childrenByName['ExprSingle'].length === 1) {
 					return exprSingles;
 				}
-				return group([indent([softline, join([',', line], exprSingles)]), softline]);
+				return group([indent([softline, join([',', softline], exprSingles)]), softline]);
 			}
 			case 'EnclosedExpr': {
 				return group(['{', indent([hardline, _path.map(print, 'childrenByName', 'Expr')]), hardline, '}']);
@@ -218,9 +306,9 @@ const xqueryPrinter: Printer<Node> = {
 				return group(['return', space, exprSinglePart]);
 			}
 			case 'AnnotatedDecl': {
-				return group([join(space, _path.map(print, 'children')), hardline, hardline]);
+				return group([join(space, _path.map(print, 'children'))]);
 			}
-			
+
 			case 'FunctionDecl': {
 				const eQNamePart = _path.map(print, 'childrenByName', 'EQName');
 				const paramListPart = value.childrenByName['ParamList'] ? _path.map(print, 'childrenByName', 'ParamList') : [];
@@ -306,16 +394,13 @@ const xqueryPrinter: Printer<Node> = {
 				return group([tryKeyword, space, expr]);
 			}
 			case 'CatchClause': {
-				console.log(Object.keys(value.childrenByName));
-
 				const catchKeyword = _path.map(print, 'childrenByName', "'catch'");
 				const catchErrorListPart = _path.map(print, 'childrenByName', 'CatchErrorList');
 				const expr = _path.map(print, 'childrenByName', 'EnclosedExpr');
 				return group([catchKeyword, space, catchErrorListPart, space, expr]);
 			}
-			case 'CaseClause': {
-				console.log(Object.keys(value.childrenByName));
 
+			case 'CaseClause': {
 				const caseParts = _path.map(print, 'childrenByName', "'case'");
 				const switchCaseOperandParts = _path.map(print, 'childrenByName', 'SequenceTypeUnion');
 				const returnParts = _path.map(print, 'childrenByName', "'return'");
@@ -347,9 +432,21 @@ const xqueryPrinter: Printer<Node> = {
 
 				return join(hardline, cases);
 			}
+			case 'StringLiteral': {
+				const parts = _path.map(print, 'children');
+				if (value.childrenByName['EscapeQuot']) {
+					return ['"', parts, '"'];
+				}
+				if (value.childrenByName['EscapeApos']) {
+					return ["'", parts, "'"];
+				}
+
+				const preferred = options.singleQuote ? "'" : '"';
+				return [preferred, parts, preferred];
+			}
 			default:
 				//				console.log(`Got passed a ${value.name}`);
-				return group(_path.map(print, 'children'));
+				return _path.map(print, 'children');
 		}
 	},
 };

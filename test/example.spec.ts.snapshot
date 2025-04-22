@@ -15,14 +15,14 @@ exports[`Formatting a whole module > Can format a whole module nicely 1`] = `
  :  You should have received a copy of the GNU General Public License
  :  along with this program. If not, see <http://www.gnu.org/licenses/>.
  :)
-xquery version "3.1" ;
+xquery version "3.1";
 
 (:~
  : request body parser
  :)
 module namespace body = "http://e-editiones.org/roaster/body";
 import module namespace errors = "http://e-editiones.org/roaster/errors";
-;
+
 (:~
  : Try to retrieve and convert the request body if specified
  :)
@@ -52,7 +52,7 @@ declare function body:parse(
                   parse-json($data)
 
                 default return
-                  util:binary-to-string($data)=>parse-json()
+                  util:binary-to-string($data) => parse-json()
           (:
                 Workaround for eXist-DB specific behaviour,
                 this way we will get parse errors as early as possible
@@ -83,17 +83,15 @@ declare function body:parse(
         )
       }
     )
-}
+};
 
-
-;
 declare function body:content-type(
   $request as map(*)
 ) as map(*) {
   if (
     not(exists($request?config?requestBody?content))
   ) then
-    (map{}) (: this route expects no body, return an empty map :)
+    (map {) (: this route expects no body, return an empty map :)
   else
     if (
       not($request?config?requestBody?contentinstanceofmap(*))
@@ -120,10 +118,9 @@ declare function body:content-type(
             contains($raw-content-type-header-value, "charset=")
           ) then
             (
-              substring-after(
-                $raw-content-type-header-value,
-                "charset="
-              )=>lower-case()=>replace("^([a-z0-9\\-]+).*$", "$1")
+              substring-after($raw-content-type-header-value, "charset=") =>
+                lower-case() =>
+                replace("^([a-z0-9\\-]+).*$", "$1")
             )
           else
             ()
@@ -149,34 +146,43 @@ declare function body:content-type(
                     )
               )
           ) then
-            map{"media-type":$media-type, "charset":$charset,
-            "registry":$registry, "schema":$content?($media-type)?schema,
-            "format":if (
-              $media-type = ("application/json", "text/json")
-            ) then
-              "json"
-            else
-              if (
-                $media-type = ("application/xml", "text/xml", "image/svg+xml")
-              ) then
-                "xml"
-              else
+            map {
+              "media-type" : $media-type,
+              "charset" : $charset,
+              "registry" : $registry,
+              "schema" : $content?($media-type)?schema,
+              "format" :
                 if (
-                  $media-type =
-                    ("multipart/form-data", "application/x-www-form-urlencoded")
+                  $media-type = ("application/json","text/json")
                 ) then
-                  "form-data"
+                  "json"
                 else
                   if (
-                    starts-with($media-type, "application/") and
-                      (
-                        ends-with($media-type, "+json") or
-                          ends-with($media-type, "+xml")
-                      )
+                    $media-type = ("application/xml","text/xml","image/svg+xml")
                   ) then
-                    substring-after($media-type, "+")
+                    "xml"
                   else
-                    "binary"}
+                    if (
+                      $media-type =
+                        (
+
+                            "multipart/form-data",
+                            "application/x-www-form-urlencoded"
+
+                        )
+                    ) then
+                      "form-data"
+                    else
+                      if (
+                        starts-with($media-type, "application/") and
+                          (
+                            ends-with($media-type, "+json") or
+                              ends-with($media-type, "+xml")
+                          )
+                      ) then
+                        substring-after($media-type, "+")
+                      else
+                        "binary"
           else
             error(
               $errors:BODY_CONTENT_TYPE,
@@ -184,12 +190,11 @@ declare function body:content-type(
               $request
             )
       )
-}
+};
 
-
-;
 declare %private function body:get-form-data-value(
-  $name as xs:string, $format as xs:string?
+  $name as xs:string,
+  $format as xs:string?
 ) as item()* {
   switch ($format)
     case 'binary' return
@@ -200,7 +205,10 @@ declare %private function body:get-form-data-value(
         let $data := request:get-uploaded-file-data($name)
         let $sizes := request:get-uploaded-file-size($name)
         return for $_name in $names
-          return map{"name":$_name, "data":$data[$index], "size":$sizes[$index]}
+          return map {
+              "name" : $_name,
+              "data" : $data[$index],
+              "size" : $sizes[$index]
       else
         request:get-parameter($name, ())
     case 'base64' return
@@ -208,18 +216,14 @@ declare %private function body:get-form-data-value(
 
     default return
       request:get-parameter($name, ())
-}
+};
 
-
-;
 declare %private function body:additional-property(
   $name as xs:string
 ) as map(*) {
-  map{$name:request:get-parameter($name, ())}
-}
+  map {$name : request:get-parameter($name, ())
+};
 
-
-;
 declare %private function body:validate-value(
   $schema as map(*)
 ) as function (*) {
@@ -266,15 +270,14 @@ declare %private function body:validate-value(
             else
               map:entry($name, $value)
     }
-}
+};
 
-
-;
 (:~
  : extra check needed to ensure required properties are set
  :)
 declare %private function body:ensure-required-properties(
-  $received-property-names as xs:string*, $required-properties as xs:string*
+  $received-property-names as xs:string*,
+  $required-properties as xs:string*
 ) as xs:string* {
 
     for-each(
@@ -293,10 +296,8 @@ declare %private function body:ensure-required-properties(
     ),
     $received-property-names
 
-}
+};
 
-
-;
 (:~
  : parse form-data in body
  : some basic schema validation is done when $schema is set
@@ -320,10 +321,8 @@ declare %private function body:parse-form-data(
     map:merge(
       for-each(request:get-parameter-names(), body:additional-property#1)
     )
-}
+};
 
-
-;
 
 
 
