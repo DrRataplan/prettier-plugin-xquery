@@ -9,7 +9,7 @@ import { fileURLToPath } from 'node:url';
 import { dirname } from 'path';
 const { evaluateXPathToNodes, evaluateXPathToString } = fontoxpath;
 
-describe.skip('Running the linter on the QT3 test set', async () => {
+describe('Running the linter on the QT3 test set', async () => {
 	const prefix = `${fileURLToPath(dirname(import.meta.url))}/assets/qt3tests`;
 
 	const catalog = new DOMParser().parseFromString(await readFile(`${prefix}/catalog.xml`, 'utf-8'), 'text/xml');
@@ -40,7 +40,9 @@ describe.skip('Running the linter on the QT3 test set', async () => {
 							parser: 'xquery-parser',
 							plugins: [xqueryPlugin],
 						});
-						await assert.doesNotReject(secondPrettification, 'The second prettification should also work');
+						await assert.doesNotReject(secondPrettification, `The second prettification should also work.
+Input: ${script}
+Result of first round: ${resultOfFirstPrettification}`);
 
 						const resultOfSecondPrettification = await secondPrettification;
 						assert.equal(

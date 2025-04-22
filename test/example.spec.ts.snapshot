@@ -91,7 +91,7 @@ declare function body:content-type(
   if (
     not(exists($request?config?requestBody?content))
   ) then
-    (map {) (: this route expects no body, return an empty map :)
+    (map {}) (: this route expects no body, return an empty map :)
   else
     if (
       not($request?config?requestBody?contentinstanceofmap(*))
@@ -182,6 +182,7 @@ declare function body:content-type(
                         substring-after($media-type, "+")
                       else
                         "binary"
+            }
           else
             error(
               $errors:BODY_CONTENT_TYPE,
@@ -196,7 +197,7 @@ declare %private function body:get-form-data-value(
   $format as xs:string?
 ) as item()* {
   switch ($format)
-    case 'binary' return
+    case "binary" return
       if (
         request:is-multipart-content()
       ) then
@@ -208,9 +209,10 @@ declare %private function body:get-form-data-value(
               "name" : $_name,
               "data" : $data[$index],
               "size" : $sizes[$index]
+            }
       else
         request:get-parameter($name, ())
-    case 'base64' return
+    case "base64" return
       xs:base64Binary(request:get-parameter($name, ()))
 
     default return
@@ -220,7 +222,7 @@ declare %private function body:get-form-data-value(
 declare %private function body:additional-property(
   $name as xs:string
 ) as map(*) {
-  map {$name : request:get-parameter($name, ())
+  map {$name : request:get-parameter($name, ())}
 };
 
 declare %private function body:validate-value(

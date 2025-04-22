@@ -5,6 +5,7 @@ import { Parser as XQueryParser, ParseException } from './parser.ts';
 import { Tree, Node, LeafNode, NonTerminalNode, CommentNode } from './tree.ts';
 
 const { join, line, ifBreak, group, indent, softline, hardline } = prettier.doc.builders;
+const {makeString, getPreferredQuote} = prettier.util;
 
 const xqueryParser: Parser<Node> = {
 	parse(text, _options) {
@@ -63,6 +64,27 @@ const xqueryPrinter: Printer<Node> = {
 					return [];
 				case "'":
 					return [];
+
+				case 'StringLiteral': {
+					let stringValue = path.node.value;
+
+					// Remove current qoutes
+					stringValue = stringValue.substring(1,stringValue.length- 1)
+
+					// Remove unneeded escaping
+					if (stringValue.includes('""')) {
+						stringValue = stringValue.replace(/""/g, '"');
+					}
+					if (stringValue.includes("''")) {
+						stringValue = stringValue.replace(/''/g, "'");
+					}
+
+					const preferredQuote = getPreferredQuote(stringValue, options.singleQuote);
+
+					const str = stringValue.replace(RegExp(`${preferredQuote}`, 'g'), `${preferredQuote}${preferredQuote}`)
+					return [preferredQuote, str, preferredQuote];
+				}
+
 				//return group([';', hardline, hardline]);
 				default:
 					return path.node.value;
@@ -211,7 +233,7 @@ const xqueryPrinter: Printer<Node> = {
 				const mapKeyword = _path.map(print, 'childrenByName', "'map'");
 				const mapConstructorEntries = printIfExist(_path, print, 'MapConstructorEntry') ?? [];
 
-				return group([mapKeyword, space, '{', indent([softline, join([',', line], mapConstructorEntries)])]);
+				return group([mapKeyword, space, '{', indent([softline, join([',', line], mapConstructorEntries)]), softline, '}']);
 			}
 			case 'MapConstructorEntry': {
 				const mapKeyExprPart = _path.map(print, 'childrenByName', 'MapKeyExpr');
@@ -436,20 +458,8 @@ const xqueryPrinter: Printer<Node> = {
 
 				return join(hardline, cases);
 			}
-			case 'StringLiteral': {
-				const parts = _path.map(print, 'children');
-				if (value.childrenByName['EscapeQuot']) {
-					return ['"', parts, '"'];
-				}
-				if (value.childrenByName['EscapeApos']) {
-					return ["'", parts, "'"];
-				}
-
-				const preferred = options.singleQuote ? "'" : '"';
-				return [preferred, parts, preferred];
-			}
 			default:
-				//				console.log(`Got passed a ${value.name}`);
+//				console.log(`Got passed a ${value.name}`, Object.keys(value.childrenByName));
 				return _path.map(print, 'children');
 		}
 	},
