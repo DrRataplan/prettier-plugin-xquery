@@ -58,7 +58,6 @@ const xqueryPrinter: Printer<Node> = {
 				case "'function'":
 					return group(['function', line]);
 				case "','":
-					console.log('!!!', path.parent.name);
 					return group([',', line]);
 				case '"':
 					return [];
@@ -91,7 +90,7 @@ const xqueryPrinter: Printer<Node> = {
 				const versionKeyword = printIfExist(_path, print, "'version'");
 				const [firstStringLiteral, secondStringLiteral] = printIfExist(_path, print, 'StringLiteral');
 
-				const items = [xqueryKeyword, space];
+				const items: Doc = [xqueryKeyword, space];
 				if (versionKeyword) {
 					items.push(versionKeyword, space, firstStringLiteral);
 					if (encodingKeyword) {
@@ -133,7 +132,12 @@ const xqueryPrinter: Printer<Node> = {
 					return [];
 				}
 				const endWithSeparator = (part: Doc[] | null, joinWithHardlines = false) =>
-					part ? [part.map((p) => [p, ';', hardline, joinWithHardlines ? hardline : []]), hardline] : [];
+					part
+						? [
+								part.map((p) => [p, ';', hardline, joinWithHardlines ? hardline : []]),
+								!joinWithHardlines ? hardline : [],
+							]
+						: [];
 
 				const defaultNamespaceDeclPart = endWithSeparator(printIfExist(_path, print, 'DefaultNamespaceDecl'));
 				const setterPart = endWithSeparator(printIfExist(_path, print, 'Setter'));
@@ -263,7 +267,7 @@ const xqueryPrinter: Printer<Node> = {
 				if (value.childrenByName['ExprSingle'].length === 1) {
 					return exprSingles;
 				}
-				return group([indent([softline, join([',', softline], exprSingles)]), softline]);
+				return group([indent([softline, join([',', line], exprSingles)])]);
 			}
 			case 'EnclosedExpr': {
 				return group(['{', indent([hardline, _path.map(print, 'childrenByName', 'Expr')]), hardline, '}']);

@@ -142,7 +142,6 @@ declare function body:content-type(
                         "multipart",
                         "text",
                         "video"
-
                     )
               )
           ) then
@@ -153,12 +152,13 @@ declare function body:content-type(
               "schema" : $content?($media-type)?schema,
               "format" :
                 if (
-                  $media-type = ("application/json","text/json")
+                  $media-type = ("application/json", "text/json")
                 ) then
                   "json"
                 else
                   if (
-                    $media-type = ("application/xml","text/xml","image/svg+xml")
+                    $media-type =
+                      ("application/xml", "text/xml", "image/svg+xml")
                   ) then
                     "xml"
                   else
@@ -168,7 +168,6 @@ declare function body:content-type(
 
                             "multipart/form-data",
                             "application/x-www-form-urlencoded"
-
                         )
                     ) then
                       "form-data"
@@ -295,7 +294,6 @@ declare %private function body:ensure-required-properties(
       }
     ),
     $received-property-names
-
 };
 
 (:~
@@ -322,7 +320,6 @@ declare %private function body:parse-form-data(
       for-each(request:get-parameter-names(), body:additional-property#1)
     )
 };
-
 
 
 
