@@ -5,7 +5,7 @@ import { Parser as XQueryParser, ParseException } from './parser.ts';
 import { Tree, Node, LeafNode, NonTerminalNode, CommentNode } from './tree.ts';
 
 const { join, line, ifBreak, group, indent, softline, hardline } = prettier.doc.builders;
-const {makeString, getPreferredQuote} = prettier.util;
+const { makeString, getPreferredQuote } = prettier.util;
 
 const xqueryParser: Parser<Node> = {
 	parse(text, _options) {
@@ -69,7 +69,7 @@ const xqueryPrinter: Printer<Node> = {
 					let stringValue = path.node.value;
 
 					// Remove current qoutes
-					stringValue = stringValue.substring(1,stringValue.length- 1)
+					stringValue = stringValue.substring(1, stringValue.length - 1);
 
 					// Remove unneeded escaping
 					if (stringValue.includes('""')) {
@@ -81,7 +81,7 @@ const xqueryPrinter: Printer<Node> = {
 
 					const preferredQuote = getPreferredQuote(stringValue, options.singleQuote);
 
-					const str = stringValue.replace(RegExp(`${preferredQuote}`, 'g'), `${preferredQuote}${preferredQuote}`)
+					const str = stringValue.replace(RegExp(`${preferredQuote}`, 'g'), `${preferredQuote}${preferredQuote}`);
 					return [preferredQuote, str, preferredQuote];
 				}
 
@@ -126,10 +126,16 @@ const xqueryPrinter: Printer<Node> = {
 			case 'LibraryModule': {
 				return group([join(hardline, _path.map(print, 'children')), hardline, hardline]);
 			}
-			case 'ModuleDecl':
+			case 'ModuleDecl': {
 				const prefixPart = _path.map(print, 'childrenByName', 'NCName');
 				const uriPart = _path.map(print, 'childrenByName', 'URILiteral');
 				return group(['module', space, 'namespace', space, prefixPart, space, '=', space, uriPart, ';']);
+			}
+			case 'NamespaceDecl': {
+				const prefixPart = _path.map(print, 'childrenByName', 'NCName');
+				const uriPart = _path.map(print, 'childrenByName', 'URILiteral');
+				return group(['declare', space, 'namespace', space, prefixPart, space, '=', space, uriPart]);
+			}
 			case 'ModuleImport': {
 				const prefixPart = value.childrenByName['NCName']
 					? ['namespace', space, _path.map(print, 'childrenByName', 'NCName'), space, '=', space]
@@ -233,7 +239,14 @@ const xqueryPrinter: Printer<Node> = {
 				const mapKeyword = _path.map(print, 'childrenByName', "'map'");
 				const mapConstructorEntries = printIfExist(_path, print, 'MapConstructorEntry') ?? [];
 
-				return group([mapKeyword, space, '{', indent([softline, join([',', line], mapConstructorEntries)]), softline, '}']);
+				return group([
+					mapKeyword,
+					space,
+					'{',
+					indent([softline, join([',', line], mapConstructorEntries)]),
+					softline,
+					'}',
+				]);
 			}
 			case 'MapConstructorEntry': {
 				const mapKeyExprPart = _path.map(print, 'childrenByName', 'MapKeyExpr');
@@ -299,13 +312,18 @@ const xqueryPrinter: Printer<Node> = {
 			}
 			case 'FLWORExpr': {
 				const initialClausePart = _path.map(print, 'childrenByName', 'InitialClause');
-				const intermediateClausePart = value.childrenByName['IntermediateClause']
-					? _path.map(print, 'childrenByName', 'IntermediateClause')
-					: [];
+				const intermediateClausePart = printIfExist(_path, print, 'IntermediateClause') ?? [];
 				const returnClausePart = _path.map(print, 'childrenByName', 'ReturnClause');
 
-				return group([join(hardline, initialClausePart), intermediateClausePart, indent(returnClausePart)]);
+				return group([initialClausePart, intermediateClausePart, indent(returnClausePart)]);
 			}
+			case 'WhereClause': {
+				const whereKeyword = _path.map(print, 'childrenByName', "'where'");
+				const exprSinglePart = _path.map(print, 'childrenByName', "ExprSingle");
+				return group([whereKeyword, space, exprSinglePart])
+			}
+			case 'IntermediateClause':
+				return join(hardline, _path.map(print, 'children'));
 			case 'InitialClause': {
 				return group([_path.map(print, 'children'), hardline]);
 			}
@@ -458,8 +476,26 @@ const xqueryPrinter: Printer<Node> = {
 
 				return join(hardline, cases);
 			}
+			case 'ValidateExpr': {
+				const validateKeyword = _path.map(print, 'childrenByName', "'validate'");
+				const validationMode = printIfExist(_path, print, 'ValidationMode');
+				const exprPart = _path.map(print, 'childrenByName', 'Expr');
+				const parts: Doc = [validateKeyword, space];
+				if (validationMode) {
+					parts.push(validationMode, space);
+				}
+
+				const typeKeyword = printIfExist(_path, print, "'type'");
+				const typeNamePart = printIfExist(_path, print, 'TypeName');
+				if (typeNamePart) {
+					parts.push(typeKeyword, space, typeNamePart, space);
+				}
+
+				parts.push('{', indent([line, exprPart, line]), '}');
+				return group([parts]);
+			}
 			default:
-//				console.log(`Got passed a ${value.name}`, Object.keys(value.childrenByName));
+				//				console.log(`Got passed a ${value.name}`, Object.keys(value.childrenByName));
 				return _path.map(print, 'children');
 		}
 	},
