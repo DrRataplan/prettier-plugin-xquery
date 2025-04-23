@@ -26,12 +26,8 @@ import module namespace errors = "http://e-editiones.org/roaster/errors";
 (:~
  : Try to retrieve and convert the request body if specified
  :)
-declare function body:parse(
-  $request as map(*)
-) {
-  if (
-    not(exists($request?media-type))
-  ) then
+declare  function body:parse($request as map(*)) {
+  if (not(exists($request?media-type))) then
     () (: this route expects no body, return an empty sequence :)
   else
     (
@@ -67,8 +63,8 @@ declare function body:parse(
                 default return
                   parse-xml($data)
 
-          (: Treat everything else as binary data :)
           default return
+            (: Treat everything else as binary data :)
             request:get-data()
       }
       catch * {
@@ -85,17 +81,11 @@ declare function body:parse(
     )
 };
 
-declare function body:content-type(
-  $request as map(*)
-) as map(*) {
-  if (
-    not(exists($request?config?requestBody?content))
-  ) then
+declare  function body:content-type($request as map(*)) as map(*) {
+  if (not(exists($request?config?requestBody?content))) then
     (map {}) (: this route expects no body, return an empty map :)
   else
-    if (
-      not($request?config?requestBody?contentinstanceofmap(*))
-    ) then
+    if (not($request?config?requestBody?content instance of map(*))) then
       error(
         $errors:OPERATION,
         "requestBody.content is not defined correctly",
@@ -107,16 +97,12 @@ declare function body:content-type(
         let $defined-content-types := map:keys($content)
         let $raw-content-type-header-value := request:get-header("Content-Type")
         let $media-type :=
-          if (
-            contains($raw-content-type-header-value, ";")
-          ) then
+          if (contains($raw-content-type-header-value, ";")) then
             substring-before($raw-content-type-header-value, ";")
           else
             $raw-content-type-header-value
         let $charset :=
-          if (
-            contains($raw-content-type-header-value, "charset=")
-          ) then
+          if (contains($raw-content-type-header-value, "charset=")) then
             (
               substring-after($raw-content-type-header-value, "charset=") =>
                 lower-case() =>
@@ -131,8 +117,7 @@ declare function body:content-type(
                 $defined-content-types = "*/*" and
                   $registry =
                     (
-
-                        "application",
+                      "application",
                         "audio",
                         "example",
                         "font",
@@ -146,14 +131,12 @@ declare function body:content-type(
               )
           ) then
             map {
-              "media-type" : $media-type,
-              "charset" : $charset,
-              "registry" : $registry,
-              "schema" : $content?($media-type)?schema,
-              "format" :
-                if (
-                  $media-type = ("application/json", "text/json")
-                ) then
+              "media-type": $media-type,
+              "charset": $charset,
+              "registry": $registry,
+              "schema": $content?($media-type)?schema,
+              "format":
+                if ($media-type = ("application/json", "text/json")) then
                   "json"
                 else
                   if (
@@ -165,8 +148,7 @@ declare function body:content-type(
                     if (
                       $media-type =
                         (
-
-                            "multipart/form-data",
+                          "multipart/form-data",
                             "application/x-www-form-urlencoded"
                         )
                     ) then
@@ -198,17 +180,15 @@ declare %private function body:get-form-data-value(
 ) as item()* {
   switch ($format)
     case "binary" return
-      if (
-        request:is-multipart-content()
-      ) then
+      if (request:is-multipart-content()) then
         let $names := request:get-uploaded-file-name($name)
         let $data := request:get-uploaded-file-data($name)
         let $sizes := request:get-uploaded-file-size($name)
         return for $_name in $names
           return map {
-              "name" : $_name,
-              "data" : $data[$index],
-              "size" : $sizes[$index]
+              "name": $_name,
+              "data": $data[$index],
+              "size": $sizes[$index]
             }
       else
         request:get-parameter($name, ())
@@ -222,7 +202,7 @@ declare %private function body:get-form-data-value(
 declare %private function body:additional-property(
   $name as xs:string
 ) as map(*) {
-  map {$name : request:get-parameter($name, ())}
+  map {$name: request:get-parameter($name, ())}
 };
 
 declare %private function body:validate-value(
@@ -230,11 +210,9 @@ declare %private function body:validate-value(
 ) as function (*) {
   let $required-props := $schema?required?*
   let $property-definitions := $schema?properties
-  return function ($name as xs:string)asmap(*){
-      if (
-        not(map:contains($property-definitions, $name))
-      ) (: additional property, no validation :)
-      then
+  return function ($name as xs:string) as map(*) {
+      if (not(map:contains($property-definitions, $name))) then
+        (: additional property, no validation :)
         body:additional-property($name)
       else
         let $property := $property-definitions?($name)
@@ -242,24 +220,18 @@ declare %private function body:validate-value(
         (: only needed to check here as required props must be defined in schema :)
         let $is-required := $name = $required-props
         let $format :=
-          if (
-            $property?type = "array"
-          ) then
+          if ($property?type = "array") then
             $property?items?format
           else
             $property?format
         let $value := body:get-form-data-value($name, $format)
-        return if (
-            not(exists($value)) and $is-required
-          ) then
+        return if (not(exists($value)) and $is-required) then
             error(
               $errors:BAD_REQUEST,
               'Property "' || $name || '" is required!'
             )
           else
-            if (
-              count($value) > 1 and not($is-array)
-            ) then
+            if (count($value) > 1 and not($is-array)) then
               error(
                 $errors:BAD_REQUEST,
                 'Property "' ||
@@ -280,13 +252,10 @@ declare %private function body:ensure-required-properties(
   $received-property-names as xs:string*,
   $required-properties as xs:string*
 ) as xs:string* {
-
-    for-each(
+  for-each(
       $required-properties,
-      function ($required-prop-name as xs:string)asempty-sequence(){
-        if (
-          $required-properties = $received-property-names
-        ) then
+      function ($required-prop-name as xs:string) as empty-sequence() {
+        if ($required-properties = $received-property-names) then
           ()
         else
           error(
@@ -302,12 +271,8 @@ declare %private function body:ensure-required-properties(
  : parse form-data in body
  : some basic schema validation is done when $schema is set
  :)
-declare %private function body:parse-form-data(
-  $schema as map(*)?
-) as map(*) {
-  if (
-    exists($schema)
-  ) then
+declare %private function body:parse-form-data($schema as map(*)?) as map(*) {
+  if (exists($schema)) then
     map:merge(
       for-each(
         body:ensure-required-properties(
