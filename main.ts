@@ -268,7 +268,7 @@ const xqueryPrinter: Printer<Node> = {
 				const ofKeyword = printIfExist(_path, print, "'of'");
 				const sequenceTypePart = _path.map(print, 'childrenByName', 'SequenceType');
 
-				return [treatExprPart, space, instanceKeyword, space, ofKeyword, space, sequenceTypePart]
+				return [treatExprPart, space, instanceKeyword, space, ofKeyword, space, sequenceTypePart];
 			}
 			case 'MapConstructorEntry':
 			case 'StringConcatExpr':
@@ -509,7 +509,8 @@ const xqueryPrinter: Printer<Node> = {
 					')',
 					indent([
 						hardline,
-						switchCaseClausePart,
+						join(hardline, switchCaseClausePart),
+						hardline,
 						hardline,
 						defaultPart,
 						space,
@@ -537,20 +538,21 @@ const xqueryPrinter: Printer<Node> = {
 			}
 
 			case 'CaseClause': {
-				const caseParts = _path.map(print, 'childrenByName', "'case'");
-				const switchCaseOperandParts = _path.map(print, 'childrenByName', 'SequenceTypeUnion');
-				const returnParts = _path.map(print, 'childrenByName', "'return'");
+				const caseKeyword = _path.map(print, 'childrenByName', "'case'");
+				const varNamePart = printIfExist(_path, print, 'VarName');
+				const sequenceTypeUnionPart = _path.map(print, 'childrenByName', 'SequenceTypeUnion');
+				const returnKeyword = _path.map(print, 'childrenByName', "'return'");
 				const exprSingleParts = _path.map(print, 'childrenByName', 'ExprSingle');
 
-				const cases = caseParts.map((casePart, i) => {
-					const operand = switchCaseOperandParts[i];
-					const returnPart = returnParts[i];
-					const exprSinglePart = exprSingleParts[i];
-
-					return group([casePart, space, operand, space, returnPart, indent([hardline, exprSinglePart]), hardline]);
-				});
-
-				return join(hardline, cases);
+				return group([
+					caseKeyword,
+					space,
+					varNamePart ? ['$', varNamePart, space, 'as', space] : [],
+					sequenceTypeUnionPart,
+					space,
+					returnKeyword,
+					indent([hardline, exprSingleParts]),
+				]);
 			}
 			case 'SwitchCaseClause': {
 				const caseParts = _path.map(print, 'childrenByName', "'case'");
