@@ -456,6 +456,17 @@ const xqueryPrinter: Printer<Node> = {
 				]);
 			}
 
+			case 'FunctionTest': {
+				return group(join(line, _path.map(print, 'children')));
+			}
+			case 'TypedFunctionTest': {
+				const functionKeyword = _path.map(print, 'childrenByName', "'function'");
+				const asKeyword = _path.map(print, 'childrenByName', "'as'");
+				const sequenceTypes = _path.map(print, 'childrenByName', "SequenceType");
+				const returnType = sequenceTypes.pop();
+				return group([functionKeyword, space, '(', group([softline, join([',', line], sequenceTypes)]), softline, ')', line, asKeyword, space, returnType]);
+			}
+
 			case 'VarDecl': {
 				const variableKeyword = printIfExist(_path, print, "'variable'");
 				const eQNamePart = _path.map(print, 'childrenByName', 'VarName');
