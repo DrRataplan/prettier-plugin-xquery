@@ -359,7 +359,7 @@ const xqueryPrinter: Printer<Node> = {
 			}
 			case 'OrderSpecList': {
 				const specs = _path.map(print, 'childrenByName', 'OrderSpec');
-				return indent(join([',', softline], specs));
+				return indent(join([',', line], specs));
 			}
 			case 'OrderSpec': {
 				const exprSinglePart = _path.map(print, 'childrenByName', 'ExprSingle');
@@ -368,6 +368,9 @@ const xqueryPrinter: Printer<Node> = {
 				return group([exprSinglePart, space, orderModifierPart]);
 			}
 			case 'OrderModifier': {
+				if (value.children.length === 0) {
+					return [];
+				}
 				return join(space, _path.map(print, 'children'));
 			}
 			case 'WhereClause': {
@@ -381,22 +384,78 @@ const xqueryPrinter: Printer<Node> = {
 				return group([_path.map(print, 'children')]);
 			}
 			case 'ForClause': {
-				return group(['for', space, indent([join(line, _path.map(print, 'childrenByName', 'ForBinding'))])]);
+				return group(['for', space, indent([join([',', line], _path.map(print, 'childrenByName', 'ForBinding'))])]);
 			}
 			case 'LetClause': {
-				return group(['let', space, indent([join(line, _path.map(print, 'childrenByName', 'LetBinding'))])]);
+				return group(['let', space, indent([join([',', line], _path.map(print, 'childrenByName', 'LetBinding'))])]);
 			}
 			case 'LetBinding': {
 				const varNamePart = _path.map(print, 'childrenByName', 'VarName');
 				const exprSinglePart = _path.map(print, 'childrenByName', 'ExprSingle');
-				// TODO typings
-				return group(['$', varNamePart, space, ':=', line, exprSinglePart]);
+				const typeDeclPart = printIfExist(_path, print, 'TypeDeclaration');
+				return group(['$', varNamePart, space, typeDeclPart ? [typeDeclPart, space] : [], ':=', line, exprSinglePart]);
 			}
 			case 'ForBinding': {
 				const varNamePart = _path.map(print, 'childrenByName', 'VarName');
 				const exprSinglePart = _path.map(print, 'childrenByName', 'ExprSingle');
-				// TODO typings
-				return group(['$', varNamePart, space, 'in', line, exprSinglePart]);
+				const typeDeclPart = printIfExist(_path, print, 'TypeDeclaration');
+				return group(['$', varNamePart, space, typeDeclPart ? [typeDeclPart, space] : [], 'in', line, exprSinglePart]);
+			}
+			case 'TumblingWindowClause': {
+				const tumblingKeyword = _path.map(print, 'childrenByName', "'tumbling'");
+				const windowKeyword = _path.map(print, 'childrenByName', "'window'");
+				const varNamePart = _path.map(print, 'childrenByName', 'VarName');
+				const typeDeclPart = printIfExist(_path, print, 'TypeDeclaration');
+
+				const inKeyword = _path.map(print, 'childrenByName', "'in'");
+				const exprSinglePart = printIfExist(_path, print, 'ExprSingle');
+				const windowStartConditionPart = printIfExist(_path, print, 'WindowStartCondition');
+				const windowEndConditionPart = printIfExist(_path, print, 'WindowEndCondition');
+
+				return group([
+					tumblingKeyword,
+					space,
+					windowKeyword,
+					space,
+					'$',
+					varNamePart,
+					space,
+					typeDeclPart ? [typeDeclPart, space] : [],
+					inKeyword,
+					space,
+					exprSinglePart,
+					indent([hardline, windowStartConditionPart, hardline, windowEndConditionPart]),
+				]);
+			}
+			case 'PositionalVar': {
+				const varNamePart = _path.map(print, 'childrenByName', 'VarName');
+				return group(['at', space, '$', varNamePart])
+			}
+			case 'WindowClause':
+			case 'WindowStartCondition':
+			case 'WindowEndCondition':
+				return join(space, _path.map(print, 'children'));
+			case 'WindowVars': {
+				const currentItemPart = printIfExist(_path, print, 'CurrentItem');
+				const positionalVarPart = printIfExist(_path, print, 'PositionalVar');
+				const previousItemPart = printIfExist(_path, print, 'PreviousItem');
+				const nextItemPart = printIfExist(_path, print, 'NextItem');
+
+				const parts: Doc[] = [];
+				if (currentItemPart) {
+					parts.push(['$', currentItemPart])
+				}
+				if (positionalVarPart) {
+					parts.push([positionalVarPart])
+				}
+				if (previousItemPart) {
+					parts.push(['previous', space, '$', previousItemPart])
+				}
+				if (nextItemPart) {
+					parts.push(['next', space, '$', nextItemPart])
+				}
+
+				return join(line, parts);
 			}
 			case 'ReturnClause': {
 				const exprSinglePart = _path.map(print, 'childrenByName', 'ExprSingle');
@@ -462,9 +521,20 @@ const xqueryPrinter: Printer<Node> = {
 			case 'TypedFunctionTest': {
 				const functionKeyword = _path.map(print, 'childrenByName', "'function'");
 				const asKeyword = _path.map(print, 'childrenByName', "'as'");
-				const sequenceTypes = _path.map(print, 'childrenByName', "SequenceType");
+				const sequenceTypes = _path.map(print, 'childrenByName', 'SequenceType');
 				const returnType = sequenceTypes.pop();
-				return group([functionKeyword, space, '(', group([softline, join([',', line], sequenceTypes)]), softline, ')', line, asKeyword, space, returnType]);
+				return group([
+					functionKeyword,
+					space,
+					'(',
+					group([softline, join([',', line], sequenceTypes)]),
+					softline,
+					')',
+					line,
+					asKeyword,
+					space,
+					returnType,
+				]);
 			}
 
 			case 'VarDecl': {
