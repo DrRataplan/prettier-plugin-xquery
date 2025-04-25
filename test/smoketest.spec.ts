@@ -33,9 +33,10 @@ describe('smoke tests', async (d) => {
 		});
 		assert.strictEqual(result, code, 'The input was already formatted correctly');
 	});
-
-	it('formats function definitions', async (t) => {
+	it('formats function definitions and variable definitions', async (t) => {
 		const code = `
+declare variable $var := "B";
+
 declare function local:bla($a as xs:integer) as xs:double {
   1 + $a
 };
@@ -49,7 +50,6 @@ local:bla(2)`.trim();
 
 		assert.strictEqual(result, code, 'The input was already formatted correctly');
 	});
-
 
 	it('formats FLWOR expressions', async (t) => {
 		const code = `
@@ -68,5 +68,4 @@ return $y + sum(($q))
 
 		assert.strictEqual(result, code, 'The input was already formatted correctly');
 	});
-
 });

@@ -458,15 +458,14 @@ const xqueryPrinter: Printer<Node> = {
 
 			case 'VarDecl': {
 				const variableKeyword = printIfExist(_path, print, "'variable'");
-
-				const eQNamePart = _path.map(print, 'childrenByName', 'EQName');
+				const eQNamePart = _path.map(print, 'childrenByName', 'VarName');
 				const typeDeclarationPart = value.childrenByName['SequenceType']
 					? ['as', space, _path.map(print, 'childrenByName', 'SequenceType'), space]
 					: [];
 
 				const varValuePart = _path.map(print, 'childrenByName', 'VarValue');
 
-				return group([variableKeyword, space, '$', eQNamePart, space, typeDeclarationPart, ':=', varValuePart]);
+				return group([variableKeyword, space, '$', eQNamePart, space, typeDeclarationPart, ':=', space, varValuePart]);
 			}
 
 			case 'SwitchExpr': {
