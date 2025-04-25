@@ -71,20 +71,22 @@ const xqueryPrinter: Printer<Node> = {
 				case 'StringLiteral': {
 					let stringValue = path.node.value;
 
+					const currentQuoteStyle = stringValue[0];
 					// Remove current qoutes
 					stringValue = stringValue.substring(1, stringValue.length - 1);
 
 					// Remove unneeded escaping
 
-					if (stringValue.includes('""')) {
+					if (currentQuoteStyle === '"' && stringValue.includes('""')) {
 						stringValue = stringValue.replace(/""/g, '"');
 					}
-					if (stringValue.includes("''")) {
+					if (currentQuoteStyle === "'" && stringValue.includes("''")) {
 						stringValue = stringValue.replace(/''/g, "'");
 					}
 
 					const preferredQuote = getPreferredQuote(stringValue, options.singleQuote);
 
+					// Re-escape quotes
 					const str = stringValue.replace(RegExp(`${preferredQuote}`, 'g'), `${preferredQuote}${preferredQuote}`);
 					return [preferredQuote, str, preferredQuote];
 				}
@@ -406,7 +408,7 @@ const xqueryPrinter: Printer<Node> = {
 				const actualDeclaration =
 					printIfExist(_path, print, 'VarDecl') ?? printIfExist(_path, print, 'FunctionDecl') ?? [];
 
-				return group([group([declareKeyword, space, indent([join(line, annotationsPart), line])]), actualDeclaration]);
+				return group([group([declareKeyword, indent([join(line, annotationsPart), line])]), actualDeclaration]);
 			}
 
 			case 'FunctionDecl': {

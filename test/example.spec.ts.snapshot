@@ -26,7 +26,7 @@ import module namespace errors = "http://e-editiones.org/roaster/errors";
 (:~
  : Try to retrieve and convert the request body if specified
  :)
-declare  function body:parse($request as map(*)) {
+declare function body:parse($request as map(*)) {
   if (not(exists($request?media-type))) then
     () (: this route expects no body, return an empty sequence :)
   else
@@ -81,7 +81,7 @@ declare  function body:parse($request as map(*)) {
     )
 };
 
-declare  function body:content-type($request as map(*)) as map(*) {
+declare function body:content-type($request as map(*)) as map(*) {
   if (not(exists($request?config?requestBody?content))) then
     (map {}) (: this route expects no body, return an empty map :)
   else
@@ -174,7 +174,7 @@ declare  function body:content-type($request as map(*)) as map(*) {
       )
 };
 
-declare %private function body:get-form-data-value(
+declare%private function body:get-form-data-value(
   $name as xs:string,
   $format as xs:string?
 ) as item()* {
@@ -199,13 +199,13 @@ declare %private function body:get-form-data-value(
       request:get-parameter($name, ())
 };
 
-declare %private function body:additional-property(
+declare%private function body:additional-property(
   $name as xs:string
 ) as map(*) {
   map {$name: request:get-parameter($name, ())}
 };
 
-declare %private function body:validate-value(
+declare%private function body:validate-value(
   $schema as map(*)
 ) as function (*) {
   let $required-props := $schema?required?*
@@ -248,7 +248,7 @@ declare %private function body:validate-value(
 (:~
  : extra check needed to ensure required properties are set
  :)
-declare %private function body:ensure-required-properties(
+declare%private function body:ensure-required-properties(
   $received-property-names as xs:string*,
   $required-properties as xs:string*
 ) as xs:string* {
@@ -271,7 +271,7 @@ declare %private function body:ensure-required-properties(
  : parse form-data in body
  : some basic schema validation is done when $schema is set
  :)
-declare %private function body:parse-form-data($schema as map(*)?) as map(*) {
+declare%private function body:parse-form-data($schema as map(*)?) as map(*) {
   if (exists($schema)) then
     map:merge(
       for-each(
