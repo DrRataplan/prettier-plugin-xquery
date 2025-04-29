@@ -341,6 +341,44 @@ const xqueryPrinter: Printer<Node> = {
 					indent(returnClausePart),
 				]);
 			}
+			case 'GroupByClause': {
+				const groupKeyword = _path.map(print, 'childrenByName', "'group'");
+				const byKeyword = _path.map(print, 'childrenByName', "'by'");
+
+				const specListPart = _path.map(print, 'childrenByName', 'GroupingSpecList');
+
+				return group([
+					groupKeyword,
+					space,
+					byKeyword,
+					space,
+					specListPart,
+				]);
+			}
+			case 'GroupingSpecList': {
+				const specs = _path.map(print, 'childrenByName', 'GroupingSpec');
+				return indent(join([',', line], specs));
+			}
+			case 'GroupingSpec': {
+				const variablePart = _path.map(print, 'childrenByName', 'GroupingVariable');
+				const typeDeclPart = printIfExist(_path, print, 'TypeDeclaration');
+				const exprSinglePart = printIfExist(_path, print, 'ExprSingle');
+				const collationKeyword = printIfExist(_path, print, "'collation'");
+				const uriLiteralPart = printIfExist(_path, print, 'URILiteral');
+
+				const parts: Doc[] = [variablePart];
+				if (exprSinglePart) {
+					if (typeDeclPart) {
+						parts.push(space, typeDeclPart, space)
+					}
+					parts.push(':=', indent([line, exprSinglePart]))
+				}
+				if (collationKeyword) {
+					parts.push(collationKeyword, uriLiteralPart)
+				}
+				return group(parts);
+
+			}
 			case 'OrderByClause': {
 				const orderKeyword = _path.map(print, 'childrenByName', "'order'");
 				const byKeyword = _path.map(print, 'childrenByName', "'by'");
@@ -703,9 +741,13 @@ const xqueryPrinter: Printer<Node> = {
 				}, 'children');
 
 				return group(toReturn);
+			
+			}
+			case 'BoundarySpaceDecl': {
+				return group(join(space, _path.map(print, 'children')));
 			}
 			default:
-				//				console.log(`Got passed a ${value.name}`, Object.keys(value.childrenByName));
+//								console.log(`Got passed a ${value.name}`, Object.keys(value.childrenByName));
 				return _path.map(print, 'children');
 		}
 	},
