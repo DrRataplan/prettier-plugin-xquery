@@ -983,12 +983,11 @@ const xqueryPrinter: Printer<Node> = {
 };
 
 const pluginDefinition: Plugin<Node> = {
-
 	languages: [
 		{
 			name: 'XQuery',
 			parsers: ['xquery'],
-			extensions: ['xqm', 'xqy', 'xq']
+			extensions: ['xqm', 'xqy', 'xq', 'xql']
 		},
 	],
 	parsers: {
