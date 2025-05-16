@@ -294,12 +294,22 @@ const xqueryPrinter: Printer<Node> = {
 				const ifKeyword = _path.map(print, 'childrenByName', "'if'");
 				const elseKeyword = _path.map(print, 'childrenByName', "'else'");
 				const thenKeyword = _path.map(print, 'childrenByName', "'then'");
+
+				const elseAstNode = value.childrenByName['ExprSingle'][1];
+				const nestedIfInElse = elseAstNode.childrenByName['IfExpr'];
+
+				/*
+				  Format nested else if expressions: if the else contains an if, print `else if (..)`, otherwise print `else \n EXPR`
+				  */
+				const formattedElsePart = nestedIfInElse ?
+					[elseKeyword, space, elsePart] :
+					[elseKeyword, indent([hardline, elsePart])];
+
 				return group([
 					group([ifKeyword, space, '(', indent([softline, conditionPart]), softline, ')', space, thenKeyword]),
 					indent([hardline, thenPart]),
 					hardline,
-					elseKeyword,
-					indent([hardline, elsePart]),
+					formattedElsePart
 				]);
 			}
 			case 'MapConstructor': {

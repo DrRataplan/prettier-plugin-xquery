@@ -83,94 +83,86 @@ declare function body:parse ($request as map(*)) {
 declare function body:content-type ($request as map(*)) as map(*) {
   if (not(exists($request?config?requestBody?content))) then
     (map {}) (: this route expects no body, return an empty map :)
+  else if (not($request?config?requestBody?content instance of map(*))) then
+    error(
+      $errors:OPERATION,
+      "requestBody.content is not defined correctly",
+      $request?config
+    )
   else
-    if (not($request?config?requestBody?content instance of map(*))) then
-      error(
-        $errors:OPERATION,
-        "requestBody.content is not defined correctly",
-        $request?config
-      )
-    else
-      (
-        let $content := $request?config?requestBody?content
-        let $defined-content-types := map:keys($content)
-        let $raw-content-type-header-value := request:get-header("Content-Type")
-        let $media-type :=
-          if (contains($raw-content-type-header-value, ";")) then
-            substring-before($raw-content-type-header-value, ";")
-          else
-            $raw-content-type-header-value
-        let $charset :=
-          if (contains($raw-content-type-header-value, "charset=")) then
+    (
+      let $content := $request?config?requestBody?content
+      let $defined-content-types := map:keys($content)
+      let $raw-content-type-header-value := request:get-header("Content-Type")
+      let $media-type :=
+        if (contains($raw-content-type-header-value, ";")) then
+          substring-before($raw-content-type-header-value, ";")
+        else
+          $raw-content-type-header-value
+      let $charset :=
+        if (contains($raw-content-type-header-value, "charset=")) then
+          (
+            substring-after($raw-content-type-header-value, "charset=")
+              => lower-case()
+              => replace("^([a-z0-9\\-]+).*$", "$1")
+          )
+        else
+          ()
+      let $registry := substring-before($media-type, "/")
+      return if (
+          $media-type = $defined-content-types or
             (
-              substring-after($raw-content-type-header-value, "charset=")
-                => lower-case()
-                => replace("^([a-z0-9\\-]+).*$", "$1")
+              $defined-content-types = "*/*" and
+                $registry =
+                  (
+                    "application",
+                      "audio",
+                      "example",
+                      "font",
+                      "image",
+                      "message",
+                      "model",
+                      "multipart",
+                      "text",
+                      "video"
+                  )
             )
-          else
-            ()
-        let $registry := substring-before($media-type, "/")
-        return if (
-            $media-type = $defined-content-types or
-              (
-                $defined-content-types = "*/*" and
-                  $registry =
-                    (
-                      "application",
-                        "audio",
-                        "example",
-                        "font",
-                        "image",
-                        "message",
-                        "model",
-                        "multipart",
-                        "text",
-                        "video"
-                    )
-              )
-          ) then
-            map {
-              "media-type": $media-type,
-              "charset": $charset,
-              "registry": $registry,
-              "schema": $content?($media-type)?schema,
-              "format":
-                if ($media-type = ("application/json", "text/json")) then
-                  "json"
-                else
-                  if (
-                    $media-type =
-                      ("application/xml", "text/xml", "image/svg+xml")
-                  ) then
-                    "xml"
-                  else
-                    if (
-                      $media-type =
-                        (
-                          "multipart/form-data",
-                            "application/x-www-form-urlencoded"
-                        )
-                    ) then
-                      "form-data"
-                    else
-                      if (
-                        starts-with($media-type, "application/") and
-                          (
-                            ends-with($media-type, "+json") or
-                              ends-with($media-type, "+xml")
-                          )
-                      ) then
-                        substring-after($media-type, "+")
-                      else
-                        "binary"
-            }
-          else
-            error(
-              $errors:BODY_CONTENT_TYPE,
-              "Body with media-type '" || $media-type || "' is not allowed",
-              $request
-            )
-      )
+        ) then
+          map {
+            "media-type": $media-type,
+            "charset": $charset,
+            "registry": $registry,
+            "schema": $content?($media-type)?schema,
+            "format":
+              if ($media-type = ("application/json", "text/json")) then
+                "json"
+              else if (
+                $media-type = ("application/xml", "text/xml", "image/svg+xml")
+              ) then
+                "xml"
+              else if (
+                $media-type =
+                  ("multipart/form-data", "application/x-www-form-urlencoded")
+              ) then
+                "form-data"
+              else if (
+                starts-with($media-type, "application/") and
+                  (
+                    ends-with($media-type, "+json") or
+                      ends-with($media-type, "+xml")
+                  )
+              ) then
+                substring-after($media-type, "+")
+              else
+                "binary"
+          }
+        else
+          error(
+            $errors:BODY_CONTENT_TYPE,
+            "Body with media-type '" || $media-type || "' is not allowed",
+            $request
+          )
+    )
 };
 
 declare %private function body:get-form-data-value (
@@ -228,18 +220,17 @@ declare %private function body:validate-value (
               $errors:BAD_REQUEST,
               'Property "' || $name || '" is required!'
             )
+          else if (count($value) > 1 and not($is-array)) then
+            error(
+              $errors:BAD_REQUEST,
+              'Property "' ||
+                $name ||
+                '" only allows one item. Got ' ||
+                count($value),
+              $value
+            )
           else
-            if (count($value) > 1 and not($is-array)) then
-              error(
-                $errors:BAD_REQUEST,
-                'Property "' ||
-                  $name ||
-                  '" only allows one item. Got ' ||
-                  count($value),
-                $value
-              )
-            else
-              map:entry($name, $value)
+            map:entry($name, $value)
     }
 };
 
