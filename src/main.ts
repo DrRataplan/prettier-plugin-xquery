@@ -28,13 +28,13 @@ const xqueryParser: Parser<Node> = {
 
 		return handler.root;
 	},
-	astFormat: 'xquery-ast',
+	astFormat: 'xquery',
 	locStart(node) {
 		return node.begin;
 	},
 	locEnd(node) {
 		return node.end;
-	},
+	}
 };
 
 const space = ' ';
@@ -983,17 +983,19 @@ const xqueryPrinter: Printer<Node> = {
 };
 
 const pluginDefinition: Plugin<Node> = {
+
 	languages: [
 		{
 			name: 'XQuery',
-			parsers: ['xquery-parser'],
+			parsers: ['xquery'],
+			extensions: ['xqm', 'xqy', 'xq']
 		},
 	],
 	parsers: {
-		'xquery-parser': xqueryParser,
+		'xquery': xqueryParser,
 	},
 	printers: {
-		'xquery-ast': xqueryPrinter,
+		'xquery': xqueryPrinter,
 	},
 };
 

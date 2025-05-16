@@ -1,7 +1,7 @@
 import { after, describe, it } from 'node:test';
 import assert from 'node:assert/strict';
 import * as prettier from 'prettier';
-import xqueryPlugin from '../main.ts';
+import xqueryPlugin from '../src/main.ts';
 import { readFile, writeFile } from 'node:fs/promises';
 import { DOMParser, Element } from 'slimdom';
 import fontoxpath from 'fontoxpath';
@@ -49,7 +49,7 @@ describe('Roundtripping all the QT3 tests', () => {
 					const isKnownFailure = name in (ignoreList[testSetName] ?? {});
 					try {
 						const firstPrettification = prettier.format(script, {
-							parser: 'xquery-parser',
+							parser: 'xquery',
 							plugins: [xqueryPlugin],
 						});
 						try {
@@ -64,7 +64,7 @@ describe('Roundtripping all the QT3 tests', () => {
 						}
 						const resultOfFirstPrettification = await firstPrettification;
 						const secondPrettification = prettier.format(resultOfFirstPrettification, {
-							parser: 'xquery-parser',
+							parser: 'xquery',
 							plugins: [xqueryPlugin],
 						});
 						await assert.doesNotReject(

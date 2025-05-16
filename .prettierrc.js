@@ -1,9 +1,14 @@
-//import xqueryPlugin from './main.ts';
+import prettierPluginXQuery from 'prettier-plugin-xquery';
 
-export default {
+/**
+ * @type {import('prettier').Config}
+ */
+const config = {
 	semi: true,
 	trailingComma: 'all',
 	useTabs: true,
-	singleQuote: true,
 	printWidth: 120,
-}; // as import('prettier').Config
+	plugins: [prettierPluginXQuery],
+};
+
+export default config;

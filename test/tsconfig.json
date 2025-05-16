@@ -5,8 +5,7 @@
 		"rewriteRelativeImportExtensions": true,
 		"erasableSyntaxOnly": true,
 		"verbatimModuleSyntax": true,
-		"baseUrl": "./src/main.ts",
-		"outDir": "dist"
+		"baseUrl": "./src/main.ts"
 	},
 	"include": [
 		"src/*"
