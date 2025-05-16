@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "node --experimental-strip-types --test ./test/**/*.spec.ts"
+      "test": "node --experimental-strip-types --test ./test/**/*.spec.ts",
+	  "update-snapshots": "node --experimental-strip-types --test --test-update-snapshots ./test/**/*.spec.ts "
   },
   "author": "",
   "license": "ISC",

@@ -63,8 +63,8 @@ declare function body:parse($request as map(*)) {
                 default return
                   parse-xml($data)
 
+          (: Treat everything else as binary data :)
           default return
-            (: Treat everything else as binary data :)
             request:get-data()
       }
       catch * {
@@ -174,7 +174,7 @@ declare function body:content-type($request as map(*)) as map(*) {
       )
 };
 
-declare%private function body:get-form-data-value(
+declare %private function body:get-form-data-value(
   $name as xs:string,
   $format as xs:string?
 ) as item()* {
@@ -199,15 +199,15 @@ declare%private function body:get-form-data-value(
       request:get-parameter($name, ())
 };
 
-declare%private function body:additional-property(
+declare %private function body:additional-property(
   $name as xs:string
 ) as map(*) {
   map {$name: request:get-parameter($name, ())}
 };
 
-declare%private function body:validate-value(
+declare %private function body:validate-value(
   $schema as map(*)
-) as function (*) {
+) as function(*) {
   let $required-props := $schema?required?*
   let $property-definitions := $schema?properties
   return function ($name as xs:string) as map(*) {
@@ -248,7 +248,7 @@ declare%private function body:validate-value(
 (:~
  : extra check needed to ensure required properties are set
  :)
-declare%private function body:ensure-required-properties(
+declare %private function body:ensure-required-properties(
   $received-property-names as xs:string*,
   $required-properties as xs:string*
 ) as xs:string* {
@@ -271,7 +271,7 @@ declare%private function body:ensure-required-properties(
  : parse form-data in body
  : some basic schema validation is done when $schema is set
  :)
-declare%private function body:parse-form-data($schema as map(*)?) as map(*) {
+declare %private function body:parse-form-data($schema as map(*)?) as map(*) {
   if (exists($schema)) then
     map:merge(
       for-each(

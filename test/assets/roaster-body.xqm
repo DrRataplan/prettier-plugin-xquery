@@ -172,8 +172,7 @@ function body:validate-value ($schema as map(*)) as function(*) {
     let $property-definitions := $schema?properties
     return function ($name as xs:string) as map(*) {
         if (not(map:contains($property-definitions, $name)))
-        (: additional property, no validation :)
-        then body:additional-property($name)
+        then (: additional property, no validation :) body:additional-property($name)
         else
             let $property := $property-definitions?($name)
             let $is-array := $property?type = "array"
