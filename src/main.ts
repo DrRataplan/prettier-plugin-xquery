@@ -393,21 +393,17 @@ const xqueryPrinter: Printer<Node> = {
 				const arrowFunctionSpecifierPart = printIfExist(_path, print, 'ArrowFunctionSpecifier');
 				const argumentListPart = printIfExist(_path, print, 'ArgumentList');
 
+				const arrowKeywords = printIfExist(_path, print, "'=>'");
+
 				if (!arrowFunctionSpecifierPart) {
 					return unaryExprPart;
 				}
 
 				return group([
 					unaryExprPart,
-					space,
-					indent([
-						'=>',
-						line,
-						join(
-							[space, '=>', line],
-							arrowFunctionSpecifierPart.map((afs, i) => [afs, argumentListPart[i]]),
-						),
-					]),
+					indent(
+						arrowFunctionSpecifierPart.map((afs, i) => [line, arrowKeywords[i], space, afs, argumentListPart[i]]),
+					),
 				]);
 			}
 			case 'Expr': {

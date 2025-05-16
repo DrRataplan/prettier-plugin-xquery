@@ -1,12 +1,12 @@
 /**
 * Automatically generated test report from running prettier over all 31821 test cases in the QT3 tests.
 *
-* The ignore list contains 84 known failing tests.
+* The ignore list contains 83 known failing tests.
 * Tests that fail because a comment failed to be printed: 44
 * Tests that fail because of a type error: 1
 * Tests that fail because the prettified result is not stable: 35
 *
-* Other failures: 4
+* Other failures: 3
 */
 export default {
 	"fn-contains": {
@@ -17,9 +17,6 @@ export default {
 	},
 	"fn-unparsed-text": {
 		"fn-unparsed-text-054": "AssertionError [ERR_ASSERTION]: The prettification should be stable after a first one\n\u001b[32m+ actual\u001b[39m \u001b[31m- expected\u001b[39m\n\n\u001b[39m  'for $t1 in unparsed-text(\"http://date.jsontest.com\")\\n' +\n\u001b[39m    'return every\\n' +\n\u001b[39m    '    $i in\\n' +\n\u001b[39m    '    1 to 50 satisfies\\n' +\n\u001b[39m    '    (\\n' +\n\u001b[32m+\u001b[39m   '      parse-xml(\"<a><b><c>\" || $i || \"</c></b></a>\")//c(:waste some time:)\\n' +\n\u001b[32m+\u001b[39m   '       and\\n' +\n\u001b[31m-\u001b[39m   '      parse-xml(\"<a><b><c>\" || $i || \"</c></b></a>\")//c and (:waste some time:)\\n' +\n\u001b[39m    '        unparsed-text(\\n' +\n\u001b[39m    '          translate(concat(\"http://date.jsontest.com\", $i), \"0123456789\", \"\")\\n' +\n\u001b[39m    '        ) eq\\n' +\n\u001b[39m    '          $t1\\n' +\n\u001b[39m    '    )'\n"
-	},
-	"map-size": {
-		"map-size-015": "AssertionError [ERR_ASSERTION]: Got unwanted rejection: The second prettification should also work3.\nInput: \n            map:merge(((1 to 20)!map{.: 0}, (10 to 30)!map{.: 0}), map{'duplicates':'combine'}) (:30:)\n            => map:remove((4, 8, 12)) (:27:)\n            => map:put(50, 0) (:28:)\n            => map:put(4, 0) (:29:)\n            => map:put(1, 0) (:29:)\n            => map:size()\n        \nResult of first round: map:merge(\n  ((1 to 20)!map {.: 0}, (10 to 30)!map {.: 0}),\n  map {\"duplicates\": \"combine\"}\n) => (:30:)\n  map:remove((4, 8, 12)) => (:27:)\n  map:put(50, 0) => (:28:)\n  map:put(4, 0) => (:29:)\n  map:put(1, 0) => (:29:)\n  map:size()\nActual message: \"Comment \"(:30:)\" was not printed. Please report this error!\""
 	},
 	"prod-AxisStep": {
 		"K2-Axes-99": "TypeError: Cannot read properties of undefined (reading 'length')"

@@ -103,9 +103,9 @@ declare function body:content-type ($request as map(*)) as map(*) {
         let $charset :=
           if (contains($raw-content-type-header-value, "charset=")) then
             (
-              substring-after($raw-content-type-header-value, "charset=") =>
-                lower-case() =>
-                replace("^([a-z0-9\\-]+).*$", "$1")
+              substring-after($raw-content-type-header-value, "charset=")
+                => lower-case()
+                => replace("^([a-z0-9\\-]+).*$", "$1")
             )
           else
             ()
