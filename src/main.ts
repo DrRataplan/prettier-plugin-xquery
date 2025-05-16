@@ -213,7 +213,6 @@ const xqueryPrinter: Printer<Node> = {
 					? [
 							space,
 							'at',
-							space,
 							join(
 								',',
 								locationHints.map((locationHint) => [space, locationHint]),
@@ -643,8 +642,9 @@ const xqueryPrinter: Printer<Node> = {
 				const functionKeyword = _path.map(print, 'childrenByName', "'function'");
 				const eQNamePart = _path.map(print, 'childrenByName', 'EQName');
 				const paramListPart = value.childrenByName['ParamList'] ? _path.map(print, 'childrenByName', 'ParamList') : [];
+				const asKeyword = printIfExist(_path, print, "'as'");
 				const typeDeclarationPart = value.childrenByName['SequenceType']
-					? ['as', space, _path.map(print, 'childrenByName', 'SequenceType'), space]
+					? [asKeyword, space, _path.map(print, 'childrenByName', 'SequenceType'), space]
 					: [];
 
 				const functionBodyPart = _path.map(print, 'childrenByName', 'FunctionBody');
@@ -654,6 +654,7 @@ const xqueryPrinter: Printer<Node> = {
 						functionKeyword,
 						space,
 						eQNamePart,
+						space,
 						'(',
 						indent([softline, paramListPart]),
 						softline,

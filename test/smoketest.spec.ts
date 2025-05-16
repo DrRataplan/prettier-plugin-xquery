@@ -37,7 +37,7 @@ describe('smoke tests', async (d) => {
 		const code = `
 declare variable $var := "B";
 
-declare function local:bla($a as xs:integer) as xs:double {
+declare function local:bla ($a as xs:integer) as xs:double {
   1 + $a
 };
 
