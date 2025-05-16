@@ -295,7 +295,7 @@ const xqueryPrinter: Printer<Node> = {
 				const elseKeyword = _path.map(print, 'childrenByName', "'else'");
 				const thenKeyword = _path.map(print, 'childrenByName', "'then'");
 
-				const elseAstNode = value.childrenByName['ExprSingle'][1];
+				const elseAstNode = value.childrenByName['ExprSingle'][1] as NonTerminalNode;
 				const nestedIfInElse = elseAstNode.childrenByName['IfExpr'];
 
 				/*
