@@ -1,12 +1,12 @@
 /**
 * Automatically generated test report from running prettier over all 31821 test cases in the QT3 tests.
 *
-* The ignore list contains 86 known failing tests.
+* The ignore list contains 84 known failing tests.
 * Tests that fail because a comment failed to be printed: 44
 * Tests that fail because of a type error: 1
 * Tests that fail because the prettified result is not stable: 35
 *
-* Other failures: 6
+* Other failures: 4
 */
 export default {
 	"fn-contains": {
@@ -126,10 +126,6 @@ export default {
 	},
 	"prod-StringConstructor": {
 		"string-constructor-025": "AssertionError [ERR_ASSERTION]: The prettification should be stable after a first one\n\u001b[32mactual\u001b[39m \u001b[31mexpected\u001b[39m\n\n\u001b[39m'\u001b[39m\u001b[39m`\u001b[39m\u001b[39m`\u001b[39m\u001b[39m[\u001b[39m\u001b[39m`\u001b[39m\u001b[39m \u001b[39m\u001b[39m*\u001b[39m\u001b[39m`\u001b[39m\u001b[39m{\u001b[39m\u001b[31m}\u001b[39m\u001b[31m`\u001b[39m\u001b[31m*\u001b[39m\u001b[31m \u001b[39m\u001b[31m`\u001b[39m\u001b[31m]\u001b[39m\u001b[31m`\u001b[39m\u001b[31m`\u001b[39m\u001b[31m \u001b[39m\u001b[39m(\u001b[39m\u001b[39m:\u001b[39m\u001b[39mN\u001b[39m\u001b[39mo\u001b[39m\u001b[39mt\u001b[39m\u001b[39mh\u001b[39m\u001b[39mi\u001b[39m\u001b[39mn\u001b[39m\u001b[39mg\u001b[39m\u001b[39m \u001b[39m\u001b[39mh\u001b[39m\u001b[39me\u001b[39m\u001b[39mr\u001b[39m\u001b[39me\u001b[39m\u001b[39m:\u001b[39m\u001b[39m)\u001b[39m\u001b[32m\\\u001b[39m\u001b[32mn\u001b[39m\u001b[32m}\u001b[39m\u001b[32m`\u001b[39m\u001b[32m*\u001b[39m\u001b[32m \u001b[39m\u001b[32m`\u001b[39m\u001b[32m]\u001b[39m\u001b[32m`\u001b[39m\u001b[32m`\u001b[39m\u001b[39m'\u001b[39m\n"
-	},
-	"prod-SwitchExpr": {
-		"switch-004": "InvalidDocError: Unexpected doc 'undefined', \nExpected it to be 'string' or 'object'.",
-		"switch-005": "InvalidDocError: Unexpected doc 'undefined', \nExpected it to be 'string' or 'object'."
 	},
 	"prod-UnaryLookup": {
 		"UnaryLookup-044": "AssertionError [ERR_ASSERTION]: The prettification should be stable after a first one\n\u001b[32m+ actual\u001b[39m \u001b[31m- expected\u001b[39m\n\n\u001b[32m+\u001b[39m '(\\n' +\n\u001b[32m+\u001b[39m   '  map {\"a-1\": 1, \"b-1\": 2, \"c-1\": 3}, map {\"a-1\": 2, \"b-1\": 3, \"c-1\": 4}\\n' +\n\u001b[32m+\u001b[39m   ')[?(:confusing?:)\\n' +\n\u001b[32m+\u001b[39m   'b-1 eq\\n' +\n\u001b[31m-\u001b[39m '(map {\"a-1\": 1, \"b-1\": 2, \"c-1\": 3}, map {\"a-1\": 2, \"b-1\": 3, \"c-1\": 4})[?b-1 eq (:confusing?:)\\n' +\n\u001b[39m    '  3]'\n"

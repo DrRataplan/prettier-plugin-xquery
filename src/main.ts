@@ -749,7 +749,7 @@ const xqueryPrinter: Printer<Node> = {
 					')',
 					indent([
 						hardline,
-						switchCaseClausePart,
+						join(hardline, switchCaseClausePart),
 						hardline,
 						defaultPart,
 						space,
@@ -823,18 +823,17 @@ const xqueryPrinter: Printer<Node> = {
 			case 'SwitchCaseClause': {
 				const caseParts = _path.map(print, 'childrenByName', "'case'");
 				const switchCaseOperandParts = _path.map(print, 'childrenByName', 'SwitchCaseOperand');
-				const returnParts = _path.map(print, 'childrenByName', "'return'");
-				const exprSingleParts = _path.map(print, 'childrenByName', 'ExprSingle');
+				const returnPart = _path.map(print, 'childrenByName', "'return'");
+				const exprSinglePart = _path.map(print, 'childrenByName', 'ExprSingle');
+
 
 				const cases = caseParts.map((casePart, i) => {
 					const operand = switchCaseOperandParts[i];
-					const returnPart = returnParts[i];
-					const exprSinglePart = exprSingleParts[i];
 
-					return group([casePart, space, operand, space, returnPart, indent([hardline, exprSinglePart]), hardline]);
+					return group([casePart, space, operand]);
 				});
 
-				return join(hardline, cases);
+				return group([join(hardline, cases), space, returnPart, indent([hardline, exprSinglePart])]);
 			}
 			case 'ValidateExpr': {
 				const validateKeyword = _path.map(print, 'childrenByName', "'validate'");

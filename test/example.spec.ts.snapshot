@@ -62,7 +62,6 @@ declare function body:parse($request as map(*)) {
 
                 default return
                   parse-xml($data)
-
           (: Treat everything else as binary data :)
           default return
             request:get-data()
@@ -194,7 +193,6 @@ declare %private function body:get-form-data-value(
         request:get-parameter($name, ())
     case "base64" return
       xs:base64Binary(request:get-parameter($name, ()))
-
     default return
       request:get-parameter($name, ())
 };
