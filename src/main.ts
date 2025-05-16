@@ -654,7 +654,7 @@ const xqueryPrinter: Printer<Node> = {
 					? [asKeyword, space, _path.map(print, 'childrenByName', 'SequenceType'), space]
 					: [];
 
-				const functionBodyPart = _path.map(print, 'childrenByName', 'FunctionBody');
+				const functionBodyPart = printIfExist(_path, print, 'FunctionBody') ?? printIfExist(_path, print, "'external'");
 
 				return group([
 					group([

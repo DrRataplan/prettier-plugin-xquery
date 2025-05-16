@@ -1,9 +1,9 @@
 /**
 * Automatically generated test report from running prettier over all 31821 test cases in the QT3 tests.
 *
-* The ignore list contains 83 known failing tests.
+* The ignore list contains 82 known failing tests.
 * Tests that fail because a comment failed to be printed: 44
-* Tests that fail because of a type error: 1
+* Tests that fail because of a type error: 0
 * Tests that fail because the prettified result is not stable: 35
 *
 * Other failures: 3
@@ -17,9 +17,6 @@ export default {
 	},
 	"fn-unparsed-text": {
 		"fn-unparsed-text-054": "AssertionError [ERR_ASSERTION]: The prettification should be stable after a first one\n\u001b[32m+ actual\u001b[39m \u001b[31m- expected\u001b[39m\n\n\u001b[39m  'for $t1 in unparsed-text(\"http://date.jsontest.com\")\\n' +\n\u001b[39m    'return every\\n' +\n\u001b[39m    '    $i in\\n' +\n\u001b[39m    '    1 to 50 satisfies\\n' +\n\u001b[39m    '    (\\n' +\n\u001b[32m+\u001b[39m   '      parse-xml(\"<a><b><c>\" || $i || \"</c></b></a>\")//c(:waste some time:)\\n' +\n\u001b[32m+\u001b[39m   '       and\\n' +\n\u001b[31m-\u001b[39m   '      parse-xml(\"<a><b><c>\" || $i || \"</c></b></a>\")//c and (:waste some time:)\\n' +\n\u001b[39m    '        unparsed-text(\\n' +\n\u001b[39m    '          translate(concat(\"http://date.jsontest.com\", $i), \"0123456789\", \"\")\\n' +\n\u001b[39m    '        ) eq\\n' +\n\u001b[39m    '          $t1\\n' +\n\u001b[39m    '    )'\n"
-	},
-	"prod-AxisStep": {
-		"K2-Axes-99": "TypeError: Cannot read properties of undefined (reading 'length')"
 	},
 	"prod-BaseURIDecl": {
 		"K-BaseURIProlog-1": "AssertionError [ERR_ASSERTION]: The prettification should be stable after a first one\n\u001b[32m+ actual\u001b[39m \u001b[31m- expected\u001b[39m\n\n\u001b[32m+\u001b[39m 'declare (::)\\n' +\n\u001b[32m+\u001b[39m   'base-uri (::)\\n' +\n\u001b[32m+\u001b[39m   '\"http://example.com/declareBaseURITest\";\\n' +\n\u001b[31m-\u001b[39m 'declare base-uri \"http://example.com/declareBaseURITest\"; (::) (::)\\n' +\n\u001b[39m    '\\n' +\n\u001b[39m    'static-base-uri() eq \"http://example.com/declareBaseURITest\"'\n",
