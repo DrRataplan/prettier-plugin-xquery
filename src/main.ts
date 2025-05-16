@@ -209,10 +209,11 @@ const xqueryPrinter: Printer<Node> = {
 					: [];
 				// First is the module URI, the rest are location hints
 				const [uriPart, ...locationHints] = _path.map(print, 'childrenByName', 'URILiteral');
+				const atKeyword = printIfExist(_path, print, "'at'");
 				const locationHintParts = locationHints.length
 					? [
 							space,
-							'at',
+							atKeyword,
 							join(
 								',',
 								locationHints.map((locationHint) => [space, locationHint]),
