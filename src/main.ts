@@ -100,10 +100,6 @@ const xqueryPrinter: Printer<Node> = {
 			switch (path.node.name) {
 				case "','":
 					return group([",", line]);
-				case '"':
-					return [];
-				case "'":
-					return [];
 
 				case "StringLiteral": {
 					let stringValue = path.node.value;

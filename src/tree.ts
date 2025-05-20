@@ -79,11 +79,8 @@ export class Tree {
 		parent.children.push(current);
 		this.stack.push(current);
 	}
-	endNonterminal(name: string, end: number) {
+	endNonterminal(_name: string, end: number) {
 		const current = this.stack.pop()!;
-		if (current.name !== name) {
-			console.error("mismatch", current.name, name);
-		}
 		current.end = end;
 	}
 
