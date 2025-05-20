@@ -7,7 +7,9 @@
 		"erasableSyntaxOnly": true,
 		"verbatimModuleSyntax": true,
 		"baseUrl": "./src/main.ts",
-		"outDir": "dist"
+		"outDir": "dist",
+		"allowImportingTsExtensions": true,
+		"declaration": true
 	},
 	"include": [
 		"src/*"
