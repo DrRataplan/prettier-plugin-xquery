@@ -21,22 +21,41 @@ yarn add --dev prettier prettier-plugin-xquery
 The `prettier` executable is now installed and ready for use:
 
 ```bash
-./node_modules/.bin/prettier --plugin=prettier-plugin-xquery --write '**/*.xq*'
+npx prettier --plugin=prettier-plugin-xquery --write '**/*.xq*'
 ```
+
+Add a .prettierrc.js to save the configuration
+```js
+import prettierPluginXQuery from 'prettier-plugin-xquery';
+
+/**
+ * @type {import('prettier').Config}
+ */
+const config = {
+	useTabs: true,
+	printWidth: 120,
+	plugins: [prettierPluginXQuery],
+};
+
+export default config;
+```
+
 
 ## Configuration
 | API Option                 | CLI Option                     |   Default    | Description                                                                                                              |
 | -------------------------- | ------------------------------ | :----------: | ------------------------------------------------------------------------------------------------------------------------ |
 | `printWidth`               | `--print-width`                |     `80`     | Same as in Prettier ([see prettier docs](https://prettier.io/docs/en/options.html#print-width)).
 | `tabWidth`                 | `--tab-width`                  |     `2`      | Same as in Prettier ([see prettier docs](https://prettier.io/docs/en/options.html#tab-width)).
-| `singleQuote`              | `--single-quote`               |     `false`  | Same as in Prettier ([see prettier docs](https://prettier.io/docs/en/options.html#quotes)).
+| `singleQuote`              | `--single-quote`               |   `false`    | Same as in Prettier ([see prettier docs](https://prettier.io/docs/en/options.html#quotes)).
+| `useTabs`                  | `--use-tabs`                   |   `false`    | Same as in Prettier ([see prettier docs](https://prettier.io/docs/en/options.html#tabs)).
 
 Any of these can be added to your existing [prettier configuration
 file](https://prettier.io/docs/en/configuration.html). For example:
 
 ```json
 {
-  "tabWidth": 4
+  "tabWidth": 4,
+  "plugins": "prettier-plugin-xquery"
 }
 ```
 
