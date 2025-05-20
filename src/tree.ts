@@ -38,20 +38,20 @@ export class LeafNode extends Node {
 
 	constructor(name: string, begin: number, end: number) {
 		super(name, begin, end);
-		this.value = '';
+		this.value = "";
 	}
 }
 
 export class RootNode extends NonTerminalNode {
 	public readonly comments: CommentNode[] = [];
 	constructor(begin: number, end?: number) {
-		super('root', begin, end);
+		super("root", begin, end);
 	}
 }
 export class CommentNode extends Node {
 	public readonly value: string;
 	constructor(begin: number, end: number, value: string) {
-		super('Comment', begin, end);
+		super("Comment", begin, end);
 		this.value = value;
 	}
 }
@@ -82,7 +82,7 @@ export class Tree {
 	endNonterminal(name: string, end: number) {
 		const current = this.stack.pop();
 		if (current.name !== name) {
-			console.error('mismatch', current.name, name);
+			console.error("mismatch", current.name, name);
 		}
 		current.end = end;
 	}
@@ -96,9 +96,9 @@ export class Tree {
 
 	whitespace(begin: number, end: number) {
 		const contents = this.code.substring(begin, end);
-		if (contents.includes('(:')) {
+		if (contents.includes("(:")) {
 			const clean = contents.trim();
-			const actualBegin = begin + contents.indexOf('(:');
+			const actualBegin = begin + contents.indexOf("(:");
 			this.root.comments.push(new CommentNode(actualBegin, actualBegin + clean.length, clean));
 		}
 		// this.terminal('WhiteSpace', begin, end)
