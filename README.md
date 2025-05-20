@@ -55,7 +55,7 @@ file](https://prettier.io/docs/en/configuration.html). For example:
 ```json
 {
   "tabWidth": 4,
-  "plugins": "prettier-plugin-xquery"
+  "plugins": ["prettier-plugin-xquery"]
 }
 ```
 
