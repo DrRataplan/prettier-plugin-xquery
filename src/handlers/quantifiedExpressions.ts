@@ -1,10 +1,9 @@
 import { doc, type AstPath, type Doc } from "prettier";
-import printIfExist from "./printIfExists.ts";
-import type { Node, NonTerminalNode } from "./tree.ts";
-import space from "./space.ts";
+import type { Node, NonTerminalNode } from "../tree.ts";
+import space from "./util/space.ts";
 import { type Print } from "./util/Print.ts";
 
-const { join, line, group, indent } = doc.builders;
+const { line, group, indent } = doc.builders;
 
 const quantifiedExpressionHandlers: Record<string, (path: AstPath<NonTerminalNode>, print: Print) => Doc> = {
 	QuantifiedExpr: (path, print) => {

@@ -1,12 +1,11 @@
 import { doc } from "prettier";
 import type { AstPath, Doc } from "prettier";
-import printIfExist from "./printIfExists.ts";
-import type { NonTerminalNode } from "./tree.ts";
-import space from "./space.ts";
+import type { NonTerminalNode } from "../tree.ts";
+import space from "./util/space.ts";
 import { type Print } from "./util/Print.ts";
-import joinChildrenWithSpaces from "./util/joinChildrenWithSpaces.ts";
+import printIfExist from "./util/printIfExists.ts";
 
-const { join, line, group, indent, hardline } = doc.builders;
+const { join, group, indent, hardline } = doc.builders;
 
 const expressionsOnSequenceTypesHandlers: Record<string, (path: AstPath<NonTerminalNode>, print: Print) => Doc> = {
 	InstanceofExpr: (path, print) => {
@@ -16,7 +15,7 @@ const expressionsOnSequenceTypesHandlers: Record<string, (path: AstPath<NonTermi
 		if (!instanceKeyword) {
 			return treatExprPart;
 		}
-		const ofKeyword = printIfExist(path, print, "'of'");
+		const ofKeyword = path.map(print, "childrenByName", "'of'");
 		const sequenceTypePart = path.map(print, "childrenByName", "SequenceType");
 
 		return [treatExprPart, space, instanceKeyword, space, ofKeyword, space, sequenceTypePart];
@@ -28,7 +27,7 @@ const expressionsOnSequenceTypesHandlers: Record<string, (path: AstPath<NonTermi
 		if (!castKeyword) {
 			return arrowExprPart;
 		}
-		const asKeyword = printIfExist(path, print, "'as'");
+		const asKeyword = path.map(print, "childrenByName", "'as'");
 		const singleTypePart = path.map(print, "childrenByName", "SingleType");
 
 		return [arrowExprPart, space, castKeyword, space, asKeyword, space, singleTypePart];
@@ -40,7 +39,7 @@ const expressionsOnSequenceTypesHandlers: Record<string, (path: AstPath<NonTermi
 		if (!treatKeyword) {
 			return castableExprPart;
 		}
-		const asKeyword = printIfExist(path, print, "'as'");
+		const asKeyword = path.map(print, "childrenByName", "'as'");
 		const sequenceTypePart = path.map(print, "childrenByName", "SequenceType");
 
 		return [castableExprPart, space, treatKeyword, space, asKeyword, space, sequenceTypePart];
@@ -52,7 +51,7 @@ const expressionsOnSequenceTypesHandlers: Record<string, (path: AstPath<NonTermi
 		if (!castableKeyword) {
 			return castExprPart;
 		}
-		const asKeyword = printIfExist(path, print, "'as'");
+		const asKeyword = path.map(print, "childrenByName", "'as'");
 		const singleTypePart = path.map(print, "childrenByName", "SingleType");
 
 		return [castExprPart, space, castableKeyword, space, asKeyword, space, singleTypePart];

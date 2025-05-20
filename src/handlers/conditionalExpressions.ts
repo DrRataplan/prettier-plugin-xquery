@@ -1,7 +1,7 @@
 import { doc } from "prettier";
 import type { AstPath, Doc } from "prettier";
-import type { NonTerminalNode } from "./tree.ts";
-import space from "./space.ts";
+import type { NonTerminalNode } from "../tree.ts";
+import space from "./util/space.ts";
 import { type Print } from "./util/Print.ts";
 
 const { softline, group, indent, hardline } = doc.builders;

@@ -1,7 +1,7 @@
 export abstract class Node {
 	name: string;
 	begin: number;
-	end: number;
+	end: number | undefined;
 
 	constructor(name: string, begin: number, end?: number) {
 		this.name = name;
@@ -57,11 +57,11 @@ export class CommentNode extends Node {
 }
 
 export class Tree {
-	stack: NonTerminalNode[];
-	code: string;
-	root: RootNode;
+	public stack: NonTerminalNode[];
+	public code: string;
+	public root: RootNode;
 	constructor() {
-		this.code = null;
+		this.code = "";
 		this.root = new RootNode(0);
 		this.stack = [this.root];
 	}
@@ -80,7 +80,7 @@ export class Tree {
 		this.stack.push(current);
 	}
 	endNonterminal(name: string, end: number) {
-		const current = this.stack.pop();
+		const current = this.stack.pop()!;
 		if (current.name !== name) {
 			console.error("mismatch", current.name, name);
 		}

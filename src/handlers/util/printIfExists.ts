@@ -1,6 +1,6 @@
 import type { AstPath, Doc } from "prettier";
-import type { NonTerminalNode } from "./tree.js";
-import type { Print } from "./util/Print.ts";
+import type { NonTerminalNode } from "../../tree.js";
+import type { Print } from "./Print.ts";
 
 const printIfExist = (path: AstPath<NonTerminalNode>, print: Print, item: string): Doc[] | null => {
 	if (!path.node.childrenByName[item]) {

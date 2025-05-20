@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 // This file was generated on Tue Apr 15, 2025 08:53 (UTC+02) by REx v6.1 which is Copyright (c) 1979-2025 by Gunther Rademacher <grd@gmx.net>
 // REx command line: xquery-31.ebnf -tree -typescript
 

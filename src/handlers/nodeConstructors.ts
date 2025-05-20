@@ -1,7 +1,7 @@
 import { doc, type AstPath, type Doc } from "prettier";
-import printIfExist from "./printIfExists.ts";
-import type { NonTerminalNode } from "./tree.ts";
-import space from "./space.ts";
+import printIfExist from "./util/printIfExists.ts";
+import type { NonTerminalNode } from "../tree.ts";
+import space from "./util/space.ts";
 import { type Print } from "./util/Print.ts";
 
 const { group, indent, softline } = doc.builders;
@@ -10,13 +10,13 @@ const nodeConstructorHandlers: Record<string, (path: AstPath<NonTerminalNode>, p
 	CompAttrConstructor: (path, print) => {
 		const attributeKeyword = path.map(print, "childrenByName", "'attribute'");
 		const eqNamePart = printIfExist(path, print, "EQName");
-		const exprPart = printIfExist(path, print, "Expr");
 		const enclosedExprPart = path.map(print, "childrenByName", "EnclosedExpr");
 
 		const toReturn: Doc[] = [attributeKeyword, space];
 		if (eqNamePart) {
 			toReturn.push(eqNamePart);
 		} else {
+			const exprPart = path.map(print, "childrenByName", "Expr");
 			toReturn.push("{", group(indent([softline, exprPart, softline])), "}");
 		}
 		toReturn.push([space, enclosedExprPart]);
@@ -26,13 +26,13 @@ const nodeConstructorHandlers: Record<string, (path: AstPath<NonTerminalNode>, p
 	CompElemConstructor: (path, print) => {
 		const elementKeyword = path.map(print, "childrenByName", "'element'");
 		const eqNamePart = printIfExist(path, print, "EQName");
-		const exprPart = printIfExist(path, print, "Expr");
 		const enclosedExprPart = path.map(print, "childrenByName", "EnclosedContentExpr");
 
 		const toReturn: Doc[] = [elementKeyword, space];
 		if (eqNamePart) {
 			toReturn.push(eqNamePart);
 		} else {
+			const exprPart = path.map(print, "childrenByName", "Expr");
 			toReturn.push("{", group(indent([softline, exprPart, softline])), "}");
 		}
 		toReturn.push([space, enclosedExprPart]);
@@ -41,13 +41,13 @@ const nodeConstructorHandlers: Record<string, (path: AstPath<NonTerminalNode>, p
 	CompPIConstructor: (path, print) => {
 		const piKeyword = path.map(print, "childrenByName", "'processing-instruction'");
 		const ncNamePart = printIfExist(path, print, "NCName");
-		const exprPart = printIfExist(path, print, "Expr");
 		const enclosedExprPart = path.map(print, "childrenByName", "EnclosedExpr");
 
 		const toReturn: Doc[] = [piKeyword, space];
 		if (ncNamePart) {
 			toReturn.push(ncNamePart);
 		} else {
+			const exprPart = path.map(print, "childrenByName", "Expr");
 			toReturn.push("{", group(indent([softline, exprPart, softline])), "}");
 		}
 		toReturn.push([space, enclosedExprPart]);
@@ -73,11 +73,10 @@ const nodeConstructorHandlers: Record<string, (path: AstPath<NonTerminalNode>, p
 	},
 	CompNamespaceConstructor: (path, print) => {
 		const namespaceKeyword = path.map(print, "childrenByName", "'namespace'");
-		const enclosedPrefixExprPart = printIfExist(path, print, "EnclosedPrefixExpr");
-		const prefixPart = printIfExist(path, print, "Prefix");
+		const prefixPart = printIfExist(path, print, "Prefix") ?? path.map(print, "childrenByName", "EnclosedPrefixExpr");
 		const enclosedURIExprPart = path.map(print, "childrenByName", "EnclosedURIExpr");
 
-		return group([namespaceKeyword, space, prefixPart ?? enclosedPrefixExprPart, space, enclosedURIExprPart]);
+		return group([namespaceKeyword, space, prefixPart, space, enclosedURIExprPart]);
 	},
 };
 

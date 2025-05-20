@@ -1,9 +1,9 @@
 import { doc } from "prettier";
 import type { AstPath, Doc } from "prettier";
-import printIfExist from "./printIfExists.ts";
-import type { NonTerminalNode } from "./tree.ts";
-import space from "./space.ts";
+import type { NonTerminalNode } from "../tree.ts";
+import space from "./util/space.ts";
 import { type Print } from "./util/Print.ts";
+import printIfExist from "./util/printIfExists.ts";
 import joinChildrenWithSpaces from "./util/joinChildrenWithSpaces.ts";
 
 const { join, line, group, indent, hardline } = doc.builders;
@@ -39,17 +39,18 @@ const flworExpressionHandlers: Record<string, (path: AstPath<NonTerminalNode>, p
 		const typeDeclPart = printIfExist(path, print, "TypeDeclaration");
 		const exprSinglePart = printIfExist(path, print, "ExprSingle");
 		const collationKeyword = printIfExist(path, print, "'collation'");
-		const uriLiteralPart = printIfExist(path, print, "URILiteral");
 
 		const parts: Doc[] = [variablePart];
 		if (exprSinglePart) {
 			if (typeDeclPart) {
 				parts.push(space, typeDeclPart, space);
 			}
-			const walrusKeyword = printIfExist(path, print, "':='");
+
+			const walrusKeyword = path.map(print, "childrenByName", "':='");
 			parts.push(walrusKeyword, indent([line, exprSinglePart]));
 		}
 		if (collationKeyword) {
+			const uriLiteralPart = path.map(print, "childrenByName", "URILiteral");
 			parts.push(collationKeyword, uriLiteralPart);
 		}
 		return group(parts);
@@ -98,7 +99,7 @@ const flworExpressionHandlers: Record<string, (path: AstPath<NonTerminalNode>, p
 		const varNamePart = path.map(print, "childrenByName", "VarName");
 		const exprSinglePart = path.map(print, "childrenByName", "ExprSingle");
 		const typeDeclPart = printIfExist(path, print, "TypeDeclaration");
-		const walrusKeyword = printIfExist(path, print, "':='");
+		const walrusKeyword = path.map(print, "childrenByName", "':='");
 		return group([
 			"$",
 			varNamePart,
@@ -122,8 +123,8 @@ const flworExpressionHandlers: Record<string, (path: AstPath<NonTerminalNode>, p
 		const typeDeclPart = printIfExist(path, print, "TypeDeclaration");
 
 		const inKeyword = path.map(print, "childrenByName", "'in'");
-		const exprSinglePart = printIfExist(path, print, "ExprSingle");
-		const windowStartConditionPart = printIfExist(path, print, "WindowStartCondition");
+		const exprSinglePart = path.map(print, "childrenByName", "ExprSingle");
+		const windowStartConditionPart = path.map(print, "childrenByName", "WindowStartCondition");
 		const windowEndConditionPart = printIfExist(path, print, "WindowEndCondition");
 
 		return group([
@@ -148,9 +149,9 @@ const flworExpressionHandlers: Record<string, (path: AstPath<NonTerminalNode>, p
 		const typeDeclPart = printIfExist(path, print, "TypeDeclaration");
 
 		const inKeyword = path.map(print, "childrenByName", "'in'");
-		const exprSinglePart = printIfExist(path, print, "ExprSingle");
-		const windowStartConditionPart = printIfExist(path, print, "WindowStartCondition");
-		const windowEndConditionPart = printIfExist(path, print, "WindowEndCondition");
+		const exprSinglePart = path.map(print, "childrenByName", "ExprSingle");
+		const windowStartConditionPart = path.map(print, "childrenByName", "WindowStartCondition");
+		const windowEndConditionPart = path.map(print, "childrenByName", "WindowEndCondition");
 
 		return group([
 			slidingKeyword,
