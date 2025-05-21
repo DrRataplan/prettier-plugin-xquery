@@ -29,7 +29,7 @@ const modulesAndPrologsHandlers: Record<string, Handler> = {
 		return group([items, separator, hardline, hardline]);
 	},
 	LibraryModule: (path, print) => {
-		return group([join(hardline, path.map(print, "children")), hardline, hardline]);
+		return group([join(hardline, path.map(print, "children"))]);
 	},
 	ModuleDecl: (path, print) => {
 		const prefixPart = path.map(print, "childrenByName", "NCName");
@@ -116,55 +116,67 @@ const modulesAndPrologsHandlers: Record<string, Handler> = {
 			return [];
 		}
 
-		debugger;
-		const endWithSeparator = (part: Doc[] | null, astNodes: Node[], joinWithHardlines = false): Doc => {
+		const endWithSeparator = (part: Doc[] | null, astNodes: Node[], joinWithHardlines = false): Doc | null => {
 			if (!part) {
-				return [];
+				return null;
 			}
-			return [
-				part.map((p, i) => [p, separatorByPart.get(astNodes[i])!, hardline, joinWithHardlines ? hardline : []]),
-				!joinWithHardlines ? hardline : [],
-			];
+			const transformed = part.map((p, i) => [p, separatorByPart.get(astNodes[i])!]);
+
+			return join(joinWithHardlines ? [hardline, hardline] : [hardline], transformed);
 		};
 
 		const separatorByPart = path.node.children.reduce<Map<Node, Doc>>((map, part, i) => {
 			if (part.name === "Separator") {
 				return map;
 			}
-			return map.set(part, path.call(print, 'children', i + 1));
+			return map.set(part, path.call(print, "children", i + 1));
 		}, new Map<Node, Doc>());
 
-		const defaultNamespaceDeclPart =
-			endWithSeparator(printIfExist(path, print, "DefaultNamespaceDecl"), path.node.childrenByName.DefaultNamespaceDecl)
+		const defaultNamespaceDeclPart = endWithSeparator(
+			printIfExist(path, print, "DefaultNamespaceDecl"),
+			path.node.childrenByName.DefaultNamespaceDecl,
+		);
 
-		const setterPart =
-			endWithSeparator(printIfExist(path, print, "Setter"), path.node.childrenByName.Setter)
+		const setterPart = endWithSeparator(printIfExist(path, print, "Setter"), path.node.childrenByName.Setter);
 
-		const namespaceDeclPart =
-			endWithSeparator(printIfExist(path, print, "NamespaceDecl"), path.node.childrenByName.NamespaceDecl)
+		const namespaceDeclPart = endWithSeparator(
+			printIfExist(path, print, "NamespaceDecl"),
+			path.node.childrenByName.NamespaceDecl,
+		);
 
-		const importPart =
-			endWithSeparator(printIfExist(path, print, "Import"), path.node.childrenByName.Import)
+		const importPart = endWithSeparator(printIfExist(path, print, "Import"), path.node.childrenByName.Import);
 
-		const contextItemDeclPart =
-			endWithSeparator(printIfExist(path, print, "ContextItemDecl"), path.node.childrenByName.ContextItemDecl)
+		const contextItemDeclPart = endWithSeparator(
+			printIfExist(path, print, "ContextItemDecl"),
+			path.node.childrenByName.ContextItemDecl,
+		);
 
-		const annotatedDeclPart =
-			endWithSeparator(printIfExist(path, print, "AnnotatedDecl"),path.node.childrenByName.AnnotatedDecl, true)
+		const annotatedDeclPart = endWithSeparator(
+			printIfExist(path, print, "AnnotatedDecl"),
+			path.node.childrenByName.AnnotatedDecl,
+			true,
+		);
 
-		const optionDeclPart =
-			endWithSeparator(printIfExist(path, print, "OptionDecl"), path.node.childrenByName.OptionDecl)
+		const optionDeclPart = endWithSeparator(
+			printIfExist(path, print, "OptionDecl"),
+			path.node.childrenByName.OptionDecl,
+		);
 
-
-		return group([
-			defaultNamespaceDeclPart,
-			setterPart,
-			namespaceDeclPart,
-			importPart,
-			contextItemDeclPart,
-			annotatedDeclPart,
-			optionDeclPart,
-		]);
+		return join(
+			[hardline, hardline],
+			[
+				defaultNamespaceDeclPart,
+				setterPart,
+				namespaceDeclPart,
+				importPart,
+				contextItemDeclPart,
+				annotatedDeclPart,
+				optionDeclPart,
+				[],
+			]
+				.filter((p) => p !== null)
+				.map((p) => p!),
+		);
 	},
 	OptionDecl: (path, print) => {
 		const declareKeyword = path.map(print, "childrenByName", "'declare'");

@@ -275,8 +275,4 @@ declare %private function body:parse-form-data ($schema as map(*)?) as map(*) {
       for-each(request:get-parameter-names(), body:additional-property#1)
     )
 };
-
-
-
-
 `;
