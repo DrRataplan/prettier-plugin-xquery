@@ -24,10 +24,9 @@ module namespace body = "http://e-editiones.org/roaster/body";
 
 import module namespace errors = "http://e-editiones.org/roaster/errors";
 
-declare
-  variable $bla := "bla"; (: A variable to check if it works :)
+declare variable $bla := "bla"; (: A variable to check if it works :)
 
-(:~
+  (:~
  : Try to retrieve and convert the request body if specified
  :)
 
@@ -39,11 +38,11 @@ declare function body:parse ($request as map(*)) {
         case "form-data" return
           body:parse-form-data($request?schema)
         (:
-                Parse body contents to XQuery data structure for media types
-                that were identified as being in JSON format.
-                NOTE: The data needs to be serialized again before it can be stored.
-                NOTE: For application/json-patch+json request:get-data returns an xs:string.
-            :)
+          Parse body contents to XQuery data structure for media types
+          that were identified as being in JSON format.
+          NOTE: The data needs to be serialized again before it can be stored.
+          NOTE: For application/json-patch+json request:get-data returns an xs:string.
+         :)
         case "json" return
           let $data := request:get-data()
           return typeswitch ($data)
@@ -53,10 +52,10 @@ declare function body:parse ($request as map(*)) {
               default return
                 util:binary-to-string($data) => parse-json()
         (:
-                Workaround for eXist-DB specific behaviour,
-                this way we will get parse errors as early as possible
-                while still having access to the data afterwards.
-            :)
+          Workaround for eXist-DB specific behaviour,
+          this way we will get parse errors as early as possible
+          while still having access to the data afterwards.
+         :)
         case "xml" return
           let $data := request:get-data()
           return typeswitch ($data)
