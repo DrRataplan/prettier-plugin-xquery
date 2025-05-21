@@ -1,7 +1,7 @@
 import { doc } from "prettier";
 import type { Handler } from "./util/Handler.ts";
 
-const { join, group, indent, line } = doc.builders;
+const { join, group, line } = doc.builders;
 
 const sequenceExpressionHandlers: Record<string, Handler> = {
 	Expr: (path, print) => {
@@ -10,7 +10,7 @@ const sequenceExpressionHandlers: Record<string, Handler> = {
 		if (path.node.childrenByName["ExprSingle"].length === 1) {
 			return exprSingles;
 		}
-		return group([indent([join([",", line], exprSingles)])]);
+		return group([join([",", line], exprSingles)]);
 	},
 };
 
