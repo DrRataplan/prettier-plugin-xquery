@@ -1,11 +1,11 @@
 import { doc, type AstPath, type Doc } from "prettier";
-import type { Node, NonTerminalNode } from "../tree.ts";
+import type { Node } from "../tree.ts";
 import space from "./util/space.ts";
-import { type Print } from "./util/Print.ts";
+import type { Handler } from "./util/Handler.ts";
 
 const { line, group, indent } = doc.builders;
 
-const quantifiedExpressionHandlers: Record<string, (path: AstPath<NonTerminalNode>, print: Print) => Doc> = {
+const quantifiedExpressionHandlers: Record<string, Handler> = {
 	QuantifiedExpr: (path, print) => {
 		const toReturn: Doc = [];
 		path.each((child: AstPath<Node>) => {

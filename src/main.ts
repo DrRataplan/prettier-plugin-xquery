@@ -2,7 +2,7 @@ import prettier from "prettier";
 import type { Printer, Parser, Plugin, AstPath } from "prettier";
 
 import { Parser as XQueryParser, ParseException } from "./generated/parser.ts";
-import { Tree, Node, LeafNode, NonTerminalNode, CommentNode } from "./tree.ts";
+import { Tree, Node, LeafNode, NonTerminalNode, CommentNode, RootNode } from "./tree.ts";
 import type { Print } from "./handlers/util/Print.ts";
 import flworExpressions from "./handlers/flworExpressions.ts";
 import otherExpressionHandlers from "./handlers/otherExpressions.ts";
@@ -19,13 +19,14 @@ import arrowOperatorHandlers from "./handlers/arrowOperator.ts";
 import sequenceExpressionHandlers from "./handlers/sequenceExpressions.ts";
 import typeHandlers from "./handlers/types.ts";
 import validateExpressionHandlers from "./handlers/validateExpressions.ts";
+import type { Handler } from "./handlers/util/Handler.ts";
 
 const { line, group } = prettier.doc.builders;
 const { getPreferredQuote } = prettier.util;
 
 // Handlers are split up based on their placement in the XQuery specification. FLWOR by FLWOR,
 // expressions on sequence types in their own group, etcetera.
-const allHandlers = {
+const allHandlers: Record<string, Handler> = {
 	...flworExpressions,
 	...otherExpressionHandlers,
 	...nodeConstructorHandlers,
@@ -74,14 +75,58 @@ const xqueryParser: Parser<Node> = {
 };
 
 const xqueryPrinter: Printer<Node> = {
+	preprocess(ast: Node) {
+		const simplifyNode = (node: Node): Node[] => {
+			if (!(node instanceof NonTerminalNode)) {
+				return [node];
+			}
+
+			const children = node.children.flatMap(simplifyNode);
+			if (
+				[
+					"RangeExpr",
+					"StringConcatExpr",
+					"ComparisonExpr",
+					"IntersectExceptExpr",
+					"UnionExpr",
+					"OrExpr",
+					"AndExpr",
+					"MultiplicativeExpr",
+					"AdditiveExpr",
+					"InstanceofExpr",
+					"TreatExpr",
+					"CastableExpr",
+					"CastExpr",
+					"ArrowExpr",
+					"UnaryExpr",
+					"ValueExpr",
+					"SimpleMapExpr",
+					"PathExpr",
+					"RelativePathExpr",
+					"StepExpr",
+					"PostfixExpr",
+					"PrimaryExpr",
+				].includes(node.name) &&
+				node.children.length === 1
+			) {
+				// This is just a fallthrough. Remove the node.
+				return children;
+			}
+
+			node.children = children;
+
+			return [node];
+		};
+		const [newRoot] = simplifyNode(ast);
+
+		return newRoot;
+	},
 	canAttachComment(node: Node) {
 		// Terminal nodes are sometimes not printed. Refrain from adding comments to them.
 		// TODO: always print terminal nodes to optimize comments
 		return (
 			node.name !== "Comment" &&
 			node.name !== "WhiteSpace" &&
-			node.name !== "'('" &&
-			node.name !== "')'" &&
 			node.name !== "'{'" &&
 			node.name !== "'}'" &&
 			node.name !== "';'" &&
@@ -134,7 +179,7 @@ const xqueryPrinter: Printer<Node> = {
 
 		const handler = allHandlers[value.name];
 		if (handler) {
-			return handler(_path, print);
+			return handler(_path, print, options);
 		}
 
 		// Fallthrough: just recurse as-is

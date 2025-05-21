@@ -1,13 +1,11 @@
 import { doc } from "prettier";
-import type { AstPath, Doc } from "prettier";
-import type { NonTerminalNode } from "../tree.ts";
 import space from "./util/space.ts";
-import { type Print } from "./util/Print.ts";
 import printIfExist from "./util/printIfExists.ts";
+import type { Handler } from "./util/Handler.ts";
 
 const { join, softline, line, group, indent } = doc.builders;
 
-const mapsAndArrayHandlers: Record<string, (path: AstPath<NonTerminalNode>, print: Print) => Doc> = {
+const mapsAndArrayHandlers: Record<string, Handler> = {
 	MapConstructor: (path, print) => {
 		const mapKeyword = path.map(print, "childrenByName", "'map'");
 		const mapConstructorEntries = printIfExist(path, print, "MapConstructorEntry") ?? [];

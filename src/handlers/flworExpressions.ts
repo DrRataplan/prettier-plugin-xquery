@@ -1,14 +1,12 @@
-import { doc } from "prettier";
-import type { AstPath, Doc } from "prettier";
-import type { NonTerminalNode } from "../tree.ts";
+import { doc, type Doc } from "prettier";
 import space from "./util/space.ts";
-import { type Print } from "./util/Print.ts";
 import printIfExist from "./util/printIfExists.ts";
 import joinChildrenWithSpaces from "./util/joinChildrenWithSpaces.ts";
+import type { Handler } from "./util/Handler.ts";
 
 const { join, line, group, indent, hardline } = doc.builders;
 
-const flworExpressionHandlers: Record<string, (path: AstPath<NonTerminalNode>, print: Print) => Doc> = {
+const flworExpressionHandlers: Record<string, Handler> = {
 	FLWORExpr: (path, print) => {
 		const initialClausePart = path.map(print, "childrenByName", "InitialClause");
 		const intermediateClausePart = printIfExist(path, print, "IntermediateClause") ?? [];

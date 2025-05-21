@@ -1,13 +1,12 @@
 import { doc } from "prettier";
-import type { AstPath, Doc } from "prettier";
+import type { Doc } from "prettier";
 import printIfExist from "./util/printIfExists.ts";
-import type { NonTerminalNode } from "../tree.ts";
 import space from "./util/space.ts";
-import { type Print } from "./util/Print.ts";
+import type { Handler } from "./util/Handler.ts";
 
 const { line, group, indent } = doc.builders;
 
-const validateExpressionHandlers: Record<string, (path: AstPath<NonTerminalNode>, print: Print) => Doc> = {
+const validateExpressionHandlers: Record<string, Handler> = {
 	ValidateExpr: (path, print) => {
 		const validateKeyword = path.map(print, "childrenByName", "'validate'");
 		const validationMode = printIfExist(path, print, "ValidationMode");

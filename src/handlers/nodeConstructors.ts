@@ -1,12 +1,11 @@
-import { doc, type AstPath, type Doc } from "prettier";
+import { doc, type Doc } from "prettier";
 import printIfExist from "./util/printIfExists.ts";
-import type { NonTerminalNode } from "../tree.ts";
 import space from "./util/space.ts";
-import { type Print } from "./util/Print.ts";
+import type { Handler } from "./util/Handler.ts";
 
 const { group, indent, softline } = doc.builders;
 
-const nodeConstructorHandlers: Record<string, (path: AstPath<NonTerminalNode>, print: Print) => Doc> = {
+const nodeConstructorHandlers: Record<string, Handler> = {
 	CompAttrConstructor: (path, print) => {
 		const attributeKeyword = path.map(print, "childrenByName", "'attribute'");
 		const eqNamePart = printIfExist(path, print, "EQName");
