@@ -4,6 +4,7 @@ import space from "./util/space.ts";
 import printIfExist from "./util/printIfExists.ts";
 import joinChildrenWithSpaces from "./util/joinChildrenWithSpaces.ts";
 import type { Handler } from "./util/Handler.ts";
+import type { Node } from "../tree.ts";
 
 const { join, group, hardline, softline, indent, line } = doc.builders;
 
@@ -12,6 +13,7 @@ const modulesAndPrologsHandlers: Record<string, Handler> = {
 		const xqueryKeyword = path.map(print, "childrenByName", "'xquery'");
 		const encodingKeyword = printIfExist(path, print, "'encoding'");
 		const versionKeyword = printIfExist(path, print, "'version'");
+		const separator = path.map(print, "childrenByName", "Separator");
 		const [firstStringLiteral, secondStringLiteral] = path.map(print, "childrenByName", "StringLiteral");
 
 		const items: Doc = [xqueryKeyword, space];
@@ -24,7 +26,7 @@ const modulesAndPrologsHandlers: Record<string, Handler> = {
 			items.push(encodingKeyword!, space, firstStringLiteral);
 		}
 
-		return group([items, ";", hardline, hardline]);
+		return group([items, separator, hardline, hardline]);
 	},
 	LibraryModule: (path, print) => {
 		return group([join(hardline, path.map(print, "children")), hardline, hardline]);
@@ -32,7 +34,9 @@ const modulesAndPrologsHandlers: Record<string, Handler> = {
 	ModuleDecl: (path, print) => {
 		const prefixPart = path.map(print, "childrenByName", "NCName");
 		const uriPart = path.map(print, "childrenByName", "URILiteral");
-		return group(["module", space, "namespace", space, prefixPart, space, "=", space, uriPart, ";"]);
+		const separatorPart = path.map(print, "childrenByName", "Separator");
+
+		return group(["module", space, "namespace", space, prefixPart, space, "=", space, uriPart, separatorPart]);
 	},
 	NamespaceDecl: (path, print) => {
 		const prefixPart = path.map(print, "childrenByName", "NCName");
@@ -111,18 +115,46 @@ const modulesAndPrologsHandlers: Record<string, Handler> = {
 		if (!path.node.children.length) {
 			return [];
 		}
-		const endWithSeparator = (part: Doc[] | null, joinWithHardlines = false) =>
-			part
-				? [part.map((p) => [p, ";", hardline, joinWithHardlines ? hardline : []]), !joinWithHardlines ? hardline : []]
-				: [];
 
-		const defaultNamespaceDeclPart = endWithSeparator(printIfExist(path, print, "DefaultNamespaceDecl"));
-		const setterPart = endWithSeparator(printIfExist(path, print, "Setter"));
-		const namespaceDeclPart = endWithSeparator(printIfExist(path, print, "NamespaceDecl"));
-		const importPart = endWithSeparator(printIfExist(path, print, "Import"));
-		const contextItemDeclPart = endWithSeparator(printIfExist(path, print, "ContextItemDecl"));
-		const annotatedDeclPart = endWithSeparator(printIfExist(path, print, "AnnotatedDecl"), true);
-		const optionDeclPart = endWithSeparator(printIfExist(path, print, "OptionDecl"));
+		debugger;
+		const endWithSeparator = (part: Doc[] | null, astNodes: Node[], joinWithHardlines = false): Doc => {
+			if (!part) {
+				return [];
+			}
+			return [
+				part.map((p, i) => [p, separatorByPart.get(astNodes[i])!, hardline, joinWithHardlines ? hardline : []]),
+				!joinWithHardlines ? hardline : [],
+			];
+		};
+
+		const separatorByPart = path.node.children.reduce<Map<Node, Doc>>((map, part, i) => {
+			if (part.name === "Separator") {
+				return map;
+			}
+			return map.set(part, path.call(print, 'children', i + 1));
+		}, new Map<Node, Doc>());
+
+		const defaultNamespaceDeclPart =
+			endWithSeparator(printIfExist(path, print, "DefaultNamespaceDecl"), path.node.childrenByName.DefaultNamespaceDecl)
+
+		const setterPart =
+			endWithSeparator(printIfExist(path, print, "Setter"), path.node.childrenByName.Setter)
+
+		const namespaceDeclPart =
+			endWithSeparator(printIfExist(path, print, "NamespaceDecl"), path.node.childrenByName.NamespaceDecl)
+
+		const importPart =
+			endWithSeparator(printIfExist(path, print, "Import"), path.node.childrenByName.Import)
+
+		const contextItemDeclPart =
+			endWithSeparator(printIfExist(path, print, "ContextItemDecl"), path.node.childrenByName.ContextItemDecl)
+
+		const annotatedDeclPart =
+			endWithSeparator(printIfExist(path, print, "AnnotatedDecl"),path.node.childrenByName.AnnotatedDecl, true)
+
+		const optionDeclPart =
+			endWithSeparator(printIfExist(path, print, "OptionDecl"), path.node.childrenByName.OptionDecl)
+
 
 		return group([
 			defaultNamespaceDeclPart,

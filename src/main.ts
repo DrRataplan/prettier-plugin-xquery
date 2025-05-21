@@ -63,7 +63,7 @@ const xqueryParser: Parser<Node> = {
 			throw new SyntaxError(`${parser.getErrorMessage(pe)} (${line}:${column})`);
 		}
 
-				const simplifyNode = (node: Node): Node[] => {
+		const simplifyNode = (node: Node): Node[] => {
 			if (!(node instanceof NonTerminalNode)) {
 				return [node];
 			}
@@ -126,7 +126,6 @@ const xqueryPrinter: Printer<Node> = {
 			node.name !== "WhiteSpace" &&
 			node.name !== "'{'" &&
 			node.name !== "'}'" &&
-			node.name !== "';'" &&
 			node.name !== "','"
 		);
 	},

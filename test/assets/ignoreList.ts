@@ -1,30 +1,14 @@
 /**
 * Automatically generated test report from running prettier over all 31821 test cases in the QT3 tests.
 *
-* The ignore list contains 50 known failing tests.
-* Tests that fail because a comment failed to be printed: 44
+* The ignore list contains 21 known failing tests.
+* Tests that fail because a comment failed to be printed: 15
 * Tests that fail because of a type error: 0
 * Tests that fail because the prettified result is not stable: 4
 *
 * Other failures: 2
 */
 export default {
-	"prod-BaseURIDecl": {
-		"K-BaseURIProlog-3": [
-			"Error: Comment \"(::)\" was not printed. Please report this error!"
-		]
-	},
-	"prod-BoundarySpaceDecl": {
-		"K-BoundarySpaceProlog-1": [
-			"Error: Comment \"(::)\" was not printed. Please report this error!"
-		],
-		"K-BoundarySpaceProlog-2": [
-			"Error: Comment \"(::)\" was not printed. Please report this error!"
-		],
-		"K-BoundarySpaceProlog-3": [
-			"Error: Comment \"(::)\" was not printed. Please report this error!"
-		]
-	},
 	"prod-Comment": {
 		"XQueryComment012": [
 			"AssertionError [ERR_ASSERTION]: The prettification should be stable after a first one",
@@ -36,28 +20,6 @@ export default {
 			"+   '/south (: test :)'",
 			"-   '/south(: test :) '",
 			""
-		]
-	},
-	"prod-ConstructionDecl": {
-		"K-ConstructionProlog-1": [
-			"Error: Comment \"(::)\" was not printed. Please report this error!"
-		]
-	},
-	"prod-DefaultNamespaceDecl": {
-		"K-DefaultNamespaceProlog-1": [
-			"Error: Comment \"(:..:)\" was not printed. Please report this error!"
-		],
-		"K-DefaultNamespaceProlog-2": [
-			"Error: Comment \"(:..:)\" was not printed. Please report this error!"
-		],
-		"K-DefaultNamespaceProlog-3": [
-			"Error: Comment \"(:..:)\" was not printed. Please report this error!"
-		],
-		"K-DefaultNamespaceProlog-4": [
-			"Error: Comment \"(:..:)\" was not printed. Please report this error!"
-		],
-		"K-DefaultNamespaceProlog-5": [
-			"Error: Comment \"(:..:)\" was not printed. Please report this error!"
 		]
 	},
 	"prod-DirAttributeList": {
@@ -203,66 +165,6 @@ export default {
 			"Error: Comment \"(::)\" was not printed. Please report this error!"
 		]
 	},
-	"prod-OptionDecl": {
-		"K-OptionDeclarationProlog-2": [
-			"Error: Comment \"(::)\" was not printed. Please report this error!"
-		]
-	},
-	"prod-SchemaImport": {
-		"qischema008": [
-			"Error: Comment \"(: at \"qischema008.xsd\" :)\" was not printed. Please report this error!"
-		],
-		"qischema040": [
-			"Error: Comment \"(:at \"xmod040a.xq\":)\" was not printed. Please report this error!"
-		],
-		"qischema040a": [
-			"Error: Comment \"(:at \"xmod040a.xq\":)\" was not printed. Please report this error!"
-		],
-		"qischema043": [
-			"Error: Comment \"(:at \"xmod043a.xq\" :)\" was not printed. Please report this error!"
-		],
-		"qischema044": [
-			"Error: Comment \"(:at \"xmod040a.xq\" :)\" was not printed. Please report this error!"
-		],
-		"qischema061": [
-			"Error: Comment \"(:at \"qischema061.xsd\":)\" was not printed. Please report this error!"
-		],
-		"qischema063q02-err": [
-			"Error: Comment \"(: at \"qischema063.xsd\" :)\" was not printed. Please report this error!"
-		],
-		"qischema070": [
-			"Error: Comment \"(:at \"mini-fpml.xsd\" :)\" was not printed. Please report this error!"
-		],
-		"qischema90631-err": [
-			"Error: Comment \"(:at \"qischema063.xsd\":)\" was not printed. Please report this error!"
-		]
-	},
-	"prod-ValidateExpr": {
-		"validate-as-101": [
-			"Error: Comment \"(:  at \"qischema001.xsd\" :)\" was not printed. Please report this error!"
-		],
-		"validate-as-102": [
-			"Error: Comment \"(:  at \"qischema001.xsd\" :)\" was not printed. Please report this error!"
-		],
-		"validate-as-104": [
-			"Error: Comment \"(:  at \"qischema001.xsd\" :)\" was not printed. Please report this error!"
-		],
-		"validate-as-105": [
-			"Error: Comment \"(:  at \"qischema001.xsd\" :)\" was not printed. Please report this error!"
-		],
-		"validate-as-91011": [
-			"Error: Comment \"(:  at \"qischema001.xsd\" :)\" was not printed. Please report this error!"
-		],
-		"validate-as-91014": [
-			"Error: Comment \"(:  at \"qischema001.xsd\" :)\" was not printed. Please report this error!"
-		],
-		"validate-as-91015": [
-			"Error: Comment \"(:  at \"qischema001.xsd\" :)\" was not printed. Please report this error!"
-		],
-		"validate-as-91016": [
-			"Error: Comment \"(:  at \"qischema001.xsd\" :)\" was not printed. Please report this error!"
-		]
-	},
 	"prod-VarDecl": {
 		"internalvar-2": [
 			"Error: Comment \"(::)\" was not printed. Please report this error!"
@@ -275,11 +177,6 @@ export default {
 		],
 		"K-InternalVariablesWith-2": [
 			"Error: Comment \"(::)\" was not printed. Please report this error!"
-		]
-	},
-	"prod-VersionDecl": {
-		"version_declaration-001": [
-			"Error: Comment \"(:encoding \"utf-8xx\":)\" was not printed. Please report this error!"
 		]
 	},
 	"fn-unparsed-text": {

@@ -22,6 +22,8 @@ xquery version "3.1";
 module namespace body = "http://e-editiones.org/roaster/body";
 import module namespace errors = "http://e-editiones.org/roaster/errors";
 
+declare variable $bla := "bla"; (: A variable to check if it works :)
+
 (:~
  : Try to retrieve and convert the request body if specified
  :)
