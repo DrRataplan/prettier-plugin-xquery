@@ -54,7 +54,7 @@ if (1) then (
 		assert.strictEqual(result, code, 'The input was already formatted correctly');
 	});
 
-				it('formats a if case with parentheses and comments', async () => {
+	it('formats a if case with parentheses and comments', async () => {
 		const code = `
 if (1) then (
   (: a :)
@@ -64,7 +64,6 @@ if (1) then (
   4
 ) else (
   (: c :)
-  5
 )
 `.trim();
 		const result = await prettier.format(code, {

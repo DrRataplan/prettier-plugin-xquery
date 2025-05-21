@@ -8,7 +8,7 @@ const tryCatchExpressionHandlers: Record<string, Handler> = {
 	TryCatchExpr: (path, print) => {
 		const tryClausePart = path.map(print, "childrenByName", "TryClause");
 		const catchClausePart = path.map(print, "childrenByName", "CatchClause");
-		return group([tryClausePart, hardline, catchClausePart]);
+		return group([tryClausePart, space, catchClausePart]);
 	},
 	TryClause: (path, print) => {
 		const tryKeyword = path.map(print, "childrenByName", "'try'");
