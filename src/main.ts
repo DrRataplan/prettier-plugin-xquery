@@ -147,7 +147,7 @@ const pluginDefinition: Plugin<Node> = {
 		{
 			name: "XQuery",
 			parsers: ["xquery"],
-			extensions: ["xqm", "xqy", "xq", "xql"],
+			extensions: ["xq", "xqm", "xqy", "xql", "xquery"],
 		},
 	],
 	parsers: {
