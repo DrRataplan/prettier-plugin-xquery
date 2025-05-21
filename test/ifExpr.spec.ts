@@ -36,4 +36,43 @@ else
 		assert.strictEqual(result, code, 'The input was already formatted correctly');
 	});
 
+			it('formats a if case with parenthess', async () => {
+		const code = `
+if (1) then (
+  2
+) else if (3) then (
+  4
+) else (
+  5
+)
+`.trim();
+		const result = await prettier.format(code, {
+			parser: 'xquery',
+			plugins: [xqueryPlugin],
+		});
+
+		assert.strictEqual(result, code, 'The input was already formatted correctly');
+	});
+
+				it('formats a if case with parentheses and comments', async () => {
+		const code = `
+if (1) then (
+  (: a :)
+  2
+) else if (3) then (
+  (: b :)
+  4
+) else (
+  (: c :)
+  5
+)
+`.trim();
+		const result = await prettier.format(code, {
+			parser: 'xquery',
+			plugins: [xqueryPlugin],
+		});
+
+		assert.strictEqual(result, code, 'The input was already formatted correctly');
+	});
+
 });

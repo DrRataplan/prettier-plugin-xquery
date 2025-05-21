@@ -27,7 +27,7 @@ import module namespace errors = "http://e-editiones.org/roaster/errors";
  :)
 declare function body:parse($request as map(*)) {
 	if (not(exists($request?media-type))) then
-		() (: this route expects no body, return an empty sequence :)
+		((: this route expects no body, return an empty sequence :))
 	else
 		(
 			try {
@@ -82,7 +82,7 @@ declare function body:parse($request as map(*)) {
 
 declare function body:content-type($request as map(*)) as map(*) {
 	if (not(exists($request?config?requestBody?content))) then
-		(map {}) (: this route expects no body, return an empty map :)
+		((: this route expects no body, return an empty map :) map {} )
 	else
 		if (not($request?config?requestBody?content instance of map(*))) then
 			error($errors:OPERATION, "requestBody.content is not defined correctly", $request?config)
@@ -241,6 +241,3 @@ declare %private function body:parse-form-data($schema as map(*)?) as map(*) {
 	else
 		map:merge(for-each(request:get-parameter-names(), body:additional-property#1))
 };
-
-
-

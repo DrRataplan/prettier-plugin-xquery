@@ -1,15 +1,13 @@
 import { doc } from "prettier";
-import type { AstPath, Doc } from "prettier";
-import type { NonTerminalNode } from "../tree.ts";
 import space from "./util/space.ts";
-import { type Print } from "./util/Print.ts";
 import printIfExist from "./util/printIfExists.ts";
+import type { Handler } from "./util/Handler.ts";
 
 const { join, group, indent, hardline } = doc.builders;
 
-const expressionsOnSequenceTypesHandlers: Record<string, (path: AstPath<NonTerminalNode>, print: Print) => Doc> = {
+const expressionsOnSequenceTypesHandlers: Record<string, Handler> = {
 	InstanceofExpr: (path, print) => {
-		const treatExprPart = path.map(print, "childrenByName", "TreatExpr");
+		const treatExprPart = path.call(print, "children", 0);
 		const instanceKeyword = printIfExist(path, print, "'instance'");
 
 		if (!instanceKeyword) {
@@ -21,7 +19,7 @@ const expressionsOnSequenceTypesHandlers: Record<string, (path: AstPath<NonTermi
 		return [treatExprPart, space, instanceKeyword, space, ofKeyword, space, sequenceTypePart];
 	},
 	CastExpr: (path, print) => {
-		const arrowExprPart = path.map(print, "childrenByName", "ArrowExpr");
+		const arrowExprPart = path.call(print, "children", 0);
 		const castKeyword = printIfExist(path, print, "'cast'");
 
 		if (!castKeyword) {
@@ -33,7 +31,7 @@ const expressionsOnSequenceTypesHandlers: Record<string, (path: AstPath<NonTermi
 		return [arrowExprPart, space, castKeyword, space, asKeyword, space, singleTypePart];
 	},
 	TreatExpr: (path, print) => {
-		const castableExprPart = path.map(print, "childrenByName", "CastableExpr");
+		const castableExprPart = path.call(print, "children", 0);
 		const treatKeyword = printIfExist(path, print, "'treat'");
 
 		if (!treatKeyword) {
@@ -45,7 +43,7 @@ const expressionsOnSequenceTypesHandlers: Record<string, (path: AstPath<NonTermi
 		return [castableExprPart, space, treatKeyword, space, asKeyword, space, sequenceTypePart];
 	},
 	CastableExpr: (path, print) => {
-		const castExprPart = path.map(print, "childrenByName", "CastExpr");
+		const castExprPart = path.call(print, "children", 0);
 		const castableKeyword = printIfExist(path, print, "'castable'");
 
 		if (!castableKeyword) {
@@ -63,13 +61,15 @@ const expressionsOnSequenceTypesHandlers: Record<string, (path: AstPath<NonTermi
 		const defaultPart = path.map(print, "childrenByName", "'default'");
 		const returnPart = path.map(print, "childrenByName", "'return'");
 		const exprSinglePart = path.map(print, "childrenByName", "ExprSingle");
+		const parenOpenKeyword = path.map(print, "childrenByName", "'('");
+		const parenCloseKeyword = path.map(print, "childrenByName", "')'");
 
 		return group([
 			switchPart,
 			space,
-			"(",
+			parenOpenKeyword,
 			exprPart,
-			")",
+			parenCloseKeyword,
 			indent([
 				hardline,
 				join(hardline, switchCaseClausePart),

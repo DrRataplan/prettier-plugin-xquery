@@ -1,12 +1,10 @@
 import { doc } from "prettier";
-import type { AstPath, Doc } from "prettier";
-import type { NonTerminalNode } from "../tree.ts";
 import space from "./util/space.ts";
-import { type Print } from "./util/Print.ts";
+import type { Handler } from "./util/Handler.ts";
 
 const { group, hardline } = doc.builders;
 
-const tryCatchExpressionHandlers: Record<string, (path: AstPath<NonTerminalNode>, print: Print) => Doc> = {
+const tryCatchExpressionHandlers: Record<string, Handler> = {
 	TryCatchExpr: (path, print) => {
 		const tryClausePart = path.map(print, "childrenByName", "TryClause");
 		const catchClausePart = path.map(print, "childrenByName", "CatchClause");

@@ -1,12 +1,10 @@
 import { doc } from "prettier";
-import type { AstPath, Doc } from "prettier";
-import type { NonTerminalNode } from "../tree.ts";
 import space from "./util/space.ts";
-import { type Print } from "./util/Print.ts";
+import type { Handler } from "./util/Handler.ts";
 
 const { join, group, indent, hardline } = doc.builders;
 
-const switchExpressionHandlers: Record<string, (path: AstPath<NonTerminalNode>, print: Print) => Doc> = {
+const switchExpressionHandlers: Record<string, Handler> = {
 	SwitchExpr: (path, print) => {
 		const switchPart = path.map(print, "childrenByName", "'switch'");
 		const exprPart = path.map(print, "childrenByName", "Expr");
@@ -15,12 +13,15 @@ const switchExpressionHandlers: Record<string, (path: AstPath<NonTerminalNode>, 
 		const returnPart = path.map(print, "childrenByName", "'return'");
 		const exprSinglePart = path.map(print, "childrenByName", "ExprSingle");
 
+		const parenOpenKeyword = path.map(print, "childrenByName", "'('");
+		const parenCloseKeyword = path.map(print, "childrenByName", "')'");
+
 		return group([
 			switchPart,
 			space,
-			"(",
+			parenOpenKeyword,
 			exprPart,
-			")",
+			parenCloseKeyword,
 			indent([
 				hardline,
 				join(hardline, switchCaseClausePart),

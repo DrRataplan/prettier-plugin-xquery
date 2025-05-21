@@ -1,33 +1,68 @@
 import { doc } from "prettier";
-import type { AstPath, Doc } from "prettier";
 import type { NonTerminalNode } from "../tree.ts";
 import space from "./util/space.ts";
-import { type Print } from "./util/Print.ts";
+import type { Handler } from "./util/Handler.ts";
 
 const { softline, group, indent, hardline } = doc.builders;
 
-const conditionalExpressionHandlers: Record<string, (path: AstPath<NonTerminalNode>, print: Print) => Doc> = {
-	IfExpr: (path, print) => {
+const conditionalExpressionHandlers: Record<string, Handler> = {
+	IfExpr: (path, print, options) => {
 		const conditionPart = path.map(print, "childrenByName", "Expr");
-		const [thenPart, elsePart] = path.map(print, "childrenByName", "ExprSingle");
 		const ifKeyword = path.map(print, "childrenByName", "'if'");
 		const elseKeyword = path.map(print, "childrenByName", "'else'");
 		const thenKeyword = path.map(print, "childrenByName", "'then'");
 
+		const thenAstNode = path.node.childrenByName["ExprSingle"][0] as NonTerminalNode;
 		const elseAstNode = path.node.childrenByName["ExprSingle"][1] as NonTerminalNode;
 		const nestedIfInElse = elseAstNode.childrenByName["IfExpr"];
+
+		const thenPartIsParenthesized = thenAstNode.childrenByName["ParenthesizedExpr"];
+		const elsePartIsParenthesized = elseAstNode.childrenByName["ParenthesizedExpr"];
+
+		const parenOpenKeyword = path.map(print, "childrenByName", "'('");
+		const parenCloseKeyword = path.map(print, "childrenByName", "')'");
+
+		// Break the parenthesized expression in the parenthesized expression here, to align with
+		// the One True Brace style prettier uses
+		// TODO: enforce these parens
+		/*
+		 * if (1) then (
+		 *   2
+		 * ) else (
+		 *   3
+		 * )
+		 */
+		options.breakNextParenthesizedExpr = thenPartIsParenthesized;
+		const thenPart = path.call(print, "childrenByName", "ExprSingle", 0);
+		options.breakNextParenthesizedExpr = elsePartIsParenthesized;
+		const elsePart = path.call(print, "childrenByName", "ExprSingle", 1);
+		options.breakNextParenthesizedExpr = false;
 
 		/*
 		  Format nested else if expressions: if the else contains an if, print `else if (..)`, otherwise print `else \n EXPR`
 		*/
-		const formattedElsePart = nestedIfInElse
-			? [elseKeyword, space, elsePart]
-			: [elseKeyword, indent([hardline, elsePart])];
+		const formattedElsePart =
+			nestedIfInElse || elsePartIsParenthesized
+				? [elseKeyword, space, elsePart]
+				: [elseKeyword, indent([hardline, elsePart])];
+
+		// For prenthesized 'then' expressions, the parenthesized expression will handle the hardlines.
+		const formattedThenPart = thenPartIsParenthesized
+			? [space, thenPart, space]
+			: [indent([hardline, thenPart]), hardline];
 
 		return group([
-			group([ifKeyword, space, "(", indent([softline, conditionPart]), softline, ")", space, thenKeyword]),
-			indent([hardline, thenPart]),
-			hardline,
+			group([
+				ifKeyword,
+				space,
+				parenOpenKeyword,
+				indent([softline, conditionPart]),
+				softline,
+				parenCloseKeyword,
+				space,
+				thenKeyword,
+			]),
+			formattedThenPart,
 			formattedElsePart,
 		]);
 	},

@@ -27,142 +27,139 @@ import module namespace errors = "http://e-editiones.org/roaster/errors";
  : Try to retrieve and convert the request body if specified
  :)
 declare function body:parse ($request as map(*)) {
-  if (not(exists($request?media-type))) then
-    () (: this route expects no body, return an empty sequence :)
-  else
-    (
-      try {
-        switch ($request?format)
-          case "form-data" return
-            body:parse-form-data($request?schema)
-          (:
+  if (not(exists($request?media-type))) then (
+    (: this route expects no body, return an empty sequence :)
+  ) else (
+    try {
+      switch ($request?format)
+        case "form-data" return
+          body:parse-form-data($request?schema)
+        (:
                 Parse body contents to XQuery data structure for media types
                 that were identified as being in JSON format.
                 NOTE: The data needs to be serialized again before it can be stored.
                 NOTE: For application/json-patch+json request:get-data returns an xs:string.
             :)
-          case "json" return
-            let $data := request:get-data()
-            return typeswitch ($data)
-                case xs:string return
-                  parse-json($data)
+        case "json" return
+          let $data := request:get-data()
+          return typeswitch ($data)
+              case xs:string return
+                parse-json($data)
 
-                default return
-                  util:binary-to-string($data) => parse-json()
-          (:
+              default return
+                util:binary-to-string($data) => parse-json()
+        (:
                 Workaround for eXist-DB specific behaviour,
                 this way we will get parse errors as early as possible
                 while still having access to the data afterwards.
             :)
-          case "xml" return
-            let $data := request:get-data()
-            return typeswitch ($data)
-                case node() return
-                  $data
+        case "xml" return
+          let $data := request:get-data()
+          return typeswitch ($data)
+              case node() return
+                $data
 
-                default return
-                  parse-xml($data)
-          (: Treat everything else as binary data :)
-          default return
-            request:get-data()
-      }
-      catch * {
-        error(
-          $errors:BODY_CONTENT_TYPE,
-          "Body with media type '" ||
-            $request?media-type ||
-            "' could not be parsed (invalid " ||
-            upper-case($request?format) ||
-            ").",
-          $err:description
-        )
-      }
-    )
+              default return
+                parse-xml($data)
+        (: Treat everything else as binary data :)
+        default return
+          request:get-data()
+    }
+    catch * {
+      error(
+        $errors:BODY_CONTENT_TYPE,
+        "Body with media type '" ||
+          $request?media-type ||
+          "' could not be parsed (invalid " ||
+          upper-case($request?format) ||
+          ").",
+        $err:description
+      )
+    }
+  )
 };
 
 declare function body:content-type ($request as map(*)) as map(*) {
-  if (not(exists($request?config?requestBody?content))) then
-    (map {}) (: this route expects no body, return an empty map :)
-  else if (not($request?config?requestBody?content instance of map(*))) then
+  if (not(exists($request?config?requestBody?content))) then (
+    (: this route expects no body, return an empty map :)
+    map {}
+  ) else if (not($request?config?requestBody?content instance of map(*))) then
     error(
       $errors:OPERATION,
       "requestBody.content is not defined correctly",
       $request?config
     )
-  else
-    (
-      let $content := $request?config?requestBody?content
-      let $defined-content-types := map:keys($content)
-      let $raw-content-type-header-value := request:get-header("Content-Type")
-      let $media-type :=
-        if (contains($raw-content-type-header-value, ";")) then
-          substring-before($raw-content-type-header-value, ";")
-        else
-          $raw-content-type-header-value
-      let $charset :=
-        if (contains($raw-content-type-header-value, "charset=")) then
+  else (
+    let $content := $request?config?requestBody?content
+    let $defined-content-types := map:keys($content)
+    let $raw-content-type-header-value := request:get-header("Content-Type")
+    let $media-type :=
+      if (contains($raw-content-type-header-value, ";")) then
+        substring-before($raw-content-type-header-value, ";")
+      else
+        $raw-content-type-header-value
+    let $charset :=
+      if (contains($raw-content-type-header-value, "charset=")) then (
+        substring-after($raw-content-type-header-value, "charset=")
+          => lower-case()
+          => replace("^([a-z0-9\\-]+).*$", "$1")
+      ) else (
+        )
+    let $registry := substring-before($media-type, "/")
+    return if (
+        $media-type = $defined-content-types or
           (
-            substring-after($raw-content-type-header-value, "charset=")
-              => lower-case()
-              => replace("^([a-z0-9\\-]+).*$", "$1")
+            $defined-content-types = "*/*" and
+              $registry =
+                (
+                  "application",
+                    "audio",
+                    "example",
+                    "font",
+                    "image",
+                    "message",
+                    "model",
+                    "multipart",
+                    "text",
+                    "video"
+                )
           )
-        else
-          ()
-      let $registry := substring-before($media-type, "/")
-      return if (
-          $media-type = $defined-content-types or
-            (
-              $defined-content-types = "*/*" and
-                $registry =
-                  (
-                    "application",
-                      "audio",
-                      "example",
-                      "font",
-                      "image",
-                      "message",
-                      "model",
-                      "multipart",
-                      "text",
-                      "video"
-                  )
-            )
-        ) then
-          map {
-            "media-type": $media-type,
-            "charset": $charset,
-            "registry": $registry,
-            "schema": $content?($media-type)?schema,
-            "format":
-              if ($media-type = ("application/json", "text/json")) then
-                "json"
-              else if (
-                $media-type = ("application/xml", "text/xml", "image/svg+xml")
-              ) then
-                "xml"
-              else if (
-                $media-type =
-                  ("multipart/form-data", "application/x-www-form-urlencoded")
-              ) then
-                "form-data"
-              else if (
-                starts-with($media-type, "application/") and
-                  (
-                    ends-with($media-type, "+json") or
-                      ends-with($media-type, "+xml")
-                  )
-              ) then
-                substring-after($media-type, "+")
-              else
-                "binary"
-          }
-        else
-          error(
-            $errors:BODY_CONTENT_TYPE,
-            "Body with media-type '" || $media-type || "' is not allowed",
-            $request
-          )
-    )
+      ) then
+        map {
+          "media-type": $media-type,
+          "charset": $charset,
+          "registry": $registry,
+          "schema": $content?($media-type)?schema,
+          "format":
+            if ($media-type = ("application/json", "text/json")) then
+              "json"
+            else if (
+              $media-type = ("application/xml", "text/xml", "image/svg+xml")
+            ) then
+              "xml"
+            else if (
+              $media-type =
+                ("multipart/form-data", "application/x-www-form-urlencoded")
+            ) then
+              "form-data"
+            else if (
+              starts-with($media-type, "application/") and
+                (
+                  ends-with($media-type, "+json") or
+                    ends-with($media-type, "+xml")
+                )
+            ) then
+              substring-after($media-type, "+")
+            else
+              "binary"
+        }
+      else
+        error(
+          $errors:BODY_CONTENT_TYPE,
+          "Body with media-type '" || $media-type || "' is not allowed",
+          $request
+        )
+  )
 };
 
 declare %private function body:get-form-data-value (
@@ -244,9 +241,8 @@ declare %private function body:ensure-required-properties (
   for-each(
       $required-properties,
       function ($required-prop-name as xs:string) as empty-sequence() {
-        if ($required-properties = $received-property-names) then
-          ()
-        else
+        if ($required-properties = $received-property-names) then (
+          ) else
           error(
             $errors:BAD_REQUEST,
             'Property "' || $required-prop-name || '" is required!'

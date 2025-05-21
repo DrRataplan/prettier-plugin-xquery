@@ -1,14 +1,13 @@
 import { doc } from "prettier";
-import type { AstPath, Doc } from "prettier";
-import type { NonTerminalNode } from "../tree.ts";
+import type { Doc } from "prettier";
 import space from "./util/space.ts";
-import { type Print } from "./util/Print.ts";
 import printIfExist from "./util/printIfExists.ts";
 import joinChildrenWithSpaces from "./util/joinChildrenWithSpaces.ts";
+import type { Handler } from "./util/Handler.ts";
 
 const { join, group, hardline, softline, indent, line } = doc.builders;
 
-const modulesAndPrologsHandlers: Record<string, (path: AstPath<NonTerminalNode>, print: Print) => Doc> = {
+const modulesAndPrologsHandlers: Record<string, Handler> = {
 	VersionDecl: (path, print) => {
 		const xqueryKeyword = path.map(print, "childrenByName", "'xquery'");
 		const encodingKeyword = printIfExist(path, print, "'encoding'");
@@ -165,16 +164,19 @@ const modulesAndPrologsHandlers: Record<string, (path: AstPath<NonTerminalNode>,
 		const functionBodyPart =
 			printIfExist(path, print, "FunctionBody") ?? path.map(print, "childrenByName", "'external'");
 
+		const parenOpenKeyword = path.map(print, "childrenByName", "'('");
+		const parenCloseKeyword = path.map(print, "childrenByName", "')'");
+
 		return group([
 			group([
 				functionKeyword,
 				space,
 				eQNamePart,
 				space,
-				"(",
+				parenOpenKeyword,
 				indent([softline, paramListPart]),
 				softline,
-				")",
+				parenCloseKeyword,
 				space,
 				typeDeclarationPart,
 			]),

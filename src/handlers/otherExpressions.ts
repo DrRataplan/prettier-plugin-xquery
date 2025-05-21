@@ -1,8 +1,7 @@
 import { doc } from "prettier";
-import type { AstPath, Doc } from "prettier";
-import type { NonTerminalNode } from "../tree.ts";
+import type { Doc } from "prettier";
 import space from "./util/space.ts";
-import { type Print } from "./util/Print.ts";
+import type { Handler } from "./util/Handler.ts";
 
 const { group, indent, line } = doc.builders;
 
@@ -14,7 +13,7 @@ const makePairs = (rest: Doc[]): [Doc, Doc][] => {
 	return pairs;
 };
 
-const handleBinaryOperator = (path: AstPath<NonTerminalNode>, print: Print): Doc => {
+const handleBinaryOperator: Handler = (path, print) => {
 	const [lhs, ...rest] = path.map(print, "children");
 
 	const pairs = makePairs(rest);
@@ -24,7 +23,7 @@ const handleBinaryOperator = (path: AstPath<NonTerminalNode>, print: Print): Doc
 /**
  * Other expressions, those who fall in the pattern of {LHS} (operator {RHS})*
  */
-const otherExpressionHandlers: Record<string, (path: AstPath<NonTerminalNode>, print: Print) => Doc> = {
+const otherExpressionHandlers: Record<string, Handler> = {
 	StringConcatExpr: handleBinaryOperator,
 	ComparisonExpr: handleBinaryOperator,
 	IntersectExceptExpr: handleBinaryOperator,
@@ -33,6 +32,7 @@ const otherExpressionHandlers: Record<string, (path: AstPath<NonTerminalNode>, p
 	AndExpr: handleBinaryOperator,
 	MultiplicativeExpr: handleBinaryOperator,
 	AdditiveExpr: handleBinaryOperator,
+	RangeExpr: handleBinaryOperator,
 };
 
 export default otherExpressionHandlers;

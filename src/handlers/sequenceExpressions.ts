@@ -1,15 +1,9 @@
 import { doc } from "prettier";
-import type { AstPath, Doc } from "prettier";
-import type { NonTerminalNode } from "../tree.ts";
-import space from "./util/space.ts";
-import { type Print } from "./util/Print.ts";
+import type { Handler } from "./util/Handler.ts";
 
 const { join, group, indent, line } = doc.builders;
 
-const sequenceExpressionHandlers: Record<string, (path: AstPath<NonTerminalNode>, print: Print) => Doc> = {
-	RangeExpr: (path, print) => {
-		return join([space, "to", space], path.map(print, "childrenByName", "AdditiveExpr"));
-	},
+const sequenceExpressionHandlers: Record<string, Handler> = {
 	Expr: (path, print) => {
 		const exprSingles = path.map(print, "childrenByName", "ExprSingle");
 
