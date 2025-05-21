@@ -116,15 +116,15 @@ declare function body:content-type ($request as map(*)) as map(*) {
               $registry =
                 (
                   "application",
-                    "audio",
-                    "example",
-                    "font",
-                    "image",
-                    "message",
-                    "model",
-                    "multipart",
-                    "text",
-                    "video"
+                  "audio",
+                  "example",
+                  "font",
+                  "image",
+                  "message",
+                  "model",
+                  "multipart",
+                  "text",
+                  "video"
                 )
           )
       ) then
@@ -242,17 +242,17 @@ declare %private function body:ensure-required-properties (
   $required-properties as xs:string*
 ) as xs:string* {
   for-each(
-      $required-properties,
-      function ($required-prop-name as xs:string) as empty-sequence() {
-        if ($required-properties = $received-property-names) then (
-          ) else
-          error(
-            $errors:BAD_REQUEST,
-            'Property "' || $required-prop-name || '" is required!'
-          )
-      }
-    ),
-    $received-property-names
+    $required-properties,
+    function ($required-prop-name as xs:string) as empty-sequence() {
+      if ($required-properties = $received-property-names) then (
+        ) else
+        error(
+          $errors:BAD_REQUEST,
+          'Property "' || $required-prop-name || '" is required!'
+        )
+    }
+  ),
+  $received-property-names
 };
 
 (:~
@@ -275,4 +275,6 @@ declare %private function body:parse-form-data ($schema as map(*)?) as map(*) {
       for-each(request:get-parameter-names(), body:additional-property#1)
     )
 };
+
+
 `;

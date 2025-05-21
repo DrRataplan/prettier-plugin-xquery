@@ -14,8 +14,23 @@ describe('smoke tests', async (d) => {
 		assert.strictEqual(result, code, 'The input was already formatted correctly');
 	});
 
-	it('indents sequence expressions', async () => {
+	it('does not indent very short sequence expressions', async () => {
 		const code = `(1, 2)`;
+		const result = await prettier.format(code, {
+			parser: 'xquery',
+			plugins: [xqueryPlugin],
+		});
+		assert.strictEqual(result, code, 'The input was already formatted correctly');
+	});
+
+	it('indents more complex sequence expressions', async () => {
+		const code = `(
+  map {"age": 1, "name": "a"},
+  map {"age": 3, "name": "b"},
+  map {"age": 4, "name": "c"},
+  map {"age": 5, "name": "d"},
+  map {"age": 6, "name": "e"}
+)`;
 		const result = await prettier.format(code, {
 			parser: 'xquery',
 			plugins: [xqueryPlugin],
