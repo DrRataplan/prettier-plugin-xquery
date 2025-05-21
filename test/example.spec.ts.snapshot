@@ -63,8 +63,7 @@ declare function body:parse ($request as map(*)) {
         (: Treat everything else as binary data :)
         default return
           request:get-data()
-    }
-    catch * {
+    } catch * {
       error(
         $errors:BODY_CONTENT_TYPE,
         "Body with media type '" ||
