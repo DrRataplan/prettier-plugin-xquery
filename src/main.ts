@@ -63,20 +63,7 @@ const xqueryParser: Parser<Node> = {
 			throw new SyntaxError(`${parser.getErrorMessage(pe)} (${line}:${column})`);
 		}
 
-		return handler.root;
-	},
-	astFormat: "xquery",
-	locStart(node) {
-		return node.begin;
-	},
-	locEnd(node) {
-		return node.end!;
-	},
-};
-
-const xqueryPrinter: Printer<Node> = {
-	preprocess(ast: Node) {
-		const simplifyNode = (node: Node): Node[] => {
+				const simplifyNode = (node: Node): Node[] => {
 			if (!(node instanceof NonTerminalNode)) {
 				return [node];
 			}
@@ -117,10 +104,20 @@ const xqueryPrinter: Printer<Node> = {
 
 			return [node];
 		};
-		const [newRoot] = simplifyNode(ast);
+		const [newRoot] = simplifyNode(handler.root);
 
 		return newRoot;
 	},
+	astFormat: "xquery",
+	locStart(node) {
+		return node.begin;
+	},
+	locEnd(node) {
+		return node.end!;
+	},
+};
+
+const xqueryPrinter: Printer<Node> = {
 	canAttachComment(node: Node) {
 		// Terminal nodes are sometimes not printed. Refrain from adding comments to them.
 		// TODO: always print terminal nodes to optimize comments
@@ -134,11 +131,12 @@ const xqueryPrinter: Printer<Node> = {
 		);
 	},
 	isBlockComment(node: Node) {
-		return node instanceof CommentNode && (node.value.startsWith("(:~") || node.value.includes("\n"));
+		// In XQuery all comments are block comments, There is no line comment, like `//`
+		return node instanceof CommentNode;
 	},
 	printComment(path: AstPath<Node>) {
 		const value = path.getNode() as CommentNode;
-		return value.value;
+		return group(value.value);
 	},
 	print(path: AstPath<Node>, options, print: Print, _args) {
 		if (path.node instanceof LeafNode) {
