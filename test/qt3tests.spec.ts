@@ -107,7 +107,7 @@ Result of first round: ${resultOfFirstPrettification}`,
 						if (!ignoreList[testSetName]) {
 							ignoreList[testSetName] = {};
 						}
-						ignoreList[testSetName][name] = e.toString();
+						ignoreList[testSetName][name] = e.toString().replaceAll(/\u001b\[3.m/g, '').split('\n');
 						if (!isKnownFailure) {
 							// New failure: rethrow. Otherwise, ignore
 							throw e;
