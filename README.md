@@ -2,6 +2,9 @@
 
 `prettier-plugin-xquery` is a [prettier](https://prettier.io/) plugin for XML. `prettier` is an opinionated code formatter that supports multiple languages and integrates with most editors. The idea is to eliminate discussions of style in code review and allow developers to get back to thinking about code design instead.
 
+## Demo
+A demo page lives at [xquery.elliat.nl](https://xquery.elliat.nl).
+
 ## Getting started
 
 To run `prettier` with the XML plugin, you're going to need [`node`](https://nodejs.org/en/download/).
@@ -39,7 +42,6 @@ const config = {
 
 export default config;
 ```
-
 
 ## Configuration
 | API Option                 | CLI Option                     |   Default    | Description                                                                                                              |
