@@ -7,10 +7,17 @@ const { join, line, group, indent, hardline, softline } = doc.builders;
 
 const primaryExpressionHandlers: Record<string, Handler> = {
 	ParenthesizedExpr: (path, print, options) => {
+		const shouldBreakAndIndent = options.breakNextParenthesizedExpr;
+		options.breakNextParenthesizedExpr = false;
 		const parenOpenKeyword = path.map(print, "childrenByName", "'('");
 		const parenCloseKeyword = path.map(print, "childrenByName", "')'");
-		let lineType = options.breakNextParenthesizedExpr ? hardline : softline;
+		const lineType = shouldBreakAndIndent ? hardline : softline;
+
 		const children = printIfExist(path, print, "Expr");
+		const parenthesizedExpressionIsEmpty = !children && path.node.childrenByName["')'"][0].comments === undefined;
+		if (parenthesizedExpressionIsEmpty) {
+			return group([parenOpenKeyword, lineType, parenCloseKeyword]);
+		}
 		return group([parenOpenKeyword, indent([lineType, children ?? []]), children ? lineType : [], parenCloseKeyword]);
 	},
 	FunctionCall: (path, print) => {

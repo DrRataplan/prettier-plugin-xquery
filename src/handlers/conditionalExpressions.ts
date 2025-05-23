@@ -23,8 +23,10 @@ const conditionalExpressionHandlers: Record<string, Handler> = {
 		const parenCloseKeyword = path.map(print, "childrenByName", "')'");
 
 		// Break the parenthesized expression in the parenthesized expression here, to align with
-		// the One True Brace style prettier uses
+		// the One True Brace style prettier uses.
+
 		// TODO: enforce these parens
+
 		/*
 		 * if (1) then (
 		 *   2
@@ -35,22 +37,24 @@ const conditionalExpressionHandlers: Record<string, Handler> = {
 		options.breakNextParenthesizedExpr = thenPartIsParenthesized;
 		const thenPart = path.call(print, "childrenByName", "ExprSingle", 0);
 		options.breakNextParenthesizedExpr = elsePartIsParenthesized;
+
 		const elsePart = path.call(print, "childrenByName", "ExprSingle", 1);
 		options.breakNextParenthesizedExpr = false;
 
+		// For parenthesized 'then' expressions, the parenthesized expression will handle the
+		// hardlines.
+		const formattedThenPart = thenPartIsParenthesized
+			? [space, thenPart, space]
+			: [indent([hardline, thenPart]), hardline];
+
 		/*
-		  Format nested else if expressions: if the else contains an if, print `else if (..)`, otherwise print `else \n EXPR`
+		  Format nested else if expressions: if the else contains an if, print `else if (..)`,
+		  otherwise print `else \n EXPR`
 		*/
 		const formattedElsePart =
 			nestedIfInElse || elsePartIsParenthesized
 				? [elseKeyword, space, elsePart]
 				: [elseKeyword, indent([hardline, elsePart])];
-
-		// For prenthesized 'then' expressions, the parenthesized expression will handle the hardlines.
-		const formattedThenPart = thenPartIsParenthesized
-			? [space, thenPart, space]
-			: [indent([hardline, thenPart]), hardline];
-
 		return group([
 			group([
 				ifKeyword,

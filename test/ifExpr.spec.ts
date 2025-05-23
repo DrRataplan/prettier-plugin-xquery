@@ -74,4 +74,60 @@ if (1) then (
 		assert.strictEqual(result, code, 'The input was already formatted correctly');
 	});
 
+	it('formats the case with empty sequences in the then', async () => {
+		const code = `
+if (true()) then (
+) else (
+  "Hello World!"
+)`.trimStart();
+		const result = await prettier.format(code, {
+			parser: 'xquery',
+			plugins: [xqueryPlugin],
+		});
+
+		assert.strictEqual(result, code, 'The input was already formatted correctly');
+	});
+
+	it('formats the case with empty sequences in the else', async () => {
+		const code = `
+if (true()) then
+  "Hello world!"
+else (
+)`.trimStart();
+		const result = await prettier.format(code, {
+			parser: 'xquery',
+			plugins: [xqueryPlugin],
+		});
+
+		assert.strictEqual(result, code, 'The input was already formatted correctly');
+	});
+
+	it('formats the case with empty sequences in both the else as the then', async () => {
+		const code = `
+if (true()) then (
+) else (
+)`.trimStart();
+		const result = await prettier.format(code, {
+			parser: 'xquery',
+			plugins: [xqueryPlugin],
+		});
+
+		assert.strictEqual(result, code, 'The input was already formatted correctly');
+	});
+
+	it('formats the case with empty sequences but comments in both the else as the then', async () => {
+		const code = `
+if (true()) then (
+  (: A :)
+) else (
+  (: B :)
+)`.trimStart();
+		const result = await prettier.format(code, {
+			parser: 'xquery',
+			plugins: [xqueryPlugin],
+		});
+
+		assert.strictEqual(result, code, 'The input was already formatted correctly');
+	});
+
 });

@@ -3,6 +3,9 @@ export abstract class Node {
 	begin: number;
 	end: number | undefined;
 
+	// Prettier may add a comments key at some points
+	comments: undefined | CommentNode[] = undefined;
+
 	constructor(name: string, begin: number, end?: number) {
 		this.name = name;
 		this.begin = begin;

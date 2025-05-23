@@ -32,7 +32,7 @@ declare
 
 declare function body:parse ($request as map(*)) {
   if (not(exists($request?media-type))) then (
-    ) (: this route expects no body, return an empty sequence :) else (
+  ) (: this route expects no body, return an empty sequence :) else (
     try {
       switch ($request?format)
         case "form-data" return
@@ -107,7 +107,7 @@ declare function body:content-type ($request as map(*)) as map(*) {
           => lower-case()
           => replace("^([a-z0-9\\-]+).*$", "$1")
       ) else (
-        )
+      )
     let $registry := substring-before($media-type, "/")
     return if (
         $media-type = $defined-content-types or
@@ -245,7 +245,7 @@ declare %private function body:ensure-required-properties (
     $required-properties,
     function ($required-prop-name as xs:string) as empty-sequence() {
       if ($required-properties = $received-property-names) then (
-        ) else
+      ) else
         error(
           $errors:BAD_REQUEST,
           'Property "' || $required-prop-name || '" is required!'
