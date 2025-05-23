@@ -10,7 +10,7 @@ if (1) then
   2
 else
   3
-`.trim();
+`.trimStart();
 		const result = await prettier.format(code, {
 			parser: 'xquery',
 			plugins: [xqueryPlugin],
@@ -27,7 +27,7 @@ else if (3) then
   4
 else
   5
-`.trim();
+`.trimStart();
 		const result = await prettier.format(code, {
 			parser: 'xquery',
 			plugins: [xqueryPlugin],
@@ -45,7 +45,7 @@ if (1) then (
 ) else (
   5
 )
-`.trim();
+`.trimStart();
 		const result = await prettier.format(code, {
 			parser: 'xquery',
 			plugins: [xqueryPlugin],
@@ -65,7 +65,7 @@ if (1) then (
 ) else (
   (: c :)
 )
-`.trim();
+`.trimStart();
 		const result = await prettier.format(code, {
 			parser: 'xquery',
 			plugins: [xqueryPlugin],

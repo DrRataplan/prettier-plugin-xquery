@@ -7,12 +7,13 @@ describe('string literals', async (d) => {
 	it('fixes the quotes to the preferred style', async () => {
 		const code = `
 "A", 'A', 'A''A', "A""A", "A""A""A'A"
-`.trim();
+`.trimStart();
 		const result = await prettier.format(code, {
 			parser: 'xquery',
 			plugins: [xqueryPlugin],
 		});
 
-		assert.strictEqual(result,`"A", "A", "A'A", 'A"A', 'A"A"A''A'` );
+		assert.strictEqual(result,`"A", "A", "A'A", 'A"A', 'A"A"A''A'
+` );
 	});
 });

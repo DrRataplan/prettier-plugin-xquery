@@ -21,6 +21,7 @@ xquery version "3.1";
  : request body parser
  :)
 module namespace body = "http://e-editiones.org/roaster/body";
+
 import module namespace errors = "http://e-editiones.org/roaster/errors";
 
 declare
@@ -275,6 +276,5 @@ declare %private function body:parse-form-data ($schema as map(*)?) as map(*) {
       for-each(request:get-parameter-names(), body:additional-property#1)
     )
 };
-
 
 `;

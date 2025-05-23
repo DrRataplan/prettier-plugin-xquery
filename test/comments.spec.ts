@@ -8,7 +8,7 @@ describe('comments', async (d) => {
 		const code = `
 (: A :)
 1 (: B :) eq (: C :) 1
-`.trim();
+`.trimStart();
 		debugger;
 		const result = await prettier.format(code, {
 			parser: 'xquery',

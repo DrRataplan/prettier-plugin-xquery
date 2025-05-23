@@ -3,65 +3,94 @@ import assert from 'node:assert';
 import * as prettier from 'prettier';
 import xqueryPlugin from '../src/main.ts';
 
-describe('smoke tests', async (d) => {
-	it('works', async () => {
-		const code = '1 + 1\n';
-		const result = await prettier.format(code, {
-			parser: 'xquery',
-			plugins: [xqueryPlugin],
-		});
-
-		assert.strictEqual(result, code, 'The input was already formatted correctly');
-	});
-
-	it('does not indent very short sequence expressions', async () => {
-		const code = `(1, 2)
-`;
-		const result = await prettier.format(code, {
-			parser: 'xquery',
-			plugins: [xqueryPlugin],
-		});
-		assert.strictEqual(result, code, 'The input was already formatted correctly');
-	});
-
-	it('indents more complex sequence expressions', async () => {
-		const code = `(
-  map {"age": 1, "name": "a"},
-  map {"age": 3, "name": "b"},
-  map {"age": 4, "name": "c"},
-  map {"age": 5, "name": "d"},
-  map {"age": 6, "name": "e"}
-)
-`;
-		const result = await prettier.format(code, {
-			parser: 'xquery',
-			plugins: [xqueryPlugin],
-		});
-		assert.strictEqual(result, code, 'The input was already formatted correctly');
-	});
-
-	it('indents long lines', async () => {
-		const code = `1111111111111111111111111111111111111111111111111 +
-  2222222222222222222222222222222222222222222 +
-  333333333333333333333333333333333333333
-`;
-		const result = await prettier.format(code, {
-			parser: 'xquery',
-			plugins: [xqueryPlugin],
-		});
-		assert.strictEqual(result, code, 'The input was already formatted correctly');
-	});
-	it('formats function definitions and variable definitions', async (t) => {
+describe('modules', async (d) => {
+	describe('main modules', () => {
+	it('formats a simple case', async () => {
 		const code = `
-declare variable $var := "B";
+"hello world!"
+`.trimStart();
+		const result = await prettier.format(code, {
+			parser: 'xquery',
+			plugins: [xqueryPlugin],
+		});
 
-declare function local:bla ($a as xs:integer) as xs:double {
-  1 + $a
+		assert.strictEqual(result, code, 'The input was already formatted correctly');
+	});
+
+	it('formats a simple case with a version declaration', async () => {
+		const code = `
+xquery version "3.0";
+
+"hello world"
+`.trimStart();
+		const result = await prettier.format(code, {
+			parser: 'xquery',
+			plugins: [xqueryPlugin],
+		});
+
+		assert.strictEqual(result, code, 'The input was already formatted correctly');
+	});
+
+	it('formats a simple case with a version declaration and a prolog', async () => {
+		const code = `
+xquery version "3.0";
+
+declare variable $foo := "bar";
+
+"hello world"
+`.trimStart();
+		const result = await prettier.format(code, {
+			parser: 'xquery',
+			plugins: [xqueryPlugin],
+		});
+
+		assert.strictEqual(result, code, 'The input was already formatted correctly');
+	});
+	});
+
+	describe('library modules', () => {
+		it('formats a simple case', async () => {
+			const code = `
+module namespace x = "y";
+
+declare variable $foo := "bar";
+`.trimStart();
+		const result = await prettier.format(code, {
+			parser: 'xquery',
+			plugins: [xqueryPlugin],
+		});
+
+		assert.strictEqual(result, code, 'The input was already formatted correctly');
+	});
+
+	it('formats a simple case with a version declaration', async () => {
+		const code = `
+xquery version "3.0";
+
+module namespace x = "y";
+
+declare variable $foo := "bar";
+`.trimStart();
+		const result = await prettier.format(code, {
+			parser: 'xquery',
+			plugins: [xqueryPlugin],
+		});
+
+		assert.strictEqual(result, code, 'The input was already formatted correctly');
+	});
+
+	it('formats a simple case with a version declaration and multiple declarations', async () => {
+		const code = `
+xquery version "3.0";
+
+module namespace x = "y";
+
+declare variable $foo := "bar";
+
+declare function foo () {
+  "bar"
 };
-
-local:bla(2)
 `.trimStart();
-
 		const result = await prettier.format(code, {
 			parser: 'xquery',
 			plugins: [xqueryPlugin],
@@ -70,21 +99,5 @@ local:bla(2)
 		assert.strictEqual(result, code, 'The input was already formatted correctly');
 	});
 
-	it('formats FLWOR expressions', async (t) => {
-		const code = `
-for $x in (1, 2, 3)
-let $y := $x + 1
-let $x :=
-  for $q in $y to $z
-  return $q * $q
-return $y + sum(($q))
-`.trimStart();
-
-		const result = await prettier.format(code, {
-			parser: 'xquery',
-			plugins: [xqueryPlugin],
-		});
-
-		assert.strictEqual(result, code, 'The input was already formatted correctly');
 	});
 });
