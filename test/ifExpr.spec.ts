@@ -79,7 +79,8 @@ if (1) then (
 if (true()) then (
 ) else (
   "Hello World!"
-)`.trimStart();
+)
+`.trimStart();
 		const result = await prettier.format(code, {
 			parser: 'xquery',
 			plugins: [xqueryPlugin],
@@ -93,7 +94,8 @@ if (true()) then (
 if (true()) then
   "Hello world!"
 else (
-)`.trimStart();
+)
+`.trimStart();
 		const result = await prettier.format(code, {
 			parser: 'xquery',
 			plugins: [xqueryPlugin],
@@ -106,7 +108,8 @@ else (
 		const code = `
 if (true()) then (
 ) else (
-)`.trimStart();
+)
+`.trimStart();
 		const result = await prettier.format(code, {
 			parser: 'xquery',
 			plugins: [xqueryPlugin],
@@ -121,7 +124,8 @@ if (true()) then (
   (: A :)
 ) else (
   (: B :)
-)`.trimStart();
+)
+`.trimStart();
 		const result = await prettier.format(code, {
 			parser: 'xquery',
 			plugins: [xqueryPlugin],
