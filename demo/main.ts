@@ -1,6 +1,8 @@
 import prettier from 'prettier';
 import prettierPluginXQuery from '../src/main.ts';
 
+import '@picocss/pico';
+
 // Register the jinn-codemirror web component
 import '@jinntec/jinn-codemirror';
 

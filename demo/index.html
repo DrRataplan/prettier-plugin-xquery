@@ -1,15 +1,19 @@
 <html>
   <head>
 
-  <title>Prettier plugin XQuery demo</title>
+	<title>Prettier plugin XQuery demo</title>
 
-  <script src="./main.ts" type="module"></script>
-</head>
+	<script src="./main.ts" type="module"></script>
+  </head>
 
   <body>
-	Add your code here:
-	<jinn-codemirror id="input" code="'Hello world!'" mode="xquery"></jinn-codemirror>
-
-	<button id="format">Format</button>
+	<main class="container">
+	  <form>
+		<label>Add your code here:
+		  <jinn-codemirror id="input" code="'Hello world!'" mode="xquery"></jinn-codemirror>
+		</label>
+	  </form>
+	  <button id="format">Format</button>
+	</main>
   </body>
 </html>
