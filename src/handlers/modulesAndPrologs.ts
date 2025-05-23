@@ -4,7 +4,7 @@ import space from "./util/space.ts";
 import printIfExist from "./util/printIfExists.ts";
 import joinChildrenWithSpaces from "./util/joinChildrenWithSpaces.ts";
 import type { Handler } from "./util/Handler.ts";
-import type { Node } from "../tree.ts";
+import type { Node, NonTerminalNode } from "../tree.ts";
 
 const { join, group, hardline, softline, indent, line } = doc.builders;
 
@@ -26,10 +26,30 @@ const modulesAndPrologsHandlers: Record<string, Handler> = {
 			items.push(encodingKeyword!, space, firstStringLiteral);
 		}
 
-		return group([items, separator, hardline, hardline]);
+		return group([items, separator]);
 	},
+	Module: (path, print) => {
+		const versionDeclPart = printIfExist(path, print, "VersionDecl");
+		const libraryModulePart = printIfExist(path, print, "LibraryModule");
+
+		const formatted: Doc[] = [];
+
+		if (versionDeclPart) {
+			formatted.push(versionDeclPart, hardline, hardline);
+		}
+		if (libraryModulePart) {
+			formatted.push(libraryModulePart)
+		} else {
+			const mainModulePart = path.map(print,"childrenByName", "MainModule");
+			formatted.push(mainModulePart)
+		}
+		return group([formatted, hardline]);
+	},
+
 	LibraryModule: (path, print) => {
-		return group([join(hardline, path.map(print, "children"))]);
+		const moduleDeclPart = path.map(print, "childrenByName", "ModuleDecl");
+		const prologPart = path.map(print, "childrenByName", "Prolog");
+		return group([moduleDeclPart.length ? [moduleDeclPart, hardline, hardline] : [], prologPart]);
 	},
 	ModuleDecl: (path, print) => {
 		const prefixPart = path.map(print, "childrenByName", "NCName");
@@ -162,21 +182,32 @@ const modulesAndPrologsHandlers: Record<string, Handler> = {
 			path.node.childrenByName.OptionDecl,
 		);
 
-		return join(
-			[hardline, hardline],
-			[
-				defaultNamespaceDeclPart,
-				setterPart,
-				namespaceDeclPart,
-				importPart,
-				contextItemDeclPart,
-				annotatedDeclPart,
-				optionDeclPart,
-				[],
-			]
-				.filter((p) => p !== null)
-				.map((p) => p!),
-		);
+		return group([
+			join(
+				[hardline, hardline],
+				[
+					defaultNamespaceDeclPart,
+					setterPart,
+					namespaceDeclPart,
+					importPart,
+					contextItemDeclPart,
+					annotatedDeclPart,
+					optionDeclPart,
+				]
+					.filter((p) => p !== null)
+					.map((p) => p!),
+			),
+		]);
+	},
+	MainModule: (path, print) => {
+		const queryBodyPart = path.map(print, "childrenByName", "QueryBody");
+		const prologPart = path.map(print, "childrenByName", "Prolog");
+
+		// Skip newlines after empty prologs. But still print them in case they have comments
+		if ((path.node.childrenByName.Prolog[0] as NonTerminalNode).children.length === 0) {
+			return group([prologPart, queryBodyPart]);
+		}
+		return group([prologPart.length ? [prologPart, hardline, hardline] : [], queryBodyPart]);
 	},
 	OptionDecl: (path, print) => {
 		const declareKeyword = path.map(print, "childrenByName", "'declare'");
@@ -263,7 +294,7 @@ const modulesAndPrologsHandlers: Record<string, Handler> = {
 	ParamList: (path, print) => {
 		const params = path.map(print, "childrenByName", "Param");
 		return join([",", line], params);
-	},
+	}
 };
 
 export default modulesAndPrologsHandlers;

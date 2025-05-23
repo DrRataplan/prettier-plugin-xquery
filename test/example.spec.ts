@@ -10,7 +10,7 @@ const prefix = `${fileURLToPath(dirname(import.meta.url))}/assets/`;
 
 describe('Formatting a whole module', () => {
 	it('Can format a whole module nicely', async (t) => {
-		debugger;		const roasterBodyScript = await readFile(path.join(prefix, 'roaster-body.xqm'), 'utf-8');
+		const roasterBodyScript = await readFile(path.join(prefix, 'roaster-body.xqm'), 'utf-8');
 		const prettification = prettier.format(roasterBodyScript, {
 			parser: 'xquery',
 			plugins: [xqueryPlugin],
