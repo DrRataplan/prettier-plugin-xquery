@@ -1,3 +1,5 @@
+import findCommentsInWhitespace from "./findCommentsInWhitespace.ts";
+
 export abstract class Node {
 	name: string;
 	begin: number;
@@ -96,12 +98,10 @@ export class Tree {
 
 	whitespace(begin: number, end: number) {
 		const contents = this.code.substring(begin, end);
-		if (contents.includes("(:")) {
-			const clean = contents.trim();
-			const actualBegin = begin + contents.indexOf("(:");
-			this.root.comments.push(new CommentNode(actualBegin, actualBegin + clean.length, clean));
+		const comments = findCommentsInWhitespace(contents, begin);
+		for (const comment of comments) {
+			this.root.comments.push(comment);
 		}
-		// this.terminal('WhiteSpace', begin, end)
 	}
 
 	peek(): NonTerminalNode {
