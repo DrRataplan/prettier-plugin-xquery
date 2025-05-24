@@ -21,7 +21,7 @@ import typeHandlers from "./handlers/types.ts";
 import validateExpressionHandlers from "./handlers/validateExpressions.ts";
 import type { Handler } from "./handlers/util/Handler.ts";
 
-const { line, group } = prettier.doc.builders;
+const { line, group, hardline, join, fill } = prettier.doc.builders;
 const { getPreferredQuote } = prettier.util;
 
 // Handlers are split up based on their placement in the XQuery specification. FLWOR by FLWOR,
@@ -135,7 +135,19 @@ const xqueryPrinter: Printer<Node> = {
 	},
 	printComment(path: AstPath<Node>) {
 		const value = path.getNode() as CommentNode;
-		return group(value.value);
+		const lines = value.value.split('\n')
+		
+		if (lines.length == 1) {
+			return fill(lines)
+		}
+
+		const [first, ...rest] = lines
+		const trimmed = rest.map(line => {
+			const t = line.trim()
+			const alignment = t.startsWith(':') ? ' ' : '  '
+			return alignment + t
+		})
+		return group([first, hardline, join(hardline, trimmed)]);
 	},
 	print(path: AstPath<Node>, options, print: Print, _args) {
 		if (path.node instanceof LeafNode) {
