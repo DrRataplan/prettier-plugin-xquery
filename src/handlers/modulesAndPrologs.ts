@@ -38,10 +38,10 @@ const modulesAndPrologsHandlers: Record<string, Handler> = {
 			formatted.push(versionDeclPart, hardline, hardline);
 		}
 		if (libraryModulePart) {
-			formatted.push(libraryModulePart)
+			formatted.push(libraryModulePart);
 		} else {
-			const mainModulePart = path.map(print,"childrenByName", "MainModule");
-			formatted.push(mainModulePart)
+			const mainModulePart = path.map(print, "childrenByName", "MainModule");
+			formatted.push(mainModulePart);
 		}
 		return group([formatted, hardline]);
 	},
@@ -294,7 +294,7 @@ const modulesAndPrologsHandlers: Record<string, Handler> = {
 	ParamList: (path, print) => {
 		const params = path.map(print, "childrenByName", "Param");
 		return join([",", line], params);
-	}
+	},
 };
 
 export default modulesAndPrologsHandlers;
