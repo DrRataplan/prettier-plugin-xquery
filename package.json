@@ -16,7 +16,7 @@
 	],
 	"repository": {
 		"type": "git",
-		"url": "git://github.com/DrRataplan/prettier-plugin-xquery.git"
+		"url": "git+https://github.com/DrRataplan/prettier-plugin-xquery.git"
 	},
 	"types": "./dist/main.d.ts",
 	"description": "",
