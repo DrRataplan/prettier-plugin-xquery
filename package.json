@@ -1,6 +1,6 @@
 {
 	"name": "prettier-plugin-xquery",
-	"version": "0.0.8",
+	"version": "0.0.9",
 	"module": "dist/main.js",
 	"main": "dist/main.js",
 	"scripts": {
