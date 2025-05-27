@@ -1,6 +1,7 @@
 # Prettier for XQuery
+[![NPM version](https://badge.fury.io/js/prettier-plugin-xquery.svg)](http://badge.fury.io/js/prettier-plugin-xquery) [![Tests](https://github.com/DrRataplan/prettier-plugin-xquery/actions/workflows/test.yml/badge.svg)](https://github.com/DrRataplan/prettier-plugin-xquery/actions/workflows/test.yml)
 
-`prettier-plugin-xquery` is a [prettier](https://prettier.io/) plugin for XML. `prettier` is an opinionated code formatter that supports multiple languages and integrates with most editors. The idea is to eliminate discussions of style in code review and allow developers to get back to thinking about code design instead.
+`prettier-plugin-xquery` is a [prettier](https://prettier.io/) plugin for XQuery. `prettier` is an opinionated code formatter that supports multiple languages and integrates with most editors. The idea is to eliminate discussions of style in code review and allow developers to get back to thinking about code design instead.
 
 ## Demo
 A demo page lives at [xquery.elliat.nl](https://xquery.elliat.nl).
