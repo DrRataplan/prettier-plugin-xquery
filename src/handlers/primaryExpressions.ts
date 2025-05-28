@@ -3,7 +3,7 @@ import printIfExist from "./util/printIfExists.ts";
 import space from "./util/space.ts";
 import type { Handler } from "./util/Handler.ts";
 
-const { join, line, group, indent, hardline, softline, hardlineWithoutBreakParent } = doc.builders;
+const { join, line, group, indent, softline, hardlineWithoutBreakParent } = doc.builders;
 
 const primaryExpressionHandlers: Record<string, Handler> = {
 	ParenthesizedExpr: (path, print, options) => {
@@ -11,7 +11,7 @@ const primaryExpressionHandlers: Record<string, Handler> = {
 		options.breakNextParenthesizedExpr = false;
 		const parenOpenKeyword = path.map(print, "childrenByName", "'('");
 		const parenCloseKeyword = path.map(print, "childrenByName", "')'");
-		const lineType = shouldBreakAndIndent ? hardline : softline;
+		const lineType = shouldBreakAndIndent ? hardlineWithoutBreakParent : softline;
 
 		const children = printIfExist(path, print, "Expr");
 		const parenthesizedExpressionIsEmpty = !children && path.node.childrenByName["')'"][0].comments === undefined;

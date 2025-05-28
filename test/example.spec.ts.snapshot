@@ -83,9 +83,7 @@ declare function body:parse ($request as map(*)) {
 declare function body:content-type ($request as map(*)) as map(*) {
   if (not(exists($request?config?requestBody?content))) then (
     map {}
-  ) (: this route expects no body, return an empty map :) else if (
-    not($request?config?requestBody?content instance of map(*))
-  ) then
+  ) (: this route expects no body, return an empty map :) else if (not($request?config?requestBody?content instance of map(*))) then
     error(
       $errors:OPERATION,
       "requestBody.content is not defined correctly",
@@ -95,8 +93,7 @@ declare function body:content-type ($request as map(*)) as map(*) {
     let $content := $request?config?requestBody?content
     let $defined-content-types := map:keys($content)
     let $raw-content-type-header-value := request:get-header("Content-Type")
-    let $media-type :=
-      if (contains($raw-content-type-header-value, ";")) then
+    let $media-type := if (contains($raw-content-type-header-value, ";")) then
         substring-before($raw-content-type-header-value, ";")
       else
         $raw-content-type-header-value
@@ -132,8 +129,7 @@ declare function body:content-type ($request as map(*)) as map(*) {
           "charset": $charset,
           "registry": $registry,
           "schema": $content?($media-type)?schema,
-          "format":
-            if ($media-type = ("application/json", "text/json")) then
+          "format": if ($media-type = ("application/json", "text/json")) then
               "json"
             else if (
               $media-type = ("application/xml", "text/xml", "image/svg+xml")
@@ -210,8 +206,7 @@ declare %private function body:validate-value (
         let $is-array := $property?type = "array"
         (: only needed to check here as required props must be defined in schema :)
         let $is-required := $name = $required-props
-        let $format :=
-          if ($property?type = "array") then
+        let $format := if ($property?type = "array") then
             $property?items?format
           else
             $property?format

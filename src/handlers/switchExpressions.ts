@@ -2,7 +2,7 @@ import { doc } from "prettier";
 import space from "./util/space.ts";
 import type { Handler } from "./util/Handler.ts";
 
-const { join, group, indent, hardline } = doc.builders;
+const { join, group, indent, hardlineWithoutBreakParent } = doc.builders;
 
 const switchExpressionHandlers: Record<string, Handler> = {
 	SwitchExpr: (path, print) => {
@@ -23,13 +23,13 @@ const switchExpressionHandlers: Record<string, Handler> = {
 			exprPart,
 			parenCloseKeyword,
 			indent([
-				hardline,
-				join(hardline, switchCaseClausePart),
-				hardline,
+				hardlineWithoutBreakParent,
+				join(hardlineWithoutBreakParent, switchCaseClausePart),
+				hardlineWithoutBreakParent,
 				defaultPart,
 				space,
 				returnPart,
-				indent([hardline, exprSinglePart]),
+				indent([hardlineWithoutBreakParent, exprSinglePart]),
 			]),
 		]);
 	},
@@ -45,7 +45,7 @@ const switchExpressionHandlers: Record<string, Handler> = {
 			return group([casePart, space, operand]);
 		});
 
-		return group([join(hardline, cases), space, returnPart, indent([hardline, exprSinglePart])]);
+		return group([join(hardlineWithoutBreakParent, cases), space, returnPart, indent([hardlineWithoutBreakParent, exprSinglePart])]);
 	},
 };
 

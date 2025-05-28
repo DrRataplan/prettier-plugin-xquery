@@ -2,7 +2,7 @@ import { doc } from "prettier";
 import space from "./util/space.ts";
 import type { Handler } from "./util/Handler.ts";
 
-const { group, hardline } = doc.builders;
+const { group } = doc.builders;
 
 const tryCatchExpressionHandlers: Record<string, Handler> = {
 	TryCatchExpr: (path, print) => {

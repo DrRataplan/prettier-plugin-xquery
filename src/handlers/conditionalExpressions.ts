@@ -3,7 +3,7 @@ import type { NonTerminalNode } from "../tree.ts";
 import space from "./util/space.ts";
 import type { Handler } from "./util/Handler.ts";
 
-const { softline, group, indent, hardline } = doc.builders;
+const { softline, group, indent, hardlineWithoutBreakParent } = doc.builders;
 
 const conditionalExpressionHandlers: Record<string, Handler> = {
 	IfExpr: (path, print, options) => {
@@ -45,7 +45,7 @@ const conditionalExpressionHandlers: Record<string, Handler> = {
 		// hardlines.
 		const formattedThenPart = thenPartIsParenthesized
 			? [space, thenPart, space]
-			: [indent([hardline, thenPart]), hardline];
+			: [indent([hardlineWithoutBreakParent, thenPart]), hardlineWithoutBreakParent];
 
 		/*
 		  Format nested else if expressions: if the else contains an if, print `else if (..)`,
@@ -54,7 +54,7 @@ const conditionalExpressionHandlers: Record<string, Handler> = {
 		const formattedElsePart =
 			nestedIfInElse || elsePartIsParenthesized
 				? [elseKeyword, space, elsePart]
-				: [elseKeyword, indent([hardline, elsePart])];
+				: [elseKeyword, indent([hardlineWithoutBreakParent, elsePart])];
 		return group([
 			group([
 				ifKeyword,

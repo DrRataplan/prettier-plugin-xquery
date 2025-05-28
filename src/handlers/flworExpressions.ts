@@ -4,7 +4,7 @@ import printIfExist from "./util/printIfExists.ts";
 import joinChildrenWithSpaces from "./util/joinChildrenWithSpaces.ts";
 import type { Handler } from "./util/Handler.ts";
 
-const { join, line, group, indent, hardline } = doc.builders;
+const { join, line, group, indent, hardlineWithoutBreakParent } = doc.builders;
 
 const flworExpressionHandlers: Record<string, Handler> = {
 	FLWORExpr: (path, print) => {
@@ -14,9 +14,9 @@ const flworExpressionHandlers: Record<string, Handler> = {
 
 		return group([
 			initialClausePart,
-			hardline,
-			join(hardline, intermediateClausePart),
-			intermediateClausePart.length ? hardline : [],
+			hardlineWithoutBreakParent,
+			join(hardlineWithoutBreakParent, intermediateClausePart),
+			intermediateClausePart.length ? hardlineWithoutBreakParent : [],
 			indent(returnClausePart),
 		]);
 	},
@@ -137,7 +137,7 @@ const flworExpressionHandlers: Record<string, Handler> = {
 			inKeyword,
 			space,
 			exprSinglePart,
-			indent([hardline, windowStartConditionPart, hardline, windowEndConditionPart ?? []]),
+			indent([hardlineWithoutBreakParent, windowStartConditionPart, hardlineWithoutBreakParent, windowEndConditionPart ?? []]),
 		]);
 	},
 	SlidingWindowClause: (path, print) => {
@@ -163,7 +163,7 @@ const flworExpressionHandlers: Record<string, Handler> = {
 			inKeyword,
 			space,
 			exprSinglePart,
-			indent([hardline, windowStartConditionPart, hardline, windowEndConditionPart]),
+			indent([hardlineWithoutBreakParent, windowStartConditionPart, hardlineWithoutBreakParent, windowEndConditionPart]),
 		]);
 	},
 	PositionalVar: (path, print) => {
