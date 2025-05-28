@@ -5,4 +5,4 @@ declare option output:indent "no";
 declare option output:version "5.0";
 declare option output:doctype-system "about:legacy-compat";
 
-<html/>
+<html />

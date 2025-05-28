@@ -8,5 +8,5 @@ declare function functx:min-non-empty-string (
 };
 
 let $in-xml :=
-  <authors> <author> <fName/> <lName>Smith</lName> </author> <author> <fName>Kate</fName> <lName>Jones</lName> </author> <author> <fName>John</fName> <lName>Doe</lName> </author> </authors>
+  <authors> <author> <fName /> <lName>Smith</lName> </author> <author> <fName>Kate</fName> <lName>Jones</lName> </author> <author> <fName>John</fName> <lName>Doe</lName> </author> </authors>
 return (functx:min-non-empty-string($in-xml//fName))

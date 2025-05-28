@@ -1,3 +1,3 @@
 <a> {
-  attribute {"prefix:localName"} {}
-} </a>
+    attribute {"prefix:localName"} {}
+  } </a>

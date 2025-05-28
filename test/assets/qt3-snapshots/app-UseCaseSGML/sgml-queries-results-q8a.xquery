@@ -1,3 +1,3 @@
 <result> {
-  //section[.//title[contains(., "is SGML")]]
-} </result>
+    //section[.//title[contains(., "is SGML")]]
+  } </result>

@@ -1,5 +1,5 @@
 <element> {
-  comment {
-    "-", "-"
-  }
-} </element>
+    comment {
+      "-", "-"
+    }
+  } </element>

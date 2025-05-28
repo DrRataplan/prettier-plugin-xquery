@@ -1,5 +1,5 @@
 document {
-  <e/>, attribute name {
+  <e />, attribute name {
     "content"
   }, "some text"
 }

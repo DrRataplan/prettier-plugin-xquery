@@ -1,3 +1,3 @@
 declare boundary-space preserve;
 
-string(<e> <b/> </e>)
+string(<e> <b /> </e>)

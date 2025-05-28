@@ -1,3 +1,3 @@
-empty(<e/>/(a union processing-instruction {"name"} {
+empty(<e />/(a union processing-instruction {"name"} {
         ()
       }))

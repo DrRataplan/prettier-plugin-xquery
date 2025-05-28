@@ -1,1 +1,1 @@
-<elem attr="&amp;&lt;&gt;"/>
+<elem attr="&amp;&lt;&gt;" />

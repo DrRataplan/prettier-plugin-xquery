@@ -12,6 +12,8 @@ declare function functx:is-node-among-descendants (
 };
 
 let $in-xml :=
-  <prices> <price value="29.99" discount="10.00"/> <price value="39.99" discount="6.00"/> <price value="49.99" discount=""/> </prices>
-return let $aPrice := <price value="49.99" discount=""/>
+  <prices> <price discount="10.00" value="29.99" /> <price
+      discount="6.00" value="39.99" /> <price
+      discount="" value="49.99" /> </prices>
+return let $aPrice := <price discount="" value="49.99" />
   return (functx:is-node-among-descendants($in-xml, $in-xml/price[1]))

@@ -1,5 +1,5 @@
 <elem> {
-  "a string", attribute name {
-    "content"
-  }
-} </elem>
+    "a string", attribute name {
+      "content"
+    }
+  } </elem>

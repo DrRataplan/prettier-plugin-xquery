@@ -1,1 +1,1 @@
-<e/> instance of element(name)
+<e /> instance of element(name)

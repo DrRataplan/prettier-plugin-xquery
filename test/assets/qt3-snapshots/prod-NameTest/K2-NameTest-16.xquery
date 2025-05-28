@@ -1,3 +1,3 @@
-declare variable $e := <a b ="content"><?b asd?><b/></a>;
+declare variable $e := <a b="content"><?b asd?><b /></a>;
 
 $e/*

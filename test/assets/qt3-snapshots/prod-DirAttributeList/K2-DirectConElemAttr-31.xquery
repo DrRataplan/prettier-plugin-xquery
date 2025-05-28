@@ -1,1 +1,1 @@
-string(<foo attr="''"/>/@attr)
+string(<foo attr="''" />/@attr)

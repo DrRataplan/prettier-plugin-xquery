@@ -1,4 +1,6 @@
 let $para :=
-  <para>In a hole in the ground there lived a <term author="Tolkien">hobbit</term>.</para>
+  <para>In a hole in the ground there lived a <term
+      author="Tolkien"
+      >hobbit</term>.</para>
 
 return string($para)

@@ -1,1 +1,1 @@
-empty(<e/>/(author union document-node))
+empty(<e />/(author union document-node))

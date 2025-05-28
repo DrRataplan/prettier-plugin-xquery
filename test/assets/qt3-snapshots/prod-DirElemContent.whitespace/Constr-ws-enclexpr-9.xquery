@@ -1,5 +1,5 @@
 declare boundary-space strip;
 
 <elem>{
-  1
-} </elem>
+    1
+  } </elem>

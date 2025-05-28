@@ -1,5 +1,5 @@
 <elem>{
-  ()
-}{
-  //west/@mark
-}</elem>
+    ()
+  }{
+    //west/@mark
+  }</elem>

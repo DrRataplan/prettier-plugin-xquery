@@ -1,3 +1,3 @@
-empty(<e/>/(a union attribute {"name"} {
+empty(<e />/(a union attribute {"name"} {
         ()
       }))

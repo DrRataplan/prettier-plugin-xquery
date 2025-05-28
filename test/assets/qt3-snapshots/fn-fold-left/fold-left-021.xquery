@@ -1,6 +1,6 @@
-declare variable $in := (<doc><A/><B/>{
-    (1 to 10000)!<C/>
-  }<B/><A/></doc>)/*;
+declare variable $in := (<doc><A /><B />{
+      (1 to 10000)!<C />
+    }<B /><A /></doc>)/*;
 
 declare variable $fsm := map {
   0:

@@ -1,4 +1,4 @@
-declare variable $root := <root><c/></root>;
+declare variable $root := <root><c /></root>;
 
 declare function local:function ($arg) {
   $root[$arg]

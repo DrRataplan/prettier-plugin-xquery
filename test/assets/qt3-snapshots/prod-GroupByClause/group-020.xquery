@@ -1,14 +1,21 @@
-declare
-  variable $in := <Folder Name="root">
-        <Folder Name="user">
-          <File Name="Fred"/>
-          <File Name="Bill"/>
-          <File Name="Fred"/>
+declare variable $in := <Folder
+  Name="root"
+  >
+        <Folder
+    Name="user"
+    >
+          <File Name="Fred" />
+          <File Name="Bill" />
+          <File
+      Name="Fred" />
         </Folder>
-        <Folder Name="manager">
-          <File Name="Jane"/>
-          <File Name="Mary"/>
-          <File Name="Jane"/>
+        <Folder
+    Name="manager"
+    >
+          <File Name="Jane" />
+          <File Name="Mary" />
+          <File
+      Name="Jane" />
         </Folder>
       </Folder>;
 

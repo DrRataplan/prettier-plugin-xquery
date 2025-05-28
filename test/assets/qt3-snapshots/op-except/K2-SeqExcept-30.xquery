@@ -1,1 +1,1 @@
-empty(<e/>/(a except following-sibling))
+empty(<e />/(a except following-sibling))

@@ -1,1 +1,1 @@
-<e/> instance of attribute(e)
+<e /> instance of attribute(e)

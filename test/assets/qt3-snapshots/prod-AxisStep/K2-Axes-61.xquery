@@ -1,1 +1,1 @@
-empty(<element attr="foo" attr2="foo"/>/*)
+empty(<element attr="foo" attr2="foo" />/*)

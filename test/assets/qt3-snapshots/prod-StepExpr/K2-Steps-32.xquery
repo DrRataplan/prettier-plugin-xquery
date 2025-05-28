@@ -1,4 +1,4 @@
-declare variable $root := <root/>;
+declare variable $root := <root />;
 
 declare function local:function ($arg, $count as xs:integer) {
   $arg,

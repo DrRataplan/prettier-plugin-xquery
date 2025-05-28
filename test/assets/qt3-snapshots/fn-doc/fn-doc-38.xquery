@@ -1,1 +1,1 @@
-<a/>/self::b[doc("%GG")]
+<a />/self::b[doc("%GG")]

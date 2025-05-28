@@ -1,5 +1,5 @@
 declare function local:f () as node() {
-  <a/>
+  <a />
 };
 
 local:f() is local:f()

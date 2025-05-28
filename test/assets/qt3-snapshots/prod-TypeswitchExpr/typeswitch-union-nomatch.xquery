@@ -1,4 +1,4 @@
-typeswitch (<e/>)
+typeswitch (<e />)
   case $i as xs:integer|xs:string return
     $i
 

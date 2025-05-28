@@ -1,1 +1,1 @@
-<elem>some text<node/>some text</elem>
+<elem>some text<node />some text</elem>

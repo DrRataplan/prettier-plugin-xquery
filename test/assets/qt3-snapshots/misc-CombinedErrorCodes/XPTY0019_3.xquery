@@ -7,5 +7,5 @@ declare function foo:something ($pos as xs:integer) {
     <a />
 };
 
-let $x := <a><b><c/></b><b><c/></b></a>
+let $x := <a><b><c /></b><b><c /></b></a>
 return $x/b/(foo:something(position()))/a

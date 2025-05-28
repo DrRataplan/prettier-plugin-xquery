@@ -1,1 +1,1 @@
-count(in-scope-prefixes(<xs:space/>))
+count(in-scope-prefixes(<xs:space />))

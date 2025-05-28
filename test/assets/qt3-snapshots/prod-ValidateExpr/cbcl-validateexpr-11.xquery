@@ -1,3 +1,3 @@
 validate { document {
-    (<e/>, "text")
+    (<e />, "text")
   } }

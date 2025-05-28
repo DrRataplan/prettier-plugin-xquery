@@ -3,10 +3,10 @@ declare function local:q (
   $local as xs:string
 ) as xs:QName {
   <a>{
-    $prefix
-  }:{
-    $local
-  }</a>
+      $prefix
+    }:{
+      $local
+    }</a>
 };
 
 local:q("fn", "abs")

@@ -1,1 +1,1 @@
-<people id=""/>/(some $id in @id satisfies true())
+<people id="" />/(some $id in @id satisfies true())

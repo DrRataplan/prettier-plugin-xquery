@@ -3,7 +3,7 @@ count(document {
       "data"
     }, text {
       "data"
-    }, <e/>, text {
+    }, <e />, text {
       "data"
     }, text {
       "data"

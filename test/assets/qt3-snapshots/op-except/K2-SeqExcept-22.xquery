@@ -1,3 +1,3 @@
-count(<e/>/(a except processing-instruction {"name"} {
+count(<e />/(a except processing-instruction {"name"} {
         ()
       }))

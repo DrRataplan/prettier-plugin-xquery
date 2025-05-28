@@ -1,3 +1,3 @@
-count(<e/>/(a except attribute name {
+count(<e />/(a except attribute name {
         ()
       }))

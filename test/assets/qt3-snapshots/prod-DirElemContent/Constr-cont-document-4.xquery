@@ -1,5 +1,5 @@
 count(document {
     "abc", "def", document {
-      "ghi", <anode/>, "jkl"
+      "ghi", <anode />, "jkl"
     }, "mno"
   }/node())

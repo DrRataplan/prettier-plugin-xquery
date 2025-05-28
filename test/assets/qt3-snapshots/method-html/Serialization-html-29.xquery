@@ -6,4 +6,4 @@ declare option output:version "4.0";
 declare option output:doctype-system "http://www.w3.org/TR/REC-html40/strict.dtd";
 declare option output:doctype-public "-//W3C//DTD HTML 4.0//EN";
 
-<html/>
+<html />

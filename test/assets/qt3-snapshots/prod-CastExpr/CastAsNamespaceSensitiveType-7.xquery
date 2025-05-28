@@ -6,8 +6,10 @@ declare function local:is-jpg ($q as ntn:pictures) as xs:boolean {
 
 local:is-jpg(
   validate {
-    <ntn:notation xmlns:ntn="http://www.w3.org/XQueryTest/Cast/Notation"
-                      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                      xsi:schemaLocation="http://www.w3.org/XQueryTest/Cast/Notation CastExpr/notation.xsd">ntn:jpg</ntn:notation>
+    <ntn:notation
+      xmlns:ntn="http://www.w3.org/XQueryTest/Cast/Notation"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.w3.org/XQueryTest/Cast/Notation CastExpr/notation.xsd"
+      >ntn:jpg</ntn:notation>
     }
 )

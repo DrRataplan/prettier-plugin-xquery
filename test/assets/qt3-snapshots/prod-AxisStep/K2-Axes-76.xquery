@@ -1,1 +1,1 @@
-<a> <b c=""/> <d/> </a>/descendant-or-self::node()[last()]
+<a> <b c="" /> <d /> </a>/descendant-or-self::node()[last()]

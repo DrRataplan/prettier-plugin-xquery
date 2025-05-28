@@ -3,5 +3,5 @@ declare %public function local:inc ($i as xs:integer) {
 };
 
 <a>{
-  local:inc(1)
-}</a>
+    local:inc(1)
+  }</a>

@@ -1,1 +1,1 @@
-empty(<e/>/(a except self))
+empty(<e />/(a except self))

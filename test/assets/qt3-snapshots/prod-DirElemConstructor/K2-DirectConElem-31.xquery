@@ -1,1 +1,1 @@
-<foo > <doo/> </foo>
+<foo> <doo /> </foo>

@@ -6,4 +6,4 @@ declare option output:method "html";
 declare option output:indent "no";
 declare option output:version "5.0";
 
-<html><body><area/><base/><br/><col/><embed/><hr/><img/><input/><keygen/><link/><meta/><param/><source/><track/><wbr/></body></html>
+<html><body><area /><base /><br /><col /><embed /><hr /><img /><input /><keygen /><link /><meta /><param /><source /><track /><wbr /></body></html>

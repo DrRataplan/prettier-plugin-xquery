@@ -1,3 +1,3 @@
-declare variable $v := <e/>;
+declare variable $v := <e />;
 
 exists($v/*)

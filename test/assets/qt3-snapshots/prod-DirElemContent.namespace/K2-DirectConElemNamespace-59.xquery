@@ -1,1 +1,1 @@
-namespace-uri(<p:e xmlns:p="http://example.com/{{{{{{}}}}}}asd"/>)
+namespace-uri(<p:e xmlns:p="http://example.com/{{{{{{}}}}}}asd" />)

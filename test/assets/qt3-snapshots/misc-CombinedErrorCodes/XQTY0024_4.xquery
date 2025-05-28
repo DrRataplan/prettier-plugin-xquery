@@ -1,5 +1,5 @@
 <a> {
-  <b />, attribute foo {
-    "bar"
-  }
-} </a>
+    <b />, attribute foo {
+      "bar"
+    }
+  } </a>

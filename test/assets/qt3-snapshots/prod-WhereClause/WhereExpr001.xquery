@@ -6,6 +6,6 @@ if (
   ) =
     count(//File[1])
 ) then
-  <Same/>
+  <Same />
 else
-  <notSame/>
+  <notSame />

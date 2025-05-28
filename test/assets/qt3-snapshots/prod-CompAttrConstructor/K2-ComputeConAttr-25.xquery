@@ -8,9 +8,9 @@ declare function local:myFunc ($recurse as xs:integer) {
 };
 
 <b> {
-  local:myFunc(2)
-} {
-  attribute name {
-    "content"
-  }
-} </b>
+    local:myFunc(2)
+  } {
+    attribute name {
+      "content"
+    }
+  } </b>

@@ -1,2 +1,2 @@
-let $f := <b/>/name#0
-return <a/>/$f()
+let $f := <b />/name#0
+return <a />/$f()

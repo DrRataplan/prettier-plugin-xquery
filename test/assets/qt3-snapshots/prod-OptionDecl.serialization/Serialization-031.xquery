@@ -4,4 +4,4 @@ declare option output:method "xml";
 declare option output:standalone "yes";
 declare option output:omit-xml-declaration "yes";
 
-<a/>
+<a />

@@ -1,3 +1,3 @@
 count(document {
-    <T/>
+    <T />
   }//*[exists(@n1 >= -1)])

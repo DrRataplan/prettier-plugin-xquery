@@ -1,1 +1,1 @@
-(# Q{http://www.example.com/ns}pragma ignore me #){<a/>}
+(# Q{http://www.example.com/ns}pragma ignore me #){<a />}

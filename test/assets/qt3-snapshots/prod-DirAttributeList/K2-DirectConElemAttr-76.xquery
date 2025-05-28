@@ -25,7 +25,7 @@ declare variable $var := (text {
   });
 
 <out fromFunction="{
-  local:t()
-}" fromVariable="{
-  $var
-}"/>
+    local:t()
+  }" fromVariable="{
+    $var
+  }" />

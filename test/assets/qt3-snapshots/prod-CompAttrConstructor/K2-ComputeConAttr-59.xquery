@@ -1,5 +1,5 @@
 <a> {
-  attribute xml:id {
-    "1"
-  }
-} </a>
+    attribute xml:id {
+      "1"
+    }
+  } </a>

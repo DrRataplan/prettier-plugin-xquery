@@ -1,1 +1,1 @@
-empty(<e attr=""/>/descendant-or-self::node())
+empty(<e attr="" />/descendant-or-self::node())

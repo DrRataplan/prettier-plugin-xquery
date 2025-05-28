@@ -1,1 +1,2 @@
-<node xml:space="preserve" xmlns="http://example.com/ns"/>/@xml:space/node-name()
+<node
+  xmlns="http://example.com/ns" xml:space="preserve" />/@xml:space/node-name()

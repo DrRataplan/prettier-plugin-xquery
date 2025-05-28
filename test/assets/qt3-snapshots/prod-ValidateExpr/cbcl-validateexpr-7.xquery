@@ -4,10 +4,12 @@ import schema  "http://www.w3.org/XQueryTest/testcases";
 
 let $var :=
   validate strict {
-    <Unknown xsi:type="tc:choice" xmlns:tc="http://www.w3.org/XQueryTest/testcases"> {
-      element z {
-        "12.345"
-      }
-    }</Unknown>
+    <Unknown
+      xmlns:tc="http://www.w3.org/XQueryTest/testcases" xsi:type="tc:choice"
+      > {
+        element z {
+          "12.345"
+        }
+      }</Unknown>
     }
 return $var

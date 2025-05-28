@@ -5,4 +5,4 @@ declare option output:indent "no";
 declare option output:version "5.0";
 declare option output:doctype-public "-//W3C//DTD HTML 4.0//EN";
 
-<html/>
+<html />

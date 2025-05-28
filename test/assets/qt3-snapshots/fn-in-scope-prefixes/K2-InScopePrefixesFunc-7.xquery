@@ -1,1 +1,1 @@
-count(in-scope-prefixes(<a xmlns=""/>))
+count(in-scope-prefixes(<a xmlns="" />))

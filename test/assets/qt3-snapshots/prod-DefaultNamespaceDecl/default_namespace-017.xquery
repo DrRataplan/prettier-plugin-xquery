@@ -5,8 +5,8 @@ declare variable $v := 100;
 
 declare function udf1 ($CUSTNO as xs:integer) {
   <empty> {
-    $CUSTNO * $v
-  } </empty>
+      $CUSTNO * $v
+    } </empty>
 };
 
 udf1(10)

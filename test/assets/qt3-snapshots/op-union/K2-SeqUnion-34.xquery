@@ -1,1 +1,1 @@
-empty(<e/>/(a union following-sibling))
+empty(<e />/(a union following-sibling))

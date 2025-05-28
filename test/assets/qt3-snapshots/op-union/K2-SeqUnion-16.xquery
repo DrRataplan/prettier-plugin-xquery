@@ -1,1 +1,1 @@
-empty(<e/>/(author union then))
+empty(<e />/(author union then))

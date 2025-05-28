@@ -1,1 +1,1 @@
-fn:nilled(<shoe xsi:nil="false"/>)
+fn:nilled(<shoe xsi:nil="false" />)

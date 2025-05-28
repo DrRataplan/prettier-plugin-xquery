@@ -1,3 +1,3 @@
 declare namespace test = "http://www.example.com";
 
-<a/> instance of element(*, test:unknownType)
+<a /> instance of element(*, test:unknownType)

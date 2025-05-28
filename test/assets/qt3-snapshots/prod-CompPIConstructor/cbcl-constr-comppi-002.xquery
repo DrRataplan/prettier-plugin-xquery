@@ -5,7 +5,7 @@ declare function local:tag ($arg) as element() {
 };
 
 <element> {
-  processing-instruction {"pi"} {
-    "content", local:tag("?&gt;")
-  }
-} </element>
+    processing-instruction {"pi"} {
+      "content", local:tag("?&gt;")
+    }
+  } </element>

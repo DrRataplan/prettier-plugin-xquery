@@ -4,9 +4,15 @@ declare option output:parameter-document "Serialization/serialization-eqnames.xm
 
 <result>
            <e xmlns="http://example.com/a">ta</e>
-           <e xmlns="http://example.com/b">tb</e>
+           <e
+    xmlns="http://example.com/b"
+    >tb</e>
            <e xmlns="http://example.com/c">tc</e>
-           <e xmlns="http://example.com/d">td</e>
-           <e xmlns="http://example.com/e">te</e>
+           <e
+    xmlns="http://example.com/d"
+    >td</e>
+           <e
+    xmlns="http://example.com/e"
+    >te</e>
            <e>tt</e>
          </result>

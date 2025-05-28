@@ -1,1 +1,1 @@
-<elem attr="&#xa;"/>
+<elem attr="&#xa;" />

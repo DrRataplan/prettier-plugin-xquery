@@ -13,14 +13,14 @@ declare function local:prnt (
 };
 
 <table> {
-  <td>Value is = {
-    local:prnt(
-      4,
-      xs:string("hello"),
-      xs:date("2005-02-22"),
-      xs:long(5),
-      xs:string("well"),
-      xs:decimal(1.2)
-    )
-  }</td>
-} </table>
+    <td>Value is = {
+        local:prnt(
+          4,
+          xs:string("hello"),
+          xs:date("2005-02-22"),
+          xs:long(5),
+          xs:string("well"),
+          xs:decimal(1.2)
+        )
+      }</td>
+  } </table>

@@ -13,6 +13,8 @@ export abstract class Node<NameType extends string = string> {
 		this.begin = begin;
 		this.end = end;
 	}
+
+	public abstract getStringRepresentation(): string;
 }
 
 type TerminalName = `'${string}'` | "StringLiteral";
@@ -24,6 +26,13 @@ export class NonTerminalNode extends Node<NonTerminalName> {
 	constructor(name: NonTerminalName, begin: number, end?: number, children: Node[] = []) {
 		super(name, begin, end);
 		this.children = children;
+	}
+
+	/**
+	 * Returns a string representation of this node. Not formatted and may not be valid XQuery but can be used for sorting.
+	 */
+	getStringRepresentation(): string {
+		return this.children.map((child) => child.getStringRepresentation()).join("");
 	}
 
 	/**
@@ -48,6 +57,10 @@ export class LeafNode extends Node<TerminalName> {
 		super(name, begin, end);
 		this.value = "";
 	}
+
+	getStringRepresentation(): string {
+		return this.value;
+	}
 }
 
 export class RootNode extends NonTerminalNode {
@@ -67,6 +80,10 @@ export class CommentNode extends Node {
 	constructor(begin: number, end: number, value: string) {
 		super("Comment", begin, end);
 		this.value = value;
+	}
+	getStringRepresentation() {
+		// Comments never have to be included in ordering
+		return ''
 	}
 }
 

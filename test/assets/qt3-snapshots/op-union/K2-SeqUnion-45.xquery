@@ -1,3 +1,3 @@
 <r> {
-  //(employee[location = "Denver"] union //employee[last()])/./location
-} </r>
+    //(employee[location = "Denver"] union //employee[last()])/./location
+  } </r>
