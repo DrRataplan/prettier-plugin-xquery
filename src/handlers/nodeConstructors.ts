@@ -102,11 +102,9 @@ const nodeConstructorHandlers: Record<string, Handler> = {
 		return group([
 			angleBracketOpen,
 			qnamePartOpen,
-			hasAttributes ? indent([line, dirAttributeList]) : [],
+			hasAttributes ? indent([line, dirAttributeList, softline]) : [],
 			firstAngleBracketClose,
-			softline,
-			dirElemContent,
-			softline,
+			indent(dirElemContent),
 			closeElementStart,
 			qnamePartClose,
 			secondAngleBracketClose,
