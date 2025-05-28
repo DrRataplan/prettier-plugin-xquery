@@ -50,8 +50,8 @@ declare function body:parse ($request as map(*)) {
 
               default return
                 util:binary-to-string($data) => parse-json()
-        (:
-                Workaround for eXist-DB specific behaviour,
+        (: 
+                Workaround for eXist-DB specific behaviour, 
                 this way we will get parse errors as early as possible
                 while still having access to the data afterwards.
             :)
@@ -200,8 +200,10 @@ declare %private function body:validate-value (
   let $required-props := $schema?required?*
   let $property-definitions := $schema?properties
   return function ($name as xs:string) as map(*) {
-      if (not(map:contains($property-definitions, $name))) then
-        (: additional property, no validation :)
+      if (
+        not(map:contains($property-definitions, $name))
+      ) (: additional property, no validation :)
+      then
         body:additional-property($name)
       else
         let $property := $property-definitions?($name)
