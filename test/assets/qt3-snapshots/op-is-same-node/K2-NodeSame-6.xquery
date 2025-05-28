@@ -1,1 +1,1 @@
-empty(zero-or-one(<e/>/*) is zero-or-one(<e/>/*))
+empty(zero-or-one(<e />/*) is zero-or-one(<e />/*))

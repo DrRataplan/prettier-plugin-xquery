@@ -1,3 +1,3 @@
-declare variable $v := <elementName/>;
+declare variable $v := <elementName />;
 
 1

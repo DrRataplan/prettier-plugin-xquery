@@ -1,1 +1,1 @@
-fn:path(<a b="c"/>/@b)
+fn:path(<a b="c" />/@b)

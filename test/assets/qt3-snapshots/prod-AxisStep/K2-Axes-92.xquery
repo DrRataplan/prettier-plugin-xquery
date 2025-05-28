@@ -1,1 +1,1 @@
-empty(<e/>/(gt gt gt))
+empty(<e />/(gt gt gt))

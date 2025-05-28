@@ -5,5 +5,5 @@ declare function test1:ok () {
 };
 
 <result>{
-  test1:ok()
-}</result>
+    test1:ok()
+  }</result>

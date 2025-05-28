@@ -1,1 +1,1 @@
-empty(<e/>/(author except processing-instruction))
+empty(<e />/(author except processing-instruction))

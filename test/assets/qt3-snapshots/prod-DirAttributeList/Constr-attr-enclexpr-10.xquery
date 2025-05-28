@@ -1,1 +1,1 @@
-<elem attr="z{}z"/>
+<elem attr="z{}z" />

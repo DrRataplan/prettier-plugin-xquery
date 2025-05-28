@@ -15,8 +15,8 @@ for $token in
     )
   )
 where not($token = $changes)
-return <out test-set="{
-    string($testset/@name)
-  }" bad-covers-value="{
-    $token
-  }"/>
+return <out bad-covers-value="{
+      $token
+    }" test-set="{
+      string($testset/@name)
+    }" />

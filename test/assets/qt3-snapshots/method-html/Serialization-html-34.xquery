@@ -7,4 +7,6 @@ declare option output:media-type "text/html";
 declare option output:encoding "UTF-8";
 declare option output:version "4.0";
 
-<html><head><meta http-equiv="Content-Type" content="text/html;version='3.0'"/></head></html>
+<html><head><meta
+      content="text/html;version='3.0'"
+      http-equiv="Content-Type" /></head></html>

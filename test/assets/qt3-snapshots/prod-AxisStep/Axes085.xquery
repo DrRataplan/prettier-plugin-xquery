@@ -1,3 +1,3 @@
 <root> {
-  //Customers
-} </root>
+    //Customers
+  } </root>

@@ -1,3 +1,3 @@
-<e/>, attribute name {
-  <anElement/>
-}, <e/>
+<e />, attribute name {
+  <anElement />
+}, <e />

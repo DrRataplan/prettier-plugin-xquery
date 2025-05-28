@@ -1,1 +1,1 @@
-empty(<e/>/(a except ancestor-or-self))
+empty(<e />/(a except ancestor-or-self))

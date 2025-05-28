@@ -3,7 +3,7 @@ declare function local:even-range ($arg as xs:integer) as xs:integer* {
 };
 
 <element> {
-  attribute {"attr"} {
-    local:even-range(0)
-  }
-} </element>
+    attribute {"attr"} {
+      local:even-range(0)
+    }
+  } </element>

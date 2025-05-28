@@ -9,5 +9,7 @@ declare function functx:id-untyped (
 };
 
 let $in-xml :=
-  <in-xml> <a id="A001">abc</a> <b foo="A001">def</b> <c id="B001">ghi</c> </in-xml>
+  <in-xml> <a id="A001">abc</a> <b foo="A001">def</b> <c
+      id="B001"
+      >ghi</c> </in-xml>
 return (functx:id-untyped($in-xml, "A001"))

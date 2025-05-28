@@ -1,3 +1,3 @@
-declare variable $var := <elem/>;
+declare variable $var := <elem />;
 
-not($var is <elem/>)
+not($var is <elem />)

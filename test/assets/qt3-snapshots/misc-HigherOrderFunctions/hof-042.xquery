@@ -10,6 +10,6 @@ declare function local:ops () as (function (xs:string) as xs:string)* {
 
 string-join(
   for $f in local:ops()
-  return $f(<a name="Michael Kay"/>/@name),
+  return $f(<a name="Michael Kay" />/@name),
   "~"
 )

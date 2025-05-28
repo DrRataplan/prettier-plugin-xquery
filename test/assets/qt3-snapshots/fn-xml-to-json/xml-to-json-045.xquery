@@ -1,5 +1,8 @@
 xml-to-json(
-  <number xsi:type="xs:short" xmlns="http://www.w3.org/2005/xpath-functions" 
-            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-            xmlns:xs="http://www.w3.org/2001/XMLSchema">231</number>
+  <number
+    xmlns="http://www.w3.org/2005/xpath-functions"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:type="xs:short"
+    >231</number>
 )

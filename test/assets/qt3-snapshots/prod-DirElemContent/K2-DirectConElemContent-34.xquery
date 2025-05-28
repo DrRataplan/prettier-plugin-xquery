@@ -1,1 +1,1 @@
-<e/> instance of element(*, xs:anyType)
+<e /> instance of element(*, xs:anyType)

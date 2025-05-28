@@ -1,1 +1,1 @@
-(<elem xmlns="http://www.example.com"><child/></elem>)/*:child
+(<elem xmlns="http://www.example.com"><child /></elem>)/*:child

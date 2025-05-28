@@ -2,4 +2,4 @@
 (: Description: Comment containing ')' :)
 
 (: this is a comment ):)
-<result/>
+<result />

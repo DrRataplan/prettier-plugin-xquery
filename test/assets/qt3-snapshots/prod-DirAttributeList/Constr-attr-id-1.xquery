@@ -1,1 +1,1 @@
-<elem xml:id="ncname"/>
+<elem xml:id="ncname" />

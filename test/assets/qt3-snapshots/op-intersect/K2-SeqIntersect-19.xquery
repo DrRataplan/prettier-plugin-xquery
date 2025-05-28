@@ -1,3 +1,3 @@
-empty(<e/>/(a intersect attribute name {
+empty(<e />/(a intersect attribute name {
         ()
       }))

@@ -5,5 +5,5 @@ declare function Q{http://www.example.com/ns/my}fn (
 };
 
 <out>{
-  Q{http://www.example.com/ns/my}fn(12)
-}</out>
+    Q{http://www.example.com/ns/my}fn(12)
+  }</out>

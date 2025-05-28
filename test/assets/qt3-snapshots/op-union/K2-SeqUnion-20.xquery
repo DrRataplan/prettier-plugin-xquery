@@ -1,1 +1,1 @@
-empty(<e/>/(author union schema-attribute))
+empty(<e />/(author union schema-attribute))

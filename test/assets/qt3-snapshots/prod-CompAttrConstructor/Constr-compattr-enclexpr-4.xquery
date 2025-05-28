@@ -1,5 +1,5 @@
 element elem {
   attribute attr {
-    1, <a/>, 2
+    1, <a />, 2
   }
 }

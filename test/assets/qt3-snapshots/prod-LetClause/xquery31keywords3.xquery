@@ -1,3 +1,3 @@
 <keywords>
-           <exponent-separator/>
+           <exponent-separator />
         </keywords>/name()

@@ -1,3 +1,3 @@
-empty(<e/>/(a union comment {
+empty(<e />/(a union comment {
         ()
       }))

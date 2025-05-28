@@ -4,9 +4,9 @@ import schema namespace two =  "http://www.w3.org/XQueryTest/q083two" at  "Schem
 validate strict {
   <one:one> 
         		<two:two> 
-        			<two:three/> 
-        			<two:three/> 
-        			<two:three/> 
+        			<two:three /> 
+        			<two:three /> 
+        			<two:three /> 
         		</two:two> 
         	</one:one>
   }

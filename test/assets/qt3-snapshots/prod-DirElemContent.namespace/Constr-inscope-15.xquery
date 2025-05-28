@@ -1,1 +1,1 @@
-<xml:new/>
+<xml:new />

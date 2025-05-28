@@ -2,4 +2,4 @@ declare variable $var := document {
   <a>123</a>
 };
 
-$var[/<a/>]
+$var[/<a />]

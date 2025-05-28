@@ -1,4 +1,4 @@
-declare context item := <e/>;
+declare context item := <e />;
 
 declare variable $f := function-lookup(xs:QName("fn:" || $p), 0);
 

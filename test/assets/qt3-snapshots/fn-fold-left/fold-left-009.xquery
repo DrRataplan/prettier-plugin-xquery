@@ -12,7 +12,7 @@ declare function local:distinct-nodes-stable ($seq as node()*) {
   )
 };
 
-let $nodes := (<a/>, <b/>, <c/>, <d/>, <e/>, <f/>)
+let $nodes := (<a />, <b />, <c />, <d />, <e />, <f />)
 let $perm :=
   (
     $nodes[1],

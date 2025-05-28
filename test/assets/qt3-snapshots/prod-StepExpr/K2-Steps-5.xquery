@@ -1,1 +1,1 @@
-empty(<a/>/a)
+empty(<a />/a)

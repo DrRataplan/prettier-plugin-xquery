@@ -1,1 +1,1 @@
-empty(<e/>/(author union processing-instruction))
+empty(<e />/(author union processing-instruction))

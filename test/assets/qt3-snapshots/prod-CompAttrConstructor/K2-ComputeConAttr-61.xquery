@@ -6,5 +6,5 @@ let $x := (attribute a {
       "c"
     })
 return <foo> {
-    $x
-  } </foo>
+      $x
+    } </foo>

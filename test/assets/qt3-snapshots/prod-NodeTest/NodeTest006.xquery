@@ -1,3 +1,3 @@
 <result> {
-  /bib/book/editor/affiliation/text()
-} </result>
+    /bib/book/editor/affiliation/text()
+  } </result>

@@ -1,3 +1,3 @@
 <new>{
-  //*:child3
-}</new>
+    //*:child3
+  }</new>

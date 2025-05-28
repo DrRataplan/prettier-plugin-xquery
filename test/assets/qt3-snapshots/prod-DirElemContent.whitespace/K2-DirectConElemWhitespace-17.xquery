@@ -1,1 +1,1 @@
-count(<a/>/node())
+count(<a />/node())

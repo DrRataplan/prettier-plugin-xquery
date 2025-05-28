@@ -1,4 +1,4 @@
 <e>{
-  for $PI in ()/processing-instruction()
-  return ()
-}</e>
+    for $PI in ()/processing-instruction()
+    return ()
+  }</e>

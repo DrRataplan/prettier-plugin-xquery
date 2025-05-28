@@ -1,3 +1,3 @@
 <root> {
-  /doc/part/*/text()/..
-} </root>
+    /doc/part/*/text()/..
+  } </root>

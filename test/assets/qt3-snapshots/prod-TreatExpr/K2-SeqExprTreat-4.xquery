@@ -1,1 +1,1 @@
-empty(<e/>/(* treat as empty-sequence()))
+empty(<e />/(* treat as empty-sequence()))

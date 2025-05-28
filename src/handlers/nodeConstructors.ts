@@ -3,7 +3,7 @@ import printIfExist from "./util/printIfExists.ts";
 import space from "./util/space.ts";
 import type { Handler } from "./util/Handler.ts";
 
-const { group, indent, softline } = doc.builders;
+const { group, indent, softline, line, join } = doc.builders;
 
 const nodeConstructorHandlers: Record<string, Handler> = {
 	CompAttrConstructor: (path, print) => {
@@ -76,6 +76,95 @@ const nodeConstructorHandlers: Record<string, Handler> = {
 		const enclosedURIExprPart = path.map(print, "childrenByName", "EnclosedURIExpr");
 
 		return group([namespaceKeyword, space, prefixPart, space, enclosedURIExprPart]);
+	},
+	DirElemConstructor: (path, print) => {
+		const angleBracketOpen = path.map(print, "childrenByName", "'<'");
+		const [qnamePartOpen, qnamePartClose] = path.map(print, "childrenByName", "QName");
+		const dirAttributeList = path.map(print, "childrenByName", "DirAttributeList");
+		const selfClose = printIfExist(path, print, "'/>'");
+
+		const hasAttributes =
+			path.node.childrenByName["DirAttributeList"][0].children.filter(({ name }) => name !== "S").length > 0;
+		if (selfClose) {
+			return group([
+				angleBracketOpen,
+				qnamePartOpen,
+				hasAttributes ? indent([line, dirAttributeList]) : [],
+				space,
+				selfClose,
+			]);
+		}
+
+		const [firstAngleBracketClose, secondAngleBracketClose] = path.map(print, "childrenByName", "'>'");
+		const dirElemContent = path.map(print, "childrenByName", "DirElemContent");
+		const closeElementStart = path.map(print, "childrenByName", "'</'");
+
+		return group([
+			angleBracketOpen,
+			qnamePartOpen,
+			hasAttributes ? indent([line, dirAttributeList, softline]) : [],
+			firstAngleBracketClose,
+			indent(dirElemContent),
+			closeElementStart,
+			qnamePartClose,
+			secondAngleBracketClose,
+		]);
+	},
+	DirAttributeList: (path, print) => {
+		if (!path.node.children.some(({ name }) => name !== "S")) {
+			// Attribute list is empty
+			return [];
+		}
+		// Whitespace is absolutely not significant here
+		const attributeNames = path.map(print, "childrenByName", "QName");
+		const attributeValues = path.map(print, "childrenByName", "DirAttributeValue");
+		const equalitySigns = path.map(print, "childrenByName", "'='");
+
+		const rawAttributeNames = path.node.childrenByName.QName;
+
+		const tuples: { rawName: string; formatted: Doc }[] = [];
+
+		for (let i = 0; i < rawAttributeNames.length; ++i) {
+			const formatted = group([attributeNames[i], equalitySigns[i], attributeValues[i]]);
+			tuples.push({ rawName: rawAttributeNames[i].getStringRepresentation(), formatted });
+		}
+		tuples.sort((a, b) => {
+			if (a.rawName === b.rawName) {
+				return 0;
+			}
+			const aIsDefaulNamespaceDeclaration = a.rawName === "xmlns";
+			const bIsDefaulNamespaceDeclaration = b.rawName == "xmlns";
+
+			if (aIsDefaulNamespaceDeclaration) {
+				// xmlns is always first
+				return -1;
+			}
+
+			if (bIsDefaulNamespaceDeclaration) {
+				// xmlns is always first
+				return 1;
+			}
+
+			const aIsNamespaceDeclaration = a.rawName.startsWith("xmlns");
+			const bIsNamespaceDeclaration = b.rawName.startsWith("xmlns");
+			if (aIsNamespaceDeclaration && !bIsNamespaceDeclaration) {
+				// A before B
+				return -1;
+			}
+			if (bIsNamespaceDeclaration && !aIsNamespaceDeclaration) {
+				// B before A
+				return 1;
+			}
+
+			return a.rawName < b.rawName ? -1 : 1;
+		});
+
+		return group(
+			join(
+				line,
+				tuples.map(({ formatted }) => formatted),
+			),
+		);
 	},
 };
 

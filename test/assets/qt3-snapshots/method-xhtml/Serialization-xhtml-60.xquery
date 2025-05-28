@@ -4,4 +4,4 @@ declare option output:method "xhtml";
 declare option output:indent "yes";
 declare option output:html-version "5.0";
 
-<html><head/><body><p>a<mark>text</mark>z</p></body></html>
+<html><head /><body><p>a<mark>text</mark>z</p></body></html>

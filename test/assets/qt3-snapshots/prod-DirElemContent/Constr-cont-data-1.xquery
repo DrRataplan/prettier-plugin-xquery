@@ -1,1 +1,1 @@
-fn:data(<elem>a<a/>b</elem>)
+fn:data(<elem>a<a />b</elem>)

@@ -1,3 +1,3 @@
 <a> {
-  element {"prefix:localName"} {}
-} </a>
+    element {"prefix:localName"} {}
+  } </a>

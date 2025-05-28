@@ -1,4 +1,4 @@
 declare base-uri "http://www.example.com/";
 
-let $i := <e xml:base = "foo/../xml" attr="foo"> </e>
+let $i := <e attr="foo" xml:base="foo/../xml"> </e>
 return base-uri($i/@attr)

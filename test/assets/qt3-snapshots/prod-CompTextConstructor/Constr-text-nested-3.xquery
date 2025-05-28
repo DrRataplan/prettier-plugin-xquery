@@ -1,9 +1,9 @@
 document {
   text {
     "one"
-  }, <a/>, text {
+  }, <a />, text {
     "two"
-  }, <b/>, text {
+  }, <b />, text {
     "three"
   }
 }

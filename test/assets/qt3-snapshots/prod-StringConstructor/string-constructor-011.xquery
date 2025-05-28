@@ -1,5 +1,5 @@
 declare variable $n external;
 
 <a text="{
-  ``[There were `{$n}` green bottles]``
-}"/>
+    ``[There were `{$n}` green bottles]``
+  }" />

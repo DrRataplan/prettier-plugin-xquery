@@ -1,1 +1,1 @@
-empty(<e/>/(author except empty-sequence))
+empty(<e />/(author except empty-sequence))

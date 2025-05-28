@@ -1,1 +1,1 @@
-<foo:elem/>
+<foo:elem />

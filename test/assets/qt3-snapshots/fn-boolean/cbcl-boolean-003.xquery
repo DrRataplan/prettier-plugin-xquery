@@ -1,5 +1,5 @@
 declare function local:f () {
-  (<a/>, "a")
+  (<a />, "a")
 };
 
 boolean(local:f())

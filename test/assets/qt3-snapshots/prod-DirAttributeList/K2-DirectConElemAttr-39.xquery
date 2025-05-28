@@ -1,5 +1,5 @@
 string(<elem attr="{
-    attribute name {
-      " content "
-    }
-  }"/>/@attr)
+      attribute name {
+        " content "
+      }
+    }" />/@attr)

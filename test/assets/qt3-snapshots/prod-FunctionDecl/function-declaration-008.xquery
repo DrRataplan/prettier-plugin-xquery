@@ -10,10 +10,10 @@ declare function my:fact ($n as xs:integer) as xs:integer {
 declare variable $my:ten := my:fact(10);
 
 <table> {
-  for $i in 1 to 10
-  return <tr> <td>10!/{
-      $i
-    }! = {
-      $my:ten div my:fact($i)
-    }</td> </tr>
-} </table>
+    for $i in 1 to 10
+    return <tr> <td>10!/{
+            $i
+          }! = {
+            $my:ten div my:fact($i)
+          }</td> </tr>
+  } </table>

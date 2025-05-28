@@ -6,7 +6,7 @@ let $testfile := $xq-testcase/@file/doc(resolve-uri(., base-uri(..)))
 let $file-testname := $testfile/fots:test-set/@name
 where $testname != $file-testname
 return <out catalog-name="{
-    string($testname)
-  }" test-name="{
-    string($file-testname)
-  }"/>
+      string($testname)
+    }" test-name="{
+      string($file-testname)
+    }" />

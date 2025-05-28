@@ -1,1 +1,1 @@
-<shoe name=" """" "/>
+<shoe name=" """" " />

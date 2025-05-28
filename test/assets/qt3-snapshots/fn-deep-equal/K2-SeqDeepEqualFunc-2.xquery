@@ -1,1 +1,1 @@
-deep-equal(current-time(), <e/>)
+deep-equal(current-time(), <e />)

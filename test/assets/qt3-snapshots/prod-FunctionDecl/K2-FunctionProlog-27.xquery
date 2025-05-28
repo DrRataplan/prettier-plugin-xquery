@@ -1,5 +1,5 @@
 declare function local:myFunc () as attribute(foo) {
-  <foo/>
+  <foo />
 };
 
 local:myFunc()

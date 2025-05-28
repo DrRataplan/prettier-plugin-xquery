@@ -1,4 +1,4 @@
-let $data := <a b="3"/>
+let $data := <a b="3" />
 
 return fn:serialize(
     $data,

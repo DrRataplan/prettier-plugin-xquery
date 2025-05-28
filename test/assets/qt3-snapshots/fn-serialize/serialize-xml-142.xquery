@@ -4,4 +4,4 @@ let $options :=
     "indent": xs:untypedAtomic("false"),
     "item-separator": xs:untypedAtomic("  ")
   }
-return serialize((<e/>, <f/>), $options)
+return serialize((<e />, <f />), $options)

@@ -1,4 +1,4 @@
-typeswitch (<e/>, <e/>)
+typeswitch (<e />, <e />)
   case $b as element() return
     concat("", $b treat as element())
 

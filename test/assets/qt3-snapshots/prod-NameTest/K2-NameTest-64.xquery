@@ -1,3 +1,3 @@
 <e>{
-  <e foo="asd"/>/attribute(*, xs:untypedAtomic)
-}</e>
+    <e foo="asd" />/attribute(*, xs:untypedAtomic)
+  }</e>

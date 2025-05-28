@@ -1,5 +1,5 @@
 let $at :=
-  <attendees> <name last='Parker'
-            first='Peter'/> <name last='Barker' first='Bob'/> <name last='Parker'
-            first='Peter'/> </attendees>
+  <attendees> <name first='Peter' last='Parker' /> <name
+      first='Bob' last='Barker' /> <name
+      first='Peter' last='Parker' /> </attendees>
 return fn:deep-equal($at/name[1], $at/name[3])

@@ -5,9 +5,9 @@ declare function local:myFunc () {
 };
 
 <b> {
-  local:myFunc()
-} {
-  attribute name {
-    "content"
-  }
-} </b>
+    local:myFunc()
+  } {
+    attribute name {
+      "content"
+    }
+  } </b>

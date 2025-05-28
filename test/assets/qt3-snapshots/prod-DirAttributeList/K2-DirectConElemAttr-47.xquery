@@ -1,1 +1,1 @@
-data(<e foo="content"/>/@*) instance of xs:untypedAtomic
+data(<e foo="content" />/@*) instance of xs:untypedAtomic

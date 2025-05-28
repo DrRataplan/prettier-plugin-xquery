@@ -1,1 +1,1 @@
-fn:base-uri(<elem xml:base="http://www.example.com"/>)
+fn:base-uri(<elem xml:base="http://www.example.com" />)

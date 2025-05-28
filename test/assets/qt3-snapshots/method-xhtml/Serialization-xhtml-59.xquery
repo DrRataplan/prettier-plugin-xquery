@@ -4,4 +4,6 @@ declare option output:method "xhtml";
 declare option output:indent "yes";
 declare option output:html-version "4.0";
 
-<html xmlns="http://www.w3.org/1999/xhtml"><head/><body><p>a<a>text</a>z</p></body></html>
+<html
+  xmlns="http://www.w3.org/1999/xhtml"
+  ><head /><body><p>a<a>text</a>z</p></body></html>

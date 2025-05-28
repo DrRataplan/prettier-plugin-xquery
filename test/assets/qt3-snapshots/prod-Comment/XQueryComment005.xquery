@@ -2,4 +2,4 @@
 (: Description: Comment containing only '-' :)
 
 (:-:)
-<result/>
+<result />

@@ -1,3 +1,3 @@
-declare variable $myVar := <e/>;
+declare variable $myVar := <e />;
 
 empty($myVar/descendant-or-self::text())

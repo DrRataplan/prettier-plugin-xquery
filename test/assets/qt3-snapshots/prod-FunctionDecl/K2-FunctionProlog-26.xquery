@@ -1,5 +1,5 @@
 declare function local:myFunc () as element(foo) {
-  <bar/>
+  <bar />
 };
 
 local:myFunc()

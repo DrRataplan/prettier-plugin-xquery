@@ -1,1 +1,1 @@
-string(exactly-one(<e xml:id=" ab c d "/>/@*))
+string(exactly-one(<e xml:id=" ab c d " />/@*))

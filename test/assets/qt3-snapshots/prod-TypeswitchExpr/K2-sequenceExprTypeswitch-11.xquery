@@ -1,6 +1,6 @@
 typeswitch (1, 2, 3)
   case node() return
-    <e/>
+    <e />
 
   default return
     1,

@@ -1,1 +1,1 @@
-fn:count((<elem/>)/node())
+fn:count((<elem />)/node())

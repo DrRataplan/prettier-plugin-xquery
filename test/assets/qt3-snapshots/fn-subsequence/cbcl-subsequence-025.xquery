@@ -1,1 +1,1 @@
-count(<a><b/></a>/*/subsequence(., 1, 1)/..)
+count(<a><b /></a>/*/subsequence(., 1, 1)/..)

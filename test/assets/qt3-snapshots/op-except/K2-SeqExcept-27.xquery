@@ -1,1 +1,1 @@
-empty(<e/>/(a except attribute))
+empty(<e />/(a except attribute))

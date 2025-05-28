@@ -7,5 +7,5 @@ declare function local:p () as schema-element(z:person) {
 };
 
 <out> {
-  local:p()
-} </out>
+    local:p()
+  } </out>
