@@ -8,5 +8,5 @@ declare function local:myFunc ($recurse as xs:integer) {
 };
 
 <e> {
-  local:myFunc((2, current-time())[1] treat as xs:integer)
-} </e>
+    local:myFunc((2, current-time())[1] treat as xs:integer)
+  } </e>

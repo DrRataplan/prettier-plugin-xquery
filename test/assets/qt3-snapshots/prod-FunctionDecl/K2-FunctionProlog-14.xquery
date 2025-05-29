@@ -2,4 +2,4 @@ declare function local:myFunc () {
   e
 };
 
-<e/>/local:myFunc()/1
+<e />/local:myFunc()/1

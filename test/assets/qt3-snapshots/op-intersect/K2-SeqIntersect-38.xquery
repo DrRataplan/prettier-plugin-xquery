@@ -1,1 +1,1 @@
-empty(<e/>/(a intersect declare))
+empty(<e />/(a intersect declare))

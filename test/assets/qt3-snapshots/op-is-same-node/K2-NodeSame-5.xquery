@@ -1,1 +1,1 @@
-empty(exactly-one(<e/>/*) is exactly-one(<e/>/*))
+empty(exactly-one(<e />/*) is exactly-one(<e />/*))

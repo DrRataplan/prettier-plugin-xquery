@@ -1,1 +1,1 @@
-count(in-scope-prefixes(<e/>)[. eq "xml"])
+count(in-scope-prefixes(<e />)[. eq "xml"])

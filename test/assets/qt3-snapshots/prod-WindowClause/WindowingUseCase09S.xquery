@@ -8,10 +8,10 @@
   order by $person
   return <working-time>
     <person>{
-      $person
-    }</person>
+        $person
+      }</person>
     <time>{
-      sum($workingTime)
-    }</time>
+        sum($workingTime)
+      }</time>
   </working-time>
 }</result>

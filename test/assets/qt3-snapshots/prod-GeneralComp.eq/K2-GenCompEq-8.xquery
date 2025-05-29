@@ -1,5 +1,5 @@
 empty(
-  for $b in <e/>
+  for $b in <e />
   where $b/@id = "person0"
   return ()
 )

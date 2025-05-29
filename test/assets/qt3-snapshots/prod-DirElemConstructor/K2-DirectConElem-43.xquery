@@ -1,5 +1,5 @@
 <e> {
-  document {
-    ()
-  }
-} </e>
+    document {
+      ()
+    }
+  } </e>

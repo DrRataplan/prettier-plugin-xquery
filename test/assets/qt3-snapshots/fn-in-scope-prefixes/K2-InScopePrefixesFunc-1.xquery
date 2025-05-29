@@ -1,1 +1,1 @@
-count(in-scope-prefixes(<e/>))
+count(in-scope-prefixes(<e />))

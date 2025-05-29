@@ -6,4 +6,4 @@ declare option output:method "html";
 declare option output:indent "no";
 declare option output:version "5.0";
 
-<html><body><spin/></body></html>
+<html><body><spin /></body></html>

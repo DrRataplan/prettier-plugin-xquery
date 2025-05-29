@@ -1,1 +1,1 @@
-string(<a>aaaa<b/>aaaa</a>)
+string(<a>aaaa<b />aaaa</a>)

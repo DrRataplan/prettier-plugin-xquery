@@ -9,7 +9,7 @@ let $value := $dependencyTS/@value
 group by $name, $value
 order by $name , $value
 return <dependency type='{
-    $name
-  }' value='{
-    $value
-  }' />
+      $name
+    }' value='{
+      $value
+    }' />

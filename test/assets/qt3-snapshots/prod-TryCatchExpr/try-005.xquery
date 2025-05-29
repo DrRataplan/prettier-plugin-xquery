@@ -2,10 +2,10 @@
   try {
     doc("rubbish.xml")
   } catch * {
-    <caught-error/>
+    <caught-error />
   }, try {
     doc("rubbish.xml")
   } catch * {
-    <caught-another/>
+    <caught-another />
   }
 }</out>

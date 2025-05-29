@@ -1,4 +1,4 @@
-declare variable $e := <e/>;
+declare variable $e := <e />;
 
-for $i in (<a/>, $e, <c/>)
+for $i in (<a />, $e, <c />)
 return $i is $e

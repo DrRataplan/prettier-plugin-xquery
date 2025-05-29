@@ -1,3 +1,5 @@
 count(
-  <e xmlns="http://example.com/"><a xmlns=""/></e>/namespace-uri(exactly-one(*))
+  <e xmlns="http://example.com/"><a xmlns="" /></e>/namespace-uri(
+    exactly-one(*)
+  )
 )

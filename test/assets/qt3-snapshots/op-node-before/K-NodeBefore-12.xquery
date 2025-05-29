@@ -1,21 +1,37 @@
 let $doc :=
   <catalog>
-       <product dept="WMN">
+       <product
+      dept="WMN"
+      >
         <number>557</number>
-        <name language="en">Fleece Pullover</name>
+        <name
+        language="en"
+        >Fleece Pullover</name>
         <colorChoices>navy black</colorChoices>
        </product>
-       <product dept="ACC">
+       <product
+      dept="ACC"
+      >
         <number>563</number>
-        <name language="en">Floppy Sun Hat</name>
+        <name
+        language="en"
+        >Floppy Sun Hat</name>
        </product>
-       <product dept="ACC">
+       <product
+      dept="ACC"
+      >
         <number>443</number>
-        <name language="en">Deluxe Travel Bag</name>
+        <name
+        language="en"
+        >Deluxe Travel Bag</name>
        </product>
-       <product dept="MEN">
+       <product
+      dept="MEN"
+      >
         <number>784</number>
-        <name language="en">Cotton Dress Shirt</name>
+        <name
+        language="en"
+        >Cotton Dress Shirt</name>
         <colorChoices>white gray</colorChoices>
         <desc>Our <i>favorite</i> shirt!</desc>
        </product>

@@ -6,7 +6,7 @@ declare function local:convert ($v as xs:decimal?) as xs:decimal? {
 };
 
 <XMark-result-Q18> {
-  let $auction := (/)
-  return for $i in $auction/site/open_auctions/open_auction
-    return local:convert(zero-or-one($i/reserve))
-} </XMark-result-Q18>
+    let $auction := (/)
+    return for $i in $auction/site/open_auctions/open_auction
+      return local:convert(zero-or-one($i/reserve))
+  } </XMark-result-Q18>

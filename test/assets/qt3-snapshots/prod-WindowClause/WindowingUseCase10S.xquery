@@ -6,6 +6,6 @@
   let $date := xs:date(xs:dateTime($s/@time))
   where not($w[person eq "Barbara"])
   return <alert date="{
-      $date
-    }">Barbara did not come to work</alert>
+        $date
+      }">Barbara did not come to work</alert>
 }</result>

@@ -1,1 +1,1 @@
-empty(<e/>/(a except declare))
+empty(<e />/(a except declare))

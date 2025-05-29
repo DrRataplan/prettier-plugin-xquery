@@ -1,3 +1,3 @@
 count(data(text {
-      <_/>[text()]
+      <_ />[text()]
     }))

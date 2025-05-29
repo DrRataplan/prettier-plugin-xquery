@@ -4,8 +4,8 @@
   group by $key
   order by count($x) , $key
   return <group count="{
-      count($x)
-    }"> {
-      string-join($x/@name, "|")
-    } </group>
+        count($x)
+      }"> {
+        string-join($x/@name, "|")
+      } </group>
 }</out>

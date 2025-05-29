@@ -1,1 +1,1 @@
-count((<a/>, <!--comment-->)/3)
+count((<a />, <!--comment-->)/3)

@@ -12,17 +12,17 @@ declare namespace fots = "http://www.w3.org/2010/09/qt-fots-catalog";
   let $count :=
     count($relevant-testsets/fots:test-case) + count($relevant-testcases)
   where $count lt 5
-  return <out spec="{
-      $changes[@id = $token]/../@name
-    }" change="{
-      $token
-    }" tests="{
-      $count
-    }" names="{
-      $relevant-testcases/@name
-    }">
+  return <out change="{
+        $token
+      }" names="{
+        $relevant-testcases/@name
+      }" spec="{
+        $changes[@id = $token]/../@name
+      }" tests="{
+        $count
+      }">
         {
-      $changes[@id = $token]/text()
-    }
+        $changes[@id = $token]/text()
+      }
         </out>
 }</r>

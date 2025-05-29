@@ -3,4 +3,4 @@ declare function local:myFunc ($arg as node()) {
   return $arg/$v
 };
 
-local:myFunc(<e/>)
+local:myFunc(<e />)

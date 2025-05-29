@@ -6,9 +6,9 @@
     else
       42
   group by $key
-  return <group key="{
-      $key
-    }" count="{
-      count($x)
-    }"/>
+  return <group count="{
+        count($x)
+      }" key="{
+        $key
+      }" />
 }</out>

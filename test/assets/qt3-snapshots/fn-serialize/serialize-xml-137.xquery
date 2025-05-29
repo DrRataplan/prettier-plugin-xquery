@@ -1,1 +1,1 @@
-serialize(<e/>, ())
+serialize(<e />, ())

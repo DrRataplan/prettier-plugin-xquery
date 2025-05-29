@@ -5,12 +5,12 @@
       fn:day-from-dateTime(xs:dateTime($s_curr/pubDate))
   return <item>
         <date>{
-      xs:date(xs:dateTime($s_curr/pubDate))
-    }</date>
+        xs:date(xs:dateTime($s_curr/pubDate))
+      }</date>
         {
-      for $item in $w
-      where fn:contains(xs:string($item/title), "XQuery")
-      return $item/title
-    }
+        for $item in $w
+        where fn:contains(xs:string($item/title), "XQuery")
+        return $item/title
+      }
       </item>
 }</result>

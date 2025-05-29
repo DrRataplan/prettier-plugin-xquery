@@ -1,1 +1,1 @@
-empty(<e/>/(author except schema-element))
+empty(<e />/(author except schema-element))

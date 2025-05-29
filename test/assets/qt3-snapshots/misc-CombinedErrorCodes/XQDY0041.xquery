@@ -1,5 +1,5 @@
 <a> {
-  processing-instruction {"1BadName"} {
-    "content"
-  }
-} </a>
+    processing-instruction {"1BadName"} {
+      "content"
+    }
+  } </a>

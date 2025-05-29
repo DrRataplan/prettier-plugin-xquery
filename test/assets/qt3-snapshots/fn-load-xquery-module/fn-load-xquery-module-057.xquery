@@ -6,7 +6,8 @@ let $module :=
   fn:load-xquery-module(
     $module-ns,
     map {
-      "variables": map {QName($module-ns, "c"): <outer><a/><b/><d/><f/></outer>}
+      "variables":
+        map {QName($module-ns, "c"): <outer><a /><b /><d /><f /></outer>}
     }
   )
 return $module("functions")(QName($module-ns, "validate"))(0)()

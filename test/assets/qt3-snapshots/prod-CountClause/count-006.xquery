@@ -5,10 +5,10 @@
   where $index mod 3 = 0
   count$index2
   return <item><x>{
-      $x
-    }</x><y>{
-      $y
-    }</y><index2>{
-      $index2
-    }</index2></item>
+        $x
+      }</x><y>{
+        $y
+      }</y><index2>{
+        $index2
+      }</index2></item>
 }</out>

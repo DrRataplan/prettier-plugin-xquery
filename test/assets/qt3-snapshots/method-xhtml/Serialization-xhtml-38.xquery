@@ -7,4 +7,4 @@ declare option output:media-type "text/html";
 declare option output:encoding "UTF-8";
 declare option output:html-version "5.0";
 
-<html/>
+<html />

@@ -1,3 +1,3 @@
 <e xmlns="http://{
-  exa
-}mple.com/"/>/@xmlns
+    exa
+  }mple.com/" />/@xmlns

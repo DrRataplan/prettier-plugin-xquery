@@ -1,1 +1,1 @@
-empty(<e/>/(author intersect schema-element))
+empty(<e />/(author intersect schema-element))

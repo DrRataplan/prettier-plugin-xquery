@@ -1,1 +1,1 @@
-empty(<e/>/(a except parent))
+empty(<e />/(a except parent))

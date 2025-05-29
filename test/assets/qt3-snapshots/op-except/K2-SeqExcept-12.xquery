@@ -1,1 +1,1 @@
-empty(<e/>/(author except then))
+empty(<e />/(author except then))

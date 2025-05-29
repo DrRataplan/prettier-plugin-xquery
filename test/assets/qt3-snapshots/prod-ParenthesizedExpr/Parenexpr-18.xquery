@@ -1,5 +1,5 @@
 <elem attr="{
-  (1)
-}">{
-  (<child/>), (<child/>)
+    (1)
+  }">{
+  (<child />), (<child />)
 }</elem>

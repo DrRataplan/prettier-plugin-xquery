@@ -3,4 +3,4 @@ declare function local:distinct-nodes-stable ($arg as node()*) as xs:boolean* {
   return $a
 };
 
-local:distinct-nodes-stable((<element1/>, <element2/>))
+local:distinct-nodes-stable((<element1 />, <element2 />))

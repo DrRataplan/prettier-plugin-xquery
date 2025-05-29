@@ -1,34 +1,35 @@
 /**
 * Automatically generated test report from running prettier over all 31821 test cases in the QT3 tests.
 *
-* The ignore list contains 19 known failing tests.
-* Tests that fail because a comment failed to be printed: 15
+* The ignore list contains 12 known failing tests.
+* Tests that fail because a comment failed to be printed: 8
 * Tests that fail because of a type error: 0
 * Tests that fail because the prettified result is not stable: 2
 *
 * Other failures: 2
 */
 export default {
-	"prod-DirAttributeList": {
-		"Constr-attr-enclexpr-12": [
-			"Error: Comment \"(:comment:)\" was not printed. Please report this error!"
-		]
-	},
-	"prod-DirElemContent": {
-		"K2-DirectConElemContent-26b": [
-			"Error: Comment \"(:comment:)\" was not printed. Please report this error!"
+	"fn-unparsed-text": {
+		"fn-unparsed-text-054a": [
+			"AssertionError [ERR_ASSERTION]: The prettification should be stable after a first one",
+			"+ actual - expected",
+			"",
+			"  'for $t1 in unparsed-text(\"https://timeanddate.com\")\\n' +",
+			"    'return every\\n' +",
+			"    '    $i in\\n' +",
+			"    '    1 to 50 satisfies\\n' +",
+			"    '    (\\n' +",
+			"+   '      parse-xml(\"<a><b><c>\" || $i || \"</c></b></a>\")//c (:waste some time:) and\\n' +",
+			"-   '      parse-xml(\"<a><b><c>\" || $i || \"</c></b></a>\")//c(:waste some time:)  and\\n' +",
+			"    '        unparsed-text(\\n' +",
+			"    '          translate(concat(\"https://timeanddate.com\", $i), \"0123456789\", \"\")\\n' +",
+			"    '        ) eq\\n' +",
+			"    '          $t1\\n' +",
+			"    '    )\\n'",
+			""
 		]
 	},
 	"prod-FunctionCall": {
-		"FunctionCall-046": [
-			"Error: Comment \"(: there's nothing here :)\" was not printed. Please report this error!"
-		],
-		"FunctionCall-047": [
-			"Error: Comment \"(: there's nothing here :)\" was not printed. Please report this error!"
-		],
-		"FunctionCall-048": [
-			"Error: Comment \"(: there's nothing here :)\" was not printed. Please report this error!"
-		],
 		"FunctionCall-055": [
 			"AssertionError [ERR_ASSERTION]: The prettification should be stable after a first one",
 			"+ actual - expected",
@@ -44,14 +45,6 @@ export default {
 			"+   \" (: '2' is not xs:double, error should be raised :)\"",
 			"-   \"(: '2' is not xs:double, error should be raised :) \"",
 			""
-		]
-	},
-	"prod-FunctionDecl": {
-		"function-declaration-029": [
-			"Error: Comment \"(:there is nothing here:)\" was not printed. Please report this error!"
-		],
-		"function-declaration-030": [
-			"Error: Comment \"(:there is nothing here:)\" was not printed. Please report this error!"
 		]
 	},
 	"prod-GroupByClause": {
@@ -72,12 +65,12 @@ export default {
 			"  group by $keycollation\"http://www.w3.org/2005/xpath-functions/collation/codepoint\"",
 			"  order by $key",
 			"  return <group count=\"{",
-			"      count($x)",
-			"    }\" key=\"{",
-			"      $key",
-			"    }\"> {",
-			"      string-join($x/pnum, \"|\")",
-			"    } </group>",
+			"        count($x)",
+			"      }\" key=\"{",
+			"        $key",
+			"      }\"> {",
+			"        string-join($x/pnum, \"|\")",
+			"      } </group>",
 			"}</out>",
 			"",
 			"Actual message: \"lexical analysis failed",
@@ -102,12 +95,12 @@ export default {
 			"      $x/empnumcollation\"http://www.w3.org/2005/xpath-functions/collation/codepoint\"",
 			"  order by $key",
 			"  return <group count=\"{",
-			"      count($x)",
-			"    }\" key=\"{",
-			"      $key",
-			"    }\"> {",
-			"      string-join($x/pnum, \"|\")",
-			"    } </group>",
+			"        count($x)",
+			"      }\" key=\"{",
+			"        $key",
+			"      }\"> {",
+			"        string-join($x/pnum, \"|\")",
+			"      } </group>",
 			"}</out>",
 			"",
 			"Actual message: \"lexical analysis failed",
@@ -145,26 +138,6 @@ export default {
 		],
 		"K-InternalVariablesWith-2": [
 			"Error: Comment \"(::)\" was not printed. Please report this error!"
-		]
-	},
-	"fn-unparsed-text": {
-		"fn-unparsed-text-054a": [
-			"AssertionError [ERR_ASSERTION]: The prettification should be stable after a first one",
-			"+ actual - expected",
-			"",
-			"  'for $t1 in unparsed-text(\"https://timeanddate.com\")\\n' +",
-			"    'return every\\n' +",
-			"    '    $i in\\n' +",
-			"    '    1 to 50 satisfies\\n' +",
-			"    '    (\\n' +",
-			"+   '      parse-xml(\"<a><b><c>\" || $i || \"</c></b></a>\")//c (:waste some time:) and\\n' +",
-			"-   '      parse-xml(\"<a><b><c>\" || $i || \"</c></b></a>\")//c(:waste some time:)  and\\n' +",
-			"    '        unparsed-text(\\n' +",
-			"    '          translate(concat(\"https://timeanddate.com\", $i), \"0123456789\", \"\")\\n' +",
-			"    '        ) eq\\n' +",
-			"    '          $t1\\n' +",
-			"    '    )\\n'",
-			""
 		]
 	}
 } as Record<string,Record<string,string>>;

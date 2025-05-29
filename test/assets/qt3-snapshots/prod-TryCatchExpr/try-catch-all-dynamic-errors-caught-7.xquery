@@ -1,6 +1,6 @@
 try {
   validate { document {
-      <a/>, <b/>
+      <a />, <b />
     } }
 } catch err:XQDY0061 {
   "Invalid document."

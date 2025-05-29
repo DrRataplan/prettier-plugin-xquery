@@ -1,1 +1,1 @@
-empty(<anElement/>/ancestor::node())
+empty(<anElement />/ancestor::node())

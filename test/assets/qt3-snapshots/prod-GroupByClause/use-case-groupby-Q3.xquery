@@ -8,13 +8,13 @@
   order by $state , $category
   return <group>
                      <state>{
-      $state
-    }</state>
+        $state
+      }</state>
                      <category>{
-      $category
-    }</category>
+        $category
+      }</category>
                      <total-revenue>{
-      sum($revenue)
-    }</total-revenue>
+        sum($revenue)
+      }</total-revenue>
                    </group>
 }</result>

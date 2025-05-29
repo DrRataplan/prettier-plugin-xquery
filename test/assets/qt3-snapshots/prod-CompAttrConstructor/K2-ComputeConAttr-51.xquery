@@ -1,5 +1,5 @@
 <e> {
-  attribute {QName("http://example.com/", "attr")} {
-    ()
-  }
-} </e>
+    attribute {QName("http://example.com/", "attr")} {
+      ()
+    }
+  } </e>

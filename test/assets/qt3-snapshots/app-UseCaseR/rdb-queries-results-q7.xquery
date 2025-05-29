@@ -3,5 +3,5 @@ let $allbikes :=
     contains(exactly-one(description), "Tricycle")]
 let $bikebids := $bids//bid_tuple[itemno = $allbikes/itemno]
 return <high_bid> {
-    max($bikebids/bid)
-  } </high_bid>
+      max($bikebids/bid)
+    } </high_bid>

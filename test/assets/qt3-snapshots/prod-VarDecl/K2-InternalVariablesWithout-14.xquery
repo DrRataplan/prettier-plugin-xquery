@@ -2,4 +2,4 @@ declare variable $myVar := <e>{
   nametest
 }</e>;
 
-<e/>/$myVar
+<e />/$myVar

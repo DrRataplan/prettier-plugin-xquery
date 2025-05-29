@@ -1,3 +1,3 @@
 <foo attr="{
-  <foo attr="foo"/>
-}"/>
+    <foo attr="foo" />
+  }" />

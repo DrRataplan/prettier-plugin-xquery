@@ -1,1 +1,1 @@
-<elem xmlns:xmlns="http://www.example.com"/>
+<elem xmlns:xmlns="http://www.example.com" />

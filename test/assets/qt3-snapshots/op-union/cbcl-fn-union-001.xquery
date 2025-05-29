@@ -1,6 +1,6 @@
-declare variable $x := <b/>;
+declare variable $x := <b />;
 
-declare variable $y := <a/>;
+declare variable $y := <a />;
 
 ($x union $y) union $x,
 ($x intersect $y) union $x,

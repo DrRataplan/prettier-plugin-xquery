@@ -1,6 +1,6 @@
 typeswitch (1, 2, 3)
   case node() return
-    <e/>
+    <e />
   case $i as xs:integer return
     1
 

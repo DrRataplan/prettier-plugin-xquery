@@ -6,13 +6,13 @@
   order by $state , $category
   return <group>
                      <state>{
-      $state
-    }</state>
+        $state
+      }</state>
                      <category>{
-      $category
-    }</category>
+        $category
+      }</category>
                      <total-qty>{
-      sum($sales/qty)
-    }</total-qty>
+        sum($sales/qty)
+      }</total-qty>
                    </group>
 }</result>

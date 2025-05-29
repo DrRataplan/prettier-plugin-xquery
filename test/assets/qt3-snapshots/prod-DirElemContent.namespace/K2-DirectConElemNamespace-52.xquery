@@ -1,3 +1,3 @@
 declare default element namespace "http://example.com/";
 
-<a> <e xmlns=""/> </a>
+<a> <e xmlns="" /> </a>

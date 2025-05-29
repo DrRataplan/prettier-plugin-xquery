@@ -2,7 +2,7 @@ declare namespace z = "http://www.zorba-xquery.com/";
 
 <z:e>{
   namespace {
-    <a/>/*
+    <a />/*
   } {
     "http://www.w3.org/"
   }

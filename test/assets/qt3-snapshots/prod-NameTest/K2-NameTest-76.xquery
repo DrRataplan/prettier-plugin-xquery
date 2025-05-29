@@ -1,1 +1,1 @@
-<e><b/></e>/element(b, xs:anyType)
+<e><b /></e>/element(b, xs:anyType)

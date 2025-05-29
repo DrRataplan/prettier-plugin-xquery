@@ -19,8 +19,8 @@ declare namespace err = "http://www.w3.org/2005/xqt-errors";
     } catch * {
       if ($t/@result = ("y", "n")) then
         <fail error="{
-          $err:code
-        }">{
+            $err:code
+          }">{
           $t
         }</fail>
       else (

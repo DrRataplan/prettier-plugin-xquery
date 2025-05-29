@@ -4,4 +4,4 @@ declare option output:method "html";
 declare option output:indent "yes";
 declare option output:version "5.0";
 
-<html><head/><body><p>a<Mark>text</Mark>z</p></body></html>
+<html><head /><body><p>a<Mark>text</Mark>z</p></body></html>

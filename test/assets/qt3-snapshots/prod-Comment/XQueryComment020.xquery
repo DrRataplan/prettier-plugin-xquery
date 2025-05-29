@@ -2,4 +2,4 @@
 (: Description: Comment containing an enclosed expression :)
 
 (: { "comment" } :)
-<result/>
+<result />

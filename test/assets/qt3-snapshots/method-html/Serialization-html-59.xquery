@@ -4,4 +4,4 @@ declare option output:method "html";
 declare option output:indent "yes";
 declare option output:version "5";
 
-<html><head/><body><p><?pi data?></p></body></html>
+<html><head /><body><p><?pi data?></p></body></html>

@@ -4,8 +4,8 @@
   group by $pname
   order by $pname
   return <product name="{
-      $pname
-    }">{
+        $pname
+      }">{
       sum($sales/qty)
     }</product>
 }</sales-qty-by-product>

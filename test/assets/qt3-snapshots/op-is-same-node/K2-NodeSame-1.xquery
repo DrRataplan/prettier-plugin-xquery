@@ -1,4 +1,4 @@
-declare variable $var := <elem/>;
+declare variable $var := <elem />;
 
 <a>{
   $var

@@ -1,2 +1,2 @@
-let $e := <a xsi:type='my:integer' xmlns:my='http://my.example.com/'>123</a>
+let $e := <a xmlns:my='http://my.example.com/' xsi:type='my:integer'>123</a>
 return local-name-from-QName($e/@xsi:type)

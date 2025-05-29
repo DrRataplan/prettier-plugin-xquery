@@ -290,8 +290,8 @@ declare function fn:solveSudoku ($startBoard as xs:integer+) as xs:integer+ {
 
 declare function fn:drawResult ($board as xs:integer+) as element() {
   <html><head><title>Sudoku - XSLT</title><style>table {{ border-collapse: collapse; border: 1px solid black; }} td {{ padding: 10px; }} .norm {{ border-left: 1px solid #CCC; border-top: 1px solid #CCC; }} .csep {{ border-left: 1px solid black; }} .rsep {{ border-top: 1px solid black; }}</style></head><body>{
-    fn:drawBoard($board)
-  }</body></html>
+      fn:drawBoard($board)
+    }</body></html>
 };
 
 declare function fn:drawBoard ($board as xs:integer+) as element() {
@@ -300,21 +300,23 @@ declare function fn:drawBoard ($board as xs:integer+) as element() {
     return <tr>{
         for $j in 1 to 9
         let $pos := (($i - 1) * 9) + $j
-        return <td class="{
-            if ($p mod 3 = 1) then
-              "csep"
-            else (
-              "norm"
-            )
-          } {
-            if ($i mod 3 = 1) then
-              "rsep"
-            else (
-              "norm"
-            )
-          }"> {
-            $board[$pos]
-          }</td>
+        return <td
+            class="{
+              if ($p mod 3 = 1) then
+                "csep"
+              else (
+                "norm"
+              )
+            } {
+              if ($i mod 3 = 1) then
+                "rsep"
+              else (
+                "norm"
+              )
+            }"
+            > {
+              $board[$pos]
+            }</td>
       }</tr>
   }</table>
 };

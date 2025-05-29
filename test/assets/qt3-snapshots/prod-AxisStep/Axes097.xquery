@@ -1,2 +1,2 @@
-let $element as element(*) := <foo/>
+let $element as element(*) := <foo />
 return count($element/self::*:bar)
