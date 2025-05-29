@@ -22,6 +22,25 @@ describe("node constructors", () => {
 			name: "Orders attributes alphabeticaly",
 			input: '<ele a="a" xmlns:A="aaa" b="b" xmlns="111" />',
 		},
+		{
+			name: "Transforms empty elements into self-closing ones",
+			input: "<ele></ele>",
+			output: "<ele />\n",
+		},
+		{
+			name: "Does not transform empty elements with XQuery comments in them to self-closing variants",
+			input: "<ele>{(: Comment :)}</ele>",
+			output: "<ele>{ (: Comment :) }</ele>\n",
+		},
+		{
+			name: "Does not transform empty elements with multiple XQuery comments in them to self-closing variants",
+			input: "<ele>{(: A :) (: B :)}</ele>",
+			output: "<ele>{ (: A :) (: B :) }</ele>\n",
+		},
+		{
+			name: "Still normalizes to self-closing if the comment is next to the element",
+			input: "<ele></ele>(: Comment :)",
+		},
 	];
 
 	for (const { name, input, output } of fixtures) {

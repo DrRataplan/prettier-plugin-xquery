@@ -1,29 +1,37 @@
 import findCommentsInWhitespace from "./findCommentsInWhitespace.ts";
 
-export abstract class Node<NameType extends string = string> {
-	name: NameType;
-	begin: number;
-	end: number | undefined;
-
-	// Prettier may add a comments key at some points
-	comments: undefined | CommentNode[] = undefined;
+export abstract class Node<NameType extends NonTerminalName | TerminalName = NonTerminalName | TerminalName> {
+	public readonly name: NameType;
+	public readonly begin: number;
+	public end: number | undefined;
 
 	constructor(name: NameType, begin: number, end?: number) {
 		this.name = name;
 		this.begin = begin;
 		this.end = end;
 	}
-
-	public abstract getStringRepresentation(): string;
 }
 
 type TerminalName = `'${string}'` | "StringLiteral";
 type NonTerminalName = Capitalize<string>;
 
-export class NonTerminalNode extends Node<NonTerminalName> {
-	children: Node[];
+export abstract class NonCommentNode<
+	T extends NonTerminalName | TerminalName = NonTerminalName | TerminalName,
+> extends Node<T> {
+	// Prettier may add a comments key at some points
+	public comments: undefined | CommentNode[] = undefined;
 
-	constructor(name: NonTerminalName, begin: number, end?: number, children: Node[] = []) {
+	public abstract getStringRepresentation(): string;
+
+	public hasComments(): boolean {
+		return !!this.comments?.length;
+	}
+}
+
+export class NonTerminalNode extends NonCommentNode<NonTerminalName> {
+	public children: NonCommentNode[];
+
+	constructor(name: NonTerminalName, begin: number, end?: number, children: NonCommentNode[] = []) {
 		super(name, begin, end);
 		this.children = children;
 	}
@@ -31,7 +39,7 @@ export class NonTerminalNode extends Node<NonTerminalName> {
 	/**
 	 * Returns a string representation of this node. Not formatted and may not be valid XQuery but can be used for sorting.
 	 */
-	getStringRepresentation(): string {
+	getStringRepresentation() {
 		return this.children.map((child) => child.getStringRepresentation()).join("");
 	}
 
@@ -50,15 +58,15 @@ export class NonTerminalNode extends Node<NonTerminalName> {
 	}
 }
 
-export class LeafNode extends Node<TerminalName> {
-	value: string;
+export class LeafNode extends NonCommentNode<TerminalName> {
+	public readonly value: string;
 
-	constructor(name: TerminalName, begin: number, end: number) {
+	constructor(name: TerminalName, begin: number, end: number, value: string) {
 		super(name, begin, end);
-		this.value = "";
+		this.value = value;
 	}
 
-	getStringRepresentation(): string {
+	public getStringRepresentation() {
 		return this.value;
 	}
 }
@@ -80,10 +88,6 @@ export class CommentNode extends Node {
 	constructor(begin: number, end: number, value: string) {
 		super("Comment", begin, end);
 		this.value = value;
-	}
-	getStringRepresentation() {
-		// Comments never have to be included in ordering
-		return ''
 	}
 }
 
@@ -116,8 +120,7 @@ export class Tree {
 	}
 
 	terminal(name: string, begin: number, end: number) {
-		const leaf = new LeafNode(name as TerminalName, begin, end);
-		leaf.value = this.code.substring(begin, end);
+		const leaf = new LeafNode(name as TerminalName, begin, end, this.code.substring(begin, end));
 		const parent = this.peek();
 		parent.children.push(leaf);
 	}

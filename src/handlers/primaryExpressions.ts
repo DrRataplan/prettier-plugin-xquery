@@ -65,10 +65,17 @@ const primaryExpressionHandlers: Record<string, Handler> = {
 
 	EnclosedExpr: (path, print) => {
 		const exprPart = printIfExist(path, print, "Expr");
+		const braceOpenKeyword = path.map(print, "childrenByName", "'{'");
+		const braceCloseKeyword = path.map(print, "childrenByName", "'}'");
 		if (!exprPart) {
-			return "{}";
+		const braceCloseNode = path.node.childrenByName["'}'"][0];
+			if (braceCloseNode.hasComments()) {
+				// There are comments: add spaces to make the contents not look so squashed
+				return group([braceOpenKeyword, line, braceCloseKeyword]);
+			}
+			return group([braceOpenKeyword, braceCloseKeyword]);
 		}
-		return group(["{", indent([hardlineWithoutBreakParent, path.map(print, "childrenByName", "Expr")]), hardlineWithoutBreakParent, "}"]);
+		return group([braceOpenKeyword, indent([hardlineWithoutBreakParent, path.map(print, "childrenByName", "Expr")]), hardlineWithoutBreakParent, braceCloseKeyword]);
 	},
 };
 
