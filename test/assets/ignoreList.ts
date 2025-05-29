@@ -1,12 +1,12 @@
 /**
 * Automatically generated test report from running prettier over all 31821 test cases in the QT3 tests.
 *
-* The ignore list contains 19 known failing tests.
+* The ignore list contains 17 known failing tests.
 * Tests that fail because a comment failed to be printed: 15
 * Tests that fail because of a type error: 0
 * Tests that fail because the prettified result is not stable: 2
 *
-* Other failures: 2
+* Other failures: 0
 */
 export default {
 	"prod-DirAttributeList": {
@@ -52,69 +52,6 @@ export default {
 		],
 		"function-declaration-030": [
 			"Error: Comment \"(:there is nothing here:)\" was not printed. Please report this error!"
-		]
-	},
-	"prod-GroupByClause": {
-		"group-009": [
-			"AssertionError [ERR_ASSERTION]: Got unwanted rejection: The second prettification should also work3.",
-			"Input: ",
-			"        <out>{ ",
-			"            for $x in //employee ",
-			"            let $key := $x/empnum ",
-			"            group by $key collation \"http://www.w3.org/2005/xpath-functions/collation/codepoint\" ",
-			"            order by $key ",
-			"            return <group count=\"{count($x)}\" key=\"{$key}\"> {string-join($x/pnum, '|')} </group> ",
-			"        }</out>",
-			"      ",
-			"Result of first round: <out>{",
-			"    for $x in //employee",
-			"    let $key := $x/empnum",
-			"    group by $keycollation\"http://www.w3.org/2005/xpath-functions/collation/codepoint\"",
-			"    order by $key",
-			"    return <group count=\"{",
-			"          count($x)",
-			"        }\" key=\"{",
-			"          $key",
-			"        }\"> {",
-			"          string-join($x/pnum, \"|\")",
-			"        } </group>",
-			"  }</out>",
-			"",
-			"Actual message: \"lexical analysis failed",
-			"while expecting [S, '(:', ',', ':=', 'as', 'collation', 'count', 'for', 'group', 'let', 'order', 'return', 'stable', 'where']",
-			"at line 4, column 27:",
-			"...\"http://www.w3.org/2005/xpath-functions/collation/codepoint\"",
-			"   ... (4:26)\""
-		],
-		"group-009a": [
-			"AssertionError [ERR_ASSERTION]: Got unwanted rejection: The second prettification should also work3.",
-			"Input: ",
-			"        <out>{ ",
-			"            for $x in //employee ",
-			"            group by $key := $x/empnum collation \"http://www.w3.org/2005/xpath-functions/collation/codepoint\" ",
-			"            order by $key ",
-			"            return <group count=\"{count($x)}\" key=\"{$key}\"> {string-join($x/pnum, '|')} </group> ",
-			"        }</out>",
-			"      ",
-			"Result of first round: <out>{",
-			"    for $x in //employee",
-			"    group by $key:=",
-			"        $x/empnumcollation\"http://www.w3.org/2005/xpath-functions/collation/codepoint\"",
-			"    order by $key",
-			"    return <group count=\"{",
-			"          count($x)",
-			"        }\" key=\"{",
-			"          $key",
-			"        }\"> {",
-			"          string-join($x/pnum, \"|\")",
-			"        } </group>",
-			"  }</out>",
-			"",
-			"Actual message: \"lexical analysis failed",
-			"while expecting [S, EOF, '!', '!=', '#', '(', '(:', ')', '*', '+', ',', '-', '/', '//', ':', ';', '<', '<<', '<=', '=', '=>', '>', '>=', '>>', '[', ']', 'and', 'ascending', 'case', 'cast', 'castable', 'collation', 'count', 'default', 'descending', 'div', 'else', 'empty', 'end', 'eq', 'except', 'for', 'ge', 'group', 'gt', 'idiv', 'instance', 'intersect', 'is', 'le', 'let', 'lt', 'mod', 'ne', 'only', 'or', 'order', 'return', 'satisfies', 'stable', 'start', 'to', 'treat', 'union', 'where', '|', '||', '}', '}`']",
-			"at line 4, column 27:",
-			"...\"http://www.w3.org/2005/xpath-functions/collation/codepoint\"",
-			"   ... (4:26)\""
 		]
 	},
 	"prod-ModuleImport": {
