@@ -6,5 +6,5 @@ where $r le 2
 return <window num="{
       $r
     }">{
-      $w
-    }</window>
+    $w
+  }</window>

@@ -11,10 +11,10 @@
     order by $m
     return <monthly_result> 
                     <month>{
-            $m
-          }</month> 
+          $m
+        }</month> 
                     <item_count>{
-            count($item)
-          }</item_count>
+          count($item)
+        }</item_count>
                    </monthly_result>
   } </result>

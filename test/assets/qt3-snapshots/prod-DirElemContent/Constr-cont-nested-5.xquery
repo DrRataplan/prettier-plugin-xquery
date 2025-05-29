@@ -1,3 +1,3 @@
 <elem>{
-    /root
-  }</elem>
+  /root
+}</elem>

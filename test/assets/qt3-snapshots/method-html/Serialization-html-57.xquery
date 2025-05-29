@@ -9,8 +9,8 @@ declare option output:suppress-indentation "math:MROW math:MFENCED";
 <html><body><div>
 	The Fraction 
 	@=<math
-        xmlns='http://www.w3.org/1998/Math/MathML' display='inline'
-        >
+    xmlns='http://www.w3.org/1998/Math/MathML' display='inline'
+    >
 		<mfrac>
 			<mrow>
 				<mi>a</mi>
@@ -20,8 +20,8 @@ declare option output:suppress-indentation "math:MROW math:MFENCED";
 			<mrow>
 				<msup>
 					<mfenced
-                separators=" "
-                >
+            separators=" "
+            >
 						<mi>c</mi>
 						<mo>+</mo>
 						<mi>d</mi>

@@ -13,7 +13,7 @@ declare variable $s := [["A", "DT"], ["bride", "NN"], [",", ","], ["you",
     return <w pos="{
           $w(2)
         }">{
-          $w(1)
-        }</w>
+        $w(1)
+      }</w>
   }
 </s>

@@ -3,8 +3,8 @@ declare function local:summary ($emps as element(employee)*) as element(dept)* {
   let $e := $emps[deptno = $d]
   return <dept> 
                       <deptno>{
-          $d
-        }</deptno> 
+        $d
+      }</deptno> 
                       <headcount> {
           count($e)
         } </headcount> 

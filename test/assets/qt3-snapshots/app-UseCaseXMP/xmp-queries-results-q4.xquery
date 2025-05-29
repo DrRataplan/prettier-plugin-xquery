@@ -5,10 +5,10 @@
     order by $last , $first
     return <result> 
       				<author> <last>{
-              $last
-            }</last> <first>{
-              $first
-            }</first> </author> 
+            $last
+          }</last> <first>{
+            $first
+          }</first> </author> 
       				{
           for $b in /bib/book
           where some

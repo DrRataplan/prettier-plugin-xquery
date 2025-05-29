@@ -1,3 +1,3 @@
 <pi>{
-    string-to-codepoints(<?pi x?>)
-  }</pi>
+  string-to-codepoints(<?pi x?>)
+}</pi>

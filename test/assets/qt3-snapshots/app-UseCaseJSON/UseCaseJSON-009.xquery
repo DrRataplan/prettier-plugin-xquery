@@ -16,9 +16,9 @@ declare variable $points := attribute points {
 
 if ($data("closed")) then
   <svg><polygon>{
-        $stroke, $points
-      }</polygon></svg>
+    $stroke, $points
+  }</polygon></svg>
 else
   <svg><polyline>{
-        $stroke, $points
-      }</polyline></svg>
+    $stroke, $points
+  }</polyline></svg>

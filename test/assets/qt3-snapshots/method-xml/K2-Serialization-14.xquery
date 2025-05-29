@@ -4,7 +4,7 @@ declare option output:method "xml";
 declare option output:item-separator "|";
 
 <a>{
-    1, 2, 3
-  }</a>, <b>{
-    4, 5, 6
-  }</b>
+  1, 2, 3
+}</a>, <b>{
+  4, 5, 6
+}</b>

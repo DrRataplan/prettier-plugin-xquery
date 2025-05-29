@@ -1,3 +1,3 @@
 <out>{
-    fn:count(//processing-instruction())
-  }</out>
+  fn:count(//processing-instruction())
+}</out>

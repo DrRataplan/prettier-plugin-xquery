@@ -8,8 +8,8 @@
         } {
           $u/name
         } <bidcount>{
-            count($b)
-          }</bidcount> <avgbid>{
-            avg($b/bid)
-          }</avgbid> </bidder>
+          count($b)
+        }</bidcount> <avgbid>{
+          avg($b/bid)
+        }</avgbid> </bidder>
   } </result>

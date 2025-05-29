@@ -9,4 +9,4 @@ declare option output:version "5.0";
 <html
   xmlns="http://www.w3.org/1999/xhtml"
   ><body><div><option selected="SELECTED" /><option
-        selected="UNSELECTED" /></div></body></html>
+    selected="UNSELECTED" /></div></body></html>

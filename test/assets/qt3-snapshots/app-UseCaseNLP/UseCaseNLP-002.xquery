@@ -6,7 +6,7 @@ declare variable $index := map {"pos": 2, "lemma": 1};
     return <w pos="{
           $w($index("pos"))
         }">{
-          $w($index("lemma"))
-        }</w>
+        $w($index("lemma"))
+      }</w>
   }
           </s>

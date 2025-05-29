@@ -9,5 +9,5 @@ where not(
     (empty($targetNamespace) and string(@uri) = "")
 )
 return ($schema, <file>{
-        base-uri($schema)
-      }</file>)
+      base-uri($schema)
+    }</file>)

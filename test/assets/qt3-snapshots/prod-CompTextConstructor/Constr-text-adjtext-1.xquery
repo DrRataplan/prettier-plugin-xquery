@@ -1,7 +1,7 @@
 count(<elem>{
-      text {
-        "te"
-      }, text {
-        "xt"
-      }
-    }</elem>/text())
+    text {
+      "te"
+    }, text {
+      "xt"
+    }
+  }</elem>/text())

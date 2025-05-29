@@ -8,8 +8,8 @@ declare function local:window () {
     start $s when true()
     end $e when true()
   return <window>{
-        fn:distinct-values($w1[. = $w2])
-      }</window>
+      fn:distinct-values($w1[. = $w2])
+    }</window>
 };
 
 local:window()

@@ -15,14 +15,14 @@ return <department
       let $emp := $array($i)
       return <employee>
         <firstName>{
-              $emp("firstName")
-            }</firstName>
+            $emp("firstName")
+          }</firstName>
         <lastName>{
-              $emp("lastName")
-            }</lastName>
+            $emp("lastName")
+          }</lastName>
         <age>{
-              $emp("age")
-            }</age>
+            $emp("age")
+          }</age>
       </employee>
     }
   </department>

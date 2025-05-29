@@ -10,5 +10,4 @@ declare option output:html-version "4.0";
 <html
   xmlns="http://www.w3.org/1999/xhtml"
   ><head><meta
-      content="text/html;version='3.0'"
-      http-equiv="Content-Type" /></head></html>
+  content="text/html;version='3.0'" http-equiv="Content-Type" /></head></html>

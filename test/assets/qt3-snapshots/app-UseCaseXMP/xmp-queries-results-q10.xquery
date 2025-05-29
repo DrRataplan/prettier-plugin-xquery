@@ -5,7 +5,7 @@
     return <minprice title="{
           $t
         }"> <price>{
-            min($p)
-          }</price> </minprice>
+          min($p)
+        }</price> </minprice>
   } 
       	</results>

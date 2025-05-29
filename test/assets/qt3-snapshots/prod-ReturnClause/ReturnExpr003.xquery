@@ -4,7 +4,7 @@ return <folder1> {
     } <files> {
         for $file in ($folder/File)[position() < 6]
         return <f>{
-              $file/FileName/substring(., 13)
-            }</f>
+            $file/FileName/substring(., 13)
+          }</f>
       } </files> 
                </folder1>

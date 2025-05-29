@@ -5,5 +5,5 @@ declare option output:escape-uri-attributes "yes";
 declare option output:version "5.0";
 
 <html><head /><body><a
-      href="file:///c:/My Documents/temp/b&#xe9;b&#xe9;.xml"
-      >Click here baby!</a></body></html>
+    href="file:///c:/My Documents/temp/b&#xe9;b&#xe9;.xml"
+    >Click here baby!</a></body></html>

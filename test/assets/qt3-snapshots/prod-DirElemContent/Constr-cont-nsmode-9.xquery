@@ -4,5 +4,5 @@ declare construction preserve;
 declare namespace atomic = "http://www.w3.org/XQueryTest";
 
 <new>{
-    //atomic:QName
-  }</new>
+  //atomic:QName
+}</new>

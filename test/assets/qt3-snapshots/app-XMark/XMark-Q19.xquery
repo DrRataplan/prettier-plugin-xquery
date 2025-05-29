@@ -7,6 +7,6 @@
       return <item name="{
             $k
           }">{
-            $b/location/text()
-          }</item>
+          $b/location/text()
+        }</item>
   } </XMark-result-Q19>

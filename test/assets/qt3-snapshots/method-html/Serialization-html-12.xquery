@@ -7,4 +7,4 @@ declare option output:indent "no";
 declare option output:version "4.0";
 
 <html><body><div><option selected="SELECTED" /><option
-        selected="UNSELECTED" /></div></body></html>
+    selected="UNSELECTED" /></div></body></html>
