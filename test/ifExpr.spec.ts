@@ -1,10 +1,10 @@
-import { describe, it } from 'node:test';
-import assert from 'node:assert';
-import * as prettier from 'prettier';
-import xqueryPlugin from '../src/main.ts';
+import { describe, it } from "node:test";
+import assert from "node:assert";
+import * as prettier from "prettier";
+import xqueryPlugin from "../src/main.ts";
 
-describe('if expressions', async (d) => {
-	it('formats a simple case', async () => {
+describe("if expressions", async (d) => {
+	it("formats a simple case", async () => {
 		const code = `
 if (1) then
   2
@@ -12,14 +12,14 @@ else
   3
 `.trimStart();
 		const result = await prettier.format(code, {
-			parser: 'xquery',
+			parser: "xquery",
 			plugins: [xqueryPlugin],
 		});
 
-		assert.strictEqual(result, code, 'The input was already formatted correctly');
+		assert.strictEqual(result, code, "The input was already formatted correctly");
 	});
 
-		it('formats a nested if case', async () => {
+	it("formats a nested if case", async () => {
 		const code = `
 if (1) then
   2
@@ -29,14 +29,14 @@ else
   5
 `.trimStart();
 		const result = await prettier.format(code, {
-			parser: 'xquery',
+			parser: "xquery",
 			plugins: [xqueryPlugin],
 		});
 
-		assert.strictEqual(result, code, 'The input was already formatted correctly');
+		assert.strictEqual(result, code, "The input was already formatted correctly");
 	});
 
-			it('formats a if case with parenthess', async () => {
+	it("formats a if case with parenthess", async () => {
 		const code = `
 if (1) then (
   2
@@ -47,14 +47,14 @@ if (1) then (
 )
 `.trimStart();
 		const result = await prettier.format(code, {
-			parser: 'xquery',
+			parser: "xquery",
 			plugins: [xqueryPlugin],
 		});
 
-		assert.strictEqual(result, code, 'The input was already formatted correctly');
+		assert.strictEqual(result, code, "The input was already formatted correctly");
 	});
 
-	it('formats a if case with parentheses and comments', async () => {
+	it("formats a if case with parentheses and comments", async () => {
 		const code = `
 if (1) then (
   (: a :)
@@ -67,14 +67,14 @@ if (1) then (
 )
 `.trimStart();
 		const result = await prettier.format(code, {
-			parser: 'xquery',
+			parser: "xquery",
 			plugins: [xqueryPlugin],
 		});
 
-		assert.strictEqual(result, code, 'The input was already formatted correctly');
+		assert.strictEqual(result, code, "The input was already formatted correctly");
 	});
 
-	it('formats the case with empty sequences in the then', async () => {
+	it("formats the case with empty sequences in the then", async () => {
 		const code = `
 if (true()) then (
 ) else (
@@ -82,14 +82,14 @@ if (true()) then (
 )
 `.trimStart();
 		const result = await prettier.format(code, {
-			parser: 'xquery',
+			parser: "xquery",
 			plugins: [xqueryPlugin],
 		});
 
-		assert.strictEqual(result, code, 'The input was already formatted correctly');
+		assert.strictEqual(result, code, "The input was already formatted correctly");
 	});
 
-	it('formats the case with empty sequences in the else', async () => {
+	it("formats the case with empty sequences in the else", async () => {
 		const code = `
 if (true()) then
   "Hello world!"
@@ -97,28 +97,28 @@ else (
 )
 `.trimStart();
 		const result = await prettier.format(code, {
-			parser: 'xquery',
+			parser: "xquery",
 			plugins: [xqueryPlugin],
 		});
 
-		assert.strictEqual(result, code, 'The input was already formatted correctly');
+		assert.strictEqual(result, code, "The input was already formatted correctly");
 	});
 
-	it('formats the case with empty sequences in both the else as the then', async () => {
+	it("formats the case with empty sequences in both the else as the then", async () => {
 		const code = `
 if (true()) then (
 ) else (
 )
 `.trimStart();
 		const result = await prettier.format(code, {
-			parser: 'xquery',
+			parser: "xquery",
 			plugins: [xqueryPlugin],
 		});
 
-		assert.strictEqual(result, code, 'The input was already formatted correctly');
+		assert.strictEqual(result, code, "The input was already formatted correctly");
 	});
 
-	it('formats the case with empty sequences but comments in both the else as the then', async () => {
+	it("formats the case with empty sequences but comments in both the else as the then", async () => {
 		const code = `
 if (true()) then (
   (: A :)
@@ -127,11 +127,10 @@ if (true()) then (
 )
 `.trimStart();
 		const result = await prettier.format(code, {
-			parser: 'xquery',
+			parser: "xquery",
 			plugins: [xqueryPlugin],
 		});
 
-		assert.strictEqual(result, code, 'The input was already formatted correctly');
+		assert.strictEqual(result, code, "The input was already formatted correctly");
 	});
-
 });

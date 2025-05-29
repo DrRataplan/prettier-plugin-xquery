@@ -15,7 +15,7 @@ export abstract class Node<NameType extends string = string> {
 	}
 }
 
-type TerminalName = `'${string}'` | 'StringLiteral';
+type TerminalName = `'${string}'` | "StringLiteral";
 type NonTerminalName = Capitalize<string>;
 
 export class NonTerminalNode extends Node<NonTerminalName> {
