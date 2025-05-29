@@ -1,3 +1,3 @@
 <e xmlns="{
-  xs:untypedAtomic("http://www.example.com/")
-}"/>/@xmlns
+    xs:untypedAtomic("http://www.example.com/")
+  }" />/@xmlns

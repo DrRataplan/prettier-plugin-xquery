@@ -5,7 +5,7 @@ for sliding window $w in (1 to 10)
   end $e when $e - $s eq 2
 where $w = $r + 1
 return <window num="{
-    $r
-  }">{
-    $w
-  }</window>
+      $r
+    }">{
+      $w
+    }</window>

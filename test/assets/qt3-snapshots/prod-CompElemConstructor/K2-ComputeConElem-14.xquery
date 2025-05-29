@@ -8,4 +8,4 @@ declare function local:addNamespace (
   }/*
 };
 
-local:addNamespace(<a><b/></a>, "prefix", "http://example.com/")
+local:addNamespace(<a><b /></a>, "prefix", "http://example.com/")

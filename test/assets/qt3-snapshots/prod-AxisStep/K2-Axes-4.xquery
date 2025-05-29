@@ -1,3 +1,3 @@
-declare variable $v := <a><b/><b/><b/></a>;
+declare variable $v := <a><b /><b /><b /></a>;
 
 $v//45

@@ -7,7 +7,7 @@ declare variable $a := (attribute name1 {
   });
 
 <r> <e> {
-  $a
-} </e> <e> {
-  $a
-} </e> </r>
+      $a
+    } </e> <e> {
+      $a
+    } </e> </r>

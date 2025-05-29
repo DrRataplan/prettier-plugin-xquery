@@ -1,3 +1,3 @@
-declare variable $i := <e > <xmlns/> <xmlns/> <xmlns/> <xmlns/> </e>;
+declare variable $i := <e> <xmlns /> <xmlns /> <xmlns /> <xmlns /> </e>;
 
 $i/xmlns

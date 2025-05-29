@@ -1,3 +1,3 @@
 <out>{
-  fn:count(//comment())
-}</out>
+    fn:count(//comment())
+  }</out>

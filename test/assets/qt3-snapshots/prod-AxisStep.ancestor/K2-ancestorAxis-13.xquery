@@ -1,1 +1,1 @@
-1, <element/>/ancestor::node(), 1
+1, <element />/ancestor::node(), 1

@@ -1,1 +1,1 @@
-empty(document-uri(<elem attr="f"/>/@attr))
+empty(document-uri(<elem attr="f" />/@attr))

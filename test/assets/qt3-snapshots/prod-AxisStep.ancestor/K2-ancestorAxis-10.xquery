@@ -1,1 +1,1 @@
-empty(<element/>/ancestor::node())
+empty(<element />/ancestor::node())

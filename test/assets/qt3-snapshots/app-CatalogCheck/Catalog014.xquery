@@ -18,5 +18,5 @@ where not(
 where xs:date($test/created/@on) le
   xs:date("2018-01-01") (: no point keeping this requirement any longer :)
 return <out test="{
-    $test/@name
-  }"/>
+      $test/@name
+    }" />

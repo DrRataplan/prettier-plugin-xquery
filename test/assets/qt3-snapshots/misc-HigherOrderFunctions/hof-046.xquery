@@ -9,12 +9,12 @@ declare function local:splitter (
 };
 
 <out>{
-  for $f as function(*) in
-    local:splitter("How nice! Thank you, I enjoyed that.")
-  return <tokens>{
-      for $t in $f()
-      return <t>{
-          $t
-        }</t>
-    }</tokens>
-}</out>
+    for $f as function(*) in
+      local:splitter("How nice! Thank you, I enjoyed that.")
+    return <tokens>{
+          for $t in $f()
+          return <t>{
+                $t
+              }</t>
+        }</tokens>
+  }</out>

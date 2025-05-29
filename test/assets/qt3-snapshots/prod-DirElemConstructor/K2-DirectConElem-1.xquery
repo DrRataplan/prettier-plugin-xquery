@@ -1,3 +1,3 @@
 string(<pi>{
-    <?pi x?>
-  }</pi>) eq ""
+      <?pi x?>
+    }</pi>) eq ""

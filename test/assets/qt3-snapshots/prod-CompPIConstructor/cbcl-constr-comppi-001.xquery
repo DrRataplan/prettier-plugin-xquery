@@ -1,5 +1,5 @@
 <element> {
-  processing-instruction {"pi"} {
-    <element>?&gt;</element>
-  }
-} </element>
+    processing-instruction {"pi"} {
+      <element>?&gt;</element>
+    }
+  } </element>

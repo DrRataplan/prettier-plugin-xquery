@@ -4,4 +4,4 @@ declare option output:method "html";
 declare option output:indent "no";
 declare option output:version "5.0";
 
-<html/>
+<html />

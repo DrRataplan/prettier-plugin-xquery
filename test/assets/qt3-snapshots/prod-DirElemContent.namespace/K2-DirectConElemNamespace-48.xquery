@@ -1,1 +1,1 @@
-<e xmlns:p="http://example.com"/>
+<e xmlns:p="http://example.com" />

@@ -1,3 +1,3 @@
-empty(<e/>/(a intersect comment {
+empty(<e />/(a intersect comment {
         ()
       }))

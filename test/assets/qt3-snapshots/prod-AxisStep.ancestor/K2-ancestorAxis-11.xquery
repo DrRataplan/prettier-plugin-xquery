@@ -1,1 +1,1 @@
-<a> <b c=""> <c/> </b> <d/> </a>/b/c/ancestor::*[fn:last()]
+<a> <b c=""> <c /> </b> <d /> </a>/b/c/ancestor::*[fn:last()]

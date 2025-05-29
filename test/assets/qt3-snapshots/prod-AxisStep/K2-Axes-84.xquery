@@ -1,1 +1,1 @@
-<e/>/attribute::schema-attribute(foo)
+<e />/attribute::schema-attribute(foo)

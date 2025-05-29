@@ -1,1 +1,1 @@
-node-name(node-name(<a/>))
+node-name(node-name(<a />))

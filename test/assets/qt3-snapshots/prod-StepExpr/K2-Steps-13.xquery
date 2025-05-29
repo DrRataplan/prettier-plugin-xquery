@@ -1,5 +1,5 @@
 empty(
-  <e/>/(
+  <e />/(
     for $i in e
     return $i
   )

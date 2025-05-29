@@ -1,3 +1,3 @@
 validate lax { document {
-    (<a/>, <b/>)
+    (<a />, <b />)
   } }

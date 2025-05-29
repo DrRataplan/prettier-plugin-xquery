@@ -1,4 +1,4 @@
 if (//NodeDoesNotExist) then
-  <elem1/>
+  <elem1 />
 else
-  <elem2/>
+  <elem2 />

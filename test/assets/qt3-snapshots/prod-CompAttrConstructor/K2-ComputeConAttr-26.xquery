@@ -1,9 +1,9 @@
 declare function local:myFunc () {
   attribute name {
     "content"
-  }, <elem/>
+  }, <elem />
 };
 
 <b> {
-  local:myFunc()
-} </b>
+    local:myFunc()
+  } </b>

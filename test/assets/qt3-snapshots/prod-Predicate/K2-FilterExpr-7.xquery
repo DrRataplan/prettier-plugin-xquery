@@ -1,1 +1,1 @@
-(<x/>, <?y?>)[self::processing-instruction()]
+(<x />, <?y?>)[self::processing-instruction()]

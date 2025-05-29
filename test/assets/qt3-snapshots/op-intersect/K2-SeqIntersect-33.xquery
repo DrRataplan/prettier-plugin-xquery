@@ -1,1 +1,1 @@
-empty(<e/>/(a intersect preceding))
+empty(<e />/(a intersect preceding))

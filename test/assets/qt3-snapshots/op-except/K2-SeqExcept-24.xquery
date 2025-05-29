@@ -1,3 +1,3 @@
-count(<e/>/(a except comment {
+count(<e />/(a except comment {
         ()
       }))

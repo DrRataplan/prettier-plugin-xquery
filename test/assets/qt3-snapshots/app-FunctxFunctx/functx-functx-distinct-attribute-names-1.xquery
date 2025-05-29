@@ -8,5 +8,13 @@ declare function functx:distinct-attribute-names (
 };
 
 let $in-xml :=
-  <authors a1="xyz"> <author a2="abc"> <fName a3="def">Kate</fName> <lName>Jones</lName> </author> <author> <fName a3="def">John</fName> <lName>Doe</lName> </author> </authors>
+  <authors
+    a1="xyz"
+    > <author
+      a2="abc"
+      > <fName
+        a3="def"
+        >Kate</fName> <lName>Jones</lName> </author> <author> <fName
+        a3="def"
+        >John</fName> <lName>Doe</lName> </author> </authors>
 return (functx:distinct-attribute-names($in-xml))

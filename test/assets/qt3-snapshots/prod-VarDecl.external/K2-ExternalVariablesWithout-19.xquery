@@ -1,3 +1,3 @@
 declare variable $global := count(*);
 
-<e/>/$global
+<e />/$global

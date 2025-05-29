@@ -1,1 +1,1 @@
-local-name(unordered(<a><b/><c/></a>/*[1]))
+local-name(unordered(<a><b /><c /></a>/*[1]))

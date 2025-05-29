@@ -1,5 +1,5 @@
 count(
-  <e/>/(
+  <e />/(
     let $i := .
     return (string($i), data($i))
   )

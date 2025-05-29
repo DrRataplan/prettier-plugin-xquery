@@ -1,1 +1,1 @@
-fn:namespace-uri-for-prefix((), <e/>)
+fn:namespace-uri-for-prefix((), <e />)

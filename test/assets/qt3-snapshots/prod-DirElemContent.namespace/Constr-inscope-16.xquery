@@ -1,1 +1,1 @@
-<new xml:attr="foo"/>
+<new xml:attr="foo" />

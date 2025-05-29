@@ -1,1 +1,1 @@
-node-name((<a/>, "mystring"))
+node-name((<a />, "mystring"))

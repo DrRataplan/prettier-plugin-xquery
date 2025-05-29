@@ -52,5 +52,7 @@ declare function functx:substring-after-if-contains (
 let $in-xml-1 :=
   <in-xml> <a> <b>b1</b> <c>c1</c> </a> <c>Mixed <b>content</b></c> </in-xml>
 return let $in-xml-2 :=
-    <in-xml xmlns:x="http://x"> <a> <b>b1</b> <c>c1</c> </a> <c>Mixed <x:b>content</x:b></c> </in-xml>
+    <in-xml
+      xmlns:x="http://x"
+      > <a> <b>b1</b> <c>c1</c> </a> <c>Mixed <x:b>content</x:b></c> </in-xml>
   return (functx:remove-elements-not-contents($in-xml-2, "x:b"))

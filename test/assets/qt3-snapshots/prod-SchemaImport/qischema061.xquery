@@ -6,8 +6,8 @@ declare function local:p () as schema-element(z:person) {
                     <z:first>Michael</z:first> 
                     <z:middle>H</z:middle> 
                     {
-      local:sn()
-    } 
+        local:sn()
+      } 
                 </z:person>
     }
 };
@@ -17,5 +17,5 @@ declare function local:sn () as schema-element(z:last) {
 };
 
 <out> {
-  local:p()
-} </out>
+    local:p()
+  } </out>

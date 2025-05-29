@@ -5,9 +5,9 @@ let $data :=
            </Root>
 return document {
     <out>{
-      $data/DATA!analyze-string(
-        .,
-        "(/OPDH/|/EKPH/|/SGDE/|/some other keys/)(.*?)(/OPDH/|/EKPH/|/SGDE/|/some other keys/)((.*?)(/OPDH/|/EKPH/|/SGDE/|/some other keys/))*"
-      )
-    }</out>
+        $data/DATA!analyze-string(
+          .,
+          "(/OPDH/|/EKPH/|/SGDE/|/some other keys/)(.*?)(/OPDH/|/EKPH/|/SGDE/|/some other keys/)((.*?)(/OPDH/|/EKPH/|/SGDE/|/some other keys/))*"
+        )
+      }</out>
   }

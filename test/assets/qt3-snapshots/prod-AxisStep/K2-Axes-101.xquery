@@ -1,1 +1,1 @@
-<b/>[self::b][last()]
+<b />[self::b][last()]

@@ -1,3 +1,3 @@
 <elem xmlns="{
-  "http://www.example.com"
-}"/>
+    "http://www.example.com"
+  }" />

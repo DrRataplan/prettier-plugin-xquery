@@ -1,1 +1,1 @@
-<e xmlns:p="http://example.com/{{1}}"/>
+<e xmlns:p="http://example.com/{{1}}" />

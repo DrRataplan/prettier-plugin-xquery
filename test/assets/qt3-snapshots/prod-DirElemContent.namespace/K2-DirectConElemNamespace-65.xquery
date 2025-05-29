@@ -1,1 +1,1 @@
-namespace-uri-for-prefix("p", <e xmlns:p="http://example.com/{{}}{{{{}}}}"/>)
+namespace-uri-for-prefix("p", <e xmlns:p="http://example.com/{{}}{{{{}}}}" />)

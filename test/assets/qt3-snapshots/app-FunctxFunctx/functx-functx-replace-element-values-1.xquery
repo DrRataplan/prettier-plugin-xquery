@@ -12,7 +12,9 @@ declare function functx:replace-element-values (
 };
 
 let $in-xml :=
-  <in-xml> <price num="1">12</price> <price num="2">20</price> <price num="3">5</price> </in-xml>
+  <in-xml> <price num="1">12</price> <price num="2">20</price> <price
+      num="3"
+      >5</price> </in-xml>
 return (
     functx:replace-element-values(
       $in-xml/price,

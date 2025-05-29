@@ -1,5 +1,5 @@
 <a> {
-  attribute {"xmlns"} {
-    "http://www.w3.org/"
-  }
-} </a>
+    attribute {"xmlns"} {
+      "http://www.w3.org/"
+    }
+  } </a>

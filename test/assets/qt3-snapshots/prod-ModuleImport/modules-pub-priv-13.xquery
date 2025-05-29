@@ -5,5 +5,5 @@ declare function local:test () {
 };
 
 <a>{
-  local:test()
-}</a>
+    local:test()
+  }</a>

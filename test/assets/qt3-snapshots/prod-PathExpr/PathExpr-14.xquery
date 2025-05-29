@@ -1,1 +1,1 @@
-fn:count(.[/<a/>])
+fn:count(.[/<a />])

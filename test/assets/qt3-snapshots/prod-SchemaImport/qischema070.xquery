@@ -4,10 +4,14 @@ declare variable $v := "4.2";
 
 declare function local:write () as schema-element(fpml:FpML) {
   validate strict {
-    <FpML xmlns="http://www.fpml.org/2005/FpML-4-2" fpml-version="{
-      $v
-    }" xsi:type="ValuationDocument"
-                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+    <FpML
+      xmlns="http://www.fpml.org/2005/FpML-4-2"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      fpml-version="{
+        $v
+      }"
+      xsi:type="ValuationDocument"
+      > 
                 <header> 
                 	<from>me</from> 
                 	<to>you</to> 

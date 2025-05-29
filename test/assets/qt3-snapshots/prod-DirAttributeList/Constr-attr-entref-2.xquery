@@ -1,1 +1,1 @@
-fn:string-length(string((<elem attr="&amp;&lt;&gt;"/>)/@attr))
+fn:string-length(string((<elem attr="&amp;&lt;&gt;" />)/@attr))

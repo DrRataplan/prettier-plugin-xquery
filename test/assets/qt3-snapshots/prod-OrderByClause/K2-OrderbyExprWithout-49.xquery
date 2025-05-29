@@ -1,13 +1,13 @@
 let $numbers :=
   (
     <e>NaN</e>,
-    <e/>,
-    <e/>,
+    <e />,
+    <e />,
     <e>NaN</e>,
     <e>NaN</e>,
     <e>INF</e>,
     <e>NaN</e>,
-    <e/>,
+    <e />,
     <e>3</e>,
     comment {
       "3"

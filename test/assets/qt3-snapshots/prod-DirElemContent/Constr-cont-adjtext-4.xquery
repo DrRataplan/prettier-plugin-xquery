@@ -1,3 +1,3 @@
 count((<elem>{
-      ()
-    }</elem>)/text())
+        ()
+      }</elem>)/text())

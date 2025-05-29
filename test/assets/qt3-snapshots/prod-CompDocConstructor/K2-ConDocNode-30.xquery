@@ -1,7 +1,7 @@
 count(<a>{
-    document {
-      text {
-        "a"
+      document {
+        text {
+          "a"
+        }
       }
-    }
-  }b</a>/node())
+    }b</a>/node())

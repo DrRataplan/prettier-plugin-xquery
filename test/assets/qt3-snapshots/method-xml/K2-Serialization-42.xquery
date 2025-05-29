@@ -4,7 +4,7 @@ declare option output:method "xml";
 declare option output:indent "yes";
 
 <test><a xml:space="preserve">{
-  " "
-}<x/>{
-  " "
-} </a><b/></test>
+      " "
+    }<x />{
+      " "
+    } </a><b /></test>

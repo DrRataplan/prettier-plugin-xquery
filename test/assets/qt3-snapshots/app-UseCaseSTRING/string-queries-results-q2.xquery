@@ -37,9 +37,9 @@ where some
     )
 return <news_item>
                 {
-    $item/title
-  }
+      $item/title
+    }
                 {
-    $item/date
-  }
+      $item/date
+    }
             </news_item>

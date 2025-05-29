@@ -4,7 +4,9 @@ let $html :=
 	<div id="main">
 	  <p class="para">Hello World!</p>	
 	</div>
-	<p class="para">Goodbye!</p>	
+	<p
+        class="para"
+        >Goodbye!</p>	
   </body>
 </html>
 let $css-selectors :=

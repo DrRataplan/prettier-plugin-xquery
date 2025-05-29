@@ -1,1 +1,1 @@
-empty(document-uri(<elem/>))
+empty(document-uri(<elem />))

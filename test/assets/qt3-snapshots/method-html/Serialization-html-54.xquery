@@ -6,7 +6,9 @@ declare option output:version "5.0";
 
 <html><body><div>
 	The Fraction 
-	@=<math xmlns='http://www.w3.org/1998/Math/MathML'  display='inline'>
+	@=<math
+        xmlns='http://www.w3.org/1998/Math/MathML' display='inline'
+        >
 		<mfrac>
 			<mrow>
 				<mi>a</mi>
@@ -15,7 +17,9 @@ declare option output:version "5.0";
 			</mrow>
 			<mrow>
 				<msup>
-					<mfenced separators=" ">
+					<mfenced
+                separators=" "
+                >
 						<mi>c</mi>
 						<mo>+</mo>
 						<mi>d</mi>

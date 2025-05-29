@@ -1,5 +1,5 @@
 declare variable $e := ()/.;
 
-declare variable $b := <b/>/.;
+declare variable $b := <b />/.;
 
-$e, <b/>
+$e, <b />

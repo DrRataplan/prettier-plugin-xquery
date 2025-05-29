@@ -12,5 +12,7 @@ declare function functx:if-empty (
 };
 
 let $in-xml :=
-  <prices> <price discount="10.00">29.99</price> <price discount="6.00">39.99</price> <price></price> <price discount="">49.99</price> </prices>
+  <prices> <price discount="10.00">29.99</price> <price
+      discount="6.00"
+      >39.99</price> <price /> <price discount="">49.99</price> </prices>
 return (functx:if-empty($in-xml//price[3]/@discount, 0))
