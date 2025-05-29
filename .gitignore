@@ -1,3 +1,11 @@
+# Dependencies
 /node_modules
+
+# Build dir
 /dist
+
+# Cache for deployments
 /.firebase
+
+# Coverage
+/lcov.info
