@@ -2,7 +2,7 @@ import prettier from "prettier";
 import type { Printer, Parser, Plugin, AstPath } from "prettier";
 
 import { Parser as XQueryParser, ParseException } from "./generated/parser.ts";
-import { Tree, Node, LeafNode, NonTerminalNode, CommentNode, RootNode } from "./tree.ts";
+import { Tree, Node, LeafNode, NonTerminalNode, CommentNode, RootNode, NonCommentNode } from "./tree.ts";
 import type { Print } from "./handlers/util/Print.ts";
 import flworExpressions from "./handlers/flworExpressions.ts";
 import otherExpressionHandlers from "./handlers/otherExpressions.ts";
@@ -63,7 +63,7 @@ const xqueryParser: Parser<Node> = {
 			throw new SyntaxError(`${parser.getErrorMessage(pe)} (${line}:${column})`);
 		}
 
-		const simplifyNode = (node: Node): Node[] => {
+		const simplifyNode = (node: NonCommentNode): NonCommentNode[] => {
 			if (!(node instanceof NonTerminalNode)) {
 				return [node];
 			}

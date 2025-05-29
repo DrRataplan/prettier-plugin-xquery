@@ -95,8 +95,23 @@ const nodeConstructorHandlers: Record<string, Handler> = {
 			]);
 		}
 
+		const dirElemContent = printIfExist(path, print, "DirElemContent");
+
+		if (!dirElemContent &&
+			!path.node.childrenByName["'>'"].some(bracketClose => bracketClose.hasComments()) &&
+			!path.node.childrenByName.QName[1].hasComments() &&
+			!path.node.childrenByName["'</'"][0].hasComments()) {
+			// None of the siblings have any comments, safe to collapse the element to a self-closing
+			return group([
+				angleBracketOpen,
+				qnamePartOpen,
+				hasAttributes ? indent([line, dirAttributeList]) : [],
+				space,
+				'/>',
+			]);
+		}
+
 		const [firstAngleBracketClose, secondAngleBracketClose] = path.map(print, "childrenByName", "'>'");
-		const dirElemContent = path.map(print, "childrenByName", "DirElemContent");
 		const closeElementStart = path.map(print, "childrenByName", "'</'");
 
 		return group([
@@ -104,7 +119,7 @@ const nodeConstructorHandlers: Record<string, Handler> = {
 			qnamePartOpen,
 			hasAttributes ? indent([line, dirAttributeList, softline]) : [],
 			firstAngleBracketClose,
-			indent(dirElemContent),
+			dirElemContent ? indent(dirElemContent) : [],
 			closeElementStart,
 			qnamePartClose,
 			secondAngleBracketClose,

@@ -23,3 +23,8 @@ exports[`node constructors > Orders attributes alphabeticaly 1`] = `
 <ele xmlns="111" xmlns:A="aaa" a="a" b="b" />
 
 `;
+
+exports[`node constructors > Still normalizes to self-closing if the comment is next to the element 1`] = `
+<ele />
+(: Comment :) 
+`;
