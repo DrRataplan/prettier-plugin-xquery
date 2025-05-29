@@ -121,13 +121,7 @@ const xqueryPrinter: Printer<Node> = {
 	canAttachComment(node: Node) {
 		// Terminal nodes are sometimes not printed. Refrain from adding comments to them.
 		// TODO: always print terminal nodes to optimize comments
-		return (
-			node.name !== "Comment" &&
-			node.name !== "WhiteSpace" &&
-			node.name !== "'{'" &&
-			node.name !== "'}'" &&
-			node.name !== "','"
-		);
+		return node.name !== "Comment" && node.name !== "WhiteSpace" && node.name !== "','";
 	},
 	isBlockComment(node: Node) {
 		// In XQuery all comments are block comments, There is no line comment, like `//`

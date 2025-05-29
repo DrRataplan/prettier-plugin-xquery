@@ -29,8 +29,13 @@ describe("node constructors", () => {
 		},
 		{
 			name: "Does not transform empty elements with XQuery comments in them to self-closing variants",
-			input: "<ele>(: Comment :)</ele>",
-			output: "<ele>(: Comment :)</ele>\n",
+			input: "<ele>{(: Comment :)}</ele>",
+			output: "<ele>{ (: Comment :) }</ele>\n",
+		},
+		{
+			name: "Does not transform empty elements with multiple XQuery comments in them to self-closing variants",
+			input: "<ele>{(: A :) (: B :)}</ele>",
+			output: "<ele>{ (: A :) (: B :) }</ele>\n",
 		},
 		{
 			name: "Still normalizes to self-closing if the comment is next to the element",

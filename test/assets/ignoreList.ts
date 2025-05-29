@@ -1,8 +1,8 @@
 /**
 * Automatically generated test report from running prettier over all 31821 test cases in the QT3 tests.
 *
-* The ignore list contains 19 known failing tests.
-* Tests that fail because a comment failed to be printed: 15
+* The ignore list contains 12 known failing tests.
+* Tests that fail because a comment failed to be printed: 8
 * Tests that fail because of a type error: 0
 * Tests that fail because the prettified result is not stable: 2
 *
@@ -29,26 +29,7 @@ export default {
 			""
 		]
 	},
-	"prod-DirAttributeList": {
-		"Constr-attr-enclexpr-12": [
-			"Error: Comment \"(:comment:)\" was not printed. Please report this error!"
-		]
-	},
-	"prod-DirElemContent": {
-		"K2-DirectConElemContent-26b": [
-			"Error: Comment \"(:comment:)\" was not printed. Please report this error!"
-		]
-	},
 	"prod-FunctionCall": {
-		"FunctionCall-046": [
-			"Error: Comment \"(: there's nothing here :)\" was not printed. Please report this error!"
-		],
-		"FunctionCall-047": [
-			"Error: Comment \"(: there's nothing here :)\" was not printed. Please report this error!"
-		],
-		"FunctionCall-048": [
-			"Error: Comment \"(: there's nothing here :)\" was not printed. Please report this error!"
-		],
 		"FunctionCall-055": [
 			"AssertionError [ERR_ASSERTION]: The prettification should be stable after a first one",
 			"+ actual - expected",
@@ -64,14 +45,6 @@ export default {
 			"+   \" (: '2' is not xs:double, error should be raised :)\"",
 			"-   \"(: '2' is not xs:double, error should be raised :) \"",
 			""
-		]
-	},
-	"prod-FunctionDecl": {
-		"function-declaration-029": [
-			"Error: Comment \"(:there is nothing here:)\" was not printed. Please report this error!"
-		],
-		"function-declaration-030": [
-			"Error: Comment \"(:there is nothing here:)\" was not printed. Please report this error!"
 		]
 	},
 	"prod-GroupByClause": {

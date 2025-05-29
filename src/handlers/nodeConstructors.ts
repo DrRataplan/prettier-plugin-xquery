@@ -15,8 +15,10 @@ const nodeConstructorHandlers: Record<string, Handler> = {
 		if (eqNamePart) {
 			toReturn.push(eqNamePart);
 		} else {
+			const braceOpenKeyword = path.map(print, "childrenByName", "'{'");
 			const exprPart = path.map(print, "childrenByName", "Expr");
-			toReturn.push("{", group(indent([softline, exprPart, softline])), "}");
+			const braceCloseKeyword = path.map(print, "childrenByName", "'}'");
+			toReturn.push(braceOpenKeyword, group(indent([softline, exprPart, softline])), braceCloseKeyword);
 		}
 		toReturn.push([space, enclosedExprPart]);
 		return group(toReturn);
@@ -31,8 +33,10 @@ const nodeConstructorHandlers: Record<string, Handler> = {
 		if (eqNamePart) {
 			toReturn.push(eqNamePart);
 		} else {
+			const braceOpenKeyword = path.map(print, "childrenByName", "'{'");
 			const exprPart = path.map(print, "childrenByName", "Expr");
-			toReturn.push("{", group(indent([softline, exprPart, softline])), "}");
+			const braceCloseKeyword = path.map(print, "childrenByName", "'}'");
+			toReturn.push(braceOpenKeyword, group(indent([softline, exprPart, softline])), braceCloseKeyword);
 		}
 		toReturn.push([space, enclosedExprPart]);
 		return group(toReturn);
@@ -46,8 +50,10 @@ const nodeConstructorHandlers: Record<string, Handler> = {
 		if (ncNamePart) {
 			toReturn.push(ncNamePart);
 		} else {
+			const braceOpenKeyword = path.map(print, "childrenByName", "'{'");
 			const exprPart = path.map(print, "childrenByName", "Expr");
-			toReturn.push("{", group(indent([softline, exprPart, softline])), "}");
+			const braceCloseKeyword = path.map(print, "childrenByName", "'}'");
+			toReturn.push(braceOpenKeyword, group(indent([softline, exprPart, softline])), braceCloseKeyword);
 		}
 		toReturn.push([space, enclosedExprPart]);
 		return group(toReturn);
@@ -97,11 +103,9 @@ const nodeConstructorHandlers: Record<string, Handler> = {
 
 		const dirElemContent = printIfExist(path, print, "DirElemContent");
 
-		if (!dirElemContent &&
-			!path.node.childrenByName["'>'"].some(bracketClose => bracketClose.hasComments()) &&
-			!path.node.childrenByName.QName[1].hasComments() &&
-			!path.node.childrenByName["'</'"][0].hasComments()) {
-			// None of the siblings have any comments, safe to collapse the element to a self-closing
+		if (!dirElemContent) {
+			// No content. If there would be comments for instance, the comments would show up as DirElemContent.
+			// Safe to collapse.
 			return group([
 				angleBracketOpen,
 				qnamePartOpen,
