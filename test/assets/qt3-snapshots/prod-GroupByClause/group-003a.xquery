@@ -1,5 +1,5 @@
 for $x in //employee
-group by $key:= ($x/@gender = "male")
+group by $key := ($x/@gender = "male")
 return concat(
     $key,
     ":",

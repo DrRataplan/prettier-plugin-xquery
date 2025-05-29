@@ -42,18 +42,20 @@ const flworExpressionHandlers: Record<string, Handler> = {
 
 		const parts: Doc[] = [variablePart];
 		if (exprSinglePart) {
+			const thisPart = [];
 			if (typeDeclPart) {
-				parts.push(space, typeDeclPart, space);
+				thisPart.push(typeDeclPart, space);
 			}
 
 			const walrusKeyword = path.map(print, "childrenByName", "':='");
-			parts.push(walrusKeyword, indent([line, exprSinglePart]));
+			thisPart.push(walrusKeyword, indent([line, exprSinglePart]));
+			parts.push([thisPart]);
 		}
 		if (collationKeyword) {
 			const uriLiteralPart = path.map(print, "childrenByName", "URILiteral");
-			parts.push(collationKeyword, uriLiteralPart);
+			parts.push([collationKeyword, indent([line, uriLiteralPart])]);
 		}
-		return group(parts);
+		return group(indent(join(line, parts)));
 	},
 	OrderByClause: (path, print) => {
 		const orderKeyword = path.map(print, "childrenByName", "'order'");
