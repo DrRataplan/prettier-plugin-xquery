@@ -1,5 +1,4 @@
 import { doc } from "prettier";
-import type { NonTerminalNode } from "../tree.ts";
 import space from "./util/space.ts";
 import type { Handler } from "./util/Handler.ts";
 
@@ -12,8 +11,8 @@ const conditionalExpressionHandlers: Record<string, Handler> = {
 		const elseKeyword = path.map(print, "childrenByName", "'else'");
 		const thenKeyword = path.map(print, "childrenByName", "'then'");
 
-		const thenAstNode = path.node.childrenByName["ExprSingle"][0] as NonTerminalNode;
-		const elseAstNode = path.node.childrenByName["ExprSingle"][1] as NonTerminalNode;
+		const thenAstNode = path.node.childrenByName["ExprSingle"][0];
+		const elseAstNode = path.node.childrenByName["ExprSingle"][1];
 		const nestedIfInElse = elseAstNode.childrenByName["IfExpr"];
 
 		const thenPartIsParenthesized = thenAstNode.childrenByName["ParenthesizedExpr"];
