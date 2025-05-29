@@ -1,24 +1,27 @@
 import findCommentsInWhitespace from "./findCommentsInWhitespace.ts";
 
-export abstract class Node {
-	name: string;
+export abstract class Node<NameType extends string = string> {
+	name: NameType;
 	begin: number;
 	end: number | undefined;
 
 	// Prettier may add a comments key at some points
 	comments: undefined | CommentNode[] = undefined;
 
-	constructor(name: string, begin: number, end?: number) {
+	constructor(name: NameType, begin: number, end?: number) {
 		this.name = name;
 		this.begin = begin;
 		this.end = end;
 	}
 }
 
-export class NonTerminalNode extends Node {
+type TerminalName = `'${string}'` | 'StringLiteral';
+type NonTerminalName = Capitalize<string>;
+
+export class NonTerminalNode extends Node<NonTerminalName> {
 	children: Node[];
 
-	constructor(name: string, begin: number, end?: number, children: Node[] = []) {
+	constructor(name: NonTerminalName, begin: number, end?: number, children: Node[] = []) {
 		super(name, begin, end);
 		this.children = children;
 	}
@@ -30,7 +33,7 @@ export class NonTerminalNode extends Node {
 	 * @todo: would be great if this can be typed so it's known that
 	 * FunctionDecl nodes have an EQName a ParamList a SequenceType and a FunctionBody.
 	 */
-	get childrenByName(): Record<string, Node[]> {
+	get childrenByName(): { [K in string]: K extends TerminalName ? LeafNode[] : NonTerminalNode[] } {
 		return this.children.reduce((childrenByName, child) => {
 			childrenByName[child.name] = [...(childrenByName[child.name] ?? []), child];
 			return childrenByName;
@@ -38,10 +41,10 @@ export class NonTerminalNode extends Node {
 	}
 }
 
-export class LeafNode extends Node {
+export class LeafNode extends Node<TerminalName> {
 	value: string;
 
-	constructor(name: string, begin: number, end: number) {
+	constructor(name: TerminalName, begin: number, end: number) {
 		super(name, begin, end);
 		this.value = "";
 	}
@@ -50,7 +53,7 @@ export class LeafNode extends Node {
 export class RootNode extends NonTerminalNode {
 	public readonly comments: CommentNode[] = [];
 	constructor(begin: number, end?: number) {
-		super("root", begin, end);
+		super("Root", begin, end);
 	}
 }
 export class CommentNode extends Node {
@@ -78,9 +81,9 @@ export class Tree {
 	}
 
 	startNonterminal(name: string, begin: number) {
-		const current = new NonTerminalNode(name, begin);
+		const current = new NonTerminalNode(name as NonTerminalName, begin);
 
-		const parent = this.peek() as NonTerminalNode;
+		const parent = this.peek();
 		parent.children.push(current);
 		this.stack.push(current);
 	}
@@ -90,7 +93,7 @@ export class Tree {
 	}
 
 	terminal(name: string, begin: number, end: number) {
-		const leaf = new LeafNode(name, begin, end);
+		const leaf = new LeafNode(name as TerminalName, begin, end);
 		leaf.value = this.code.substring(begin, end);
 		const parent = this.peek();
 		parent.children.push(leaf);
