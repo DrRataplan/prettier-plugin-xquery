@@ -1,0 +1,1 @@
+empty(compare("a string", ()))

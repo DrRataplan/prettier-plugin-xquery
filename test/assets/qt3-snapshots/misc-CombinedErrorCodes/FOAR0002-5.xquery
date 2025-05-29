@@ -1,0 +1,2 @@
+xs:dayTimeDuration("P5999999999999999999DT00H00M01S") div
+  xs:dayTimeDuration("P0DT00H00M0.000001S")

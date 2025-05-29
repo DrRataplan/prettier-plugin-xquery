@@ -1,0 +1,1 @@
+current-time("WRONG PARAM")

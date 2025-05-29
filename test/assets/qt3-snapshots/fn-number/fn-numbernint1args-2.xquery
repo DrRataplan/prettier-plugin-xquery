@@ -1,0 +1,1 @@
+fn:number(xs:negativeInteger("-297014075999096793")) eq -297014075999096793

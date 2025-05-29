@@ -1,0 +1,1 @@
+"string" idiv 1

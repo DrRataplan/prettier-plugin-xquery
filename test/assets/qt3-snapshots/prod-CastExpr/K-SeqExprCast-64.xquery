@@ -1,0 +1,1 @@
+() cast as xs:NOTATION

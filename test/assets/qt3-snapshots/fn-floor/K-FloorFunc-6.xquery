@@ -1,0 +1,1 @@
+floor("a string")

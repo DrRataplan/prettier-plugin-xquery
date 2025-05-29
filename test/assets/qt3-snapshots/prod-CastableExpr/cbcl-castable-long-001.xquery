@@ -1,0 +1,1 @@
+9223372036854775808 castable as xs:long

@@ -1,0 +1,1 @@
+tokenize("abc def")

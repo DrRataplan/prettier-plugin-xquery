@@ -1,0 +1,1 @@
+not(xs:integer("6789") castable as xs:NOTATION)

@@ -1,0 +1,3 @@
+empty(document {
+    ()
+  }/ancestor::node())

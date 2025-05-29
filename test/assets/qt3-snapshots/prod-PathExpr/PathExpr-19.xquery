@@ -1,0 +1,3 @@
+/array{
+  bid, bid
+}

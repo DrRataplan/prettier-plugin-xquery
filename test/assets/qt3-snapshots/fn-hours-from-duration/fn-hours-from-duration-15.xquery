@@ -1,0 +1,1 @@
+-fn:hours-from-duration(xs:dayTimeDuration("P20DT02H"))

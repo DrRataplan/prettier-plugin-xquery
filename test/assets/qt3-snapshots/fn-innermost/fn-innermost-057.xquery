@@ -1,0 +1,1 @@
+innermost(//rubbish)

@@ -1,0 +1,3 @@
+validate { document {
+    (<e/>, "text")
+  } }

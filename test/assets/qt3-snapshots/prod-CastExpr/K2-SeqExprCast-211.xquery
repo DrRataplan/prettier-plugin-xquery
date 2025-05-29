@@ -1,0 +1,1 @@
+xs:anyAtomic("1")

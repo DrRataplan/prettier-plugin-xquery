@@ -1,0 +1,1 @@
+xs:language(current-time())

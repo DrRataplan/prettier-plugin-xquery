@@ -1,0 +1,1 @@
+fn:index-of(("sport"), "")

@@ -1,0 +1,1 @@
+false() <= xs:untypedAtomic("false")

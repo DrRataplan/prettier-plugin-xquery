@@ -1,0 +1,1 @@
+empty(minutes-from-time(()))

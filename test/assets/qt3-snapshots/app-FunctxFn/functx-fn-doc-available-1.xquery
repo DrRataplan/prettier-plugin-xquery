@@ -1,0 +1,1 @@
+(doc-available(document-uri(/)))

@@ -1,0 +1,1 @@
+xs:negativeInteger("0")

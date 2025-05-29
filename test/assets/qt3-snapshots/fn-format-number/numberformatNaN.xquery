@@ -1,0 +1,1 @@
+format-number(number("abc"), "#############")

@@ -1,0 +1,1 @@
+replace("AAAA", "A+", "b")

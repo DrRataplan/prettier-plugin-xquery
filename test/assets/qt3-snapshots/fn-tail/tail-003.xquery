@@ -1,0 +1,1 @@
+count(tail("a"))

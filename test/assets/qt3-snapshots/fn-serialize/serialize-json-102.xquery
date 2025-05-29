@@ -1,0 +1,1 @@
+serialize((), map {"method": "json"})

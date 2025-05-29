@@ -1,0 +1,3 @@
+element {"aPrefix:localName"} {
+  "content"
+}

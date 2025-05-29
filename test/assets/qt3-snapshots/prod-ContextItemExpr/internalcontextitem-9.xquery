@@ -1,0 +1,1 @@
+fn:count(((), (), ())[xs:string(.)])

@@ -1,0 +1,1 @@
+empty(year-from-dateTime(()))

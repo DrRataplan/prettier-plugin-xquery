@@ -1,0 +1,1 @@
+local:myFunction(1)

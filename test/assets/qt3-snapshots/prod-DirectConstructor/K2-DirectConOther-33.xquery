@@ -1,0 +1,1 @@
+<?validchar content ?> eq "content "

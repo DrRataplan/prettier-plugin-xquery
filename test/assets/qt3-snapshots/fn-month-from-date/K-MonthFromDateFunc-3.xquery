@@ -1,0 +1,1 @@
+empty(month-from-date(()))

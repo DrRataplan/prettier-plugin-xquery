@@ -27,7 +27,7 @@ let amountOfRoundtripFailures = 0;
 
 describe("Roundtripping all the QT3 tests", () => {
 	for (const testset of testsets) {
-		const testSetName = testset.getAttribute("name");
+		const testSetName = testset.getAttribute("name")!;
 		describe(testSetName, async () => {
 			if (abort.signal.aborted) {
 				return Promise.resolve();
@@ -82,6 +82,11 @@ Result of first round: ${resultOfFirstPrettification}`,
 							resultOfFirstPrettification,
 							resultOfSecondPrettification,
 							"The prettification should be stable after a first one",
+						);
+						t.assert.fileSnapshot(
+							resultOfFirstPrettification,
+							`test/assets/qt3-snapshots/${testSetName}/${name}.xquery`,
+							{ serializers: [(value: string) => value] },
 						);
 
 						if (isKnownFailure) {

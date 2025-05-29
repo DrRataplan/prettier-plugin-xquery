@@ -1,0 +1,10 @@
+xquery,
+version,
+encoding,
+default,
+declare,
+function,
+option,
+collation,
+schema,
+import

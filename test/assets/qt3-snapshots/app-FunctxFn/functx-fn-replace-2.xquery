@@ -1,0 +1,1 @@
+(replace("query", "qu", "quack"))

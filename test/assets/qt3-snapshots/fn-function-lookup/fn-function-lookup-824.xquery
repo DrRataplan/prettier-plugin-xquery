@@ -1,0 +1,4 @@
+function-lookup(
+  fn:QName("http://www.w3.org/2005/xpath-functions/map", "merge"),
+  2
+)((), map {"duplicates": "use-last"})

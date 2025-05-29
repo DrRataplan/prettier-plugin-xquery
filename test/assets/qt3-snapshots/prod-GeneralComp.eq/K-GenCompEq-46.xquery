@@ -1,0 +1,1 @@
+(true() = xs:untypedAtomic("true"))

@@ -1,0 +1,3 @@
+declare variable $x := xs:double("-1.7976931348623157E308");
+
+$x

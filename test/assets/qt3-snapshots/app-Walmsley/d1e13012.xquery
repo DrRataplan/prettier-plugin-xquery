@@ -1,0 +1,1 @@
+"abc" => upper-case()

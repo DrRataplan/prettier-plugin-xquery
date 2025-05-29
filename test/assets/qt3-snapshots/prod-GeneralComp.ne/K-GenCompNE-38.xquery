@@ -1,0 +1,1 @@
+false() != xs:string("false")

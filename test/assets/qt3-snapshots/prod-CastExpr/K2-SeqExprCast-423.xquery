@@ -1,0 +1,1 @@
+xs:anyURI(":/cut.jpg")

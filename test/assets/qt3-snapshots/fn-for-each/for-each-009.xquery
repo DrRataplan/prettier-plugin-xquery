@@ -1,0 +1,4 @@
+for-each(
+  (1, 4, 9, 16, 25),
+  Q{http://www.w3.org/2005/xpath-functions/math}sqrt#1
+)

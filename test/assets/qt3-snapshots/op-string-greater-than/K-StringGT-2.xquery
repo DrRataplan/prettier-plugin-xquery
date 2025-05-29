@@ -1,0 +1,1 @@
+not("abc" gt "abc")

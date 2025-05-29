@@ -1,0 +1,3 @@
+document {
+  <a/>, //@mark, <b/>
+}

@@ -1,0 +1,1 @@
+xs:unsignedLong(99999999999999999) and xs:unsignedLong(99999999999999999)

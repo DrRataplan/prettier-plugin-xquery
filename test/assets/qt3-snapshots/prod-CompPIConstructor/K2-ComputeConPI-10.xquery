@@ -1,0 +1,3 @@
+processing-instruction name {
+  " "
+} eq ""

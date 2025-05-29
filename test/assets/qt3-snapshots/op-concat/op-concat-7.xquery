@@ -1,0 +1,1 @@
+("ABCDE" || "abcde")

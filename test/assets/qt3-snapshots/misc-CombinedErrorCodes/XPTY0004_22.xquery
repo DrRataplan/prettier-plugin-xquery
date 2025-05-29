@@ -1,0 +1,1 @@
+"string" div 1

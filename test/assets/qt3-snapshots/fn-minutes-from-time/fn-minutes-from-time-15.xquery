@@ -1,0 +1,1 @@
+-fn:minutes-from-time(xs:time("10:10:00Z"))

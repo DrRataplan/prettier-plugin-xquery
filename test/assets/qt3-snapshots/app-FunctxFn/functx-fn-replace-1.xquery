@@ -1,0 +1,1 @@
+(replace("query", "r", "as"))

@@ -1,0 +1,1 @@
+boolean(xs:QName("ncname"))

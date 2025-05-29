@@ -1,0 +1,1 @@
+(abs(xs:float("-INF")))

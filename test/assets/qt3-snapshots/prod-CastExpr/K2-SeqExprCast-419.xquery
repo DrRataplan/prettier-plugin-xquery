@@ -1,0 +1,1 @@
+xs:language("abcdefgh-abcdefgh")

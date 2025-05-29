@@ -1,0 +1,1 @@
+xs:base64Binary()

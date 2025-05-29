@@ -1,0 +1,1 @@
+(/catalog/product[last()])

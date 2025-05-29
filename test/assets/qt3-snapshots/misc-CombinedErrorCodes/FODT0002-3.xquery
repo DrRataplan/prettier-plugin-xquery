@@ -1,0 +1,1 @@
+xs:dayTimeDuration("P5999999999999999999DT00H00M01S") div 0.5

@@ -1,0 +1,5 @@
+<element> {
+  comment {
+    "-", "-"
+  }
+} </element>

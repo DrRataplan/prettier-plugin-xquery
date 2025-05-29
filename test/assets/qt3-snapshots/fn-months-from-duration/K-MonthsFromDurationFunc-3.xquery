@@ -1,0 +1,1 @@
+empty(months-from-duration(()))

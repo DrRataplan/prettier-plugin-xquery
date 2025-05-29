@@ -1,0 +1,1 @@
+xs:NMTOKEN("NMTOKEN") cast as xs:NMTOKEN

@@ -1,0 +1,1 @@
+(translate("xml query", "qlmx ", ""))

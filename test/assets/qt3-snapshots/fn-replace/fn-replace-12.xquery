@@ -1,0 +1,1 @@
+replace("abracadabra", "bra", "*", "")

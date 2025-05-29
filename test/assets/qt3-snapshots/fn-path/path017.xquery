@@ -1,0 +1,3 @@
+fn:path(text {
+    "fred"
+  })

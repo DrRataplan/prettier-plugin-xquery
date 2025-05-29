@@ -1,0 +1,13 @@
+count(
+  distinct-values(
+    (
+      xs:integer("3"),
+      xs:float("3"),
+      xs:float("NaN"),
+      xs:double("3"),
+      xs:double("NaN"),
+      xs:decimal("3"),
+      xs:float("3")
+    )
+  )
+)

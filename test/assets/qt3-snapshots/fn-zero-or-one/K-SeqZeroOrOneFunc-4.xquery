@@ -1,0 +1,1 @@
+empty(zero-or-one(()))

@@ -1,0 +1,1 @@
+floor(xs:double("INF"))

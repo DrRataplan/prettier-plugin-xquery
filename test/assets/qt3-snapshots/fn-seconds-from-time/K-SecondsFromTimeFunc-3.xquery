@@ -1,0 +1,1 @@
+empty(seconds-from-time(()))

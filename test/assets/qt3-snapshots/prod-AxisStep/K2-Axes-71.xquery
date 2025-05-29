@@ -1,0 +1,1 @@
+empty(<e/>/descendant::node())

@@ -1,0 +1,1 @@
+string((//comment())[1])

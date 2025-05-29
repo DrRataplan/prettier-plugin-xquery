@@ -1,0 +1,4 @@
+function-lookup(
+  fn:QName("http://www.w3.org/2005/xpath-functions", "reverse"),
+  1
+)(1 to 3)

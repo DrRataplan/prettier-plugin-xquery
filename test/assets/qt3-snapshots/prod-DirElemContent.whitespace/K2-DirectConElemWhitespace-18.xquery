@@ -1,0 +1,1 @@
+string(<elem> <![CDATA[]]> </elem>)

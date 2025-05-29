@@ -1,0 +1,1 @@
+empty(day-from-date(()))

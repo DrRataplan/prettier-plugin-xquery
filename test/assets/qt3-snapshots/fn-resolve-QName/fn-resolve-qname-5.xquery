@@ -1,0 +1,8 @@
+fn:string(
+  fn:namespace-uri-from-QName(
+    fn:resolve-QName(
+      "p1:name",
+      <anElement xmlns:p1="http://example.com/examples">Some content</anElement>
+    )
+  )
+)

@@ -1,0 +1,1 @@
+not("nada" eq "equalness")

@@ -1,0 +1,1 @@
+matches("$", "[\$]") and not(matches("\$", "^[\$]$"))

@@ -1,0 +1,1 @@
+round(xs:double("-INF"))

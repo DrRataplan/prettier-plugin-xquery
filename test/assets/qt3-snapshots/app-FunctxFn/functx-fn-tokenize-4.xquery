@@ -1,0 +1,1 @@
+(tokenize(" b c", "\s"))

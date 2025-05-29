@@ -1,0 +1,1 @@
+empty(<element/>/ancestor::node())

@@ -1,0 +1,1 @@
+exists(xs:double("+INF"))

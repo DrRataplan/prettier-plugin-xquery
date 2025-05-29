@@ -1,0 +1,3 @@
+validate lax { document {
+    "hello"
+  } }

@@ -1,0 +1,1 @@
+true() or fn:error()

@@ -1,0 +1,3 @@
+(
+  xs:integer("-999999999999999999") div xs:integer("999999999999999999")
+) instance of xs:decimal

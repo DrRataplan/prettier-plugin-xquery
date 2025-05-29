@@ -1,0 +1,1 @@
+xs:duration("P3DT08H34M12.143S") le xs:yearMonthDuration("P1999Y10M")

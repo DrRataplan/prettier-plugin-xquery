@@ -1,0 +1,1 @@
+fn:not("false")

@@ -1,0 +1,1 @@
+not(contains("", "a string"))

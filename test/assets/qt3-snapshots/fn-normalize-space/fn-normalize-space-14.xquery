@@ -1,0 +1,2 @@
+fn:normalize-space("
+")

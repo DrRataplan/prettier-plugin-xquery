@@ -1,0 +1,5 @@
+count(document {
+    text {
+      ""
+    }
+  }/text())

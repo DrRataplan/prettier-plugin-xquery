@@ -1,0 +1,1 @@
+empty(hours-from-time(()))

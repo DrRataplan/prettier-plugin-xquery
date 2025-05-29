@@ -1,0 +1,1 @@
+error(QName("", "FOO"), "DESCRIPTION")

@@ -1,0 +1,3 @@
+element foo:elem {
+  "text"
+}

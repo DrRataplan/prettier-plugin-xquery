@@ -1,0 +1,1 @@
+xs:decimal("Inf")

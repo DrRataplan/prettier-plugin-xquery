@@ -1,0 +1,1 @@
+boolean(xs:boolean("true"))

@@ -1,0 +1,1 @@
+fn:compare("a", "A")

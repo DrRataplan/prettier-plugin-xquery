@@ -1,0 +1,1 @@
+empty(fn:root(<e/>)/..)

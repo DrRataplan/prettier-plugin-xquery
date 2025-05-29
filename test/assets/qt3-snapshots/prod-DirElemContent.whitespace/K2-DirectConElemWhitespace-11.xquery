@@ -1,0 +1,1 @@
+string(<e> <![CDATA[ ]]> </e>)

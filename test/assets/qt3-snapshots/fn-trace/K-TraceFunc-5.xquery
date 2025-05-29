@@ -1,0 +1,1 @@
+empty(trace((), "trace message"))

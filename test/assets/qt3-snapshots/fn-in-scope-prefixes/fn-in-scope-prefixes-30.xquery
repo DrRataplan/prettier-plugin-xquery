@@ -1,0 +1,1 @@
+in-scope-prefixes(//*:magpie)

@@ -1,0 +1,1 @@
+schema-element(notDeclared:ncname)

@@ -1,0 +1,1 @@
+ceiling(xs:double("NaN"))

@@ -1,0 +1,1 @@
+(/works/employee[1]/hours[1]) > (10000, 50000)

@@ -1,0 +1,5 @@
+element e {
+  element b {
+    ()
+  }
+}

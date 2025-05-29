@@ -1,0 +1,1 @@
+translate("--aaa--", "-", "") eq "aaa"

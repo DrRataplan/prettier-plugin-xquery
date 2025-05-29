@@ -1,0 +1,3 @@
+empty(comment {
+    "some text"
+  }/..)

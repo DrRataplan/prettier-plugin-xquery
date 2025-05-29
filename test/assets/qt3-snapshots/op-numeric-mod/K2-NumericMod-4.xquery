@@ -1,0 +1,1 @@
+-1.0e0 mod xs:float(-1.0e0)

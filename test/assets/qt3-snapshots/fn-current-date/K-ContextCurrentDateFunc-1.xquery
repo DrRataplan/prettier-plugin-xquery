@@ -1,0 +1,1 @@
+current-date("WRONG PARAM")

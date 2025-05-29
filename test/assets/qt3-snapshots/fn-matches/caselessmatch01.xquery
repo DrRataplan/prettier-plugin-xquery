@@ -1,0 +1,1 @@
+matches("abc", "ABC", "i")

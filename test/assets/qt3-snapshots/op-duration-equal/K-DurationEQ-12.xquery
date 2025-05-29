@@ -1,0 +1,2 @@
+xs:duration("P1999Y10M3DT08H34M12.143S") le
+  xs:duration("P1999Y10M3DT08H34M12.143S")

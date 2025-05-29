@@ -1,0 +1,1 @@
+trace(., "message", "wrong parameter")

@@ -1,0 +1,3 @@
+attribute name {
+  <anElement/>
+}, <e/>

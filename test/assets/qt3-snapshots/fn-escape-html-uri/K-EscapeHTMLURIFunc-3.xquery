@@ -1,0 +1,1 @@
+escape-html-uri(()) eq ""

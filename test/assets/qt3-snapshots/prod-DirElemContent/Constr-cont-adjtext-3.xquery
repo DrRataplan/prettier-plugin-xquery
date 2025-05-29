@@ -1,0 +1,3 @@
+count((<elem>{
+      ""
+    }</elem>)/text())

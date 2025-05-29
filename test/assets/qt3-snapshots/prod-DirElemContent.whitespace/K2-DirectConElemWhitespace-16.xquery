@@ -1,0 +1,1 @@
+count(<a></a>/node())

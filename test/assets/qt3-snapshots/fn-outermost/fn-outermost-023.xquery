@@ -1,0 +1,1 @@
+fn:outermost(//processing-instruction())

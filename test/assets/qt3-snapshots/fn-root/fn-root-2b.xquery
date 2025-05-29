@@ -1,0 +1,1 @@
+exists(1 = fn:root(1[. = 1]))

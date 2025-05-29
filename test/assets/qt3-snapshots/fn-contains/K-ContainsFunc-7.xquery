@@ -1,0 +1,1 @@
+not(contains("tattoo", "ttt"))

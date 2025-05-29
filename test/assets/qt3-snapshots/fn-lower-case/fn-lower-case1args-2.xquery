@@ -1,0 +1,1 @@
+fn:lower-case(xs:string("This is a characte"))

@@ -1,0 +1,2 @@
+for $file in (//Folder)[1]/File
+return $file/parent::Folder/FolderName

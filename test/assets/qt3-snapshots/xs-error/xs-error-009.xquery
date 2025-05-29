@@ -1,0 +1,1 @@
+xs:error(xs:untypedAtomic(""))

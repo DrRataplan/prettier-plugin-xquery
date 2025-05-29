@@ -1,0 +1,1 @@
+replace("input", "(input)", "thisIsInvalid$")

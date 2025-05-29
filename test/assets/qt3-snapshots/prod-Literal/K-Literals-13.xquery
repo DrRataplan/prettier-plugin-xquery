@@ -1,0 +1,1 @@
+1231.123e3 instance of xs:double

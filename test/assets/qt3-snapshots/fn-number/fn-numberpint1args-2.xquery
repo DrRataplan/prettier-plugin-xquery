@@ -1,0 +1,1 @@
+fn:number(xs:positiveInteger("52704602390610033")) eq 52704602390610033

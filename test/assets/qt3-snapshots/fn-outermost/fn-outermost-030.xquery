@@ -1,0 +1,1 @@
+fn:outermost(//text())!string()

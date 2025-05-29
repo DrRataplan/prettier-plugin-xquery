@@ -1,0 +1,1 @@
+substring-after("abc𝅖def", "𝅖")

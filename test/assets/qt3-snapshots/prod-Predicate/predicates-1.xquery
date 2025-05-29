@@ -1,0 +1,1 @@
+(//integer[fn:true()])

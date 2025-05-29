@@ -1,0 +1,1 @@
+empty(timezone-from-date(()))

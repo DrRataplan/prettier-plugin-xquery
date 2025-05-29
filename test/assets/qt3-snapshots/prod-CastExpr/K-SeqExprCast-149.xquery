@@ -1,0 +1,1 @@
+xs:duration("1Y2M123DT10H30M99S")

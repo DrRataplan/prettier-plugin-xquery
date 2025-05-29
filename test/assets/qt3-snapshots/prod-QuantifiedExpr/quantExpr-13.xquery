@@ -1,0 +1,1 @@
+some $x in (1, 2) satisfies fn:false()
