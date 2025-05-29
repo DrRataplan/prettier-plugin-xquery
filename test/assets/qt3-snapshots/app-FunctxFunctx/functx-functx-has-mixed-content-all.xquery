@@ -8,7 +8,7 @@ declare function functx:has-mixed-content (
 };
 
 let $in-xml :=
-  <in-xml> <a></a> <b/> <c> </c> <d>xml</d> <e><x>xml</x></e> <f>mixed <x>xml</x></f> <g> <x>xml</x> </g> </in-xml>
+  <in-xml> <a /> <b /> <c> </c> <d>xml</d> <e><x>xml</x></e> <f>mixed <x>xml</x></f> <g> <x>xml</x> </g> </in-xml>
 return (
     functx:has-mixed-content($in-xml/a),
     functx:has-mixed-content($in-xml/b),

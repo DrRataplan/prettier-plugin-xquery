@@ -15,8 +15,10 @@ const nodeConstructorHandlers: Record<string, Handler> = {
 		if (eqNamePart) {
 			toReturn.push(eqNamePart);
 		} else {
+			const braceOpenKeyword = path.map(print, "childrenByName", "'{'");
 			const exprPart = path.map(print, "childrenByName", "Expr");
-			toReturn.push("{", group(indent([softline, exprPart, softline])), "}");
+			const braceCloseKeyword = path.map(print, "childrenByName", "'}'");
+			toReturn.push(braceOpenKeyword, group(indent([softline, exprPart, softline])), braceCloseKeyword);
 		}
 		toReturn.push([space, enclosedExprPart]);
 		return group(toReturn);
@@ -31,8 +33,10 @@ const nodeConstructorHandlers: Record<string, Handler> = {
 		if (eqNamePart) {
 			toReturn.push(eqNamePart);
 		} else {
+			const braceOpenKeyword = path.map(print, "childrenByName", "'{'");
 			const exprPart = path.map(print, "childrenByName", "Expr");
-			toReturn.push("{", group(indent([softline, exprPart, softline])), "}");
+			const braceCloseKeyword = path.map(print, "childrenByName", "'}'");
+			toReturn.push(braceOpenKeyword, group(indent([softline, exprPart, softline])), braceCloseKeyword);
 		}
 		toReturn.push([space, enclosedExprPart]);
 		return group(toReturn);
@@ -46,8 +50,10 @@ const nodeConstructorHandlers: Record<string, Handler> = {
 		if (ncNamePart) {
 			toReturn.push(ncNamePart);
 		} else {
+			const braceOpenKeyword = path.map(print, "childrenByName", "'{'");
 			const exprPart = path.map(print, "childrenByName", "Expr");
-			toReturn.push("{", group(indent([softline, exprPart, softline])), "}");
+			const braceCloseKeyword = path.map(print, "childrenByName", "'}'");
+			toReturn.push(braceOpenKeyword, group(indent([softline, exprPart, softline])), braceCloseKeyword);
 		}
 		toReturn.push([space, enclosedExprPart]);
 		return group(toReturn);
@@ -95,8 +101,21 @@ const nodeConstructorHandlers: Record<string, Handler> = {
 			]);
 		}
 
+		const dirElemContent = printIfExist(path, print, "DirElemContent");
+
+		if (!dirElemContent) {
+			// No content. If there would be comments for instance, the comments would show up as DirElemContent.
+			// Safe to collapse.
+			return group([
+				angleBracketOpen,
+				qnamePartOpen,
+				hasAttributes ? indent([line, dirAttributeList]) : [],
+				space,
+				'/>',
+			]);
+		}
+
 		const [firstAngleBracketClose, secondAngleBracketClose] = path.map(print, "childrenByName", "'>'");
-		const dirElemContent = path.map(print, "childrenByName", "DirElemContent");
 		const closeElementStart = path.map(print, "childrenByName", "'</'");
 
 		return group([
@@ -104,7 +123,7 @@ const nodeConstructorHandlers: Record<string, Handler> = {
 			qnamePartOpen,
 			hasAttributes ? indent([line, dirAttributeList, softline]) : [],
 			firstAngleBracketClose,
-			indent(dirElemContent),
+			dirElemContent ? indent(dirElemContent) : [],
 			closeElementStart,
 			qnamePartClose,
 			secondAngleBracketClose,
