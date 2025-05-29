@@ -1,22 +1,22 @@
-import { after, describe, it } from 'node:test';
-import assert from 'node:assert/strict';
-import * as prettier from 'prettier';
-import xqueryPlugin from '../src/main.ts';
-import { readFile, writeFile } from 'node:fs/promises';
-import { DOMParser, Element } from 'slimdom';
-import fontoxpath from 'fontoxpath';
-import { fileURLToPath } from 'node:url';
-import { dirname } from 'path';
+import { after, describe, it } from "node:test";
+import assert from "node:assert/strict";
+import * as prettier from "prettier";
+import xqueryPlugin from "../src/main.ts";
+import { readFile, writeFile } from "node:fs/promises";
+import { DOMParser, Element } from "slimdom";
+import fontoxpath from "fontoxpath";
+import { fileURLToPath } from "node:url";
+import { dirname } from "path";
 
-import ignoreList from './assets/ignoreList.ts';
+import ignoreList from "./assets/ignoreList.ts";
 
 const { evaluateXPathToNodes, evaluateXPathToString } = fontoxpath;
 
 const prefix = `${fileURLToPath(dirname(import.meta.url))}/assets/qt3tests`;
 
-const catalog = new DOMParser().parseFromString(await readFile(`${prefix}/catalog.xml`, 'utf-8'), 'text/xml');
+const catalog = new DOMParser().parseFromString(await readFile(`${prefix}/catalog.xml`, "utf-8"), "text/xml");
 
-const testsets = evaluateXPathToNodes<Element>('//test-set', catalog);
+const testsets = evaluateXPathToNodes<Element>("//test-set", catalog);
 
 const abort = new AbortController();
 
@@ -25,21 +25,21 @@ let amountOfTypeErrors = 0;
 let amountOfTests = 0;
 let amountOfRoundtripFailures = 0;
 
-describe('Roundtripping all the QT3 tests', () => {
+describe("Roundtripping all the QT3 tests", () => {
 	for (const testset of testsets) {
-		const testSetName = testset.getAttribute('name');
+		const testSetName = testset.getAttribute("name");
 		describe(testSetName, async () => {
 			if (abort.signal.aborted) {
 				return Promise.resolve();
 			}
-			const path = testset.getAttribute('file');
-			const tests = new DOMParser().parseFromString(await readFile(`${prefix}/${path}`, 'utf-8'), 'text/xml');
+			const path = testset.getAttribute("file");
+			const tests = new DOMParser().parseFromString(await readFile(`${prefix}/${path}`, "utf-8"), "text/xml");
 
-			const testCases = evaluateXPathToNodes<Element>('//test-case', tests);
+			const testCases = evaluateXPathToNodes<Element>("//test-case", tests);
 
 			for (const testCase of testCases) {
-				const script = evaluateXPathToString('test', testCase);
-				const name = evaluateXPathToString('@name', testCase);
+				const script = evaluateXPathToString("test", testCase);
+				const name = evaluateXPathToString("@name", testCase);
 
 				it(`Can roundtrip ${testSetName} / ${name}`, async (t) => {
 					amountOfTests++;
@@ -49,7 +49,7 @@ describe('Roundtripping all the QT3 tests', () => {
 					const isKnownFailure = name in (ignoreList[testSetName] ?? {});
 					try {
 						const firstPrettification = prettier.format(script, {
-							parser: 'xquery',
+							parser: "xquery",
 							plugins: [xqueryPlugin],
 						});
 						try {
@@ -64,7 +64,7 @@ describe('Roundtripping all the QT3 tests', () => {
 						}
 						const resultOfFirstPrettification = await firstPrettification;
 						const secondPrettification = prettier.format(resultOfFirstPrettification, {
-							parser: 'xquery',
+							parser: "xquery",
 							plugins: [xqueryPlugin],
 						});
 						await assert.doesNotReject(
@@ -81,7 +81,7 @@ Result of first round: ${resultOfFirstPrettification}`,
 						assert.equal(
 							resultOfFirstPrettification,
 							resultOfSecondPrettification,
-							'The prettification should be stable after a first one',
+							"The prettification should be stable after a first one",
 						);
 
 						if (isKnownFailure) {
@@ -107,7 +107,10 @@ Result of first round: ${resultOfFirstPrettification}`,
 						if (!ignoreList[testSetName]) {
 							ignoreList[testSetName] = {};
 						}
-						ignoreList[testSetName][name] = e.toString().replaceAll(/\u001b\[3.m/g, '').split('\n');
+						ignoreList[testSetName][name] = e
+							.toString()
+							.replaceAll(/\u001b\[3.m/g, "")
+							.split("\n");
 						if (!isKnownFailure) {
 							// New failure: rethrow. Otherwise, ignore
 							throw e;
@@ -135,7 +138,7 @@ Result of first round: ${resultOfFirstPrettification}`,
 *
 * Other failures: ${totalFailureCount - amountOfRoundtripFailures - amountOfTypeErrors - amountOfCommentErors}
 */
-export default ${JSON.stringify(ignoreList, null, '\t')} as Record<string,Record<string,string>>;
+export default ${JSON.stringify(ignoreList, null, "\t")} as Record<string,Record<string,string>>;
 `,
 		);
 	});
