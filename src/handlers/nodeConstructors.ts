@@ -123,7 +123,7 @@ const nodeConstructorHandlers: Record<string, Handler> = {
 			qnamePartOpen,
 			hasAttributes ? indent([line, dirAttributeList, softline]) : [],
 			firstAngleBracketClose,
-			dirElemContent ? indent(dirElemContent) : [],
+			indent(dirElemContent),
 			closeElementStart,
 			qnamePartClose,
 			secondAngleBracketClose,
