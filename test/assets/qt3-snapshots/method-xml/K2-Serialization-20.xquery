@@ -4,6 +4,6 @@ declare option output:method "xml";
 declare option output:version "1.1";
 declare option output:undeclare-prefixes "yes";
 
-<p:chapter
-  xmlns:p="http://example.com/p"
-  ><section xmlns:p=""><para /></section></p:chapter>
+<p:chapter xmlns:p="http://example.com/p">
+  <section xmlns:p=""><para /></section>
+</p:chapter>

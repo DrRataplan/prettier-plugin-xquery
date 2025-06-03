@@ -6,7 +6,5 @@ validate strict {
   <abf
     xmlns:xs="http://www.w3.org/2001/XMLSchema"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    > 
-                <a /> <b /> <b /> <f /> <f /> <f /> 
-            </abf>
+  ><a /><b /><b /><f /><f /><f /></abf>
   }

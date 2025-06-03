@@ -3,7 +3,9 @@ declare namespace lu = "http://www.w3.org/XQueryTest/unionListDefined";
 import schema  "http://www.w3.org/XQueryTest/unionListDefined";
 
 declare variable $elem := validate strict {
-  <lu:elementContainingApproximateDate><lu:e>2018-11-06</lu:e></lu:elementContainingApproximateDate>
+  <lu:elementContainingApproximateDate>
+    <lu:e>2018-11-06</lu:e>
+  </lu:elementContainingApproximateDate>
   };
 
 declare function local:hof (

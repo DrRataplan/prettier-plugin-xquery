@@ -3,5 +3,5 @@ for tumbling window $w in (1 to 10)
   only end $e when $e - $s eq 2
 order by $w[2] descending
 return <window>{
-    $w
-  }</window>
+      $w
+    }</window>

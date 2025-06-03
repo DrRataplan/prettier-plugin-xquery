@@ -6,6 +6,6 @@ declare option output:method "html";
 declare option output:indent "no";
 declare option output:version "5.0";
 
-<html
-  xmlns="http://www.w3.org/1999/xhtml"
-  ><body><spin xmlns="http://www.w3.org/1999/xhtml" /></body></html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <body><spin xmlns="http://www.w3.org/1999/xhtml" /></body>
+</html>

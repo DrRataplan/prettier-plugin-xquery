@@ -1,3 +1,3 @@
-<result> {
+<result>{
     (//node())[last()]/preceding::node()
-  } </result>
+  }</result>

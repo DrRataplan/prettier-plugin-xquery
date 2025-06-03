@@ -1,1 +1,1 @@
-<a> <b c=""> <c /> </b> <d /> </a>//count(ancestor-or-self::*)
+<a><b c=""><c /></b><d /></a>//count(ancestor-or-self::*)

@@ -7,5 +7,5 @@ where $w = $r + 1
 return <window num="{
       $r
     }">{
-    $w
-  }</window>
+      $w
+    }</window>

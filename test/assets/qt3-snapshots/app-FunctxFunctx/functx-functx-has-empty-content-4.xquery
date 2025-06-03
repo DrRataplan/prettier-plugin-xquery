@@ -8,5 +8,13 @@ declare function functx:has-empty-content (
 };
 
 let $in-xml :=
-  <in-xml> <a /> <b /> <c> </c> <d>xml</d> <e><x>xml</x></e> <f>mixed <x>xml</x></f> <g> <x>xml</x> </g> </in-xml>
+  <in-xml>
+    <a />
+    <b />
+    <c />
+    <d>xml</d>
+    <e><x>xml</x></e>
+    <f>mixed <x>xml</x></f>
+    <g><x>xml</x></g>
+  </in-xml>
 return (functx:has-empty-content($in-xml/d))

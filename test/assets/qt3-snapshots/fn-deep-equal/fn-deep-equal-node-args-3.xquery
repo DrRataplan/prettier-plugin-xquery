@@ -1,5 +1,5 @@
-fn:deep-equal(<a> {
+fn:deep-equal(<a>{
       /node(), /node()
-    } </a>/node(), <b> {
+    }</a>/node(), <b>{
       /node(), "difference", /node()
-    } </b>/node())
+    }</b>/node())

@@ -7,5 +7,5 @@ declare function local:run () as attribute(size, hat:hatsize) {
 };
 
 <e>{
-  local:run()
-}</e>
+    local:run()
+  }</e>

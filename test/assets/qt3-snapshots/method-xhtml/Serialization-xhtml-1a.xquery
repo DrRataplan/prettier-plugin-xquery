@@ -6,4 +6,20 @@ declare option output:method "xhtml";
 declare option output:indent "no";
 declare option output:html-version "4.0";
 
-<html><body><area /><base /><br /><col /><embed /><frame /><hr /><img /><input /><isindex /><link /><meta /><param /></body></html>
+<html>
+  <body>
+    <area />
+    <base />
+    <br />
+    <col />
+    <embed />
+    <frame />
+    <hr />
+    <img />
+    <input />
+    <isindex />
+    <link />
+    <meta />
+    <param />
+  </body>
+</html>

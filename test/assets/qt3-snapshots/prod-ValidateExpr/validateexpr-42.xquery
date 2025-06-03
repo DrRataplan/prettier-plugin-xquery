@@ -4,6 +4,6 @@ string(
   validate strict {
     <notatio
       xmlns="http://www.w3.org/XQueryTest/userDefinedTypes"
-      >value3</notatio>
+    >value3</notatio>
     }
 )

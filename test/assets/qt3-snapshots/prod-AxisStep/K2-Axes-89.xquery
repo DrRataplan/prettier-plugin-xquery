@@ -1,5 +1,5 @@
 declare default element namespace "http://typedecl";
 
-<r> {
+<r>{
     <e attr="foo" />/@attr
-  } </r>
+  }</r>

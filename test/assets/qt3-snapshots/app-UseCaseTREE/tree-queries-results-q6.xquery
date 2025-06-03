@@ -2,18 +2,20 @@ declare function local:section-summary (
   $book-or-section as element()*
 ) as element()* {
   for $section in $book-or-section
-  return <section> {
+  return <section>{
         $section/@*
-      } {
+      }{
         $section/title
-      } <figcount> {
+      }<figcount>{
           count($section/figure)
-        } </figcount> {
+        }</figcount>{
         local:section-summary($section/section)
-      } </section>
+      }</section>
 };
 
-<toc> {
+<toc>
+  {
     for $s in /book/section
     return local:section-summary($s)
-  } </toc>
+  }
+</toc>

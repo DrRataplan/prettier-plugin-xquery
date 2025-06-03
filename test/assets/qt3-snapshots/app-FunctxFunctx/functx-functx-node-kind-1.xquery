@@ -20,5 +20,5 @@ declare function functx:node-kind ($nodes as node()*) as xs:string* {
 };
 
 let $in-xml :=
-  <in-xml> <!-- this is in-xml --> <?test see?> <a z="2">xyz</a> </in-xml>
+  <in-xml><!-- this is in-xml --><?test see?><a z="2">xyz</a></in-xml>
 return (functx:node-kind($in-xml/a))

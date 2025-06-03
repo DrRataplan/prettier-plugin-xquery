@@ -1,5 +1,5 @@
-<foo> <doo /> {
+<foo><doo />{
     attribute name {
       "content"
     }
-  } </foo>
+  }</foo>

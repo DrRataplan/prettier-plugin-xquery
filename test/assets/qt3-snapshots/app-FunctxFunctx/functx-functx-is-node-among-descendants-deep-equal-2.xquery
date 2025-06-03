@@ -12,9 +12,11 @@ declare function functx:is-node-among-descendants-deep-equal (
 };
 
 let $in-xml :=
-  <authors> <author> <fName>Kate</fName> <lName>Jones</lName> </author> <author> <fName>John</fName> <lName>Doe</lName> </author> </authors>
-return let $anAuthor :=
-    <author> <fName>John</fName> <lName>Doe</lName> </author>
+  <authors>
+    <author><fName>Kate</fName><lName>Jones</lName></author>
+    <author><fName>John</fName><lName>Doe</lName></author>
+  </authors>
+return let $anAuthor := <author><fName>John</fName><lName>Doe</lName></author>
   return let $anotherAuthor :=
-      <author> <lName>Doe</lName> <fName>John</fName> </author>
+      <author><lName>Doe</lName><fName>John</fName></author>
     return (functx:is-node-among-descendants-deep-equal($anAuthor, $in-xml))

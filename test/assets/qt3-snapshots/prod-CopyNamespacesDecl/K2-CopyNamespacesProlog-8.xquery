@@ -1,7 +1,7 @@
 declare copy-namespaces no-preserve ,  inherit;
 
-<a> {
+<a>{
     <b>{
-      ()
-    }</b>
-  } </a>
+        ()
+      }</b>
+  }</a>

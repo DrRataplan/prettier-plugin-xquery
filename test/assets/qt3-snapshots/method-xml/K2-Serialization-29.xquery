@@ -6,4 +6,9 @@ declare option Q{http://www.w3.org/2010/xslt-xquery-serialization}indent "yes
         ";
 declare option output:suppress-indentation " p   p:para ";
 
-<chapter><section><p:para><b>bold</b><i>italic</i></p:para><p><b><BOLD /></b><i>ITALIC</i></p></section></chapter>
+<chapter>
+  <section>
+    <p:para><b>bold</b><i>italic</i></p:para>
+    <p><b><BOLD /></b><i>ITALIC</i></p>
+  </section>
+</chapter>

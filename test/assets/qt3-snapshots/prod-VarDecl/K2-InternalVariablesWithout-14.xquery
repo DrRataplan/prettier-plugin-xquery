@@ -1,5 +1,5 @@
 declare variable $myVar := <e>{
-  nametest
-}</e>;
+    nametest
+  }</e>;
 
 <e />/$myVar

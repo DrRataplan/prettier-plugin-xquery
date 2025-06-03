@@ -7,4 +7,6 @@ declare option output:indent "yes";
 declare option output:suppress-indentation "p";
 declare option output:version "5.0";
 
-<html><body><div><p>This is <b>bold</b> and <i>italic</i></p><p>two</p></div></body></html>
+<html>
+  <body><div><p>This is <b>bold</b> and <i>italic</i></p><p>two</p></div></body>
+</html>

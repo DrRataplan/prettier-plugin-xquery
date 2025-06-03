@@ -4,7 +4,7 @@ declare variable $xsl := "http://www.w3.org/1999/XSL/Transform";
 
 declare variable $xmlns := "xmlns";
 
-<e> {
+<e>{
     namespace saxon {
       $s
     }, attribute a {

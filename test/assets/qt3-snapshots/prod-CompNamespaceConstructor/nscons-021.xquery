@@ -1,5 +1,5 @@
 <e>{
-  namespace x {
-    ""
-  }
-}</e>
+    namespace x {
+      ""
+    }
+  }</e>

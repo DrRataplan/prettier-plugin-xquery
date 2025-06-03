@@ -1,1 +1,1 @@
-count(<root> <child /> </root>/following-sibling::node())
+count(<root><child /></root>/following-sibling::node())

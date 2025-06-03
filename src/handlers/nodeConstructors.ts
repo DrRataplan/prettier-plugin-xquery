@@ -1,9 +1,61 @@
-import { doc, type Doc } from "prettier";
+import { type AstPath, doc, type Doc } from "prettier";
 import printIfExist from "./util/printIfExists.ts";
 import space from "./util/space.ts";
 import type { Handler } from "./util/Handler.ts";
+import type { NonTerminalNode } from "../tree.ts";
 
-const { group, indent, softline, line, join } = doc.builders;
+const { group, indent, softline, line, join, literallineWithoutBreakParent, dedent } = doc.builders;
+
+const isContentChar = (node: NonTerminalNode): boolean => {
+	if (node.childrenByName["ElementContentChar"]) {
+		return true;
+	}
+	if (!node.childrenByName["CommonContent"]) {
+		return false;
+	}
+	if (node.childrenByName["CommonContent"][0].childrenByName.EnclosedExpr) {
+		return false;
+	}
+	return true;
+};
+
+const isWhitespace = (node: NonTerminalNode): boolean => {
+	if (!node.childrenByName["ElementContentChar"]) {
+		return false;
+	}
+	return /^\s$/.test(node.getStringRepresentation());
+};
+
+const isBoundaryPosition = (siblings: NonTerminalNode[], offset: number): boolean => {
+	let isBoundaryToStart = true;
+	let isBoundaryToEnd = true;
+
+	for (let i = offset - 1; i >= 0; i--) {
+		const node = siblings[i];
+		if (!isContentChar(node)) {
+			// An element ended here
+			isBoundaryToStart = true;
+			break;
+		}
+		if (!isWhitespace(node)) {
+			isBoundaryToStart = false;
+			break;
+		}
+	}
+	for (let i = offset; i < siblings.length; i++) {
+		const node = siblings[i];
+		if (!isContentChar(node)) {
+			// An element starts here
+			isBoundaryToEnd = true;
+			break;
+		}
+		if (!isWhitespace(node)) {
+			isBoundaryToEnd = false;
+			break;
+		}
+	}
+	return isBoundaryToStart && isBoundaryToEnd;
+};
 
 const nodeConstructorHandlers: Record<string, Handler> = {
 	CompAttrConstructor: (path, print) => {
@@ -84,7 +136,7 @@ const nodeConstructorHandlers: Record<string, Handler> = {
 
 		return group([namespaceKeyword, space, prefixPart, space, enclosedURIExprPart]);
 	},
-	DirElemConstructor: (path, print) => {
+	DirElemConstructor: (path, print, options) => {
 		const angleBracketOpen = path.map(print, "childrenByName", "'<'");
 		const [qnamePartOpen, qnamePartClose] = path.map(print, "childrenByName", "QName");
 		const dirAttributeList = path.map(print, "childrenByName", "DirAttributeList");
@@ -104,13 +156,16 @@ const nodeConstructorHandlers: Record<string, Handler> = {
 
 		const dirElemContent = printIfExist(path, print, "DirElemContent");
 
-		if (!dirElemContent) {
+		const dirElemContentNodes = path.node.childrenByName.DirElemContent;
+		const hasContent =
+			dirElemContent &&
+			(options.boundarySpace === "preserve" || dirElemContentNodes.some((child) => !isWhitespace(child)));
+
+		if (!hasContent) {
 			// No content. If there would be comments for instance, the comments would show up as DirElemContent.
 			// Safe to collapse.
 			return group([
-				angleBracketOpen,
-				qnamePartOpen,
-				hasAttributes ? indent([line, dirAttributeList]) : [],
+				group([angleBracketOpen, qnamePartOpen, hasAttributes ? indent([line, dirAttributeList]) : []]),
 				space,
 				"/>",
 			]);
@@ -119,17 +174,32 @@ const nodeConstructorHandlers: Record<string, Handler> = {
 		const [firstAngleBracketClose, secondAngleBracketClose] = path.map(print, "childrenByName", "'>'");
 		const closeElementStart = path.map(print, "childrenByName", "'</'");
 
-		const indentDirElemContent = path.node.childrenByName.DirElemContent.length !== 1;
+		let formattedDirElemContents: Doc = dirElemContent;
+
+		// Indent the contents once, always
+
+		if (options.boundarySpace === "strip") {
+			if (isBoundaryPosition(dirElemContentNodes, 0)) {
+				formattedDirElemContents = [softline, formattedDirElemContents];
+			}
+			formattedDirElemContents = [indent(formattedDirElemContents)];
+			if (isBoundaryPosition(dirElemContentNodes, dirElemContentNodes.length)) {
+				formattedDirElemContents = [formattedDirElemContents, softline];
+			}
+		} else {
+			formattedDirElemContents = [indent(formattedDirElemContents)];
+		}
 
 		return group([
-			angleBracketOpen,
-			qnamePartOpen,
-			hasAttributes ? indent([line, dirAttributeList, softline]) : [],
-			firstAngleBracketClose,
-			indentDirElemContent ? indent(dirElemContent) : dirElemContent,
-			closeElementStart,
-			qnamePartClose,
-			secondAngleBracketClose,
+			group([
+				angleBracketOpen,
+				qnamePartOpen,
+				hasAttributes ? indent([line, dirAttributeList]) : [],
+				softline,
+				firstAngleBracketClose,
+			]),
+			group(formattedDirElemContents),
+			group([closeElementStart, qnamePartClose, secondAngleBracketClose]),
 		]);
 	},
 	DirAttributeList: (path, print) => {
@@ -147,7 +217,7 @@ const nodeConstructorHandlers: Record<string, Handler> = {
 		const tuples: { rawName: string; formatted: Doc }[] = [];
 
 		for (let i = 0; i < rawAttributeNames.length; ++i) {
-			const formatted = group([attributeNames[i], equalitySigns[i], attributeValues[i]]);
+			const formatted = [attributeNames[i], equalitySigns[i], attributeValues[i]];
 			tuples.push({ rawName: rawAttributeNames[i].getStringRepresentation(), formatted });
 		}
 		tuples.sort((a, b) => {
@@ -181,12 +251,66 @@ const nodeConstructorHandlers: Record<string, Handler> = {
 			return a.rawName < b.rawName ? -1 : 1;
 		});
 
-		return group(
-			join(
-				line,
-				tuples.map(({ formatted }) => formatted),
-			),
+		// Note: do not group these: the grouping should happen in the DirElemConstructor
+		return join(
+			line,
+			tuples.map(({ formatted }) => formatted),
 		);
+	},
+	DirElemContent: (path, print, options) => {
+		// If we're preserving boundary spaces, output verbatim
+		if (options.boundarySpace === "preserve") {
+			if (path.node.childrenByName["ElementContentChar"]) {
+				if (path.node.getStringRepresentation() === "\n") {
+					// Do not just output a `\n` because that makes prettier continue counting the line-width, causing
+					// things to break too early.
+					return literallineWithoutBreakParent;
+				}
+			}
+			return path.map(print, "children");
+		}
+
+		// Strip boundary space and rebuild it from indentation levels
+		if (path.node.childrenByName["ElementContentChar"]) {
+			if (isWhitespace(path.node)) {
+				if (isBoundaryPosition(path.siblings!, path.index!)) {
+					// Strip boundary whitespace and replace it with a softline.
+					if (path.isFirst) {
+						return [];
+					}
+					if (isWhitespace(path.previous!)) {
+						// Multiple consecutive boundary space: replace them with just one
+						return [];
+					}
+					let isOnlyWhitespaceToEnd = true;
+					const siblings = path.siblings!;
+					for (let i = path.index!; i < siblings.length; i++) {
+						if (!isWhitespace(siblings[i])) {
+							isOnlyWhitespaceToEnd = false;
+							break;
+						}
+					}
+					if (isOnlyWhitespaceToEnd) {
+						// The DirElemConstructor will take care of the softline in here.
+						return [];
+					}
+					return softline;
+				}
+				if (path.previous && isContentChar(path.previous!)) {
+					// Whitespace in the middle of character data: great place for a soft-wrap. return group(line)
+					//	instead to wrap long lines. Disabled because that does change significant whitespace TODO? Make
+					//	this an option?
+					return path.map(print, "children");
+				}
+			}
+			// Normal character, likely in the middle of a word. Just output
+			return path.map(print, "children");
+		}
+		// Another node constructor. Add a softline in from of it to make it look nice, but not if we're at the start of the element
+		if (isBoundaryPosition(path.siblings!, path.index!) && path.previous && !isWhitespace(path.previous)) {
+			return [softline, path.map(print, "children")];
+		}
+		return path.map(print, "children");
 	},
 };
 

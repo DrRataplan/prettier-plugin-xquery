@@ -8,7 +8,10 @@ declare function functx:siblings-same-name (
 };
 
 let $in-xml :=
-  <authors> <author> <fName>Kate</fName> <fName>Jane</fName> <lName>Jones</lName> </author> <author> <fName>John</fName> <lName>Doe</lName> </author> </authors>
+  <authors>
+    <author><fName>Kate</fName><fName>Jane</fName><lName>Jones</lName></author>
+    <author><fName>John</fName><lName>Doe</lName></author>
+  </authors>
 return (
     functx:siblings-same-name($in-xml/author[1]),
     functx:siblings-same-name($in-xml/author[1]/fName[2])

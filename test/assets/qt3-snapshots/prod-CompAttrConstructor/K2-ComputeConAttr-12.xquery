@@ -1,5 +1,5 @@
-<a> <!-- content --> {
+<a><!-- content -->{
     attribute name {
       "content"
     }
-  } </a>
+  }</a>

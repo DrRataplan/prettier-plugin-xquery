@@ -237,6 +237,26 @@ const pluginDefinition: Plugin<Node> = {
 			extensions: ["xq", "xqm", "xqy", "xql", "xquery"],
 		},
 	],
+	options: {
+		boundarySpace: {
+			description:
+				"How to handle boundary spaces. Will be overruled if `declare boundary-space strip|preserve` is set in the script",
+			default: "strip",
+			category: "global",
+			type: "choice",
+			choices: [
+				{
+					value: "strip",
+					description: "Assume boundary spaces will be stripped by the processor, so they can be added for formatting",
+				},
+				{
+					value: "preserve",
+					description:
+						"Assume boundary spaces will be preserved by the processor, so they can not be added for formatting",
+				},
+			],
+		},
+	},
 	parsers: {
 		xquery: xqueryParser,
 	},

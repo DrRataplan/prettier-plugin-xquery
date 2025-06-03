@@ -9,7 +9,10 @@ declare function functx:is-descendant (
 };
 
 let $in-xml :=
-  <authors> <author> <fName>Kate</fName> <lName>Jones</lName> </author> <author> <fName>John</fName> <lName>Doe</lName> </author> </authors>
+  <authors>
+    <author><fName>Kate</fName><lName>Jones</lName></author>
+    <author><fName>John</fName><lName>Doe</lName></author>
+  </authors>
 return (
     functx:is-descendant($in-xml//author[1]/fName, $in-xml//author[1]),
     functx:is-descendant($in-xml//author[1], $in-xml//author[1]/fName),

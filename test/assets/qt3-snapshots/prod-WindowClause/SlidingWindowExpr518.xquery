@@ -9,10 +9,12 @@ for sliding window $Q{foo:bar}w in (1 to 10)
   at $Q{foo:bar}y
   previous $Q{foo:bar}ep
   next $Q{foo:bar}en when false()
-return <window>{
-    string-join(
-      for $w:w in ($w:w, $w:s, $w:x, $w:sp, $w:sn, $w:e, $w:y, $w:ep, $w:en)
-      return string($w:w),
-      " "
-    )
-  }</window>
+return <window>
+    {
+      string-join(
+        for $w:w in ($w:w, $w:s, $w:x, $w:sp, $w:sn, $w:e, $w:y, $w:ep, $w:en)
+        return string($w:w),
+        " "
+      )
+    }
+  </window>

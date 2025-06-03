@@ -7,7 +7,7 @@ declare function functx:sort-as-numeric ($seq as item()*) as item()* {
   return $item
 };
 
-let $in-xml := <in-xml> <f>1</f> <f>35</f> <e>4</e> </in-xml>
+let $in-xml := <in-xml><f>1</f><f>35</f><e>4</e></in-xml>
 return document {
     (
       functx:sort-as-numeric(("1", "100", "99")),

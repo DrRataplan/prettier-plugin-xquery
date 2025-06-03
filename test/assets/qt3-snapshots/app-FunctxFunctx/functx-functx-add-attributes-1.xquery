@@ -27,5 +27,5 @@ declare function functx:add-attributes (
     }
 };
 
-let $in-xml := <in-xml> <a>x</a> <b att1="x">x</b> </in-xml>
+let $in-xml := <in-xml><a>x</a><b att1="x">x</b></in-xml>
 return (functx:add-attributes($in-xml/a, xs:QName("att1"), 1))

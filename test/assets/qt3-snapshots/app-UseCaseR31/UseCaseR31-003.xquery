@@ -1,4 +1,5 @@
-<out>  {
+<out>
+  {
     for $employee in /employees/employee
     let $salary := $employee/salary
     group by $department := $employee/department
@@ -7,8 +8,8 @@
     return <department name="{
           $department
         }">{
-        $highest-earners
-      }</department>,
+          $highest-earners
+        }</department>,
     for $employee in /employees/employee
     let $salary := $employee/salary
     group by $job-type := $employee/employeeType
@@ -16,6 +17,7 @@
     return <total-by-job-type type="{
           $job-type
         }">{
-        $totals
-      }</total-by-job-type>
-  }</out>
+          $totals
+        }</total-by-job-type>
+  }
+</out>

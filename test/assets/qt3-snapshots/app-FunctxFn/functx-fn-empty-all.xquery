@@ -1,4 +1,4 @@
-let $in-xml := <in-xml> <a /> <b /> <c>xyz</c> </in-xml>
+let $in-xml := <in-xml><a /><b /><c>xyz</c></in-xml>
 return (
     empty(("a", "b", "c")),
     empty(()),

@@ -1,3 +1,3 @@
-declare variable $var := <a> <b /> <c /> <d /> </a>;
+declare variable $var := <a><b /><c /><d /></a>;
 
 ($var/*, $var/*)

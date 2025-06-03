@@ -9,7 +9,9 @@ declare function functx:sequence-node-equal-any-order (
 };
 
 let $in-xml :=
-  <authors> <author> <fName>Kate</fName> <lName>Jones</lName> </author> <author> <fName>John</fName> <lName>Doe</lName> </author> </authors>
-return let $anAuthor :=
-    <author> <fName>Kate</fName> <lName>Jones</lName> </author>
+  <authors>
+    <author><fName>Kate</fName><lName>Jones</lName></author>
+    <author><fName>John</fName><lName>Doe</lName></author>
+  </authors>
+return let $anAuthor := <author><fName>Kate</fName><lName>Jones</lName></author>
   return (functx:sequence-node-equal-any-order($in-xml/author[1], $anAuthor))

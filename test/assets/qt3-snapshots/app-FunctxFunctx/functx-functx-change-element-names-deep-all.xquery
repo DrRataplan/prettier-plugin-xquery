@@ -38,11 +38,11 @@ declare function functx:if-empty (
     $value
 };
 
-let $in-xml-1 := <in-xml> <a> <b>b</b> <c>c</c> </a> </in-xml>
+let $in-xml-1 := <in-xml><a><b>b</b><c>c</c></a></in-xml>
 return let $in-xml-2 :=
-    <in-xml
-      xmlns:dty="http://datypic.com"
-      > <a> <dty:b>b</dty:b> <c>c</c> </a> </in-xml>
+    <in-xml xmlns:dty="http://datypic.com">
+      <a><dty:b>b</dty:b><c>c</c></a>
+    </in-xml>
   return (
       functx:change-element-names-deep($in-xml-1, xs:QName("b"), xs:QName("y")),
       functx:change-element-names-deep(

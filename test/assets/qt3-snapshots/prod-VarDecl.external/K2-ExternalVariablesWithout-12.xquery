@@ -6,8 +6,8 @@ declare variable $a := (attribute name1 {
     ()
   });
 
-<r> <e> {
+<r><e>{
       $a
-    } </e> <e> {
+    }</e><e>{
       $a
-    } </e> </r>
+    }</e></r>

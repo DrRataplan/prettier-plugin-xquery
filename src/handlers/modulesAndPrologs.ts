@@ -114,7 +114,11 @@ const modulesAndPrologsHandlers: Record<string, Handler> = {
 	EmptyOrderDecl: joinChildrenWithSpaces,
 	CopyNamespacesDecl: joinChildrenWithSpaces,
 	DecimalFormatDecl: joinChildrenWithSpaces,
-	BoundarySpaceDecl: joinChildrenWithSpaces,
+	BoundarySpaceDecl: (path, print, options) => {
+		const boundarySpaceOption = path.node.childrenByName["'strip'"] ? 'strip' : 'preserve';
+		options.boundarySpace = boundarySpaceOption;
+		return joinChildrenWithSpaces(path, print)
+	},
 	DefaultNamespaceDecl: joinChildrenWithSpaces,
 	ModuleImport: (path, print) => {
 		const prefixPart = path.node.childrenByName["NCName"]
@@ -204,8 +208,8 @@ const modulesAndPrologsHandlers: Record<string, Handler> = {
 		]);
 	},
 	MainModule: (path, print) => {
-		const queryBodyPart = path.map(print, "childrenByName", "QueryBody");
 		const prologPart = path.map(print, "childrenByName", "Prolog");
+		const queryBodyPart = path.map(print, "childrenByName", "QueryBody");
 
 		// Skip newlines after empty prologs. But still print them in case they have comments
 		if ((path.node.childrenByName.Prolog[0] as NonTerminalNode).children.length === 0) {

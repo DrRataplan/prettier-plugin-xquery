@@ -5,7 +5,8 @@ declare function functx:leaf-elements ($root as node()?) as element()* {
 };
 
 let $in-xml :=
-  <authors> <author> <fName>Kate</fName> <lName>Jones</lName> </author> 
-                                 <author> <fName>John</fName> <lName>Doe</lName> </author> 
-                       </authors>
+  <authors>
+    <author><fName>Kate</fName><lName>Jones</lName></author>
+    <author><fName>John</fName><lName>Doe</lName></author>
+  </authors>
 return (functx:leaf-elements($in-xml), functx:leaf-elements($in-xml/author[1]))

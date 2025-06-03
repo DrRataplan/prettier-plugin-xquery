@@ -2,6 +2,6 @@ fn:string(
   (
     <anElement
       xml:base="http://example.com/examples"
-      >Element content</anElement>
+    >Element content</anElement>
   )/fn:base-uri()
 )

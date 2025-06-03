@@ -29,11 +29,11 @@ declare function local:f ($ns as namespace-node()) as element() {
 };
 
 <out>{
-  local:f(namespace p {
-      "http://example.com/one"
-    }), local:f(namespace {
-      ""
-    } {
-      "http://example.com/two"
-    })
-}</out>
+    local:f(namespace p {
+        "http://example.com/one"
+      }), local:f(namespace {
+        ""
+      } {
+        "http://example.com/two"
+      })
+  }</out>

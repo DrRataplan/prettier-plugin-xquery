@@ -1,7 +1,7 @@
-<a> <?target content?> {
+<a><?target content?>{
     <b>{
-      attribute name {
-        "content"
-      }
-    }</b>
-  } </a>
+        attribute name {
+          "content"
+        }
+      }</b>
+  }</a>
