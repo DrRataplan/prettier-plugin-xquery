@@ -12,7 +12,10 @@ declare function functx:if-absent (
 };
 
 let $in-xml :=
-  <prices> <price discount="10.00" value="29.99" /> <price
-      discount="6.00" value="39.99" /> <price value="69.99" /> <price
-      discount="" value="49.99" /> </prices>
+  <prices>
+    <price discount="10.00" value="29.99" />
+    <price discount="6.00" value="39.99" />
+    <price value="69.99" />
+    <price discount="" value="49.99" />
+  </prices>
 return (data(functx:if-absent($in-xml//price[1]/@discount, 0)))

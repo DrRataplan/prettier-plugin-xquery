@@ -1,3 +1,3 @@
-<e xmlns:prefix="http://example.com/"> {
+<e xmlns:prefix="http://example.com/">{
     xs:QName("prefix:localName")
-  } </e>
+  }</e>

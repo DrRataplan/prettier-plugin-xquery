@@ -1,7 +1,7 @@
 declare namespace prefix = "http://www.w3.org/";
 
-<prefix:a> {
+<prefix:a>{
     <b />, attribute prefix:foo {
       "bar"
     }
-  } </prefix:a>
+  }</prefix:a>

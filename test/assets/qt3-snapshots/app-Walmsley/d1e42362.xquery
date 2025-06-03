@@ -4,9 +4,5 @@ declare option output:method "json";
 
 map {
   "number": 557,
-  "properties":
-    <props>
-                   <length>31</length>
-                   <height>12</height>
-                 </props>
+  "properties": <props><length>31</length><height>12</height></props>
 }

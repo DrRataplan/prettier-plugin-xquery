@@ -28,3 +28,25 @@ exports[`node constructors > Still normalizes to self-closing if the comment is 
 <ele />
 (: Comment :) 
 `;
+
+exports[`node constructors > handles enclosed expressions as boundary whitespace 1`] = `
+declare boundary-space strip;
+
+<testcase>
+  {}Some text here to make it over the 80 characters! AAAAAAAAAAAAAAAAAAA</testcase>,
+<testcase>
+  {}Some text here to make it over the 80 characters! AAAAAAAAAAAAAAAAAAA</testcase>,
+<testcase
+>Some text here to make it over the 80 characters! AAAAAAAAAAAAAAAAAAA{}
+</testcase>,
+<testcase
+>Some text here to make it over the 80 characters! AAAAAAAAAAAAAAAAAAA{}
+</testcase>,
+<testcase>
+  {}Some text here to make it over the 80 characters! AAAAAAAAAAAAAAAAAAA{}
+</testcase>,
+<testcase>
+  {}Some text here to make it over the 80 characters! AAAAAAAAAAAAAAAAAAA{}
+</testcase>
+
+`;

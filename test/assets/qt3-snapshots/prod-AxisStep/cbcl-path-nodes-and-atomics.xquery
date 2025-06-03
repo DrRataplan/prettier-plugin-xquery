@@ -8,6 +8,6 @@ declare function local:f ($x) {
 let $y :=
   for $x in (1 to 10)
   return <e>{
-      $x
-    }</e>
+        $x
+      }</e>
 return $y/local:f(.)/a

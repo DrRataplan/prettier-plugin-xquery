@@ -2,6 +2,6 @@ declare variable $myVar := (<elem />, attribute name {
     "content"
   });
 
-<b> {
+<b>{
     $myVar
-  } </b>
+  }</b>

@@ -10,7 +10,7 @@ declare variable $r := element {QName($p2, "p:e")} {
   }
 };
 
-<out> {
+<out>{
     exists($r[prefix-from-QName(node-name(.)) != "p"]),
     exists(in-scope-prefixes($r)[. = "p"])
   }</out>

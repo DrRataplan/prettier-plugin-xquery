@@ -10,5 +10,5 @@ declare function functx:min-string (
   )
 };
 
-let $in-xml := <in-xml> <x>a</x> <y>c</y> <z>b</z> </in-xml>
+let $in-xml := <in-xml><x>a</x><y>c</y><z>b</z></in-xml>
 return (functx:min-string($in-xml/*))

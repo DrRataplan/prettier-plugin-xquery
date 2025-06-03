@@ -1,5 +1,5 @@
 <a>{
-  string(document {
-      <a />, <b />, <c />
-    })
-}</a>
+    string(document {
+        <a />, <b />, <c />
+      })
+  }</a>

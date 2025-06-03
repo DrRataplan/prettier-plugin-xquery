@@ -5,8 +5,8 @@ declare function local:window () {
     start $s when false()
     end $e when false()
   return <window>{
-      $w
-    }</window>
+        $w
+      }</window>
 };
 
 local:window()

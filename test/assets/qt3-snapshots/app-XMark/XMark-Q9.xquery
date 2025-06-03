@@ -1,6 +1,7 @@
 (: Purpose: List the names of persons and the names of the items 
          they bought in Europe(joins person, closed auction, item). :)
-<XMark-result-Q9> {
+<XMark-result-Q9>
+  {
     let $auction := (/)
     return let $ca := $auction/site/closed_auctions/closed_auction
       return let $ei := $auction/site/regions/europe/item
@@ -13,11 +14,12 @@
               where $t/itemref/@item = $t2/@id
               return $t2
             return <item>{
-                $n/name/text()
-              }</item>
+                  $n/name/text()
+                }</item>
         return <person name="{
               $p/name/text()
             }">{
-            $a
-          }</person>
-  } </XMark-result-Q9>
+              $a
+            }</person>
+  }
+</XMark-result-Q9>

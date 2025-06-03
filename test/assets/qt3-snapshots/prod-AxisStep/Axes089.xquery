@@ -270,61 +270,57 @@ declare function tour:print-board ($board as xs:integer*) as element() {
   (: Output the board in HTML format :)
 
   <html>
-    <head>
-        <title>Knight's tour</title>
-    </head>
+    <head><title>Knight's tour</title></head>
     <body>
-    <div
-        align="center"
-        >
-    <h1>Knight's tour starting at {
+      <div align="center">
+        <h1>Knight's tour starting at {
             $start
           }</h1>
-    <table
-          border="1" cellpadding="4"
-          >
-        {
+        <table border="1" cellpadding="4">
+          {
             for $row in 0 to 7
             return <tr>
-              {
+                {
                   for $column in 0 to 7
                   let $color :=
                     if ((($row + $column) mod 2) = 1) then
                       "xffff44"
                     else
                       "white"
-                  return <td
-                      align="center" bgcolor="{
+                  return <td align="center" bgcolor="{
                         $color
-                      }" width="22"
-                      >{
-                      let $n := $board[$row * 8 + $column + 1]
-                      return if ($endd != 64 and $n = $endd) then
-                          <b>{
+                      }" width="22">
+                      {
+                        let $n := $board[$row * 8 + $column + 1]
+                        return if ($endd != 64 and $n = $endd) then
+                            <b>{
+                                $n
+                              }</b>
+                          else if ($n = 0) then
+                            "&#xa0;"
+                          else
                             $n
-                          }</b>
-                        else if ($n = 0) then
-                          "&#xa0;"
-                        else
-                          $n
-                    }</td>
+                      }
+                    </td>
                 }
-           </tr>
+              </tr>
           }
-    </table>
-    <p>{
-          if ($endd != 64) then
-            <a href="Tour?start={
-                $start
-              }&amp;end={
-                $endd + 1
-              }">Step</a>
-          else (
-          )
-        }</p>    
-    </div>
+        </table>
+        <p>
+          {
+            if ($endd != 64) then
+              <a href="Tour?start={
+                  $start
+                }&amp;end={
+                  $endd + 1
+                }">Step</a>
+            else (
+            )
+          }
+        </p>
+      </div>
     </body>
-    </html>
+  </html>
 };
 
 tour:main()

@@ -1,1 +1,1 @@
-<a> <b c=""> <c /> </b> <d /> </a>/b/c/ancestor::*[1]
+<a><b c=""><c /></b><d /></a>/b/c/ancestor::*[1]

@@ -1,4 +1,5 @@
-<results> {
+<results>
+  {
     for $x in
       (
         -0.000000000000000001,
@@ -23,4 +24,5 @@
       )
     order by (xs:decimal($x) + xs:decimal($x))
     return xs:decimal($x) + xs:decimal($x)
-  } </results>
+  }
+</results>

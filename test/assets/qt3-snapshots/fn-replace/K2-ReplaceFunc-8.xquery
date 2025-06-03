@@ -6,12 +6,8 @@ declare function local:doReplace (
   fn:replace($input, $pattern, $replacement)
 };
 
-<result> <para>{
-    fn:replace("ThiY Ybcd.", "Y", "Q")
-  }</para> <para>{
-    local:doReplace("ThiY iY a abYY.", "Y", "Q")
-  }</para> </result>, fn:replace(
-  "ThiY abcdY.",
-  "Y",
-  "Q"
-), local:doReplace("ThiY iY a abYY.", "Y", "Q")
+<result><para>{
+      fn:replace("ThiY Ybcd.", "Y", "Q")
+    }</para><para>{
+      local:doReplace("ThiY iY a abYY.", "Y", "Q")
+    }</para></result>, fn:replace("ThiY abcdY.", "Y", "Q"), local:doReplace("ThiY iY a abYY.", "Y", "Q")

@@ -21,9 +21,7 @@ declare function local:in-scope-namespace-bindings ($arg) {
     )
 };
 
-<a:outer
-  xmlns:c="http://example.com/3" b:outer="attr" c:outer="attr"
-  >
+<a:outer xmlns:c="http://example.com/3" b:outer="attr" c:outer="attr">
   <inner a="a:attr" b="b:attr" />
 </a:outer>/(
   local:in-scope-namespace-bindings(.),

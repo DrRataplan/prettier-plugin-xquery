@@ -1,5 +1,5 @@
 declare construction preserve;
 
 fn:count(fn:data((<elem>{
-        //*:idrefs/@*:attr
-      }</elem>)/@*:attr))
+          //*:idrefs/@*:attr
+        }</elem>)/@*:attr))

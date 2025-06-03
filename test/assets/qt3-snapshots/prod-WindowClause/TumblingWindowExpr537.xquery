@@ -5,5 +5,5 @@ count$r
 return <window num="{
       $r
     }">{
-    $w
-  }</window>
+      $w
+    }</window>

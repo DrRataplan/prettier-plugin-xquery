@@ -1,9 +1,10 @@
-<results> {
+<results>
+  {
     for $b in /bib/book
-    return <result> {
+    return <result>{
           $b/title
-        } {
+        }{
           $b/author
-        } </result>
-  } 
-      	</results>
+        }</result>
+  }
+</results>

@@ -9,8 +9,10 @@ declare function functx:is-node-in-sequence (
 };
 
 let $in-xml :=
-  <prices> <price discount="10.00" value="29.99" /> <price
-      discount="6.00" value="39.99" /> <price
-      discount="" value="49.99" /> </prices>
+  <prices>
+    <price discount="10.00" value="29.99" />
+    <price discount="6.00" value="39.99" />
+    <price discount="" value="49.99" />
+  </prices>
 return let $aPrice := <price discount="" value="49.99" />
   return (functx:is-node-in-sequence($aPrice, $in-xml/price))

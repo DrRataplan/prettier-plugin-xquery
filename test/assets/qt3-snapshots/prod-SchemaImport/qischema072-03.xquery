@@ -4,7 +4,7 @@ declare function local:test () as schema-element(res:fix) {
   (validate { document {
         <res:fix
           xmlns:res="http://schema.highwire.org/Publishing/Resource/qischema072"
-          > wrong value </res:fix>
+        > wrong value </res:fix>
       } })/*
 };
 

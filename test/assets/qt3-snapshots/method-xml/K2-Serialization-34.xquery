@@ -4,11 +4,11 @@ declare option output:method "xml";
 declare option output:cdata-section-elements "b";
 
 <chapter><para><b>bold {
-      "<"
-    }{
-      "[["
-    }{
-      "]]"
-    }{
-      ">"
-    } as brass</b><i>italic</i></para></chapter>
+        "<"
+      }{
+        "[["
+      }{
+        "]]"
+      }{
+        ">"
+      } as brass</b><i>italic</i></para></chapter>

@@ -17,7 +17,11 @@ declare function functx:is-node-in-sequence-deep-equal (
 };
 
 let $in-xml :=
-  <authors> <author> <fName>Kate</fName> <lName>Jones</lName> </author> <author> <fName>Kate</fName> <lName>Jones</lName> </author> <author> <fName>Kate</fName> <lName>Doe</lName> </author> </authors>
+  <authors>
+    <author><fName>Kate</fName><lName>Jones</lName></author>
+    <author><fName>Kate</fName><lName>Jones</lName></author>
+    <author><fName>Kate</fName><lName>Doe</lName></author>
+  </authors>
 return (
     functx:distinct-deep($in-xml//author),
     functx:distinct-deep($in-xml//lName),

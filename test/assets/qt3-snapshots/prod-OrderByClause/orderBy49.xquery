@@ -1,7 +1,9 @@
 declare default element namespace "http://www.w3.org/XQueryTestOrderBy";
 
-<results> {
+<results>
+  {
     for $x in /DataValues/SmallPositiveNumbers/orderData
     order by string($x) ascending
     return string($x)
-  } </results>
+  }
+</results>

@@ -1,3 +1,3 @@
 declare boundary-space strip;
 
-<elem xml:space="preserve"> </elem>
+<elem xml:space="preserve" />

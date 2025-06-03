@@ -1,5 +1,5 @@
 declare variable $ext external;
 
 <a>{
-  $ext
-}</a>
+    $ext
+  }</a>

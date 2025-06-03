@@ -4,17 +4,17 @@ declare namespace test = "http://www.example.com/test";
 declare namespace test2 = "http://www.example.com/test2";
 
 declare function test:udf1 () {
-  <empty> {
+  <empty>{
       10 * 10
-    } </empty>
+    }</empty>
 };
 
 declare function test2:udf1 () {
   <empty />
 };
 
-<A> {
+<A>{
     test:udf1()
-  } {
+  }{
     test2:udf1()
-  } </A>
+  }</A>

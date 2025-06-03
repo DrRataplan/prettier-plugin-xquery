@@ -9,5 +9,8 @@ declare function functx:max-depth ($root as node()?) as xs:integer? {
 };
 
 let $in-xml :=
-  <authors> <author> <fName>Kate</fName> <lName>Jones</lName> </author> <author> <fName>John</fName> <lName>Doe</lName> </author> </authors>
+  <authors>
+    <author><fName>Kate</fName><lName>Jones</lName></author>
+    <author><fName>John</fName><lName>Doe</lName></author>
+  </authors>
 return (functx:max-depth($in-xml), functx:max-depth($in-xml/author[1]))

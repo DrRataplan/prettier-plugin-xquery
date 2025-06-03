@@ -8,6 +8,4 @@ import schema namespace qnc =  "http://www.w3.org/XQueryTest/QNameComparisonTest
 
 validate strict { <qnc:x>{
       QName("http://www.xbrl.org/2003/iso4217", "GBP")
-    } </qnc:x> }, validate strict {
-  <qnc:x xmlns:iso2="http://www.xbrl.org/2003/iso4217">iso2:GBP</qnc:x>
-  }
+    }</qnc:x> }, validate strict { <qnc:x xmlns:iso2="http://www.xbrl.org/2003/iso4217">iso2:GBP</qnc:x> }

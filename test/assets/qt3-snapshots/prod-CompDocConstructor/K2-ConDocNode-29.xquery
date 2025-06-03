@@ -1,9 +1,9 @@
-<doo> {
+<doo>{
     document {
-      <e> {
+      <e>{
           <?target data?>, attribute name {
             "content"
           }
-        } </e>
+        }</e>
     }
-  } </doo>
+  }</doo>
