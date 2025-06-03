@@ -3,10 +3,10 @@ import module namespace other = "http://example.com/other" at "http://example.co
 
 document {
   <result><impl>{
-      impl:f1("hello")
-    }</impl><other>{
-      other:do("hello", "world")
-    }</other><var>{
-      $impl:v1
-    }</var></result>
+        impl:f1("hello")
+      }</impl><other>{
+        other:do("hello", "world")
+      }</other><var>{
+        $impl:v1
+      }</var></result>
 }

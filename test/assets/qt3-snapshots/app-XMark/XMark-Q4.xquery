@@ -9,7 +9,7 @@
         $b/bidder/personref[@person = "person51"] satisfies
         $pr1 << $pr2
       return <history>{
-          $b/reserve/text()
-        }</history>
+            $b/reserve/text()
+          }</history>
   }
 </XMark-result-Q4>

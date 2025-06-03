@@ -6,4 +6,8 @@ declare option output:indent "no";
 declare option output:html-version "4.0";
 declare option output:cdata-section-elements "b html:em";
 
-<html><body><p><b>YES</b><em>NO</em><html:b>NO</html:b><html:em>YES</html:em></p></body></html>
+<html>
+  <body>
+    <p><b>YES</b><em>NO</em><html:b>NO</html:b><html:em>YES</html:em></p>
+  </body>
+</html>

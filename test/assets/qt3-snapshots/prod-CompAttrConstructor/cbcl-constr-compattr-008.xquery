@@ -5,8 +5,8 @@ declare function local:factorial ($arg as xs:integer) as xs:integer {
     $arg * local:factorial($arg - 1)
 };
 
-<element> {
+<element>{
     attribute {fn:QName("http://www.example.com/", "sgml:foo")} {
       local:factorial(5)
     }
-  } </element>
+  }</element>

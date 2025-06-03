@@ -166,10 +166,9 @@ const nodeConstructorHandlers: Record<string, Handler> = {
 
 		let formattedDirElemContents: Doc = dirElemContent;
 
-		const indentDirElemContent = dirElemContentNodes.length > 1;
-		if (indentDirElemContent) {
-			formattedDirElemContents = [indent(formattedDirElemContents)];
-		}
+		// Indent the contents once, always
+		formattedDirElemContents = [indent(formattedDirElemContents)];
+
 		if (options.boundarySpace === "strip") {
 			const lastContentItem = dirElemContentNodes[dirElemContentNodes.length - 1];
 			if (!lastContentItem) {

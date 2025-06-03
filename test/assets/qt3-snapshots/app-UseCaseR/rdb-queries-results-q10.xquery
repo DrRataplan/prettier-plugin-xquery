@@ -9,7 +9,7 @@
         }{
           $highbid/bid
         }<bidder>{
-          $user/name/text()
-        }</bidder></high_bid>
+            $user/name/text()
+          }</bidder></high_bid>
   }
 </result>

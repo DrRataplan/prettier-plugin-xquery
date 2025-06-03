@@ -1,3 +1,3 @@
 <elem>{
-  (//node() | //node()) except //comment()
-}</elem>
+    (//node() | //node()) except //comment()
+  }</elem>

@@ -16,10 +16,10 @@
           }{
             $item/description
           }<high_bid>{
-            $highbid/bid
-          }</high_bid><high_bidder>{
-            $buyer/name
-          }</high_bidder></jones_bike>
+              $highbid/bid
+            }</high_bid><high_bidder>{
+              $buyer/name
+            }</high_bidder></jones_bike>
     )
   }
 </result>

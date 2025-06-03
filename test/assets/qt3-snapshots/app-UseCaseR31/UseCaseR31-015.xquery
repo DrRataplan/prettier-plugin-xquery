@@ -21,7 +21,7 @@ return <pos name="{
     {
       for $l in distinct-values($lexeme)
       return <lexeme>{
-          $l
-        }</lexeme>
+            $l
+          }</lexeme>
     }
   </pos>

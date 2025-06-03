@@ -3,10 +3,10 @@
       "one"
     }
   }<a>{
-    comment {
-      "two"
-    }
-  }</a>{
+      comment {
+        "two"
+      }
+    }</a>{
     comment {
       "three"
     }

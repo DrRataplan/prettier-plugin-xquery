@@ -7,6 +7,6 @@ count(
         1
       )collation"http://www.w3.org/2010/09/qt-fots-catalog/collation/caseblind"
   return <group>{
-      $y
-    }</group>
+        $y
+      }</group>
 )

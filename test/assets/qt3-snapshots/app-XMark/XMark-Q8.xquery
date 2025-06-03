@@ -10,7 +10,7 @@
       return <item person="{
             $p/name/text()
           }">{
-          count($a)
-        }</item>
+            count($a)
+          }</item>
   }
 </XMark-result-Q8>

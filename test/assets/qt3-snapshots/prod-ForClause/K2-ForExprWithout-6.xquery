@@ -1,6 +1,12 @@
 for $ti in
-  <ti><rangeDate><initDate>17880505</initDate><terminatingDate>19550505</terminatingDate></rangeDate></ti>
-return <result> {
+  <ti>
+    <rangeDate>
+      <initDate>17880505</initDate>
+      <terminatingDate>19550505</terminatingDate>
+    </rangeDate>
+  </ti>
+return <result>
+    {
       fn:min(
         if ($ti/singleDate) then
           let $tmp := $ti/singleDate/compute
@@ -25,4 +31,5 @@ return <result> {
               )
             )
       )
-    } </result>
+    }
+  </result>

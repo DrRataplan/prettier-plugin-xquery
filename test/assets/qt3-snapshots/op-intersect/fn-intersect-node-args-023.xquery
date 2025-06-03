@@ -1,6 +1,6 @@
 for $node in
   ((//price/text()), (//price/text())) intersect
     ((//price/text()), (//price/text()))
-return <a> {
+return <a>{
       $node
-    } </a>
+    }</a>

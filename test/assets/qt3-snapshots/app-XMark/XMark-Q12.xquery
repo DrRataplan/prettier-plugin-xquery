@@ -12,7 +12,7 @@
       return <items person="{
             $p/profile/@income
           }">{
-          count($l)
-        }</items>
+            count($l)
+          }</items>
   }
 </XMark-result-Q12>

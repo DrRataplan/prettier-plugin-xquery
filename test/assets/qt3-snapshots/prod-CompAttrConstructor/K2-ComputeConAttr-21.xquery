@@ -4,6 +4,6 @@ declare function local:myFunc () {
   }
 };
 
-<b> {
+<b>{
     local:myFunc()
-  } </b>
+  }</b>

@@ -2,8 +2,8 @@ import module namespace impl = "http://example.com/impl" at "http://example.com/
 
 document {
   <result><impl>{
-      impl:f1("hello")
-    }</impl><other>{
-      impl:f1("hello", "world")
-    }</other></result>
+        impl:f1("hello")
+      }</impl><other>{
+        impl:f1("hello", "world")
+      }</other></result>
 }
