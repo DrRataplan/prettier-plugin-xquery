@@ -1,5 +1,5 @@
-<elem> <!-- content --> {
+<elem><!-- content -->{
     attribute name {
       "content"
     }
-  } </elem>
+  }</elem>

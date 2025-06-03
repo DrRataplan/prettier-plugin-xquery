@@ -1,1 +1,1 @@
-<e> <b attr="fo" /> <b /> </e>/descendant-or-self::node()
+<e><b attr="fo" /><b /></e>/descendant-or-self::node()

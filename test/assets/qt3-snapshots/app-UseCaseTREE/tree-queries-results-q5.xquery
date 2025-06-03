@@ -1,4 +1,5 @@
-<section_list> {
+<section_list>
+  {
     for $s in //section
     let $f := $s/figure
     return <section figcount="{
@@ -6,4 +7,5 @@
         }" title="{
           $s/title/text()
         }" />
-  } </section_list>
+  }
+</section_list>

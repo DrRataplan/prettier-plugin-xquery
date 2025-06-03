@@ -7,11 +7,9 @@
           $wENext[self::ShipNotice]
       )
   where $wENext[self::ShipNotice]
-  return <bundleWith
-      orderId="{
+  return <bundleWith orderId="{
         $wSPrev/@orderID
-      }"
-      >{
+      }">{
       for sliding window $bundle in $w
         start $bSCur when $bSCur[self::OrderRequest] and
           $bSCur/@shipTo eq $wSPrev/@shipTo

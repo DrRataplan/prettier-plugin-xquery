@@ -1,18 +1,18 @@
-<bib> {
+<bib>
+  {
     for $b in //book[author]
-    return <book> 
-      			{
+    return <book>{
           $b/title
-        } {
+        }{
           $b/author
-        } </book>
-  } 
-      			{
+        }</book>
+  }
+  {
     for $b in //book[editor]
-    return <reference> {
+    return <reference>{
           $b/title
-        } {
+        }{
           $b/editor/affiliation
-        } </reference>
-  } 
-      	</bib>
+        }</reference>
+  }
+</bib>

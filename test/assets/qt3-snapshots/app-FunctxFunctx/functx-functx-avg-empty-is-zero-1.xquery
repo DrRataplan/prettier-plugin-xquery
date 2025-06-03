@@ -12,7 +12,10 @@ declare function functx:avg-empty-is-zero (
 };
 
 let $in-xml :=
-  <prices> <price discount="10.00" value="29.99" /> <price
-      discount="6.00" value="39.99" /> <price value="69.99" /> <price
-      discount="" value="49.99" /> </prices>
+  <prices>
+    <price discount="10.00" value="29.99" />
+    <price discount="6.00" value="39.99" />
+    <price value="69.99" />
+    <price discount="" value="49.99" />
+  </prices>
 return (functx:avg-empty-is-zero($in-xml//price/@discount, $in-xml//price))

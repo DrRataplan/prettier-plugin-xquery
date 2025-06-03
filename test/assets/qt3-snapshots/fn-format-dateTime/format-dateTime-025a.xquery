@@ -14,11 +14,9 @@
       "[z]",
       "[ZZ]"
     )
-  return <time
-      format="{
+  return <time format="{
         $f
-      }"
-      >{
+      }">{
       for $t in $times
       return <s>{
           format-dateTime($t, $f)

@@ -13,10 +13,7 @@ declare function functx:get-matches-and-non-matches (
     else if ($iomf > 1) then (
       <non-match>{
         substring($string, 1, $iomf - 1)
-      }</non-match>, functx:get-matches-and-non-matches(
-        substring($string, $iomf),
-        $regex
-      )
+      }</non-match>, functx:get-matches-and-non-matches(substring($string, $iomf), $regex)
     ) else
       let $length :=
         string-length($string) -

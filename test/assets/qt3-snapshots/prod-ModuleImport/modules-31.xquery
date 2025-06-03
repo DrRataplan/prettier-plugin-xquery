@@ -2,15 +2,11 @@ import module namespace impl = "http://example.com/impl" at "http://example.com/
 import module namespace other = "http://example.com/other" at "http://example.com/other.xqm";
 
 document {
-  <result>
-            <impl>{
+  <result><impl>{
       impl:f1("hello")
-    }</impl>
-            <other>{
+    }</impl><other>{
       other:do("hello", "world")
-    }</other>
-            <var>{
+    }</other><var>{
       $impl:v1
-    }</var>
-          </result>
+    }</var></result>
 }

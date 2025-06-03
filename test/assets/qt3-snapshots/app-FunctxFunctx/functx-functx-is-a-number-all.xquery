@@ -7,7 +7,7 @@ declare function functx:is-a-number (
   string(number($value)) != "NaN"
 };
 
-let $in-xml := <in-xml> <a>123</a> <b>abc</b> </in-xml>
+let $in-xml := <in-xml><a>123</a><b>abc</b></in-xml>
 return (
     functx:is-a-number("123"),
     functx:is-a-number(123),

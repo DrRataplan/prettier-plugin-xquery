@@ -3,11 +3,9 @@ declare namespace map = "http://www.w3.org/2005/xpath-functions/map";
 
 let $input := json-doc("employees.json")
 for $k in map:keys($input)
-return <department
-    name="{
+return <department name="{
       $k
-    }"
-    >{
+    }">{
     let $array := $input($k)
     for $i in 1 to array:size($array)
     let $emp := $array($i)

@@ -4,4 +4,4 @@ declare boundary-space strip;
     "B"
   }   C   {
     "D"
-  }  </A>
+  }</A>

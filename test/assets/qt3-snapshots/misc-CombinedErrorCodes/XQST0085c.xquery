@@ -1,1 +1,1 @@
-<a xmlns:foo="http://www.w3.org/"> <b xmlns:foo="" foo:c="" /> </a>
+<a xmlns:foo="http://www.w3.org/"><b xmlns:foo="" foo:c="" /></a>

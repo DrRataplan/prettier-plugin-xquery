@@ -1,11 +1,7 @@
 import schema namespace s =  "http://www.w3.org/XQueryTest/substitution11";
 
 declare variable $in := validate strict {
-  <cuckoo
-    xmlns="http://www.w3.org/XQueryTest/substitution11"
-    >
-                <A />
-              </cuckoo>
+  <cuckoo xmlns="http://www.w3.org/XQueryTest/substitution11"><A /></cuckoo>
   };
 
 $in/s:A instance of schema-element(s:H2)

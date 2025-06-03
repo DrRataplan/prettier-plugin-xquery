@@ -1,4 +1,5 @@
-<results> {
+<results>
+  {
     for $x in
       (
         "A String",
@@ -29,4 +30,5 @@
       )
     order by concat("another String Before", xs:string($x)) ascending
     return concat("another String Before", xs:string($x))
-  } </results>
+  }
+</results>

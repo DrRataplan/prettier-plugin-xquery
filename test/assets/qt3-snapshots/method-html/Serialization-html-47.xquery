@@ -4,8 +4,7 @@ declare option output:method "html";
 declare option output:indent "yes";
 declare option output:version "4.0";
 
-let $html :=
-  <html><body>
+let $html := <html><body>
   <p>Lorem ipsum dolor sit amet, 
      consectetur adipiscing elit, 
      sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 

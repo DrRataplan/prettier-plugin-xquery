@@ -17,7 +17,7 @@ declare function functx:is-node-in-sequence (
 };
 
 let $in-xml :=
-  <test> <child>1</child> <child>2</child> <child>3</child> <child>3</child> </test>
+  <test><child>1</child><child>2</child><child>3</child><child>3</child></test>
 return (
     functx:distinct-nodes(($in-xml/child, $in-xml/*)),
     functx:distinct-nodes(($in-xml/child[3], $in-xml/*))

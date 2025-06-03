@@ -1,8 +1,9 @@
 (
   for $d in
-    <people> <person
-        id="person0"
-        > <name>First</name> </person> <person> <name>Second</name> </person> </people>/person
+    <people>
+      <person id="person0"><name>First</name></person>
+      <person><name>Second</name></person>
+    </people>/person
   return if (
       some
         $id in

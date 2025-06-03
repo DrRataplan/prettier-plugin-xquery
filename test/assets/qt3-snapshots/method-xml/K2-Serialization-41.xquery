@@ -5,4 +5,4 @@ declare option output:indent "yes";
 
 (: The spec says: Element constructors treat attributes named xml:space as ordinary attributes. 
            An xml:space attribute does not affect the handling of whitespace by an element constructor. :)
-<test><a xml:space="preserve"> <x /> </a><b /></test>
+<test><a xml:space="preserve"><x /></a><b /></test>

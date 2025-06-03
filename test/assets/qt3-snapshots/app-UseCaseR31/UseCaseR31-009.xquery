@@ -1,20 +1,16 @@
 declare namespace map = "http://www.w3.org/2005/xpath-functions/map";
 
-declare variable $book := (
-  <book>
+declare variable $book := (<book>
 <isbn>0470192747</isbn>
 <publisher>Wiley</publisher>
 <title>XSLT 2.0 and XPath 2.0 Programmer's Reference</title>
-</book>
-);
+</book>);
 
-declare variable $author := (
-  <author>
+declare variable $author := (<author>
 <name>Michael H. Kay</name>
 <isbn>0470192747</isbn>
 <isbn>...</isbn>
-</author>
-);
+</author>);
 
 declare variable $index := map:merge($book!map {isbn: .});
 

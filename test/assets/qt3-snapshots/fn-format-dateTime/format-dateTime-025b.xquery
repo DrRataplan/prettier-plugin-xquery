@@ -4,11 +4,9 @@
       "2018-01-01T12:00:00" || .
     )
   for $f in ("[ZN]")
-  return <time
-      format="{
+  return <time format="{
         $f
-      }"
-      >{
+      }">{
       for $t in $times
       return <s>{
           format-dateTime($t, $f, (), (), "us")

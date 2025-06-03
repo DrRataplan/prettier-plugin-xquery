@@ -5,7 +5,8 @@ import schema  "http://www.w3.org/XQueryTest/testcases";
 let $var :=
   validate strict {
     <Unknown
-      xmlns:tc="http://www.w3.org/XQueryTest/testcases" xsi:type="tc:choice"
+      xmlns:tc="http://www.w3.org/XQueryTest/testcases"
+      xsi:type="tc:choice"
       > {
         element a {
           "12.345"

@@ -1,55 +1,39 @@
 (: Purpose: List all persons according to their interest; use French markup in the result. :)
-<XMark-result-Q10> {
+<XMark-result-Q10>
+  {
     let $auction := (/)
     return for $i in
         distinct-values($auction/site/people/person/profile/interest/@category)
       let $p :=
         for $t in $auction/site/people/person
         where $t/profile/interest/@category = $i
-        return <personne> 
-                     <statistiques> 
-                        <sexe>{
+        return <personne><statistiques><sexe>{
                 $t/profile/gender/text()
-              }</sexe> 
-                        <age>{
+              }</sexe><age>{
                 $t/profile/age/text()
-              }</age> 
-                        <education>{
+              }</age><education>{
                 $t/profile/education/text()
-              }</education> 
-                        <revenu>{
+              }</education><revenu>{
                 fn:data($t/profile/@income)
-              }</revenu> 
-                     </statistiques> 
-                     <coordonnees> 
-                        <nom>{
+              }</revenu></statistiques><coordonnees><nom>{
                 $t/name/text()
-              }</nom> 
-                        <rue>{
+              }</nom><rue>{
                 $t/address/street/text()
-              }</rue> 
-                        <ville>{
+              }</rue><ville>{
                 $t/address/city/text()
-              }</ville> 
-                        <pays>{
+              }</ville><pays>{
                 $t/address/country/text()
-              }</pays> 
-                        <reseau> 
-                           <courrier>{
+              }</pays><reseau><courrier>{
                   $t/emailaddress/text()
-                }</courrier> 
-                           <pagePerso>{
+                }</courrier><pagePerso>{
                   $t/homepage/text()
-                }</pagePerso> 
-                        </reseau> 
-                     </coordonnees> 
-                     <cartePaiement>{
+                }</pagePerso></reseau></coordonnees><cartePaiement>{
               $t/creditcard/text()
-            }</cartePaiement> 
-                   </personne>
+            }</cartePaiement></personne>
       return <categorie>{
           <id>{
             $i
           }</id>, $p
         }</categorie>
-  } </XMark-result-Q10>
+  }
+</XMark-result-Q10>

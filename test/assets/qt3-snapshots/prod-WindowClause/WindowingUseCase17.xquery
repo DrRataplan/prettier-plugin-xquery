@@ -7,11 +7,9 @@
     end $end
     next $next when day-from-dateTime(xs:dateTime($end/@date)) ne
       day-from-dateTime(xs:dateTime($next/@date))
-  return <mostValuableCustomer
-      endOfDay="{
+  return <mostValuableCustomer endOfDay="{
         xs:dateTime($cur/@date)
-      }"
-      >{
+      }">{
       let $companies :=
         for $x in distinct-values($w/@billTo)
         return <amount company="{

@@ -4,10 +4,7 @@ declare option output:method "xhtml";
 declare option output:indent "yes";
 declare option output:html-version "4.0";
 
-let $html :=
-  <html
-    xmlns="http://www.w3.org/1999/xhtml"
-    ><body>
+let $html := <html xmlns="http://www.w3.org/1999/xhtml"><body>
   <p>Lorem ipsum dolor sit amet, 
      consectetur adip<!--sic-->iscing elit, 
      sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 

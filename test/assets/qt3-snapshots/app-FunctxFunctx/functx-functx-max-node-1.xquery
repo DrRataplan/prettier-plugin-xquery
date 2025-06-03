@@ -5,5 +5,5 @@ declare function functx:max-node ($nodes as node()*) as node()* {
   $nodes[. = max($nodes)]
 };
 
-let $in-xml := <values> <int>1</int> <int>23</int> <int>115</int> </values>
+let $in-xml := <values><int>1</int><int>23</int><int>115</int></values>
 return (functx:max-node($in-xml//int))

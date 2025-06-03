@@ -1,1 +1,1 @@
-empty(<a> <b /> <c /> </a>[self::b][last()])
+empty(<a><b /><c /></a>[self::b][last()])
