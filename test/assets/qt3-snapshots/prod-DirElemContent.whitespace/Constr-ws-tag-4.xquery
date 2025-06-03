@@ -1,3 +1,3 @@
 declare boundary-space strip;
 
-<elem> <a> </a> <a> </a> <a> <b> </b> </a> </elem>
+<elem><a /><a /><a><b /></a></elem>

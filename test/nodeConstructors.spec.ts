@@ -82,6 +82,19 @@ declare boundary-space strip;
 `.trimStart(),
 		},
 		{
+			name: "Makes empty elements self-closing when the boundary-space policy is explicity set to strip",
+			input: `
+declare boundary-space strip;
+
+<ele>    </ele>
+`.trimStart(),
+			output: `
+declare boundary-space strip;
+
+<ele />
+`.trimStart(),
+		},
+		{
 			name: "Formats DirElemContent when the boundary-space policy is explicity set to strip but keeps inlines intact",
 			input: `
 declare boundary-space strip;

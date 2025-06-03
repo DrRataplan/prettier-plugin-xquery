@@ -149,7 +149,12 @@ const nodeConstructorHandlers: Record<string, Handler> = {
 
 		const dirElemContent = printIfExist(path, print, "DirElemContent");
 
-		if (!dirElemContent) {
+		const dirElemContentNodes = path.node.childrenByName.DirElemContent;
+		const hasContent =
+			dirElemContent &&
+			(options.boundarySpace === "preserve" || dirElemContentNodes.some((child) => !isWhitespace(child)));
+
+		if (!hasContent) {
 			// No content. If there would be comments for instance, the comments would show up as DirElemContent.
 			// Safe to collapse.
 			return group([
@@ -161,8 +166,6 @@ const nodeConstructorHandlers: Record<string, Handler> = {
 
 		const [firstAngleBracketClose, secondAngleBracketClose] = path.map(print, "childrenByName", "'>'");
 		const closeElementStart = path.map(print, "childrenByName", "'</'");
-
-		const dirElemContentNodes = path.node.childrenByName.DirElemContent;
 
 		let formattedDirElemContents: Doc = dirElemContent;
 

@@ -8,5 +8,12 @@ declare function functx:has-simple-content (
 };
 
 let $in-xml :=
-  <in-xml> <a /> <b /> <c> </c> <d>xml</d> <e><x>xml</x></e> <f>mixed <x>xml</x></f> </in-xml>
+  <in-xml>
+    <a />
+    <b />
+    <c />
+    <d>xml</d>
+    <e><x>xml</x></e>
+    <f>mixed <x>xml</x></f>
+  </in-xml>
 return (functx:has-simple-content($in-xml/b))

@@ -8,5 +8,15 @@ declare function functx:has-element-only-content (
 };
 
 let $in-xml :=
-  <in-xml> <a /> <b /> <c> </c> <d>xml</d> <e><x>xml</x></e> <f>mixed <x>xml</x></f> <g> <x>xml</x> </g> <h><x>xml</x><y>xml</y></h> <i> <x>xml</x> <y>xml</y> </i> </in-xml>
+  <in-xml>
+    <a />
+    <b />
+    <c />
+    <d>xml</d>
+    <e><x>xml</x></e>
+    <f>mixed <x>xml</x></f>
+    <g><x>xml</x></g>
+    <h><x>xml</x><y>xml</y></h>
+    <i><x>xml</x><y>xml</y></i>
+  </in-xml>
 return (functx:has-element-only-content($in-xml/c))
