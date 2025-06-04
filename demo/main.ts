@@ -7,20 +7,36 @@ import "@picocss/pico";
 import "@jinntec/jinn-codemirror";
 
 const codemirror = document.getElementById("input")! as HTMLElement & { content: string };
+const outputcodemirror = document.getElementById("output")! as HTMLElement & { content: string };
 
-const formatButton = document.getElementById("format")!;
+let isRunningUpdate = false;
+const format = async () => {
+	if (isRunningUpdate) {
+		return;
+	}
+	isRunningUpdate = true;
 
-formatButton.addEventListener("click", async () => {
-	const code = codemirror.content;
-	const result = await prettier.format(code, {
-		parser: "xquery",
-		plugins: [prettierPluginXQuery],
-	});
+	try {
+		const code = codemirror.content;
 
-	codemirror.content = result;
-	const newurl = new URL(window.location.href);
-	newurl.searchParams.set("state", await encodeState({ version: 1, xquery: code }));
-	window.history.replaceState(null, "", newurl);
+		const newurl = new URL(window.location.href);
+		newurl.searchParams.set("state", await encodeState({ version: 1, xquery: code }));
+		window.history.replaceState(null, "", newurl);
+
+		const result = await prettier.format(code, {
+			parser: "xquery",
+			plugins: [prettierPluginXQuery],
+		});
+
+		outputcodemirror.content = result;
+	} catch (e) {
+		outputcodemirror.content = e.toString();
+	} finally {
+		isRunningUpdate = false;
+	}
+};
+codemirror.addEventListener("update", () => {
+	format();
 });
 
 const encodeState = async (state: { version: number; xquery: string }) => {
