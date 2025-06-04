@@ -1,4 +1,5 @@
-<result>{
+<result>
+  {
     for sliding window $w in ./stream/event
       start $s when true()
       end next $e when xs:dateTime($e/@time) - xs:dateTime($s/@time) gt

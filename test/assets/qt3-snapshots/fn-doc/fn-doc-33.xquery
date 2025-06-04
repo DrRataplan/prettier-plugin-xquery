@@ -21,7 +21,8 @@ declare function local:recurseMetaObject (
 declare function local:drawDiagram (
   $object as element(QObject)
 ) as element(s:g) {
-  <s:g> {
+  <s:g>
+    {
       if (string($object/@objectName)) then
         attribute xml:id {
           $object/@objectName
@@ -32,10 +33,12 @@ declare function local:drawDiagram (
         .,
         1
       )
-    } </s:g>
+    }
+  </s:g>
 };
 
-<s:svg> {
+<s:svg>
+  {
     <s:rect
       fill="none"
       height="300"
@@ -56,4 +59,5 @@ declare function local:drawDiagram (
     for $i in local:drawDiagram($object)
     stable order by string($i)
     return $i
-  } </s:svg>
+  }
+</s:svg>

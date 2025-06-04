@@ -2,10 +2,10 @@ declare function local:myFunc () {
   <a />
 };
 
-<b> {
+<b>{
     local:myFunc()
-  } {
+  }{
     attribute name {
       "content"
     }
-  } </b>
+  }</b>

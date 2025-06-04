@@ -13,7 +13,8 @@ declare variable $input := <Events>
   </EventList>
 </Events>;
 
-<Result> {
+<Result>
+  {
     let $trips :=
       (
         for sliding window $window in reverse($input//DATA)
@@ -47,4 +48,5 @@ declare variable $input := <Events>
           }" totaltime="{
             $totalDuration div xs:dayTimeDuration("PT1H")
           }" />
-  } </Result>
+  }
+</Result>

@@ -2,6 +2,6 @@ declare variable $e := <e><a /></e>;
 
 declare variable $f := $e;
 
-<r> {
+<r>{
     $e is $e, $f is $e, $e, $f
-  } </r>
+  }</r>

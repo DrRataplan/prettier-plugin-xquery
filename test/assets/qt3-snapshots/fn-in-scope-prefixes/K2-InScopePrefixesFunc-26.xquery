@@ -1,8 +1,8 @@
-let $i := <e> {
+let $i := <e>{
       attribute {QName("http://example.com/", "prefix:attributeName")} {
         ()
       }
-    } </e>
+    }</e>
 return document {
     $i,
     for $ps in in-scope-prefixes($i)

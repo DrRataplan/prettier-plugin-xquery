@@ -1,5 +1,5 @@
 declare copy-namespaces preserve ,  no-inherit;
 
-<e xmlns="http://example.com/"> {
+<e xmlns="http://example.com/">{
     <b />
-  } </e>
+  }</e>

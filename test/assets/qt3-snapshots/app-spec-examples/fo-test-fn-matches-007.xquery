@@ -1,7 +1,7 @@
 let $poem :=
   <poem
     author="Wilhelm Busch"
-    >
+  >
 Kaum hat dies der Hahn gesehen,
 Fängt er auch schon an zu krähen:
 Kikeriki! Kikikerikih!!

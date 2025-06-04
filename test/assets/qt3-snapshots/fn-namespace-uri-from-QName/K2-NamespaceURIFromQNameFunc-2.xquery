@@ -1,5 +1,5 @@
-<e xmlns="http://example.com/"> {
+<e xmlns="http://example.com/">{
     namespace-uri-from-QName(node-name(element anElement {
           "text"
         }))
-  } </e>/string()
+  }</e>/string()

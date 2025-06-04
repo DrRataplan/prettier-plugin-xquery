@@ -4,6 +4,6 @@ fn:string(
     <anElement
       xmlns:p1="http://www.example.com/examples"
       xmlns:p2="http://www.someotherns.com/namespace"
-      >some content"</anElement>
+    >some content"</anElement>
   )
 )

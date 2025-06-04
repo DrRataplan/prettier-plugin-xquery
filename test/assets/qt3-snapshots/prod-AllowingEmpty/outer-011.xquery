@@ -1,6 +1,7 @@
 declare variable $n external;
 
-<out>{
+<out>
+  {
     for $x in 1 to $n, $y in ($x + 1) to $n
     return <a p="{
           $p

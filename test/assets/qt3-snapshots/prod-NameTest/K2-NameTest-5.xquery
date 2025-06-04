@@ -4,7 +4,8 @@ declare union
   <union>for gibberish {
       for $for in for
       return <for>***div div</for>
-    }</union>,
+    }
+  </union>,
 if (if) then
   then
 else

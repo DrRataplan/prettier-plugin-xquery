@@ -1,4 +1,5 @@
-<out>{
+<out>
+  {
     for $x in //employee
     let $key :=
       if ($x/@gender = "male") then

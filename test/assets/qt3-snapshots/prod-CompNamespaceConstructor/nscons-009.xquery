@@ -2,7 +2,7 @@ declare variable $p1 := "http://example.com/one";
 
 declare variable $p2 := "http://example.com/two";
 
-<e> {
+<e>{
     namespace p {
       $p1
     }, namespace p {

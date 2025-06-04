@@ -2,7 +2,7 @@ declare copy-namespaces preserve ,  inherit;
 
 declare variable $existingElement := <existingElement
   xmlns:somespace="http://www.existingnamespace.com"
-  >{
+>{
     "Existing Content"
   }</existingElement>;
 

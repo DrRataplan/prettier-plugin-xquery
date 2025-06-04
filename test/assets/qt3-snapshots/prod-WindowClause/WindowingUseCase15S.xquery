@@ -1,11 +1,13 @@
-<result>{
+<result>
+  {
     for tumbling window $w in ./rss/channel/item
       start $s_curr when true()
       end next $e_next when fn:day-from-dateTime(
         xs:dateTime($e_next/pubDate)
       ) ne
         fn:day-from-dateTime(xs:dateTime($s_curr/pubDate))
-    return <item><date>{
+    return <item>
+        <date>{
             xs:date(xs:dateTime($s_curr/pubDate))
           }</date>
         {

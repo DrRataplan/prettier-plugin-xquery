@@ -1,6 +1,7 @@
 declare variable $n external;
 
-<out>{
+<out>
+  {
     string-join(
       for $x in 1 to $n
       return concat("[", $x, "]"),

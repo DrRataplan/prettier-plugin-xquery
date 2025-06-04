@@ -1,4 +1,5 @@
-<result>{
+<result>
+  {
     for tumbling window $w in ./rss/channel/item
       start $first when fn:true()
       end next $lookAhead when $first/author ne $lookAhead/author

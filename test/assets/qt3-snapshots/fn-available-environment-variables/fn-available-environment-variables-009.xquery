@@ -1,5 +1,6 @@
 let $first :=
-  <all>{
+  <all>
+    {
       for $e in fn:available-environment-variables()
       order by $e
       return <v name="$i">{
@@ -8,7 +9,8 @@ let $first :=
     }
   </all>,
   $second :=
-  <all>{
+  <all>
+    {
       for $e in fn:available-environment-variables()
       order by $e
       return <v name="$i">{

@@ -1,4 +1,5 @@
-<out>{
+<out>
+  {
     for $x in 1 to 10
     count$j
     return <item><x>{

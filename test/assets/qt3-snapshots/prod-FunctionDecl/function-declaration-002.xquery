@@ -1,7 +1,7 @@
 declare function local:foo ($n as xs:integer) {
-  <tr> {
+  <tr>{
       $n
-    } </tr>
+    }</tr>
 };
 
 local:foo(4)

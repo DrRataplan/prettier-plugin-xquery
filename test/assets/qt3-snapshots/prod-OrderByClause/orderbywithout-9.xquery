@@ -1,4 +1,5 @@
-<results> {
+<results>
+  {
     for $x in
       (
         <a>A String</a>,
@@ -29,4 +30,5 @@
       )
     order by string-length($x)
     return string-length($x)
-  } </results>
+  }
+</results>

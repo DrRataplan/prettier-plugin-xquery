@@ -274,10 +274,10 @@ declare function tour:print-board ($board as xs:integer*) as element() {
             $start
           }</h1>
         <table border="1" cellpadding="4">
-        {
+          {
             for $row in 0 to 7
             return <tr>
-              {
+                {
                   for $column in 0 to 7
                   let $color :=
                     if ((($row + $column) mod 2) = 1) then
@@ -286,7 +286,8 @@ declare function tour:print-board ($board as xs:integer*) as element() {
                       "white"
                   return <td align="center" bgcolor="{
                         $color
-                      }" width="22">{
+                      }" width="22">
+                      {
                         let $n := $board[$row * 8 + $column + 1]
                         return if ($endd != 64 and $n = $endd) then
                             <b>{
@@ -299,10 +300,11 @@ declare function tour:print-board ($board as xs:integer*) as element() {
                       }
                     </td>
                 }
-           </tr>
+              </tr>
           }
-    </table>
-        <p>{
+        </table>
+        <p>
+          {
             if ($endd != 64) then
               <a href="Tour?start={
                   $start

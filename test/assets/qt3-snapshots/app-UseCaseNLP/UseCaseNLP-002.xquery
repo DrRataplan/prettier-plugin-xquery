@@ -1,7 +1,7 @@
 declare variable $index := map {"pos": 2, "lemma": 1};
 
 <s>
-           {
+  {
     for $w in json-doc("speech-representation.json")?*
     return <w pos="{
           $w($index("pos"))
@@ -9,4 +9,4 @@ declare variable $index := map {"pos": 2, "lemma": 1};
           $w($index("lemma"))
         }</w>
   }
-          </s>
+</s>

@@ -6,7 +6,7 @@ declare function local:write () as schema-element(fpml:FpML) {
       xmlns="http://www.fpml.org/2005/FpML-4-2"
       fpml-version="4.2"
       xsi:type="ValuationDocument"
-      >
+    >
       <header>
         <from>me</from>
         <to>you</to>

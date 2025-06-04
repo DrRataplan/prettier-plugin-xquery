@@ -1,10 +1,10 @@
 /**
 * Automatically generated test report from running prettier over all 31821 test cases in the QT3 tests.
 *
-* The ignore list contains 19 known failing tests.
+* The ignore list contains 12 known failing tests.
 * Tests that fail because a comment failed to be printed: 8
 * Tests that fail because of a type error: 0
-* Tests that fail because the prettified result is not stable: 9
+* Tests that fail because the prettified result is not stable: 2
 *
 * Other failures: 2
 */
@@ -59,7 +59,8 @@ export default {
 			"            return <group count=\"{count($x)}\" key=\"{$key}\"> {string-join($x/pnum, '|')} </group> ",
 			"        }</out>",
 			"      ",
-			"Result of first round: <out>{",
+			"Result of first round: <out>",
+			"  {",
 			"    for $x in //employee",
 			"    let $key := $x/empnum",
 			"    group by $keycollation\"http://www.w3.org/2005/xpath-functions/collation/codepoint\"",
@@ -68,17 +69,17 @@ export default {
 			"          count($x)",
 			"        }\" key=\"{",
 			"          $key",
-			"        }\"> {",
+			"        }\">{",
 			"          string-join($x/pnum, \"|\")",
-			"        } </group>",
+			"        }</group>",
 			"  }",
 			"</out>",
 			"",
 			"Actual message: \"lexical analysis failed",
 			"while expecting [S, '(:', ',', ':=', 'as', 'collation', 'count', 'for', 'group', 'let', 'order', 'return', 'stable', 'where']",
-			"at line 4, column 27:",
+			"at line 5, column 27:",
 			"...\"http://www.w3.org/2005/xpath-functions/collation/codepoint\"",
-			"   ... (4:26)\""
+			"   ... (5:26)\""
 		],
 		"group-009a": [
 			"AssertionError [ERR_ASSERTION]: Got unwanted rejection: The second prettification should also work3.",
@@ -90,7 +91,8 @@ export default {
 			"            return <group count=\"{count($x)}\" key=\"{$key}\"> {string-join($x/pnum, '|')} </group> ",
 			"        }</out>",
 			"      ",
-			"Result of first round: <out>{",
+			"Result of first round: <out>",
+			"  {",
 			"    for $x in //employee",
 			"    group by $key:=",
 			"        $x/empnumcollation\"http://www.w3.org/2005/xpath-functions/collation/codepoint\"",
@@ -99,17 +101,17 @@ export default {
 			"          count($x)",
 			"        }\" key=\"{",
 			"          $key",
-			"        }\"> {",
+			"        }\">{",
 			"          string-join($x/pnum, \"|\")",
-			"        } </group>",
+			"        }</group>",
 			"  }",
 			"</out>",
 			"",
 			"Actual message: \"lexical analysis failed",
 			"while expecting [S, EOF, '!', '!=', '#', '(', '(:', ')', '*', '+', ',', '-', '/', '//', ':', ';', '<', '<<', '<=', '=', '=>', '>', '>=', '>>', '[', ']', 'and', 'ascending', 'case', 'cast', 'castable', 'collation', 'count', 'default', 'descending', 'div', 'else', 'empty', 'end', 'eq', 'except', 'for', 'ge', 'group', 'gt', 'idiv', 'instance', 'intersect', 'is', 'le', 'let', 'lt', 'mod', 'ne', 'only', 'or', 'order', 'return', 'satisfies', 'stable', 'start', 'to', 'treat', 'union', 'where', '|', '||', '}', '}`']",
-			"at line 4, column 27:",
+			"at line 5, column 27:",
 			"...\"http://www.w3.org/2005/xpath-functions/collation/codepoint\"",
-			"   ... (4:26)\""
+			"   ... (5:26)\""
 		]
 	},
 	"prod-ModuleImport": {
@@ -140,127 +142,6 @@ export default {
 		],
 		"K-InternalVariablesWith-2": [
 			"Error: Comment \"(::)\" was not printed. Please report this error!"
-		]
-	},
-	"method-html": {
-		"Serialization-html-18": [
-			"AssertionError [ERR_ASSERTION]: The prettification should be stable after a first one",
-			"+ actual - expected",
-			"... Skipped lines",
-			"",
-			"  'declare namespace output = \"http://www.w3.org/2010/xslt-xquery-serialization\";\\n' +",
-			"    'declare namespace ex = \"http://www.example.org\";\\n' +",
-			"    '\\n' +",
-			"    'declare option output:method \"html\";\\n' +",
-			"    'declare option output:indent \"no\";\\n' +",
-			"...",
-			"    '    <p>No CDATA<em>No CDATA</em>No CDATA<ex:isle1>Some CDATA<ex:isle2>No CDATA</ex:isle2>More CDATA</ex:isle1>\\n' +",
-			"-   '\\n' +",
-			"    '    </p>\\n' +",
-			"    '  </body>\\n' +",
-			"    '</html>\\n'",
-			""
-		],
-		"Serialization-html-19a": [
-			"AssertionError [ERR_ASSERTION]: The prettification should be stable after a first one",
-			"+ actual - expected",
-			"... Skipped lines",
-			"",
-			"  'declare namespace output = \"http://www.w3.org/2010/xslt-xquery-serialization\";\\n' +",
-			"    'declare namespace ex = \"http://www.example.org\";\\n' +",
-			"    '\\n' +",
-			"    'declare option output:method \"html\";\\n' +",
-			"    'declare option output:indent \"no\";\\n' +",
-			"...",
-			"    '    <p>No CDATA<em>No CDATA</em>No CDATA<ex:isle1>Some CDATA<ex:isle2>No CDATA</ex:isle2>More CDATA</ex:isle1>\\n' +",
-			"-   '\\n' +",
-			"    '    </p>\\n' +",
-			"    '  </body>\\n' +",
-			"    '</html>\\n'",
-			""
-		]
-	},
-	"prod-ContextItemDecl": {
-		"contextDecl-017": [
-			"AssertionError [ERR_ASSERTION]: The prettification should be stable after a first one",
-			"+ actual - expected",
-			"",
-			"  'declare context item := $y;\\n' +",
-			"    '\\n' +",
-			"+   'declare variable $y := <root><a>1</a>,<a>2</a>,<a>3</a>,<a>4</a>,<a>5</a>,<a>6\\n' +",
-			"-   'declare variable $y := <root><a>1</a>,<a>2</a>,<a>3</a>,<a>4</a>,<a>5\\n' +",
-			"-   '  </a>,<a>6\\n' +",
-			"    '  </a>,<a>7</a>,<a>8</a>,<a>9</a>,<a>10</a>\\n' +",
-			"    '</root>;\\n' +",
-			"    '\\n' +",
-			"    'declare variable $x external;\\n' +",
-			"    '\\n' +",
-			""
-		]
-	},
-	"prod-DirElemContent": {
-		"Constr-cont-nested-4": [
-			"AssertionError [ERR_ASSERTION]: The prettification should be stable after a first one",
-			"+ actual - expected",
-			"",
-			"+ '<elem>A<a>B<?pi?>C<b />D<!---->E</a>F<!--content-->G<a />H<?pi content?>I<c />J\\n' +",
-			"- '<elem>A<a>B<?pi?>C<b />D<!---->E\\n' +",
-			"-   '  </a>F<!--content-->G<a />H<?pi content?>I<c />J\\n' +",
-			"    '</elem>\\n'",
-			""
-		],
-		"K2-DirectConElemContent-28": [
-			"AssertionError [ERR_ASSERTION]: The prettification should be stable after a first one",
-			"+ actual - expected",
-			"",
-			"  'string(\\n' +",
-			"    '  <elem>\\n' +",
-			"    `    <![CDATA[con<<< ]] >\"\"'*\"*\">>tent]]&#00;&#x12;&amp;&quot;&notrecognized;&apos]]>\\n` +",
-			"-   '\\n' +",
-			"    '  </elem>\\n' +",
-			"    ') eq\\n' +",
-			"    `  'con&lt;&lt;&lt; ]] &gt;\"\"''*\"*\"&gt;&gt;tent]]&amp;#00;&amp;#x12;&amp;amp;&amp;quot;&amp;notrecognized;&amp;apos'\\n`",
-			""
-		]
-	},
-	"prod-VarDefaultValue": {
-		"extvardef-016b": [
-			"AssertionError [ERR_ASSERTION]: The prettification should be stable after a first one",
-			"+ actual - expected",
-			"",
-			"  'declare context item := $y;\\n' +",
-			"    '\\n' +",
-			"+   'declare variable $y := <root><a>1</a>,<a>2</a>,<a>3</a>,<a>4</a>,<a>5</a>,<a>6\\n' +",
-			"-   'declare variable $y := <root><a>1</a>,<a>2</a>,<a>3</a>,<a>4</a>,<a>5\\n' +",
-			"-   '  </a>,<a>6\\n' +",
-			"    '  </a>,<a>7</a>,<a>8</a>,<a>9</a>,<a>10</a>\\n' +",
-			"    '</root>;\\n' +",
-			"    '\\n' +",
-			"    'declare variable $x external;\\n' +",
-			"    '\\n' +",
-			""
-		]
-	},
-	"app-Demos": {
-		"sudoku": [
-			"AssertionError [ERR_ASSERTION]: The prettification should be stable after a first one",
-			"+ actual - expected",
-			"... Skipped lines",
-			"",
-			"  'declare namespace fn = \"sudoku\";\\n' +",
-			"    '\\n' +",
-			"    'declare variable $board := (\\n' +",
-			"    '  1,\\n' +",
-			"    '  0,\\n' +",
-			"...",
-			"    '      <style>table {{ border-collapse: collapse; border: 1px solid black; }} td {{ padding: 10px; }} .norm {{ border-left: 1px solid #CCC; border-top: 1px solid #CCC; }} .csep {{ border-left: 1px solid black; }} .rsep {{ border-top: 1px solid black; }}</style>\\n' +",
-			"-   '\\n' +",
-			"    '    </head>\\n' +",
-			"    '    <body>{\\n' +",
-			"    '        fn:drawBoard($board)\\n' +",
-			"    '      }</body>\\n' +",
-			"    '  </html>\\n' +",
-			""
 		]
 	}
 } as Record<string,Record<string,string>>;

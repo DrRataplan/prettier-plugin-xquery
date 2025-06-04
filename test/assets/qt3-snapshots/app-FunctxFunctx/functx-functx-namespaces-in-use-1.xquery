@@ -9,7 +9,7 @@ let $in-xml :=
   <authors
     xmlns="http://ns.example.com/abc"
     xmlns:d="http://ns.example.com/def"
-    >
+  >
     <author xmlns="http://ns.example.com/ghi">
       <fName xmlns:x="http://ns.example.com/xyz" x:attr="123">Kate</fName>
       <lName>Jones</lName>

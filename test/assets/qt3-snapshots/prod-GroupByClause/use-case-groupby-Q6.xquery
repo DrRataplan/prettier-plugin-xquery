@@ -1,4 +1,5 @@
-<result>{
+<result>
+  {
     for $sales in $sales-records-doc/*/record
     let $storeno := $sales/store-number,
       $product := $products-doc/*/product[name = $sales/product-name],

@@ -1,18 +1,19 @@
 <html>
   <body>
-    <table><tr> 
-				         { (: Column headings :)
+    <table>
+      <tr>
+        { (: Column headings :)
           <th />,
           for $th in json-doc("table.json")("col labels")?*
           return <th>{
                 $th
               }</th>
         }
-				      </tr>
-				      { (: Data for each row :)
+      </tr>
+      { (: Data for each row :)
         for $r in json-doc("table.json")("data")?*
         return <tr>
-				             {
+            {
               <th>{
                   json-doc("table.json")("row labels")[$i]
                 }</th>,
@@ -21,8 +22,8 @@
                     $c
                   }</td>
             }
-				            </tr>
+          </tr>
       }
-				    </table>
+    </table>
   </body>
 </html>

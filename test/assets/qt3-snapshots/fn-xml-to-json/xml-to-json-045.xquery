@@ -4,5 +4,5 @@ xml-to-json(
     xmlns:xs="http://www.w3.org/2001/XMLSchema"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:type="xs:short"
-    >231</number>
+  >231</number>
 )

@@ -8,10 +8,12 @@ declare function local:splitter (
     }
 };
 
-<out>{
+<out>
+  {
     for $f as function(*) in
       local:splitter("How nice! Thank you, I enjoyed that.")
-    return <tokens>{
+    return <tokens>
+        {
           for $t in $f()
           return <t>{
                 $t

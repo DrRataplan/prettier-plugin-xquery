@@ -6,7 +6,7 @@ let $d := document {
       </explicit-base>
     </root>
   }
-return let $y := <copy xml:base="http://www.example.org"> {
+return let $y := <copy xml:base="http://www.example.org">{
         $d/root/implicit-base
-      } </copy>
+      }</copy>
   return fn:base-uri(($y/implicit-base)[1])

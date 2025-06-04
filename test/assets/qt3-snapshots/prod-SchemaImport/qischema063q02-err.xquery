@@ -8,7 +8,7 @@ return validate lax {
       xmlns:z="http://www.w3.org/XQueryTest/money"
       currency="EUR"
       xsi:type="z:positive-money-amount"
-      >{
+    >{
         $s
       }1234</z:a>
     }

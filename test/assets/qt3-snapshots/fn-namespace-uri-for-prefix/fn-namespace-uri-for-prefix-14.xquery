@@ -3,6 +3,6 @@ fn:string(
     fn:substring-before("p1abc", "abc"),
     <anElement
       xmlns:p1="http://www.example.com/examples"
-      >some context</anElement>
+    >some context</anElement>
   )
 )

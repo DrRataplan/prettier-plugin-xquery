@@ -4,9 +4,9 @@ declare default element namespace "http://www.example.com/filesystem";
 declare variable $v := 100;
 
 declare function udf1 ($CUSTNO as xs:integer) {
-  <empty> {
+  <empty>{
       $CUSTNO * $v
-    } </empty>
+    }</empty>
 };
 
 udf1(10)

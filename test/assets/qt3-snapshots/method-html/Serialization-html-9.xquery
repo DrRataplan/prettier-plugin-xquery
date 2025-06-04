@@ -10,7 +10,7 @@ declare option output:version "5.0";
   <head>
     <script language="Jack&amp;Jill">go &amp;&amp; write('<p
         class="Bill&amp;Ben"
-        >Jekyll&amp;Hyde</p>');</script>
+      >Jekyll&amp;Hyde</p>');</script>
   </head>
   <body><p>Hi!</p></body>
 </html>

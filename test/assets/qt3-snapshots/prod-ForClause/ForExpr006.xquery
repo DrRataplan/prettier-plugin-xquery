@@ -1,4 +1,5 @@
-<fragment-result>{
+<fragment-result>
+  {
     for $folder in /MyComputer/Drive3/Folder,
       $file in /MyComputer/Drive3/Folder/File
     return <Folder>{

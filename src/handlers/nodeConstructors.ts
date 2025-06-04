@@ -4,10 +4,19 @@ import space from "./util/space.ts";
 import type { Handler } from "./util/Handler.ts";
 import type { NonTerminalNode } from "../tree.ts";
 
-const { group, indent, softline, line, join, literallineWithoutBreakParent } = doc.builders;
+const { group, indent, softline, line, join, literallineWithoutBreakParent, dedent } = doc.builders;
 
 const isContentChar = (node: NonTerminalNode): boolean => {
-	return !!node.childrenByName["ElementContentChar"] || !!node.childrenByName["CommonContent"];
+	if (node.childrenByName["ElementContentChar"]) {
+		return true;
+	}
+	if (!node.childrenByName["CommonContent"]) {
+		return false;
+	}
+	if (node.childrenByName["CommonContent"][0].childrenByName.EnclosedExpr) {
+		return false;
+	}
+	return true;
 };
 
 const isWhitespace = (node: NonTerminalNode): boolean => {
@@ -17,13 +26,11 @@ const isWhitespace = (node: NonTerminalNode): boolean => {
 	return /^\s$/.test(node.getStringRepresentation());
 };
 
-const isBoundaryPosition = (path: AstPath<NonTerminalNode>): boolean => {
-	const siblings = path.siblings!;
-
+const isBoundaryPosition = (siblings: NonTerminalNode[], offset: number): boolean => {
 	let isBoundaryToStart = true;
 	let isBoundaryToEnd = true;
 
-	for (let i = path.index! - 1; i >= 0; i--) {
+	for (let i = offset - 1; i >= 0; i--) {
 		const node = siblings[i];
 		if (!isContentChar(node)) {
 			// An element ended here
@@ -35,7 +42,7 @@ const isBoundaryPosition = (path: AstPath<NonTerminalNode>): boolean => {
 			break;
 		}
 	}
-	for (let i = path.index! + 1; i < siblings.length; i++) {
+	for (let i = offset; i < siblings.length; i++) {
 		const node = siblings[i];
 		if (!isContentChar(node)) {
 			// An element starts here
@@ -170,28 +177,25 @@ const nodeConstructorHandlers: Record<string, Handler> = {
 		let formattedDirElemContents: Doc = dirElemContent;
 
 		// Indent the contents once, always
-		formattedDirElemContents = [indent(formattedDirElemContents)];
 
 		if (options.boundarySpace === "strip") {
-			const lastContentItem = dirElemContentNodes[dirElemContentNodes.length - 1];
-			if (!lastContentItem) {
-				formattedDirElemContents = [formattedDirElemContents, softline];
-			} else if (
-				isContentChar(lastContentItem) &&
-				path.call(isBoundaryPosition, "childrenByName", "DirElemContent", dirElemContentNodes.length - 1)
-			) {
-				formattedDirElemContents = [formattedDirElemContents, softline];
-			} else if (!isContentChar(lastContentItem)) {
-				// Also at a boundary position
+			if (isBoundaryPosition(dirElemContentNodes, 0)) {
+				formattedDirElemContents = [softline, formattedDirElemContents];
+			}
+			formattedDirElemContents = [indent(formattedDirElemContents)];
+			if (isBoundaryPosition(dirElemContentNodes, dirElemContentNodes.length)) {
 				formattedDirElemContents = [formattedDirElemContents, softline];
 			}
+		} else {
+			formattedDirElemContents = [indent(formattedDirElemContents)];
 		}
 
 		return group([
 			group([
 				angleBracketOpen,
 				qnamePartOpen,
-				hasAttributes ? indent([line, dirAttributeList, softline]) : [],
+				hasAttributes ? indent([line, dirAttributeList]) : [],
+				softline,
 				firstAngleBracketClose,
 			]),
 			group(formattedDirElemContents),
@@ -269,28 +273,41 @@ const nodeConstructorHandlers: Record<string, Handler> = {
 		// Strip boundary space and rebuild it from indentation levels
 		if (path.node.childrenByName["ElementContentChar"]) {
 			if (isWhitespace(path.node)) {
-				if (isBoundaryPosition(path)) {
+				if (isBoundaryPosition(path.siblings!, path.index!)) {
 					// Strip boundary whitespace and replace it with a softline.
-					if (path.previous && isWhitespace(path.previous)) {
+					if (path.isFirst) {
+						return [];
+					}
+					if (isWhitespace(path.previous!)) {
 						// Multiple consecutive boundary space: replace them with just one
 						return [];
 					}
-					return group(softline);
+					let isOnlyWhitespaceToEnd = true;
+					const siblings = path.siblings!;
+					for (let i = path.index!; i < siblings.length; i++) {
+						if (!isWhitespace(siblings[i])) {
+							isOnlyWhitespaceToEnd = false;
+							break;
+						}
+					}
+					if (isOnlyWhitespaceToEnd) {
+						// The DirElemConstructor will take care of the softline in here.
+						return [];
+					}
+					return softline;
 				}
 				if (path.previous && isContentChar(path.previous!)) {
-					// Whitespace in the middle of character data: great place for a soft-wrap
-					//	return group(line) instead to wrap long lines. Disabled because that does change significant whitespace
-					// TODO? Make this an option?
+					// Whitespace in the middle of character data: great place for a soft-wrap. return group(line)
+					//	instead to wrap long lines. Disabled because that does change significant whitespace TODO? Make
+					//	this an option?
 					return path.map(print, "children");
 				}
-				//return line;
 			}
 			// Normal character, likely in the middle of a word. Just output
 			return path.map(print, "children");
 		}
-		// Another node constructor. Add a softline in from of it to make it look nice
-		// TODO: handle commoncontent different!
-		if (isBoundaryPosition(path) && !path.node.childrenByName.CommonContent) {
+		// Another node constructor. Add a softline in from of it to make it look nice, but not if we're at the start of the element
+		if (isBoundaryPosition(path.siblings!, path.index!) && path.previous && !isWhitespace(path.previous)) {
 			return [softline, path.map(print, "children")];
 		}
 		return path.map(print, "children");

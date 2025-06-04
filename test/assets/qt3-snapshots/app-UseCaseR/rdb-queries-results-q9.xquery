@@ -1,4 +1,5 @@
-<result> {
+<result>
+  {
     let $end_dates := $items//item_tuple/end_date
     for $m in
       distinct-values(
@@ -14,4 +15,5 @@
           }</month><item_count>{
             count($item)
           }</item_count></monthly_result>
-  } </result>
+  }
+</result>

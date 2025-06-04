@@ -10,7 +10,7 @@ declare variable $s := [["A", "DT"], ["bride", "NN"], [",", ","], ["you",
 declare variable $index := map {"pos": 2, "lemma": 1};
 
 <s>
- {
+  {
     for $w in $s?*
     return <w pos="{
           $w($index("pos"))

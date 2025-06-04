@@ -3,7 +3,7 @@ let $e := document {
       xmlns="http://example.com/one"
       author="Friedrich von Schiller"
       xml:lang="de"
-      >
+    >
 Freude, schöner Götterfunken,<br />
 Tochter aus Elysium,<br />
 Wir betreten feuertrunken,<br />

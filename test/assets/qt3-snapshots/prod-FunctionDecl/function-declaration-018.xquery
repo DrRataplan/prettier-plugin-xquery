@@ -1,9 +1,9 @@
 declare default element namespace "http://www.example.com/filesystem";
 
 declare function local:udf1 () {
-  <empty> {
+  <empty>{
       10 * 10
-    } </empty>
+    }</empty>
 };
 
 local:udf1()

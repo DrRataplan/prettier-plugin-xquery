@@ -1,3 +1,3 @@
-<result> {
+<result>{
     //text() and fn:false()
-  } </result>
+  }</result>

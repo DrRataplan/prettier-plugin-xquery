@@ -1,4 +1,5 @@
-<tbody> {
+<tbody>
+  {
     let $rows :=
       <tables>
         <table>
@@ -28,11 +29,12 @@
           for $row in $rows
           where $g = string($row/entry[2][string(.)])
           return $row/entry[1]
-        return <entry> {
+        return <entry>
+            {
               $matches/(
-                <link> {
+                <link>{
                     node()
-                  } </link>,
+                  }</link>,
                 text {
                   if (position() lt last()) then
                     "; "
@@ -40,5 +42,7 @@
                   )
                 }
               )
-            } </entry>
-  } </tbody>
+            }
+          </entry>
+  }
+</tbody>

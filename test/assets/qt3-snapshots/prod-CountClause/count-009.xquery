@@ -1,4 +1,5 @@
-<out>{
+<out>
+  {
     for $x in 1 to 4
     for $y in 1 to 4
     count$index

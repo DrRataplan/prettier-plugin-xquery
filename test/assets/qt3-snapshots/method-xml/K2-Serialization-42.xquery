@@ -7,4 +7,4 @@ declare option output:indent "yes";
       " "
     }<x />{
       " "
-    } </a><b /></test>
+    }</a><b /></test>

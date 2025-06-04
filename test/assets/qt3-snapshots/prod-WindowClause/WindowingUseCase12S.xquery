@@ -1,4 +1,5 @@
-<result>{
+<result>
+  {
     for tumbling window $w in ./stream/event[direction eq "in"]
       start $x when $x/person = ("Barbara", "Anton")
       end next $y when xs:dateTime($y/@time) - xs:dateTime($x/@time) gt

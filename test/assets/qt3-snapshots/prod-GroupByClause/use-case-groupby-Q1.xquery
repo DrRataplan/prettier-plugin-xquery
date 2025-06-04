@@ -1,4 +1,5 @@
-<sales-qty-by-product>{
+<sales-qty-by-product>
+  {
     for $sales in $sales-records-doc/*/record
     let $pname := $sales/product-name
     group by $pname

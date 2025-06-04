@@ -6,6 +6,6 @@ let $in-xml :=
     <pre:prefixed
       xmlns="http://datypic.com/unpre"
       xmlns:pre="http://datypic.com/pre"
-      ><unprefixed noNSAttr="b" pre:prefAttr="a">123</unprefixed></pre:prefixed>
+    ><unprefixed noNSAttr="b" pre:prefAttr="a">123</unprefixed></pre:prefixed>
   </noNamespace>
 return (namespace-uri-for-prefix("pre", $in-xml//pre:prefixed))

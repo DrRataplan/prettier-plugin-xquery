@@ -11,7 +11,7 @@ declare option output:html-version "5.0";
 	@=<math
         xmlns='http://www.w3.org/1998/Math/MathML'
         display='inline'
-        >
+      >
         <mfrac>
           <mrow><mi>a</mi><mo>+</mo><mi>b</mi></mrow>
           <mrow>

@@ -1,4 +1,5 @@
-<results>{
+<results>
+  {
     for $x in
       (
         <a>0.000000000000000001</a>,

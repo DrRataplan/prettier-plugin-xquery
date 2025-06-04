@@ -2,7 +2,7 @@ declare copy-namespaces no-preserve ,  no-inherit;
 
 declare variable $existingElement := <existingElement
   xmlns:existingNamespace="http://www.existingnamespace.com"
-  >{
+>{
     "Existing Content"
   }</existingElement>;
 

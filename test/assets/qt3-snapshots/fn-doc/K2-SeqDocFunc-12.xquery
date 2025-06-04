@@ -6,7 +6,7 @@ declare variable $fileToOpen := <Variable
   location="f0:17"
   name="constComplex2"
   type="_11c"
-  >%GG</Variable>;
+>%GG</Variable>;
 
 empty(
   $fileToOpen//*[let $i := @type

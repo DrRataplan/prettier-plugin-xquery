@@ -9,13 +9,13 @@ declare variable $span := <root>
     lang="grc"
     title="bbox 772 495 799 547"
     xml:lang="grc"
-    >?</span>
+  >?</span>
   <span
     class="ocr_word"
     lang="grc"
     title="bbox 835 495 1019 538"
     xml:lang="grc"
-    >???????</span>
+  >???????</span>
   <span class="ocr_word" title="bbox 134 567 220 607">dies</span>
   <span class="ocr_word" title="bbox 257 566 462 607">erastinus</span>
 </root>;

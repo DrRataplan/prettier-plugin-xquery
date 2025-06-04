@@ -1,4 +1,5 @@
-<result>{
+<result>
+  {
     for sliding window $w in ./sequence/*
       start previous $wSPrev when $wSPrev[self::OrderRequest]
       end next $wENext when $wENext/@orderID eq $wSPrev/@orderID and
@@ -9,7 +10,8 @@
     where $wENext[self::ShipNotice]
     return <bundleWith orderId="{
           $wSPrev/@orderID
-        }">{
+        }">
+        {
           for sliding window $bundle in $w
             start $bSCur when $bSCur[self::OrderRequest] and
               $bSCur/@shipTo eq $wSPrev/@shipTo

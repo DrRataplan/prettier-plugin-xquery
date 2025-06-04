@@ -2,7 +2,7 @@ let $emp := validate lax { document {
       <employees
         xmlns:xs="http://www.w3.org/2001/XMLSchema"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        >
+      >
         <employee xml:id="ID21256">
           <empnr xsi:type="xs:ID">E21256</empnr>
           <first>Anil</first>

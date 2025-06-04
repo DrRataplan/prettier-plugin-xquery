@@ -9,6 +9,6 @@ declare option output:version "5.0";
   <body>
     <a
       href="file:///c:/My Documents/temp/b&#xe9;b&#xe9;.xml"
-      >Click here baby!</a>
+    >Click here baby!</a>
   </body>
 </html>

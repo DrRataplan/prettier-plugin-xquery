@@ -18,7 +18,8 @@ declare variable $author := (
 
 declare variable $index := map:merge($book!map {isbn: .});
 
-<table>{
+<table>
+  {
     for $a in $author
     return <tr><td>{
             $a/name/string()

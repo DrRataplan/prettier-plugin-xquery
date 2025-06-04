@@ -1,9 +1,9 @@
 declare variable $local:myVar := <a />;
 
-<b> {
+<b>{
     $local:myVar
-  } {
+  }{
     attribute name {
       "content"
     }
-  } </b>
+  }</b>

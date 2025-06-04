@@ -3,6 +3,6 @@ fn:string(
     fn:upper-case("p1"),
     <anElement
       xmlns:P1="http://www.example.com/examples"
-      >some context</anElement>
+    >some context</anElement>
   )
 )

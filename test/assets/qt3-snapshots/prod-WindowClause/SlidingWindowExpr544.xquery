@@ -4,7 +4,8 @@ for sliding window $w in (1 to 10)
 count$r
 return <window num="{
       $r
-    }">{
+    }">
+    {
       for $i in $w
       order by $i descending
       return $i

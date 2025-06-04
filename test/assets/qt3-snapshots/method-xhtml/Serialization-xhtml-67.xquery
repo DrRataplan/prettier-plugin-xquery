@@ -14,7 +14,7 @@ declare option output:suppress-indentation "math:mrow math:mfenced";
 	@=<math
         xmlns='http://www.w3.org/1998/Math/MathML'
         display='inline'
-        >
+      >
         <mfrac>
           <mrow><mi>a</mi><mo>+</mo><mi>b</mi></mrow>
           <mrow>

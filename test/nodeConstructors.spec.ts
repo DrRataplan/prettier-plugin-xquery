@@ -48,7 +48,7 @@ describe("node constructors", () => {
 			output: `
 <a
   xmlns:html='http://www.w3.org/1999/xhtml#somethingtoexceed80charactersaaaaaaa'
-  >1</a>
+>1</a>
 `.trimStart(),
 		},
 		{
@@ -98,36 +98,32 @@ declare boundary-space strip;
 			name: "Formats DirElemContent when the boundary-space policy is explicity set to strip but keeps inlines intact",
 			input: `
 declare boundary-space strip;
-<p>This span is an <span class="highlight">inline-level element</span>; its background has been colored to display both the beginning and end of the element's influence. Input elements, like <input type="radio" /> and <input type="checkbox" />, are also inline-level content.
-</p>
+<p>This span is an <span class="highlight">inline-level element</span>; its background has been colored to display both the beginning and end of the element's influence. Input elements, like <input type="radio" /> and <input type="checkbox" />, are also inline-level content.</p>
 `.trimStart(),
 			output: `
 declare boundary-space strip;
 
 <p>This span is an <span
     class="highlight"
-    >inline-level element</span>; its background has been colored to display both the beginning and end of the element's influence. Input elements, like <input
+  >inline-level element</span>; its background has been colored to display both the beginning and end of the element's influence. Input elements, like <input
     type="radio" /> and <input
-    type="checkbox" />, are also inline-level content.
-</p>
+    type="checkbox" />, are also inline-level content.</p>
 `.trimStart(),
 		},
 		{
 			name: "Does not reformat boundary-whitespace with mixed content when it is set to 'preserve'",
 			input: `
 declare boundary-space preserve;
-<p>This span is an <span class="highlight">inline-level element</span>; its background has been colored to display both the beginning and end of the element's influence. Input elements, like <input type="radio" /> and <input type="checkbox" />, are also inline-level content.
-</p>
+<p>This span is an <span class="highlight">inline-level element</span>; its background has been colored to display both the beginning and end of the element's influence. Input elements, like <input type="radio" /> and <input type="checkbox" />, are also inline-level content.</p>
 `.trimStart(),
 			output: `
 declare boundary-space preserve;
 
 <p>This span is an <span
     class="highlight"
-    >inline-level element</span>; its background has been colored to display both the beginning and end of the element's influence. Input elements, like <input
+  >inline-level element</span>; its background has been colored to display both the beginning and end of the element's influence. Input elements, like <input
     type="radio" /> and <input
-    type="checkbox" />, are also inline-level content.
-</p>
+    type="checkbox" />, are also inline-level content.</p>
 `.trimStart(),
 		},
 		{
@@ -151,6 +147,110 @@ declare boundary-space preserve;
   <last>Johnson</last>
   </author>
 </book>
+`.trimStart(),
+		},
+		{
+			name: "handles tricky situations with loads of siblings where there is almost no boundary space",
+
+			input: `
+<a><a>A</a>,<a>A</a>,<a>A</a>,<a>A</a>,<a>A</a>,<a>A</a>,<a>A</a>,<a>A</a>,<a>A</a>,<a>A</a></a>
+`,
+			output: `
+<a>
+  <a>A</a>,<a>A</a>,<a>A</a>,<a>A</a>,<a>A</a>,<a>A</a>,<a>A</a>,<a>A</a>,<a
+  >A</a>,<a>A</a>
+</a>
+`.trimStart(),
+		},
+		{
+			name: "handles various input whitespace correctly",
+			input: `declare boundary-space strip;
+
+<book isbn="isbn-0060229357"><title>Harold and the Purple Crayon</title><author>        <first>Crockett</first><last>Johnson</last>
+    </author>
+    </book> ,
+<book isbn="isbn-0060229357"> <title>Harold and the Purple Crayon</title><author>        <first>Crockett</first><last>Johnson</last>
+    </author>
+    </book>,
+    <book isbn="isbn-0060229357"><title>Harold and the Purple Crayon</title> <author>
+    <first>Crockett</first><last>Johnson</last>
+    </author>
+    </book>,
+<book isbn="isbn-0060229357">
+
+
+
+  <title>Harold and the Purple Crayon</title>
+
+
+
+
+  <author><first>Crockett</first><last>Johnson</last></author>
+
+
+
+</book>,
+<book isbn="isbn-0060229357">
+  <title>Harold and the Purple Crayon</title>
+  <author><first>Crockett</first><last>Johnson</last></author>
+</book>
+`.trimStart(),
+			output: `
+declare boundary-space strip;
+
+<book isbn="isbn-0060229357">
+  <title>Harold and the Purple Crayon</title>
+  <author><first>Crockett</first><last>Johnson</last></author>
+</book>,
+<book isbn="isbn-0060229357">
+  <title>Harold and the Purple Crayon</title>
+  <author><first>Crockett</first><last>Johnson</last></author>
+</book>,
+<book isbn="isbn-0060229357">
+  <title>Harold and the Purple Crayon</title>
+  <author><first>Crockett</first><last>Johnson</last></author>
+</book>,
+<book isbn="isbn-0060229357">
+  <title>Harold and the Purple Crayon</title>
+  <author><first>Crockett</first><last>Johnson</last></author>
+</book>,
+<book isbn="isbn-0060229357">
+  <title>Harold and the Purple Crayon</title>
+  <author><first>Crockett</first><last>Johnson</last></author>
+</book>
+`.trimStart(),
+		},
+		{
+			name: "handles enclosed expressions as boundary whitespace",
+			input: `
+declare boundary-space strip;
+
+<testcase>{}Some text here to make it over the 80 characters! AAAAAAAAAAAAAAAAAAA</testcase>,
+<testcase> {}Some text here to make it over the 80 characters! AAAAAAAAAAAAAAAAAAA</testcase>,
+<testcase>Some text here to make it over the 80 characters! AAAAAAAAAAAAAAAAAAA{}</testcase>,
+<testcase>Some text here to make it over the 80 characters! AAAAAAAAAAAAAAAAAAA{} </testcase>,
+<testcase> {}Some text here to make it over the 80 characters! AAAAAAAAAAAAAAAAAAA{} </testcase>,
+<testcase>{}Some text here to make it over the 80 characters! AAAAAAAAAAAAAAAAAAA{}</testcase>
+`,
+			Aoutput: `
+declare boundary-space strip;
+
+<testcase>
+  {}Some text here to make it over the 80 characters! AAAAAAAAAAAAAAAAAAA</testcase>,
+<testcase>
+  {}Some text here to make it over the 80 characters! AAAAAAAAAAAAAAAAAAA</testcase>,
+<testcase
+>Some text here to make it over the 80 characters! AAAAAAAAAAAAAAAAAAA{}
+</testcase>,
+<testcase
+>Some text here to make it over the 80 characters! AAAAAAAAAAAAAAAAAAA{}
+</testcase>,
+<testcase>
+  {}Some text here to make it over the 80 characters! AAAAAAAAAAAAAAAAAAA{}
+</testcase>,
+<testcase>
+  {}Some text here to make it over the 80 characters! AAAAAAAAAAAAAAAAAAA{}
+</testcase>
 `.trimStart(),
 		},
 	];
