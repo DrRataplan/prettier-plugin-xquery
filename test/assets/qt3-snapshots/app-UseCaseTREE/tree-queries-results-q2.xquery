@@ -1,10 +1,8 @@
-<figlist>
-  {
+<figlist> {
     for $f in //figure
-    return <figure>{
+    return <figure> {
           $f/@*
-        }{
+        } {
           $f/title
-        }</figure>
-  }
-</figlist>
+        } </figure>
+  } </figlist>

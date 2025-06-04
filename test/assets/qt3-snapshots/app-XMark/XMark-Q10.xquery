@@ -1,6 +1,5 @@
 (: Purpose: List all persons according to their interest; use French markup in the result. :)
-<XMark-result-Q10>
-  {
+<XMark-result-Q10> {
     let $auction := (/)
     return for $i in
         distinct-values($auction/site/people/person/profile/interest/@category)
@@ -35,5 +34,4 @@
                 $i
               }</id>, $p
           }</categorie>
-  }
-</XMark-result-Q10>
+  } </XMark-result-Q10>

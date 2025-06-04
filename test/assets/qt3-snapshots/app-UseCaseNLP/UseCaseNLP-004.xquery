@@ -7,10 +7,10 @@ order by $pos
 return <pos name="{
       $pos
     }">
-    {
+              {
       for $l in distinct-values($lexeme)
       return <lexeme>{
             $l
           }</lexeme>
     }
-  </pos>
+            </pos>

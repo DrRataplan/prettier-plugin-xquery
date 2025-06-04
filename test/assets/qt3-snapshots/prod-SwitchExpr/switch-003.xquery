@@ -2,8 +2,7 @@ xquery version "3.0";
 
 declare variable $animal := "!?!?";
 
-<out>
-  {
+<out>{
     switch (upper-case($animal))
       case "COW" return
         "Moo"

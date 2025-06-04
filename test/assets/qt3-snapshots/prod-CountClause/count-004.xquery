@@ -1,5 +1,4 @@
-<out>
-  {
+<out>{
     for $x in 1 to 4
     count$ix
     for $y in $x to 3

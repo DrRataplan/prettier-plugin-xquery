@@ -1,5 +1,4 @@
-<out>
-  {
+<out>{
     if (1 != 0) then
       if (4 != 5) then
         1

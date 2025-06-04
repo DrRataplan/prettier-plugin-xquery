@@ -1,8 +1,7 @@
 declare variable $root := . treat as document-node();
 
 <out>
-  <empty>
-    { (: attribute axis, and all other axes that inference can assert might produce attributes. 
+  <empty> { (: attribute axis, and all other axes that inference can assert might produce attributes. 
              These are placed first, so we don't raise XQTY0024. :)
       $root/foo/child::attribute(foo),
       $root//element()/self::attribute(),
@@ -90,8 +89,7 @@ declare variable $root := . treat as document-node();
       $root//document-node()/self::element(),
       $root//document-node()/self::text(),
       $root//document-node()/self::comment()
-    }
-  </empty>
+    } </empty>
   <ex>{
       exists($root//*/attribute()/descendant-or-self::node())
     }</ex>

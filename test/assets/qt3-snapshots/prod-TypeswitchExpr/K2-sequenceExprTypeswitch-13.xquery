@@ -2,8 +2,7 @@ declare variable $i := (<e />, attribute name {
     "content"
   }, <a attr="content" />, <e />, 1, "str", <!-- a comment -->);
 
-<d>
-  {
+<d> {
     typeswitch (typeswitch ($i)
       case $b as element(e) return
         concat("Found an element by name ", $b)
@@ -23,5 +22,4 @@ declare variable $i := (<e />, attribute name {
 
       default return
         $def
-  }
-</d>
+  } </d>

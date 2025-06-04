@@ -1,7 +1,6 @@
 declare namespace err = "http://www.w3.org/2005/xqt-errors";
 
-<results>
-  {
+<results>{
     for $t in /tests/test
     return try {
         let $matches := matches($t/@input, $t/@regex, string($t/@flags))

@@ -1,7 +1,6 @@
 declare namespace w = "foo:bar";
 
-<window>
-  {
+<window>{
     for tumbling window $Q{foo:bar}w in (1 to 10)
       start $Q{foo:bar}s
       at $Q{foo:bar}x

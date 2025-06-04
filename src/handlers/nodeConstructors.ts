@@ -2,12 +2,12 @@ import { type AstPath, doc, type Doc } from "prettier";
 import printIfExist from "./util/printIfExists.ts";
 import space from "./util/space.ts";
 import type { Handler } from "./util/Handler.ts";
-import type { NonCommentNode, NonTerminalNode } from "../tree.ts";
+import type { NonTerminalNode } from "../tree.ts";
 
 const { group, indent, softline, line, join, literallineWithoutBreakParent } = doc.builders;
 
 const isContentChar = (node: NonTerminalNode): boolean => {
-	return !!node.childrenByName["ElementContentChar"];
+	return !!node.childrenByName["ElementContentChar"] || !!node.childrenByName["CommonContent"];
 };
 
 const isWhitespace = (node: NonTerminalNode): boolean => {
@@ -271,6 +271,10 @@ const nodeConstructorHandlers: Record<string, Handler> = {
 			if (isWhitespace(path.node)) {
 				if (isBoundaryPosition(path)) {
 					// Strip boundary whitespace and replace it with a softline.
+					if (path.previous && isWhitespace(path.previous)) {
+						// Multiple consecutive boundary space: replace them with just one
+						return [];
+					}
 					return group(softline);
 				}
 				if (path.previous && isContentChar(path.previous!)) {
@@ -285,7 +289,8 @@ const nodeConstructorHandlers: Record<string, Handler> = {
 			return path.map(print, "children");
 		}
 		// Another node constructor. Add a softline in from of it to make it look nice
-		if (isBoundaryPosition(path)) {
+		// TODO: handle commoncontent different!
+		if (isBoundaryPosition(path) && !path.node.childrenByName.CommonContent) {
 			return [softline, path.map(print, "children")];
 		}
 		return path.map(print, "children");

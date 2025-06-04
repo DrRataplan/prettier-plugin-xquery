@@ -1,5 +1,4 @@
-<result>
-  {
+<result>{
     for sliding window $w in ./sequence/*
       start $s when $s[self::OrderRequest]
       end $e when $e/@orderID eq $s/@orderID and

@@ -1,7 +1,6 @@
 declare variable $n external;
 
-<out>
-  {
+<out>{
     for $x in 1 to $n
     return <a position="{
           $p

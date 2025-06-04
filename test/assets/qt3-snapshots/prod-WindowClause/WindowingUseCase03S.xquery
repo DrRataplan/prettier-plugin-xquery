@@ -1,5 +1,4 @@
-<doc>
-  {
+<doc>{
     for tumbling window $w in ./doc/*
       start $x when $x[self::dt]
       end $y

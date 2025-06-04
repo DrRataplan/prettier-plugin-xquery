@@ -1,7 +1,6 @@
 (: Purpose: For each richer-than-average person, list the 
          number of items currently on sale whose price does not exceed 0.02% of the person's income. :)
-<XMark-result-Q12>
-  {
+<XMark-result-Q12> {
     let $auction := (/)
     return for $p in $auction/site/people/person
       let $l :=
@@ -14,5 +13,4 @@
           }">{
             count($l)
           }</items>
-  }
-</XMark-result-Q12>
+  } </XMark-result-Q12>

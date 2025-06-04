@@ -1,5 +1,4 @@
-<results>
-  {
+<results> {
     for $x in
       (
         <a>A String</a>,
@@ -30,5 +29,4 @@
       )
     order by $x is $x
     return $x is $x
-  }
-</results>
+  } </results>

@@ -2,8 +2,7 @@ xquery version "3.0";
 
 declare variable $number := 42;
 
-<out>
-  {
+<out>{
     switch ($number)
       case 21 return
         "Moo"

@@ -7,13 +7,11 @@ declare function fact ($n as xs:integer) as xs:integer {
     $n * fact(($n) - 1)
 };
 
-<table>
-  {
+<table> {
     for $i in 1 to 10
     return <tr><td>{
             $i
           }! = {
             fact($i)
           }</td></tr>
-  }
-</table>
+  } </table>

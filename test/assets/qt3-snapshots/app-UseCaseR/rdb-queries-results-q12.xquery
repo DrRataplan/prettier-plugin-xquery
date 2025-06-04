@@ -8,19 +8,18 @@ declare function local:bid_summary () as element()* {
         }</nbids></bid_count>
 };
 
-<result>
-  {
+<result> {
     let $bid_counts := local:bid_summary(),
       $maxbids := max($bid_counts/nbids),
       $maxitemnos := $bid_counts[nbids = $maxbids]
     for $item in $items//item_tuple, $bc in $bid_counts
     where $bc/nbids = $maxbids and $item/itemno = $bc/itemno
-    return <popular_item>{
+    return <popular_item> {
           $item/itemno
-        }{
+        } {
           $item/description
-        }<bid_count>{
+        } 
+                        <bid_count>{
             $bc/nbids/text()
           }</bid_count></popular_item>
-  }
-</result>
+  } </result>

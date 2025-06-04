@@ -1,5 +1,4 @@
-<result>
-  {
+<result>{
     for tumbling window $w in ./stream/event
       start $s when $s/person eq "Anton" and $s/direction eq "in"
       only end $e

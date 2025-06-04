@@ -1,5 +1,4 @@
-<results>
-  {
+<results> {
     for $x in
       (
         0.000000000000000001,
@@ -24,5 +23,4 @@
       )
     order by string($x) ascending
     return string($x)
-  }
-</results>
+  } </results>

@@ -1,7 +1,6 @@
 <html>
   <body>
-    <table>
-      <tr> (: Column headings :)
+    <table><tr> (: Column headings :)
          {
           <th />,
           for $th in
@@ -17,7 +16,7 @@
         for $r in
           json-doc("http://www.w3.org/qt3/app/UseCaseR31/table-json")?data?*
         return <tr>
-            {
+             {
               <th>{
                   json-doc(
                     "http://www.w3.org/qt3/app/UseCaseR31/table-json"
@@ -28,7 +27,7 @@
                     $c
                   }</td>
             }
-          </tr>
+            </tr>
       }
     </table>
   </body>

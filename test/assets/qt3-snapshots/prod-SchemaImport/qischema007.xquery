@@ -5,11 +5,8 @@ import schema default element namespace  "http://www.w3.org/XQueryTest/hats" at 
 validate {
   <abf>
     <a />
-    <b />
-    <b />
-    {
+    <b /><b /> {
       for $i in 1 to 3
       return <f />
-    }
-  </abf>
+    } </abf>
   }

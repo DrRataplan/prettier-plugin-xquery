@@ -1,5 +1,4 @@
-<results>
-  {
+<results> {
     for $x in
       (
         "A String",
@@ -30,5 +29,4 @@
       )
     order by count(xs:string($x))
     return count(xs:string($x))
-  }
-</results>
+  } </results>

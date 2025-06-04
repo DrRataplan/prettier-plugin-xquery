@@ -7,7 +7,7 @@ let $var :=
     <Unknown
       xmlns:tc="http://www.w3.org/XQueryTest/testcases"
       xsi:type="tc:choice"
-      >{
+      > {
         element a {
           element z {
             "12.345"

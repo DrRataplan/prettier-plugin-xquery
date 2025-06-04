@@ -1,7 +1,6 @@
 declare namespace fots = "http://www.w3.org/2010/09/qt-fots-catalog";
 
-<r>
-  {
+<r>{
     let $changes := doc("../changes.xml")//spec[contains(@name, "31")]/change
     let $changesid := $changes/@id/string()
     let $testfiles := //fots:test-set/@file/doc(resolve-uri(., base-uri(..)))
@@ -21,8 +20,10 @@ declare namespace fots = "http://www.w3.org/2010/09/qt-fots-catalog";
           $changes[@id = $token]/../@name
         }" tests="{
           $count
-        }">{
+        }">
+        {
           $changes[@id = $token]/text()
-        }</out>
+        }
+        </out>
   }
 </r>

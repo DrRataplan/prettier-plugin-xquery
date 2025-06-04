@@ -1,5 +1,4 @@
-<result>
-  {
+<result>{
     for $sales in $sales-records-doc/*/record
     let $state := $stores-doc/*/store[store-number = $sales/store-number]/state
     let $category :=

@@ -1,7 +1,6 @@
 declare variable $n external;
 
-<out>
-  {
+<out>{
     for $x as xs:integer? in 1 to $n
     for $y as xs:integer in
       (

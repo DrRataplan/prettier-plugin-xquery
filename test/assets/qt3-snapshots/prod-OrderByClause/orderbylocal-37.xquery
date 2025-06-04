@@ -1,5 +1,4 @@
-<results>
-  {
+<results> {
     for $x in
       (
         100000000000000000,
@@ -24,5 +23,4 @@
       )
     order by xs:double($x) descending
     return xs:double($x)
-  }
-</results>
+  } </results>

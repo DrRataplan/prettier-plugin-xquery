@@ -4,8 +4,7 @@ declare variable $in := 25;
 
 declare variable $zero := 0;
 
-<out>
-  {
+<out>{
     switch ($in)
       case 42 return
         $in div $zero

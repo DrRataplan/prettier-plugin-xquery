@@ -2,8 +2,7 @@ xquery version "3.0";
 
 declare variable $animal := "Dog";
 
-<out>
-  {
+<out>{
     switch ($animal)
       case "Cow" return
         "Moo"

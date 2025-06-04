@@ -1,10 +1,10 @@
 /**
 * Automatically generated test report from running prettier over all 31821 test cases in the QT3 tests.
 *
-* The ignore list contains 26 known failing tests.
+* The ignore list contains 19 known failing tests.
 * Tests that fail because a comment failed to be printed: 8
 * Tests that fail because of a type error: 0
-* Tests that fail because the prettified result is not stable: 16
+* Tests that fail because the prettified result is not stable: 9
 *
 * Other failures: 2
 */
@@ -59,8 +59,7 @@ export default {
 			"            return <group count=\"{count($x)}\" key=\"{$key}\"> {string-join($x/pnum, '|')} </group> ",
 			"        }</out>",
 			"      ",
-			"Result of first round: <out>",
-			"  {",
+			"Result of first round: <out>{",
 			"    for $x in //employee",
 			"    let $key := $x/empnum",
 			"    group by $keycollation\"http://www.w3.org/2005/xpath-functions/collation/codepoint\"",
@@ -69,17 +68,17 @@ export default {
 			"          count($x)",
 			"        }\" key=\"{",
 			"          $key",
-			"        }\">{",
+			"        }\"> {",
 			"          string-join($x/pnum, \"|\")",
-			"        }</group>",
+			"        } </group>",
 			"  }",
 			"</out>",
 			"",
 			"Actual message: \"lexical analysis failed",
 			"while expecting [S, '(:', ',', ':=', 'as', 'collation', 'count', 'for', 'group', 'let', 'order', 'return', 'stable', 'where']",
-			"at line 5, column 27:",
+			"at line 4, column 27:",
 			"...\"http://www.w3.org/2005/xpath-functions/collation/codepoint\"",
-			"   ... (5:26)\""
+			"   ... (4:26)\""
 		],
 		"group-009a": [
 			"AssertionError [ERR_ASSERTION]: Got unwanted rejection: The second prettification should also work3.",
@@ -91,8 +90,7 @@ export default {
 			"            return <group count=\"{count($x)}\" key=\"{$key}\"> {string-join($x/pnum, '|')} </group> ",
 			"        }</out>",
 			"      ",
-			"Result of first round: <out>",
-			"  {",
+			"Result of first round: <out>{",
 			"    for $x in //employee",
 			"    group by $key:=",
 			"        $x/empnumcollation\"http://www.w3.org/2005/xpath-functions/collation/codepoint\"",
@@ -101,17 +99,17 @@ export default {
 			"          count($x)",
 			"        }\" key=\"{",
 			"          $key",
-			"        }\">{",
+			"        }\"> {",
 			"          string-join($x/pnum, \"|\")",
-			"        }</group>",
+			"        } </group>",
 			"  }",
 			"</out>",
 			"",
 			"Actual message: \"lexical analysis failed",
 			"while expecting [S, EOF, '!', '!=', '#', '(', '(:', ')', '*', '+', ',', '-', '/', '//', ':', ';', '<', '<<', '<=', '=', '=>', '>', '>=', '>>', '[', ']', 'and', 'ascending', 'case', 'cast', 'castable', 'collation', 'count', 'default', 'descending', 'div', 'else', 'empty', 'end', 'eq', 'except', 'for', 'ge', 'group', 'gt', 'idiv', 'instance', 'intersect', 'is', 'le', 'let', 'lt', 'mod', 'ne', 'only', 'or', 'order', 'return', 'satisfies', 'stable', 'start', 'to', 'treat', 'union', 'where', '|', '||', '}', '}`']",
-			"at line 5, column 27:",
+			"at line 4, column 27:",
 			"...\"http://www.w3.org/2005/xpath-functions/collation/codepoint\"",
-			"   ... (5:26)\""
+			"   ... (4:26)\""
 		]
 	},
 	"prod-ModuleImport": {
@@ -179,92 +177,6 @@ export default {
 			"    '    </p>\\n' +",
 			"    '  </body>\\n' +",
 			"    '</html>\\n'",
-			""
-		]
-	},
-	"prod-CompAttrConstructor": {
-		"comp-attr-bad-name-1": [
-			"AssertionError [ERR_ASSERTION]: The prettification should be stable after a first one",
-			"+ actual - expected",
-			"",
-			"  \"(: 3.7.3.2 Computed Attribute Constructor per XQ.E19 XQDY0044 if namespace prefix is 'xmlns' Mary Holstege :) <result>\\n\" +",
-			"-   '\\n' +",
-			"    '  {\\n' +",
-			"    '    attribute {\"xmlns:error\"} {}\\n' +",
-			"    '  }\\n' +",
-			"    '</result>\\n'",
-			""
-		],
-		"comp-attr-bad-name-2": [
-			"AssertionError [ERR_ASSERTION]: The prettification should be stable after a first one",
-			"+ actual - expected",
-			"",
-			"  \"(: 3.7.3.2 Computed Attribute Constructor per XQ.E19 XQDY0044 if no namespace prefix and local name is 'xmlns' Mary Holstege :) <result>\\n\" +",
-			"-   '\\n' +",
-			"    '  {\\n' +",
-			"    '    attribute {\"xmlns\"} {}\\n' +",
-			"    '  }\\n' +",
-			"    '</result>\\n'",
-			""
-		],
-		"comp-attr-bad-name-3": [
-			"AssertionError [ERR_ASSERTION]: The prettification should be stable after a first one",
-			"+ actual - expected",
-			"",
-			"  \"(: 3.7.3.2 Computed Attribute Constructor per XQ.E19 XQDY0044 if namespace URI is 'http://www.w3.org/2000/xmlns/' Mary Holstege :) <result>\\n\" +",
-			"-   '\\n' +",
-			"    '  {\\n' +",
-			"    '    attribute {fn:QName(\"http://www.w3.org/2000/xmlns/\", \"error\")} {}\\n' +",
-			"    '  }\\n' +",
-			"    '</result>\\n'",
-			""
-		],
-		"comp-attr-bad-name-4": [
-			"AssertionError [ERR_ASSERTION]: The prettification should be stable after a first one",
-			"+ actual - expected",
-			"",
-			"  \"(: 3.7.3.2 Computed Attribute Constructor per XQ.E19 XQDY0044 if namespace URI is 'http://www.w3.org/2000/xmlns/' Mary Holstege :) <result>\\n\" +",
-			"-   '\\n' +",
-			"    '  {\\n' +",
-			"    '    attribute {fn:QName(\"http://www.w3.org/2000/xmlns/\", \"foo:error\")} {}\\n' +",
-			"    '  }\\n' +",
-			"    '</result>\\n'",
-			""
-		],
-		"comp-attr-bad-name-5": [
-			"AssertionError [ERR_ASSERTION]: The prettification should be stable after a first one",
-			"+ actual - expected",
-			"",
-			"  \"(: 3.7.3.2 Computed Attribute Constructor per XQ.E19 XQDY0044 if namespace prefix is 'xml' and namespace URI is not 'http://www.w3.org/XML/1998/namespace' Mary Holstege :) <result>\\n\" +",
-			"-   '\\n' +",
-			"    '  {\\n' +",
-			"    '    attribute {fn:QName(\"http://example.com/not-XML-uri\", \"xml:error\")} {}\\n' +",
-			"    '  }\\n' +",
-			"    '</result>\\n'",
-			""
-		],
-		"comp-attr-bad-name-6": [
-			"AssertionError [ERR_ASSERTION]: The prettification should be stable after a first one",
-			"+ actual - expected",
-			"",
-			"  \"(: 3.7.3.2 Computed Attribute Constructor per XQ.E19 XQDY0044 if namespace prefix is not 'xml' and namespace URI is 'http://www.w3.org/XML/1998/namespace' Mary Holstege :) <result>\\n\" +",
-			"-   '\\n' +",
-			"    '  {\\n' +",
-			"    '    attribute {fn:QName(\"http://www.w3.org/XML/1998/namespace\", \"foo:error\")} {}\\n' +",
-			"    '  }\\n' +",
-			"    '</result>\\n'",
-			""
-		],
-		"comp-attr-bad-name-7": [
-			"AssertionError [ERR_ASSERTION]: The prettification should be stable after a first one",
-			"+ actual - expected",
-			"",
-			"  \"(: 3.7.3.2 Computed Attribute Constructor per XQ.E19 XQDY0044 if namespace prefix is 'xmlns' Mary Holstege :) <result>\\n\" +",
-			"-   '\\n' +",
-			"    '  {\\n' +",
-			"    '    attribute {fn:QName(\"http://example.com/some-uri\", \"xmlns:error\")} {}\\n' +",
-			"    '  }\\n' +",
-			"    '</result>\\n'",
 			""
 		]
 	},
@@ -341,13 +253,13 @@ export default {
 			"    '  1,\\n' +",
 			"    '  0,\\n' +",
 			"...",
-			"    '      <style>table {{ border-collapse: collapse; border: 1px solid black; }} td {{ padding: 10px; }} .norm {{ border-left: 1px solid #CCC; border-top: 1px solid #CCC; }} .csep {{ border-left: 1px solid black; }} .rsep {{ border-top: 1px solid black; }}\\n' +",
+			"    '      <style>table {{ border-collapse: collapse; border: 1px solid black; }} td {{ padding: 10px; }} .norm {{ border-left: 1px solid #CCC; border-top: 1px solid #CCC; }} .csep {{ border-left: 1px solid black; }} .rsep {{ border-top: 1px solid black; }}</style>\\n' +",
 			"-   '\\n' +",
-			"    '      </style>\\n' +",
 			"    '    </head>\\n' +",
 			"    '    <body>{\\n' +",
 			"    '        fn:drawBoard($board)\\n' +",
 			"    '      }</body>\\n' +",
+			"    '  </html>\\n' +",
 			""
 		]
 	}

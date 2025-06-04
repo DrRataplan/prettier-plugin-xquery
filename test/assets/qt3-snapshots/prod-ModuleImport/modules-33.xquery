@@ -5,8 +5,7 @@ document {
     <other>{
         other:do("hello", "world")
       }</other>
-    <transitive>
-      {
+    <transitive>{
         let $f1 :=
           fn:function-lookup(fn:QName("http://example.com/impl", "f1"), 2)
         return if (exists($f1)) then

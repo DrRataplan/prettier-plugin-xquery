@@ -1,5 +1,4 @@
-<results>
-  {
+<results> {
     for $x in
       (
         <orderData>-100000000000000000</orderData>,
@@ -24,5 +23,4 @@
       )
     order by $x is $x
     return $x is $x
-  }
-</results>
+  } </results>

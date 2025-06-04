@@ -1,5 +1,4 @@
-<result>
-  {
+<result>{
     for sliding window $w in ./sequence/*
       start $cur
       previous $prev when day-from-dateTime($cur/@date) ne
@@ -10,8 +9,7 @@
         day-from-dateTime(xs:dateTime($next/@date))
     return <mostValuableCustomer endOfDay="{
           xs:dateTime($cur/@date)
-        }">
-        {
+        }">{
           let $companies :=
             for $x in distinct-values($w/@billTo)
             return <amount company="{

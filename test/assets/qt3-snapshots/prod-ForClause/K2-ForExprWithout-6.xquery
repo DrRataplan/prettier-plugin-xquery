@@ -5,8 +5,7 @@ for $ti in
       <terminatingDate>19550505</terminatingDate>
     </rangeDate>
   </ti>
-return <result>
-    {
+return <result> {
       fn:min(
         if ($ti/singleDate) then
           let $tmp := $ti/singleDate/compute
@@ -31,5 +30,4 @@ return <result>
               )
             )
       )
-    }
-  </result>
+    } </result>
