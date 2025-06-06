@@ -7,4 +7,5 @@ let $emp := validate lax { document {
                <last>Brown</last>
             </employee>
     } }
+
 return $emp/id("E21256")/name()

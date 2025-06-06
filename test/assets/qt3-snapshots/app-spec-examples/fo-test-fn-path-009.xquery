@@ -4,4 +4,5 @@ let $emp :=
                <first>John</first>
                <last>Brown</last>
             </employee>
+
 return fn:path($emp/empnr)

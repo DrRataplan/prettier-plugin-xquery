@@ -1,4 +1,5 @@
 let $MAX_DIFF := 2
+
 for sliding window $w in ./stream/event
   start $s_curr
   at $s_pos

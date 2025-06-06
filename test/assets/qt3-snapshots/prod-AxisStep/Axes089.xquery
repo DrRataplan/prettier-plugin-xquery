@@ -65,17 +65,17 @@ declare function tour:main () as element() {
     let $empty-board as xs:integer* :=
       for $i in (1 to 64)
       return 0
-    (: Place the knight on the board at the chosen starting position :)
 
+    (: Place the knight on the board at the chosen starting position :)
     let $initial-board as xs:integer* :=
       tour:place-knight(1, $empty-board, $start-row * 8 + $start-column)
-    (: Evaluate the knight's tour :)
 
+    (: Evaluate the knight's tour :)
     let $final-board as xs:integer* :=
       tour:make-moves(2, $initial-board, $start-row * 8 + $start-column)
-    (: produce the HTML output :)
 
-      return tour:print-board($final-board)
+    (: produce the HTML output :)
+    return tour:print-board($final-board)
 };
 
 declare function tour:place-knight (
@@ -107,9 +107,9 @@ declare function tour:make-moves (
 
   let $possible-move-list as xs:integer* :=
     tour:list-possible-moves($board, $square)
-  (: try these moves in turn until one is found that works :)
 
-    return tour:try-possible-moves($move, $board, $square, $possible-move-list)
+  (: try these moves in turn until one is found that works :)
+  return tour:try-possible-moves($move, $board, $square, $possible-move-list)
 };
 
 declare function tour:try-possible-moves (
@@ -150,25 +150,25 @@ declare function tour:make-best-move (
 
   let $best-move as xs:integer :=
     tour:find-best-move($board, $possible-moves, 9, 999)
+
   (: find the list of possible moves excluding the best one :)
-
   let $other-possible-moves as xs:integer* := $possible-moves[. != $best-move]
+
   (: update the board to make the move chosen as the best one :)
-
   let $next-board as xs:integer* := tour:place-knight($move, $board, $best-move)
-  (: now make further moves using a recursive call, until the board is complete :)
 
+  (: now make further moves using a recursive call, until the board is complete :)
   let $final-board as xs:integer* :=
     if ($move < $endd) (:count($next-board[.=0])!=0:) then
       tour:make-moves($move + 1, $next-board, $best-move)
     else
       $next-board
+
   (:   if the final board has the special value '()', we got stuck, and have to choose
          the next best of the possible moves. This is done by a recursive call. I thought
          that the knight never did get stuck, but it does: if the starting square is f1,
          the wrong choice is made at move 58, and needs to be reversed. :)
-
-    return if (empty($final-board)) then
+  return if (empty($final-board)) then
       tour:try-possible-moves($move, $board, $square, $other-possible-moves)
     else
       $final-board
@@ -186,29 +186,31 @@ declare function tour:find-best-move (
   (:  split the list of possible moves into the first move and the rest of the moves :)
 
   let $trial-move as xs:integer := $possible-moves[1]
+
   let $other-possible-moves as xs:integer* := $possible-moves[position() > 1]
+
   (: try making the first move :)
-
   let $trial-board as xs:integer* := tour:place-knight(99, $board, $trial-move)
-  (: see how many moves would be possible the next time :)
 
+  (: see how many moves would be possible the next time :)
   let $trial-move-exit-list as xs:integer* :=
     tour:list-possible-moves($trial-board, $trial-move)
+
   let $number-of-exits as xs:integer := count($trial-move-exit-list)
+
   (:  determine whether this trial move has fewer exits than those considered up till now :)
-
   let $minimum-exits as xs:integer := min(($number-of-exits, $fewest-exits))
-  (:  determine which is the best move (the one with fewest exits) so far :)
 
+  (:  determine which is the best move (the one with fewest exits) so far :)
   let $new-best-so-far as xs:integer :=
     if ($number-of-exits < $fewest-exits) then
       $trial-move
     else
       $best-so-far
+
   (:  if there are other possible moves, consider them too, using a recursive call.
         Otherwise return the best move found. :)
-
-    return if (count($other-possible-moves) != 0) then
+  return if (count($other-possible-moves) != 0) then
       tour:find-best-move(
         $board,
         $other-possible-moves,
@@ -228,6 +230,7 @@ declare function tour:list-possible-moves (
 
   let $row as xs:integer := $square idiv 8
   let $column as xs:integer := $square mod 8
+
   return (
       if ($row > 1 and $column > 0 and $board[($square - 17) + 1] = 0) then
         $square - 17
