@@ -8,4 +8,5 @@ let $po :=
          <quantity>805</quantity> </line-item>
          </PurchaseOrder>
 return let $item1 := $po/line-item[1]
+
   return fn:number($item1/quantity)

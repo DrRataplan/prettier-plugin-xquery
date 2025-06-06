@@ -24,9 +24,9 @@ declare function functx:days-in-month (
   if (month-from-date(xs:date($date)) = 2 and functx:is-leap-year($date)) then
     29
   else
-    (31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31)[month-from-date(
-      xs:date($date)
-    )]
+    (
+      31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31
+    )[month-from-date(xs:date($date))]
 };
 
 (:~ : Whether a date falls in a leap year : : @author Priscilla Walmsley, Datypic : @version 1.0 : @see http://www.xqueryfunctions.com/xq/functx_is-leap-year.html : @param $date the date or year :)

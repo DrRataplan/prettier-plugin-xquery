@@ -3,4 +3,5 @@ let $responses :=
     0: "nein",
     1: ("ja", "doch")
   }]
+
 return map:find($responses, 0)

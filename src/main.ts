@@ -1,8 +1,7 @@
-import prettier from "prettier";
-import type { Printer, Parser, Plugin, AstPath } from "prettier";
+import { type Printer, type Parser, type Plugin, type AstPath, doc, util, type Doc, type AST } from "prettier";
 
 import { Parser as XQueryParser, ParseException } from "./generated/parser.ts";
-import { Tree, Node, LeafNode, NonTerminalNode, CommentNode, RootNode } from "./tree.ts";
+import { Tree, Node, LeafNode, NonTerminalNode, CommentNode } from "./tree.ts";
 import type { Print } from "./handlers/util/Print.ts";
 import flworExpressions from "./handlers/flworExpressions.ts";
 import otherExpressionHandlers from "./handlers/otherExpressions.ts";
@@ -20,9 +19,11 @@ import sequenceExpressionHandlers from "./handlers/sequenceExpressions.ts";
 import typeHandlers from "./handlers/types.ts";
 import validateExpressionHandlers from "./handlers/validateExpressions.ts";
 import type { Handler } from "./handlers/util/Handler.ts";
+import isPreviousLineEmpty from "./handlers/util/isPreviousLineEmpty.ts";
+import printComment from "./handlers/util/printComment.ts";
 
-const { line, group } = prettier.doc.builders;
-const { getPreferredQuote } = prettier.util;
+const { line, group, hardlineWithoutBreakParent, literallineWithoutBreakParent, join } = doc.builders;
+const { getPreferredQuote } = util;
 
 // Handlers are split up based on their placement in the XQuery specification. FLWOR by FLWOR,
 // expressions on sequence types in their own group, etcetera.
@@ -115,27 +116,82 @@ const xqueryParser: Parser<Node> = {
 	locEnd(node) {
 		return node.end!;
 	},
+	preprocess(text) {
+		return text.trimStart();
+	},
 };
 
 const xqueryPrinter: Printer<Node> = {
+	getVisitorKeys(node, nonTraversableKeys) {
+		// Only traverse into children, not childrenByName
+		return ["children"];
+	},
+	willPrintOwnComments(path: AstPath<Node>) {
+		if (path.node.name === "IntermediateClause") {
+			return true;
+		}
+		if (path.node.name === "ReturnClause") {
+			return true;
+		}
+		return false;
+	},
 	canAttachComment(node: Node) {
 		// Terminal nodes are sometimes not printed. Refrain from adding comments to them.
 		// TODO: always print terminal nodes to optimize comments
-		return (
-			node.name !== "Comment" &&
-			node.name !== "WhiteSpace" &&
-			node.name !== "'{'" &&
-			node.name !== "'}'" &&
-			node.name !== "','"
-		);
+		if (
+			node.name === "Comment" ||
+			node.name === "WhiteSpace" ||
+			node.name === "'{'" ||
+			node.name === "'}'" ||
+			node.name === "','"
+		) {
+			return false;
+		}
+
+		//		return true;
+		if (node instanceof LeafNode) {
+			return true;
+		}
+
+		// These all insert their own whitespace. Let them handle comments
+		if (node.name === "QueryBody") {
+			return true;
+		}
+		if (node.name === "IntermediateClause") {
+			return true;
+		}
+		if (node.name === "AnnotatedDecl") {
+			return true;
+		}
+		if (node.name === "ReturnClause") {
+			return true;
+		}
+		if (node.name === "Expr") {
+			return true;
+		}
+
+		if (node.begin === node.end) {
+			// Rather not on empty nodes, Place it on either side
+			return false;
+		}
+
+		const nonTerminal = node as NonTerminalNode;
+		if (nonTerminal.children.length === 1) {
+			// Place one more down
+			return false;
+		}
+		if (nonTerminal.children[0].begin === node.begin) {
+			//	return false;
+		}
+		return true;
 	},
 	isBlockComment(node: Node) {
 		// In XQuery all comments are block comments, There is no line comment, like `//`
 		return node instanceof CommentNode;
 	},
-	printComment(path: AstPath<Node>) {
-		const value = path.getNode() as CommentNode;
-		return group(value.value);
+	printComment(path: AstPath<Node>, options) {
+		const node = path.node as CommentNode;
+		return printComment(node);
 	},
 	print(path: AstPath<Node>, options, print: Print, _args) {
 		if (path.node instanceof LeafNode) {

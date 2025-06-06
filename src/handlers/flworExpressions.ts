@@ -1,10 +1,12 @@
-import { doc, type Doc } from "prettier";
+import { doc, type Doc, util } from "prettier";
 import space from "./util/space.ts";
 import printIfExist from "./util/printIfExists.ts";
 import joinChildrenWithSpaces from "./util/joinChildrenWithSpaces.ts";
 import type { Handler } from "./util/Handler.ts";
+import isPreviousLineEmpty from "./util/isPreviousLineEmpty.ts";
+import printComment from "./util/printComment.ts";
 
-const { join, line, group, indent, hardline } = doc.builders;
+const { join, line, group, indent, hardline, hardlineWithoutBreakParent } = doc.builders;
 
 const flworExpressionHandlers: Record<string, Handler> = {
 	FLWORExpr: (path, print) => {
@@ -17,7 +19,7 @@ const flworExpressionHandlers: Record<string, Handler> = {
 			hardline,
 			join(hardline, intermediateClausePart),
 			intermediateClausePart.length ? hardline : [],
-			indent(returnClausePart),
+			returnClausePart,
 		]);
 	},
 	GroupByClause: (path, print) => {
@@ -60,7 +62,14 @@ const flworExpressionHandlers: Record<string, Handler> = {
 
 		const specListPart = path.map(print, "childrenByName", "OrderSpecList");
 
-		return group([stableKeyword ? [stableKeyword, space] : [], orderKeyword, space, byKeyword, space, specListPart]);
+		return group([
+			stableKeyword ? [stableKeyword, space] : [],
+			orderKeyword,
+			space,
+			byKeyword,
+			space,
+			specListPart,
+		]);
 	},
 	OrderSpecList: (path, print) => {
 		const specs = path.map(print, "childrenByName", "OrderSpec");
@@ -83,15 +92,43 @@ const flworExpressionHandlers: Record<string, Handler> = {
 		const exprSinglePart = path.map(print, "childrenByName", "ExprSingle");
 		return group([whereKeyword, space, exprSinglePart]);
 	},
-	IntermediateClause: joinChildrenWithSpaces,
+	IntermediateClause: (path, print, options) => {
+		const result: Doc[] = [];
+		if (isPreviousLineEmpty(path.node, options)) {
+			result.unshift(hardline);
+		}
+		if (path.node.comments) {
+			for (const comment of path.node.comments) {
+				result.push(printComment(comment));
+				comment.printed = true;
+			}
+			result.push(line);
+		}
+
+		result.push(path.map(print, "children"));
+		return result;
+	},
 	InitialClause: (path, print) => {
-		return group([path.map(print, "children")]);
+		const result: Doc[] = path.map(print, "children");
+		return result;
 	},
 	ForClause: (path, print) => {
-		return group(["for", space, indent([join([",", line], path.map(print, "childrenByName", "ForBinding"))])]);
+		const forKeyword = path.map(print, "childrenByName", "'for'");
+		const result: Doc[] = [
+			forKeyword,
+			space,
+			indent([join([",", line], path.map(print, "childrenByName", "ForBinding"))]),
+		];
+		return group(result);
 	},
-	LetClause: (path, print) => {
-		return group(["let", space, indent([join([",", line], path.map(print, "childrenByName", "LetBinding"))])]);
+	LetClause: (path, print, options) => {
+		const letKeyword = path.map(print, "childrenByName", "'let'");
+		const result: Doc[] = [
+			letKeyword,
+			space,
+			indent([join([",", line], path.map(print, "childrenByName", "LetBinding"))]),
+		];
+		return group(result);
 	},
 	LetBinding: (path, print) => {
 		const varNamePart = path.map(print, "childrenByName", "VarName");
@@ -125,6 +162,10 @@ const flworExpressionHandlers: Record<string, Handler> = {
 		const windowStartConditionPart = path.map(print, "childrenByName", "WindowStartCondition");
 		const windowEndConditionPart = printIfExist(path, print, "WindowEndCondition");
 
+		const conditionParts: Doc[] = [windowStartConditionPart];
+		if (windowEndConditionPart) {
+			conditionParts.push(windowEndConditionPart);
+		}
 		return group([
 			tumblingKeyword,
 			space,
@@ -137,7 +178,7 @@ const flworExpressionHandlers: Record<string, Handler> = {
 			inKeyword,
 			space,
 			exprSinglePart,
-			indent([hardline, windowStartConditionPart, hardline, windowEndConditionPart ?? []]),
+			indent([hardline, join(hardline, conditionParts)]),
 		]);
 	},
 	SlidingWindowClause: (path, print) => {
@@ -195,10 +236,24 @@ const flworExpressionHandlers: Record<string, Handler> = {
 
 		return join(line, parts);
 	},
-	ReturnClause: (path, print) => {
+	ReturnClause: (path, print, options) => {
 		const returnKeyword = path.map(print, "childrenByName", "'return'");
 		const exprSinglePart = path.map(print, "childrenByName", "ExprSingle");
-		return group([returnKeyword, space, exprSinglePart]);
+		const result: Doc[] = [];
+
+		if (isPreviousLineEmpty(path.node, options)) {
+			result.unshift(hardline);
+		}
+		if (path.node.comments) {
+			for (const comment of path.node.comments) {
+				result.push(printComment(comment));
+				comment.printed = true;
+			}
+			result.push(line);
+		}
+
+		result.push(returnKeyword, space, indent(exprSinglePart));
+		return group(result);
 	},
 };
 

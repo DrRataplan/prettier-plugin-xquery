@@ -8,4 +8,5 @@ let $week :=
     5: "Freitag",
     6: "Samstag"
   }
+
 return map:remove($week, (0, 6 to 7))
