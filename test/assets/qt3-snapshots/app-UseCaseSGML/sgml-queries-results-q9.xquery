@@ -1,4 +1,6 @@
-<result> {
-  for $id in //xref/@xrefid
-  return //topic[@topicid = $id]
-} </result>
+<result>
+  {
+    for $id in //xref/@xrefid
+    return //topic[@topicid = $id]
+  }
+</result>

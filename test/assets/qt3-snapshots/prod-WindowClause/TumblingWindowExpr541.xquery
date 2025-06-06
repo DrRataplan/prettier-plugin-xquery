@@ -5,5 +5,5 @@ return $w2
   start $s when true()
   end $e when $e - $s eq 2
 return <window>{
-    $w2
-  }</window>
+      $w2
+    }</window>

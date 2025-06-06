@@ -1,6 +1,6 @@
 if (//MissingNode) then
-  <elem3/>
+  <elem3 />
 else if (/Root/Customers[@CustomerID = "ALFKI"]//Country = "Germany") then
-  <elem1/>
+  <elem1 />
 else
-  <elem2/>
+  <elem2 />

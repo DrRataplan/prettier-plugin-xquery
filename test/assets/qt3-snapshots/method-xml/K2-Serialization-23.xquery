@@ -4,5 +4,5 @@ declare option output:method "xml";
 declare option output:standalone "no";
 
 <chapter><section><para><b>bold</b>{
-  " "
-}<i>italic</i></para></section></chapter>
+        " "
+      }<i>italic</i></para></section></chapter>

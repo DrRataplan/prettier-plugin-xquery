@@ -142,5 +142,5 @@ declare function functx:sequence-type ($items as item()*) as xs:string {
 };
 
 let $in-xml :=
-  <in-xml> <a att1="y">x</a> <b att1="x">x</b> <!-- comment --> </in-xml>
+  <in-xml><a att1="y">x</a><b att1="x">x</b><!-- comment --></in-xml>
 return (functx:sequence-type($in-xml/*[1]))

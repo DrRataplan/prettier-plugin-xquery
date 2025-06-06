@@ -1,3 +1,3 @@
 <foo attr="{
-  <!-- comment -->
-}"/>
+    <!-- comment -->
+  }" />

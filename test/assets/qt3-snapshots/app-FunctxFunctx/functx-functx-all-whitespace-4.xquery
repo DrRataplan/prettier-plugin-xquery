@@ -5,5 +5,5 @@ declare function functx:all-whitespace ($arg as xs:string?) as xs:boolean {
   normalize-space($arg) = ""
 };
 
-let $in-xml := <in-xml> <a> </a> <b>x </b> <c> <x>x</x> </c> </in-xml>
+let $in-xml := <in-xml><a /><b>x </b><c><x>x</x></c></in-xml>
 return (functx:all-whitespace($in-xml/b))

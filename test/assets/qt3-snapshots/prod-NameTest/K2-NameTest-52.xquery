@@ -1,5 +1,5 @@
 <a>{
-  comment {
-    "content"
-  }/*
-}</a>
+    comment {
+      "content"
+    }/*
+  }</a>

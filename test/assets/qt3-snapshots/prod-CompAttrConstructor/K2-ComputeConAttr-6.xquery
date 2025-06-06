@@ -1,5 +1,5 @@
-<elem> <![CDATA[content]]> {
-  attribute name {
-    "content"
-  }
-} </elem>
+<elem><![CDATA[content]]>{
+    attribute name {
+      "content"
+    }
+  }</elem>

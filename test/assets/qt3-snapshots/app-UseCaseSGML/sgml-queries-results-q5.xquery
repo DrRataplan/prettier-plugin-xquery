@@ -1,3 +1,3 @@
-<result> {
-  //para[@security = "c"]
-} </result>
+<result>{
+    //para[@security = "c"]
+  }</result>

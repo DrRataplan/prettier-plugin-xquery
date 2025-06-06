@@ -5,6 +5,6 @@ let $x := (attribute a {
     }, attribute c {
       "c"
     })
-return <foo> {
-    $x
-  } </foo>
+return <foo>{
+      $x
+    }</foo>

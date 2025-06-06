@@ -1,3 +1,3 @@
-<result> {
-  //intro/para
-} </result>
+<result>{
+    //intro/para
+  }</result>

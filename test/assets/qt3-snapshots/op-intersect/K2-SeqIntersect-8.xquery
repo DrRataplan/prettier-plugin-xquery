@@ -1,1 +1,1 @@
-empty(<e/>/(author intersect processing-instruction))
+empty(<e />/(author intersect processing-instruction))

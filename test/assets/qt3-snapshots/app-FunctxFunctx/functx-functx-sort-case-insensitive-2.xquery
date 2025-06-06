@@ -7,5 +7,5 @@ declare function functx:sort-case-insensitive ($seq as item()*) as item()* {
   return $item
 };
 
-let $in-xml := <in-xml> <f>a</f> <f>c</f> <e>B</e> </in-xml>
+let $in-xml := <in-xml><f>a</f><f>c</f><e>B</e></in-xml>
 return (functx:sort-case-insensitive($in-xml/*))

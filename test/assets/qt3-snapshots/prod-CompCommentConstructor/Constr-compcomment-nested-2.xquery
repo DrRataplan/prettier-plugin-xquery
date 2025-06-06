@@ -1,13 +1,13 @@
 <elem>{
-  comment {
-    "one"
-  }
-}<a>{
-  comment {
-    "two"
-  }
-}</a>{
-  comment {
-    "three"
-  }
-}</elem>
+    comment {
+      "one"
+    }
+  }<a>{
+      comment {
+        "two"
+      }
+    }</a>{
+    comment {
+      "three"
+    }
+  }</elem>

@@ -1,4 +1,4 @@
-declare variable $input := <e/>;
+declare variable $input := <e />;
 
 empty(
   for $PI as processing-instruction() in $input//processing-instruction()

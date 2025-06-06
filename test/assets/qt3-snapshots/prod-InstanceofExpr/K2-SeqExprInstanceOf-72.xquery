@@ -1,1 +1,1 @@
-<e a=""/>/attribute::a instance of attribute(a)
+<e a="" />/attribute::a instance of attribute(a)

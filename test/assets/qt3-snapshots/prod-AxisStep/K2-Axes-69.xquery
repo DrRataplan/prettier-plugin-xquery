@@ -1,1 +1,1 @@
-1, <e attr=""/>/descendant::node(), 1
+1, <e attr="" />/descendant::node(), 1

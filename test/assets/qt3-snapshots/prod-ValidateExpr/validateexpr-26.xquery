@@ -1,3 +1,3 @@
 validate { document {
-    <a/>, <b/>
+    <a />, <b />
   } }

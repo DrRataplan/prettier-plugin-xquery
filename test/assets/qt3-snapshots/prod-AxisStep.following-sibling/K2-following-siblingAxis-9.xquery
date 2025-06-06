@@ -1,1 +1,1 @@
-1, <root/>/following-sibling::node(), 1
+1, <root />/following-sibling::node(), 1

@@ -6,7 +6,10 @@ declare function functx:path-to-node ($nodes as node()*) as xs:string* {
 };
 
 let $in-xml :=
-  <authors> <author> <fName>Kate</fName> <lName>Jones</lName> </author> <author> <fName>John</fName> <lName>Doe</lName> </author> </authors>
+  <authors>
+    <author><fName>Kate</fName><lName>Jones</lName></author>
+    <author><fName>John</fName><lName>Doe</lName></author>
+  </authors>
 return (
     functx:path-to-node($in-xml//lName[. = "Doe"]),
     functx:path-to-node($in-xml/*[1])

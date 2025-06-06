@@ -4,8 +4,8 @@ declare function local:tag ($arg) as element() {
   }
 };
 
-<element> {
-  comment {
-    "comment", local:tag("--")
-  }
-} </element>
+<element>{
+    comment {
+      "comment", local:tag("--")
+    }
+  }</element>

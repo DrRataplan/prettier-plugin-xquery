@@ -5,15 +5,15 @@ let $counter :=
   function ($result, $word) {
     let $word-count := $result[@value = $word]
     return if (empty($word-count)) then (
-        $result, <word value="{
-          $word
-        }" count="1" />
+        $result, <word count="1" value="{
+            $word
+          }" />
       ) else (
-        $result except $word-count, <word value="{
-          $word-count/@value
-        }" count="{
-          number($word-count/@count) + 1
-        }" />
+        $result except $word-count, <word count="{
+            number($word-count/@count) + 1
+          }" value="{
+            $word-count/@value
+          }" />
       )
   }
 let $words := fold-left($tokens, (), $counter)

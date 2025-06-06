@@ -1,3 +1,3 @@
-<result> {
-  //overtime/node() or fn:true()
-} </result>
+<result>{
+    //overtime/node() or fn:true()
+  }</result>

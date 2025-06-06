@@ -1,1 +1,1 @@
-string(<elem> <![CDATA[]]> </elem>)
+string(<elem><![CDATA[]]></elem>)

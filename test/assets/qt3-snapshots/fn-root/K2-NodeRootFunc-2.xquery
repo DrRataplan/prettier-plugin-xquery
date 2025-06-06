@@ -1,1 +1,1 @@
-empty(fn:root(<e/>/..))
+empty(fn:root(<e />/..))

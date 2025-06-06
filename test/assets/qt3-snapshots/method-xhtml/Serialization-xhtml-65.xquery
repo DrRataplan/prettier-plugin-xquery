@@ -6,10 +6,8 @@ declare option output:version "1.0";
 declare option output:html-version "5.0";
 declare option output:suppress-indentation "li td";
 
-<html><body>
-         <ul>
-           <li><p>One</p></li>
-           <li><p>Two</p></li>
-           <li><p>Three</p></li>
-         </ul>  
-      </body></html>
+<html>
+  <body>
+    <ul><li><p>One</p></li><li><p>Two</p></li><li><p>Three</p></li></ul>
+  </body>
+</html>

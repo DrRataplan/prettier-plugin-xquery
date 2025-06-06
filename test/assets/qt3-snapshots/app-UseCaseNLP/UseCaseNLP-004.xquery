@@ -5,12 +5,12 @@ where $pos = ("JJ", "NN", "RB", "VB")
 group by $pos
 order by $pos
 return <pos name="{
-    $pos
-  }">
-              {
-    for $l in distinct-values($lexeme)
-    return <lexeme>{
-        $l
-      }</lexeme>
-  }
-            </pos>
+      $pos
+    }">
+    {
+      for $l in distinct-values($lexeme)
+      return <lexeme>{
+            $l
+          }</lexeme>
+    }
+  </pos>

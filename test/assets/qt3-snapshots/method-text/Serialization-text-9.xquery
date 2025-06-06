@@ -1,5 +1,5 @@
 declare option Q{http://www.w3.org/2010/xslt-xquery-serialization}method "text";
 
 <a attr="{
-  codepoints-to-string(127 to 159)
-}"/>
+    codepoints-to-string(127 to 159)
+  }" />

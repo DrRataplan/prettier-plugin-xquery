@@ -1,0 +1,52 @@
+exports[`node constructors > Formats long attribute lists 1`] = `
+<ele
+  a="a"
+  b="b"
+  c="c"
+  d="d"
+  e="e"
+  f="f"
+  g="g"
+  h="h"
+  i="i"
+  j="j"
+  k="k"
+  l="l"
+  m="m"
+  n="n"
+  o="o"
+  p="p" />
+
+`;
+
+exports[`node constructors > Orders attributes alphabeticaly 1`] = `
+<ele xmlns="111" xmlns:A="aaa" a="a" b="b" />
+
+`;
+
+exports[`node constructors > Still normalizes to self-closing if the comment is next to the element 1`] = `
+<ele />
+(: Comment :) 
+`;
+
+exports[`node constructors > handles enclosed expressions as boundary whitespace 1`] = `
+declare boundary-space strip;
+
+<testcase>
+  {}Some text here to make it over the 80 characters! AAAAAAAAAAAAAAAAAAA</testcase>,
+<testcase>
+  {}Some text here to make it over the 80 characters! AAAAAAAAAAAAAAAAAAA</testcase>,
+<testcase
+>Some text here to make it over the 80 characters! AAAAAAAAAAAAAAAAAAA{}
+</testcase>,
+<testcase
+>Some text here to make it over the 80 characters! AAAAAAAAAAAAAAAAAAA{}
+</testcase>,
+<testcase>
+  {}Some text here to make it over the 80 characters! AAAAAAAAAAAAAAAAAAA{}
+</testcase>,
+<testcase>
+  {}Some text here to make it over the 80 characters! AAAAAAAAAAAAAAAAAAA{}
+</testcase>
+
+`;

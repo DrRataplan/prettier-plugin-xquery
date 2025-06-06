@@ -1,3 +1,3 @@
 document {
-  <a/>, //@mark, <b/>
+  <a />, //@mark, <b />
 }

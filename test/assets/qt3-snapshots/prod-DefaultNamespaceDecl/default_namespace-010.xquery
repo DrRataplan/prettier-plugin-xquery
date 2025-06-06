@@ -14,15 +14,15 @@ declare function prnt (
     fn:concat($n, " ", $n2, " ", $n3, " ", $n4, " ", $n5, " ", $n6)
 };
 
-<table> {
-  <td>Value is = {
-    prnt(
-      4,
-      xs:string("hello"),
-      xs:date("2005-02-22"),
-      xs:long(5),
-      xs:string("well"),
-      xs:decimal(1.2)
-    )
-  }</td>
-} </table>
+<table>{
+    <td>Value is = {
+        prnt(
+          4,
+          xs:string("hello"),
+          xs:date("2005-02-22"),
+          xs:long(5),
+          xs:string("well"),
+          xs:decimal(1.2)
+        )
+      }</td>
+  }</table>

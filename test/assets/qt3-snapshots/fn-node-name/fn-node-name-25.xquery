@@ -1,1 +1,1 @@
-<node xmlns="http://example.com/ns"/>/node-name()
+<node xmlns="http://example.com/ns" />/node-name()

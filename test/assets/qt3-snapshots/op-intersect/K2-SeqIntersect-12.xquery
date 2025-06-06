@@ -1,1 +1,1 @@
-empty(<e/>/(author intersect then))
+empty(<e />/(author intersect then))

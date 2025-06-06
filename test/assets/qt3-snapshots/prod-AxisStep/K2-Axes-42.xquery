@@ -1,1 +1,1 @@
-empty(<e/>[parent::node()])
+empty(<e />[parent::node()])

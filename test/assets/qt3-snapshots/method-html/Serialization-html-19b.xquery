@@ -6,4 +6,13 @@ declare option output:indent "no";
 declare option output:version "4.0";
 declare option output:cdata-section-elements "b html:em";
 
-<html><body><p><b>No CDATA</b><em>No CDATA</em><html:b>No CDATA</html:b><html:em>Some CDATA</html:em></p></body></html>
+<html>
+  <body>
+    <p>
+      <b>No CDATA</b>
+      <em>No CDATA</em>
+      <html:b>No CDATA</html:b>
+      <html:em>Some CDATA</html:em>
+    </p>
+  </body>
+</html>

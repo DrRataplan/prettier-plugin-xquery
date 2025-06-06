@@ -1,5 +1,5 @@
 declare variable $myVar := document {
-  <e/>
+  <e />
 };
 
 empty($myVar/(/)/..)

@@ -1,1 +1,1 @@
-empty(<e/>/attribute::attribute())
+empty(<e />/attribute::attribute())

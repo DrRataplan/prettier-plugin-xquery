@@ -1,1 +1,1 @@
-generate-id(<a/>) castable as xs:NCName
+generate-id(<a />) castable as xs:NCName

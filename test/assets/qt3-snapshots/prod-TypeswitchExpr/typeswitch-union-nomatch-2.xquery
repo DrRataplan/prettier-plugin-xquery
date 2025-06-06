@@ -1,4 +1,4 @@
-typeswitch (<e/>)
+typeswitch (<e />)
   case xs:integer|xs:string return
     1
 

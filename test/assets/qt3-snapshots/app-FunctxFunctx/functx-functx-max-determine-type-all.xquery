@@ -17,7 +17,10 @@ declare function functx:max-determine-type (
 };
 
 let $in-xml :=
-  <values> <nums> <num>12</num> <num>23</num> <num>115</num> <num>12.5</num> </nums> <strings> <string>def</string> <string>abc</string> </strings> </values>
+  <values>
+    <nums><num>12</num><num>23</num><num>115</num><num>12.5</num></nums>
+    <strings><string>def</string><string>abc</string></strings>
+  </values>
 return (
     functx:max-determine-type($in-xml//num),
     functx:max-determine-type($in-xml//string),

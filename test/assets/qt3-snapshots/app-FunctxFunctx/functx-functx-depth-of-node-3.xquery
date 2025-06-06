@@ -6,5 +6,8 @@ declare function functx:depth-of-node ($node as node()?) as xs:integer {
 };
 
 let $in-xml :=
-  <authors> <author> <fName>Kate</fName> <lName>Jones</lName> </author> <author> <fName>John</fName> <lName>Doe</lName> </author> </authors>
+  <authors>
+    <author><fName>Kate</fName><lName>Jones</lName></author>
+    <author><fName>John</fName><lName>Doe</lName></author>
+  </authors>
 return (functx:depth-of-node($in-xml/author[1]/fName/text()))

@@ -1,5 +1,5 @@
-<a> {
-  attribute xml:space {
-    "DEFAULT"
-  }
-} </a>
+<a>{
+    attribute xml:space {
+      "DEFAULT"
+    }
+  }</a>

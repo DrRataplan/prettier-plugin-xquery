@@ -1,1 +1,1 @@
-<ncname>content</ncname > = "content"
+<ncname>content</ncname> = "content"

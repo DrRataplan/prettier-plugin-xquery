@@ -1,1 +1,1 @@
-empty(<e/>/(a except descendant))
+empty(<e />/(a except descendant))

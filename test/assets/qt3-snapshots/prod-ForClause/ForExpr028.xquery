@@ -1,2 +1,2 @@
-for $num in (<one/>, <two/>, <three/>)
+for $num in (<one />, <two />, <three />)
 return $num

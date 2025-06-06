@@ -1,3 +1,3 @@
-<elem att="{
-  <p:e/>/namespace-uri()
-}" xmlns:p="http://ns.example.com/uri"/>
+<elem xmlns:p="http://ns.example.com/uri" att="{
+    <p:e />/namespace-uri()
+  }" />

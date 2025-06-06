@@ -1,3 +1,3 @@
-<e/>/<e a="{
-  p:asd
-}" xmlns:p="http://example.com/asd"/>
+<e />/<e xmlns:p="http://example.com/asd" a="{
+    p:asd
+  }" />

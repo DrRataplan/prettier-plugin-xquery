@@ -1,3 +1,3 @@
 count(document {
-    <A><B/></A>
+    <A><B /></A>
   }//*[last() <= 1])

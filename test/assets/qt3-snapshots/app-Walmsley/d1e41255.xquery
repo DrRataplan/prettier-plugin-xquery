@@ -5,12 +5,10 @@ declare variable $deptinfo := map {
 };
 
 for $prod in doc("catalog.xml")//product
-return <product num="{
-    $prod/number
-  }"
-                dept-name="{
-    $deptinfo?($prod/@dept)?deptname
-  }"
-                dept-code="{
-    $deptinfo?($prod/@dept)?deptnum
-  }"/>
+return <product dept-code="{
+      $deptinfo?($prod/@dept)?deptnum
+    }" dept-name="{
+      $deptinfo?($prod/@dept)?deptname
+    }" num="{
+      $prod/number
+    }" />

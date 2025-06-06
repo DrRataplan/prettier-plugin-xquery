@@ -1,5 +1,5 @@
 declare boundary-space preserve;
 
 <elem>   {
-  1
-}</elem>
+    1
+  }</elem>

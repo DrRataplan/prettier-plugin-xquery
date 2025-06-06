@@ -7,7 +7,7 @@ declare function functx:sort ($seq as item()*) as item()* {
   return $item
 };
 
-let $in-xml := <in-xml> <f>c</f> <f>a</f> <e>b</e> </in-xml>
+let $in-xml := <in-xml><f>c</f><f>a</f><e>b</e></in-xml>
 return document {
     (functx:sort(("c", "a", "b")), functx:sort($in-xml/*))
   }

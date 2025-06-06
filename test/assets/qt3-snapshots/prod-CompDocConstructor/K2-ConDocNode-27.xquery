@@ -1,7 +1,7 @@
-<doo> {
-  document {
-    <e/>, attribute name {
-      "content"
+<doo>{
+    document {
+      <e />, attribute name {
+        "content"
+      }
     }
-  }
-} </doo>
+  }</doo>

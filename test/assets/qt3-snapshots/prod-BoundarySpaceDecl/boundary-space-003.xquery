@@ -1,5 +1,5 @@
 declare boundary-space strip;
 
 <a> z {
-  "abc"
-}</a>
+    "abc"
+  }</a>

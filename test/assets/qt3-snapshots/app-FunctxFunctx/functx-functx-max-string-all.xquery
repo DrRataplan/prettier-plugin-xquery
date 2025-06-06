@@ -10,5 +10,5 @@ declare function functx:max-string (
   )
 };
 
-let $in-xml := <in-xml> <x>a</x> <y>c</y> <z>b</z> </in-xml>
+let $in-xml := <in-xml><x>a</x><y>c</y><z>b</z></in-xml>
 return (functx:max-string($in-xml/*), functx:max-string((100, 25, 3)))

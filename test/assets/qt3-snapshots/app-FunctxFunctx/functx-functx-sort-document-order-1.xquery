@@ -5,5 +5,5 @@ declare function functx:sort-document-order ($seq as node()*) as node()* {
   $seq/.
 };
 
-let $in-xml := <in-xml> <a>123</a> <b>456</b> <c>789</c> </in-xml>
+let $in-xml := <in-xml><a>123</a><b>456</b><c>789</c></in-xml>
 return (functx:sort-document-order(($in-xml/c, $in-xml/a)))

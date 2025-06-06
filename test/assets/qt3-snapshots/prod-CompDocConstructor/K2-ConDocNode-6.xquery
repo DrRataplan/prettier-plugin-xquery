@@ -1,5 +1,5 @@
 string(document {
-    "some text", <e/>, attribute name {
+    "some text", <e />, attribute name {
       "content"
     }
   })
