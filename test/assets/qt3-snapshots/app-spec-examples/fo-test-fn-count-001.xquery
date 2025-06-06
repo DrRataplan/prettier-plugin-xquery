@@ -8,6 +8,9 @@ let $po :=
          <quantity>805</quantity> </line-item>
          </PurchaseOrder>
 return let $item1 := $po/line-item[1]
+
   return let $item2 := $po/line-item[2]
+
     return let $seq1 := ($item1, $item2)
+
       return fn:count($seq1)

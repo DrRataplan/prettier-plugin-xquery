@@ -8,6 +8,7 @@ declare function local:partners ($company as xs:string) as element()* {
 };
 
 let $foobar_partners := local:partners("Foobar Corporation")
+
 for $item in $input-context1//news_item
 where some
   $t in

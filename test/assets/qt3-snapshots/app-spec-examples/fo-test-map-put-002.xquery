@@ -8,4 +8,5 @@ let $week :=
     5: "Freitag",
     6: "Samstag"
   }
+
 return map:put($week, -1, "Unbekannt")

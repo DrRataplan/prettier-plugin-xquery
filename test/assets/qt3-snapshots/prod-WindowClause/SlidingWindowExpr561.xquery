@@ -37,6 +37,7 @@ declare
     )
   return for $trip in $trips
     let $tripDate := $trip/@date, $tripName := $trip/@name
+
     group by $tripDate, $tripName
     let $totalDuration := sum($trip/@duration/xs:dayTimeDuration(.))
     order by $tripDate descending, $tripName

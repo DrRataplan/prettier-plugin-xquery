@@ -1,4 +1,4 @@
-import { doc } from "prettier";
+import { doc, util } from "prettier";
 import type { Doc } from "prettier";
 import space from "./util/space.ts";
 import printIfExist from "./util/printIfExists.ts";
@@ -52,16 +52,20 @@ const modulesAndPrologsHandlers: Record<string, Handler> = {
 		return group([moduleDeclPart.length ? [moduleDeclPart, hardline, hardline] : [], prologPart]);
 	},
 	ModuleDecl: (path, print) => {
+		const moduleKeyword = path.map(print, 'childrenByName', "'module'");
+		const namespaceKeyword = path.map(print, 'childrenByName', "'namespace'");
 		const prefixPart = path.map(print, "childrenByName", "NCName");
 		const uriPart = path.map(print, "childrenByName", "URILiteral");
 		const separatorPart = path.map(print, "childrenByName", "Separator");
 
-		return group(["module", space, "namespace", space, prefixPart, space, "=", space, uriPart, separatorPart]);
+		return group([moduleKeyword, space, namespaceKeyword, space, prefixPart, space, "=", space, uriPart, separatorPart]);
 	},
 	NamespaceDecl: (path, print) => {
+		const declareKeyword = path.map(print, 'childrenByName', "'declare'");
+		const namespaceKeyword = path.map(print, 'childrenByName', "'namespace'");
 		const prefixPart = path.map(print, "childrenByName", "NCName");
 		const uriPart = path.map(print, "childrenByName", "URILiteral");
-		return group(["declare", space, "namespace", space, prefixPart, space, "=", space, uriPart]);
+		return group([declareKeyword, space, namespaceKeyword, space, prefixPart, space, "=", space, uriPart]);
 	},
 
 	SchemaImport: (path, print) => {
@@ -207,6 +211,7 @@ const modulesAndPrologsHandlers: Record<string, Handler> = {
 		if ((path.node.childrenByName.Prolog[0] as NonTerminalNode).children.length === 0) {
 			return group([prologPart, queryBodyPart]);
 		}
+
 		return group([prologPart.length ? [prologPart, hardline, hardline] : [], queryBodyPart]);
 	},
 	OptionDecl: (path, print) => {

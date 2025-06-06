@@ -36,4 +36,39 @@ declare variable $x := "A"; (: A :)
 
 		assert.strictEqual(result, code, "The input was already formatted correctly");
 	});
+
+	it("Keeps comments on their own lines", async () => {
+		const code = `
+(
+  (: A leading comment:) A,
+  (: On its own line :)
+  B,
+  C (: Trailing now :)
+)
+`.trimStart();
+
+		const result = await prettier.format(code, {
+			parser: "xquery",
+			plugins: [xqueryPlugin],
+		});
+
+		assert.strictEqual(result, code, "The input was already formatted correctly");
+	});
+
+	it("handles comments separated with newlines", async () => {
+		const code = `
+(:a:)
+
+(:b:)
+
+a
+`.trimStart();
+
+		const result = await prettier.format(code, {
+			parser: "xquery",
+			plugins: [xqueryPlugin],
+		});
+
+		assert.strictEqual(result, code, "The input was already formatted correctly");
+	});
 });

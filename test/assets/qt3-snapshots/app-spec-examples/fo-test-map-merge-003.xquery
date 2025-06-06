@@ -8,4 +8,5 @@ let $week :=
     5: "Freitag",
     6: "Samstag"
   }
+
 return map:merge(($week, map {7: "Unbekannt"}))

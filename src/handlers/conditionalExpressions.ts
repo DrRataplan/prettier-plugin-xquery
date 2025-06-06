@@ -1,8 +1,9 @@
-import { doc } from "prettier";
+import { doc, type Doc, util } from "prettier";
 import space from "./util/space.ts";
 import type { Handler } from "./util/Handler.ts";
+import isPreviousLineEmpty from "./util/isPreviousLineEmpty.ts";
 
-const { softline, group, indent, hardline } = doc.builders;
+const { softline, group, indent, hardline,  hardlineWithoutBreakParent } = doc.builders;
 
 const conditionalExpressionHandlers: Record<string, Handler> = {
 	IfExpr: (path, print, options) => {
@@ -50,10 +51,24 @@ const conditionalExpressionHandlers: Record<string, Handler> = {
 		  Format nested else if expressions: if the else contains an if, print `else if (..)`,
 		  otherwise print `else \n EXPR`
 		*/
-		const formattedElsePart =
+		const formattedElsePart: Doc[] =
 			nestedIfInElse || elsePartIsParenthesized
 				? [elseKeyword, space, elsePart]
-				: [elseKeyword, indent([hardline, elsePart])];
+			: [elseKeyword, indent([hardlineWithoutBreakParent, elsePart])];
+
+		// If the else had a newline in front of it, try to keep it.
+		/*
+		 * if (1) then
+		 *   2
+		 *
+		 * else
+		 *   3
+		 */
+		const hadNewLineBeforeElse = isPreviousLineEmpty(path.node.childrenByName["'else'"][0], options);
+		if (hadNewLineBeforeElse) {
+			formattedElsePart.unshift(hardlineWithoutBreakParent)
+		}
+
 		return group([
 			group([
 				ifKeyword,
@@ -65,8 +80,8 @@ const conditionalExpressionHandlers: Record<string, Handler> = {
 				space,
 				thenKeyword,
 			]),
-			formattedThenPart,
-			formattedElsePart,
+			group(formattedThenPart),
+			group(formattedElsePart),
 		]);
 	},
 };

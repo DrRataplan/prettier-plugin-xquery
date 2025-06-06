@@ -1,4 +1,4 @@
-import { doc } from "prettier";
+import { doc, util } from "prettier";
 import printIfExist from "./util/printIfExists.ts";
 import space from "./util/space.ts";
 import type { Handler } from "./util/Handler.ts";
@@ -14,7 +14,9 @@ const primaryExpressionHandlers: Record<string, Handler> = {
 		const lineType = shouldBreakAndIndent ? hardline : softline;
 
 		const children = printIfExist(path, print, "Expr");
-		const parenthesizedExpressionIsEmpty = !children && path.node.childrenByName["')'"][0].comments === undefined;
+		const positionAfterSpaces = util.skipWhitespace(options.originalText,path.node.begin +1, )
+		const parenthesizedExpressionIsEmpty = positionAfterSpaces && positionAfterSpaces === path.node.end! - 1
+
 		if (parenthesizedExpressionIsEmpty) {
 			return group([parenOpenKeyword, lineType, parenCloseKeyword]);
 		}

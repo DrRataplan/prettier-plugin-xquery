@@ -20,4 +20,5 @@ let $hours := function ($emp as element(employee)) as xs:integer {
       }
     )
   }
+
 return $highest($hours, /works/employee)

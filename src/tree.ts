@@ -58,6 +58,12 @@ export class RootNode extends NonTerminalNode {
 }
 export class CommentNode extends Node {
 	public readonly value: string;
+
+	/**
+	 * Annotated by Prettier
+	 */
+	public placement?: "endOfLine" | "ownLine" | "remaining" = undefined;
+	public printed?: boolean = undefined;
 	constructor(begin: number, end: number, value: string) {
 		super("Comment", begin, end);
 		this.value = value;

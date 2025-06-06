@@ -15,8 +15,8 @@ where not(
     "fo-test-"
   (: special exemption for generated tests :) )
 )
-where xs:date($test/created/@on) le
-  xs:date("2018-01-01") (: no point keeping this requirement any longer :)
+(: no point keeping this requirement any longer :)
+where xs:date($test/created/@on) le xs:date("2018-01-01")
 return <out test="{
     $test/@name
   }"/>

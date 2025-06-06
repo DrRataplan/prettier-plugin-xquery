@@ -14,8 +14,10 @@ let $keys :=
         default return
           error()
     )
+
 let $map :=
   map:merge(($keys, $keys)!map:entry(., .), map {"duplicates": "use-last"})
+
 return map:size($map) eq count($keys) and
     (
       every

@@ -1,4 +1,5 @@
 let $SMOOTH_CONST := 0.2
+
 for sliding window $w in ./stream/event
   start at $s_pos when true()
   only end at $e_pos when $e_pos - $s_pos eq 2

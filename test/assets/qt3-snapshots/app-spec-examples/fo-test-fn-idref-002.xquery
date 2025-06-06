@@ -15,6 +15,7 @@ let $emp := validate lax { document {
             </employee>
           </employees>
     } }
+
 return $emp/(
     element-with-id("E30561")/empnr => fn:idref()
   )/ancestor::employee/last

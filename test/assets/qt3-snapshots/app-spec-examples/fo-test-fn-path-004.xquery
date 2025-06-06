@@ -5,4 +5,5 @@ Tochter aus Elysium,<br/>
 Wir betreten feuertrunken,<br/>
 Himmlische, dein Heiligtum.</p>
   }
+
 return fn:path($e/*:p/@author)

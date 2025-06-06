@@ -4,4 +4,5 @@ let $inventory :=
     "id": "QZ123",
     "parts": [map {"name": "engine", "id": "YW678", "parts": []}]
   }
+
 return map:find($inventory, "parts")
