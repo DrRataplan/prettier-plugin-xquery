@@ -7,5 +7,5 @@ return let $attr2 := attribute prefix:attr {
       "bar"
     }
   return <prefix:a>{
-        $attr1, $attr2
-      }</prefix:a>
+      $attr1, $attr2
+    }</prefix:a>

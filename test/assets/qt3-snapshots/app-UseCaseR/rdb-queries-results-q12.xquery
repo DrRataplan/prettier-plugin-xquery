@@ -3,11 +3,11 @@ declare function local:bid_summary () as element()* {
   let $b := $bids//bid_tuple[itemno = $i]
   return <bid_count> 
                         <itemno>{
-          $i
-        }</itemno> 
+        $i
+      }</itemno> 
                         <nbids>{
-          count($b)
-        }</nbids> 
+        count($b)
+      }</nbids> 
                    </bid_count>
 };
 
@@ -23,7 +23,7 @@ declare function local:bid_summary () as element()* {
           $item/description
         } 
                         <bid_count>{
-            $bc/nbids/text()
-          }</bid_count> 
+          $bc/nbids/text()
+        }</bid_count> 
                        </popular_item>
   } </result>

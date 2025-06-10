@@ -4,5 +4,5 @@ declare option output:method "xml";
 declare option output:standalone "yes";
 
 <out>{
-    (<a />, <b />)
-  }</out>
+  (<a />, <b />)
+}</out>

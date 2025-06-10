@@ -1,7 +1,7 @@
 empty(
   if (<e>{
-        current-time()
-      }</e>) then (
+      current-time()
+    }</e>) then (
   ) else (
   )
 )

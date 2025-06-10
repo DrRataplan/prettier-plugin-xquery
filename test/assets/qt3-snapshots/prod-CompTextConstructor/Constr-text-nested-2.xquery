@@ -3,10 +3,10 @@
       "one"
     }
   }<a>{
-      text {
-        "two"
-      }
-    }</a>{
+    text {
+      "two"
+    }
+  }</a>{
     text {
       "three"
     }

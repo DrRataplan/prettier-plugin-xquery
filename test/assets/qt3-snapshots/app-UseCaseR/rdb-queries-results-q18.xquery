@@ -9,7 +9,7 @@
           let $descr := $i/description/text()
           order by exactly-one($descr)
           return <bid_on_item>{
-                $descr
-              }</bid_on_item>
+              $descr
+            }</bid_on_item>
         } </user>
   } </result>

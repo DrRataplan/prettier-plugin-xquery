@@ -11,7 +11,7 @@
           $item/reserve_price
         } 
                     <high_bid>{
-            $z
-          }</high_bid> 
+          $z
+        }</high_bid> 
                    </successful_item>
   } </result>

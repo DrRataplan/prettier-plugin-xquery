@@ -1,6 +1,6 @@
 import { type Printer, type Parser, type Plugin, type AstPath, doc, util } from "prettier";
 import { Parser as XQueryParser, ParseException } from "./generated/parser.ts";
-import { Tree, Node, LeafNode, NonTerminalNode, CommentNode, NonCommentNode } from './tree.ts';
+import { Tree, Node, LeafNode, NonTerminalNode, CommentNode, NonCommentNode } from "./tree.ts";
 import type { Print } from "./handlers/util/Print.ts";
 import flworExpressions from "./handlers/flworExpressions.ts";
 import otherExpressionHandlers from "./handlers/otherExpressions.ts";
@@ -137,17 +137,10 @@ const xqueryPrinter: Printer<Node> = {
 	canAttachComment(node: Node) {
 		// Terminal nodes are sometimes not printed. Refrain from adding comments to them.
 		// TODO: always print terminal nodes to optimize comments
-		if (
-			node.name === "Comment" ||
-			node.name === "WhiteSpace" ||
-			node.name === "'{'" ||
-			node.name === "'}'" ||
-			node.name === "','"
-		) {
+		if (node.name === "Comment" || node.name === "WhiteSpace" || node.name === "','") {
 			return false;
 		}
 
-		//		return true;
 		if (node instanceof LeafNode) {
 			return true;
 		}
@@ -178,9 +171,6 @@ const xqueryPrinter: Printer<Node> = {
 		if (nonTerminal.children.length === 1) {
 			// Place one more down
 			return false;
-		}
-		if (nonTerminal.children[0].begin === node.begin) {
-			//	return false;
 		}
 		return true;
 	},

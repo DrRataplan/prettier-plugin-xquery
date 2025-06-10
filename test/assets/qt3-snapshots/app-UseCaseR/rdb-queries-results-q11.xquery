@@ -9,7 +9,7 @@ return <result> {
             $item/description
           } 
                                     <high_bid>{
-              $highbid
-            }</high_bid> 
+            $highbid
+          }</high_bid> 
                                  </expensive_item>
     } </result>

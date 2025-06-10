@@ -4,7 +4,7 @@
     return <book year="{
           $b/@year
         }">{
-          $b/title
-        }</book>
+        $b/title
+      }</book>
   } 
       	</bib>

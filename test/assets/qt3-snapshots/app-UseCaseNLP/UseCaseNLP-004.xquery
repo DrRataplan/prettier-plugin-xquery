@@ -12,7 +12,7 @@ return <pos
               {
       for $l in distinct-values($lexeme)
       return <lexeme>{
-            $l
-          }</lexeme>
+          $l
+        }</lexeme>
     }
             </pos>

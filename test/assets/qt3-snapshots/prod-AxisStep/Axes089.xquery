@@ -130,8 +130,7 @@ declare function tour:try-possible-moves (
     tour:make-best-move($move, $board, $square, $possible-moves)
   else (
   )
-
-  (: if there is no possible move, we return the special value () as the final state
+(: if there is no possible move, we return the special value () as the final state
              of the board, to indicate to the caller that we got stuck :)
 };
 
@@ -299,30 +298,30 @@ declare function tour:print-board ($board as xs:integer*) as element() {
                         $color
                       }" width="22"
                       >{
-                        let $n := $board[$row * 8 + $column + 1]
-                        return if ($endd != 64 and $n = $endd) then
-                            <b>{
-                                $n
-                              }</b>
-                          else if ($n = 0) then
-                            "&#xa0;"
-                          else
+                      let $n := $board[$row * 8 + $column + 1]
+                      return if ($endd != 64 and $n = $endd) then
+                          <b>{
                             $n
-                      }</td>
+                          }</b>
+                        else if ($n = 0) then
+                          "&#xa0;"
+                        else
+                          $n
+                    }</td>
                 }
            </tr>
           }
     </table>
     <p>{
-            if ($endd != 64) then
-              <a href="Tour?start={
-                  $start
-                }&amp;end={
-                  $endd + 1
-                }">Step</a>
-            else (
-            )
-          }</p>    
+          if ($endd != 64) then
+            <a href="Tour?start={
+                $start
+              }&amp;end={
+                $endd + 1
+              }">Step</a>
+          else (
+          )
+        }</p>    
     </div>
     </body>
     </html>
