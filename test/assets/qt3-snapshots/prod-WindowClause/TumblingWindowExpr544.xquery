@@ -7,7 +7,7 @@ return <window
       $r
     }"
     >{
-      for $i in $w
-      order by $i descending
-      return $i
-    }</window>
+    for $i in $w
+    order by $i descending
+    return $i
+  }</window>

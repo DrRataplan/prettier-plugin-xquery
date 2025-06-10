@@ -5,6 +5,6 @@
       return <item name="{
             $i/name/text()
           }">{
-            $i/description
-          }</item>
+          $i/description
+        }</item>
   } </XMark-result-Q13>

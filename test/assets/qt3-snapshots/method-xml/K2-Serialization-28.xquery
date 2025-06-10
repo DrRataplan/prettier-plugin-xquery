@@ -9,5 +9,5 @@ declare option output:suppress-indentation "p para";
 <chapter
   xmlns=""
   ><section><para
-      xmlns="http://www.example.org/ns/p"
-      ><b>bold</b><i>italic</i></para><p><b>BOLD</b><i>ITALIC</i></p></section></chapter>
+    xmlns="http://www.example.org/ns/p"
+    ><b>bold</b><i>italic</i></para><p><b>BOLD</b><i>ITALIC</i></p></section></chapter>

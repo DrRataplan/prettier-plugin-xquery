@@ -10,6 +10,6 @@
       return <items name="{
             $p/name/text()
           }">{
-            count($l)
-          }</items>
+          count($l)
+        }</items>
   } </XMark-result-Q11>

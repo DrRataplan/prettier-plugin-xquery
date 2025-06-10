@@ -5,6 +5,6 @@ return <Folder>{
       for $file in /MyComputer/Drive4//File
       where $file/@idref = $folder/@id
       return <File>{
-            $file/@name
-          }</File>
+          $file/@name
+        }</File>
     }</Folder>

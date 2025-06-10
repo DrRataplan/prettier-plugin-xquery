@@ -13,11 +13,11 @@
               where $t/itemref/@item = $t2/@id
               return $t2
             return <item>{
-                  $n/name/text()
-                }</item>
+                $n/name/text()
+              }</item>
         return <person name="{
               $p/name/text()
             }">{
-              $a
-            }</person>
+            $a
+          }</person>
   } </XMark-result-Q9>

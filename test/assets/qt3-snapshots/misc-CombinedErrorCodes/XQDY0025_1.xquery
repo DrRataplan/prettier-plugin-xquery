@@ -5,5 +5,5 @@ return let $attr2 := attribute attr {
       "bar"
     }
   return <a>{
-        $attr1, $attr2
-      }</a>
+      $attr1, $attr2
+    }</a>

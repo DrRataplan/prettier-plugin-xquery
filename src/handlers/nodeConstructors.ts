@@ -78,7 +78,8 @@ const nodeConstructorHandlers: Record<string, Handler> = {
 	},
 	CompNamespaceConstructor: (path, print) => {
 		const namespaceKeyword = path.map(print, "childrenByName", "'namespace'");
-		const prefixPart = printIfExist(path, print, "Prefix") ?? path.map(print, "childrenByName", "EnclosedPrefixExpr");
+		const prefixPart =
+			printIfExist(path, print, "Prefix") ?? path.map(print, "childrenByName", "EnclosedPrefixExpr");
 		const enclosedURIExprPart = path.map(print, "childrenByName", "EnclosedURIExpr");
 
 		return group([namespaceKeyword, space, prefixPart, space, enclosedURIExprPart]);
@@ -111,19 +112,21 @@ const nodeConstructorHandlers: Record<string, Handler> = {
 				qnamePartOpen,
 				hasAttributes ? indent([line, dirAttributeList]) : [],
 				space,
-				'/>',
+				"/>",
 			]);
 		}
 
 		const [firstAngleBracketClose, secondAngleBracketClose] = path.map(print, "childrenByName", "'>'");
 		const closeElementStart = path.map(print, "childrenByName", "'</'");
 
+		const indentDirElemContent = path.node.childrenByName.DirElemContent.length !== 1;
+
 		return group([
 			angleBracketOpen,
 			qnamePartOpen,
 			hasAttributes ? indent([line, dirAttributeList, softline]) : [],
 			firstAngleBracketClose,
-			dirElemContent ? indent(dirElemContent) : [],
+			indentDirElemContent ? indent(dirElemContent) : dirElemContent,
 			closeElementStart,
 			qnamePartClose,
 			secondAngleBracketClose,

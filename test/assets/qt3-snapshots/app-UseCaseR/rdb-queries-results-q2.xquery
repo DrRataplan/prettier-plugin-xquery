@@ -8,7 +8,7 @@
         } {
           $i/description
         } <high_bid>{
-            max($b/bid)
-          }</high_bid> </item_tuple>
+          max($b/bid)
+        }</high_bid> </item_tuple>
   } 
         </result>
