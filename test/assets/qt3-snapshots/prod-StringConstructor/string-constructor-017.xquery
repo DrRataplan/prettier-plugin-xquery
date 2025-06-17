@@ -1,3 +1,3 @@
 declare variable $n external;
 
-``[There were `{array{ $n }}` green bottles]``
+``[There were `{array { $n }}` green bottles]``

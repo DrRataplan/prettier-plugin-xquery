@@ -13,6 +13,10 @@ map {
   xs:integer("123456"): xs:integer("123456"),
   xs:date("2014-09-30"): "date-key",
   "array":
-    [xs:integer("123456"), xs:date("2014-09-30"), xs:boolean("true"),
-    xs:boolean("false")]
+    [
+      xs:integer("123456"),
+      xs:date("2014-09-30"),
+      xs:boolean("true"),
+      xs:boolean("false")
+    ]
 }

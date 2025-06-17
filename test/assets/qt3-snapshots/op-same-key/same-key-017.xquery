@@ -5,7 +5,10 @@ let $keys :=
     xs:gYearMonth("2015-10"),
     xs:gYearMonth("2015-11")
   )
-return [map:merge($keys!map:entry(., position())), distinct-values($keys),
-  for $k in $keys
-  group by $k
-  return $k]
+return [
+    map:merge($keys!map:entry(., position())),
+    distinct-values($keys),
+    for $k in $keys
+    group by $k
+    return $k
+  ]
