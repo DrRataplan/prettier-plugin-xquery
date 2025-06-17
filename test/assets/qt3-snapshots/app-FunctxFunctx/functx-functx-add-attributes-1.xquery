@@ -19,9 +19,7 @@ declare function functx:add-attributes (
       for $attrName in $attrNames
       return if ($element/@*[node-name(.) = $attrName]) then (
         ) else
-          attribute {$attrName} {
-            $attrValues[$seq]
-          },
+          attribute {$attrName} { $attrValues[$seq] },
       $element/@*,
       $element/node()
     }

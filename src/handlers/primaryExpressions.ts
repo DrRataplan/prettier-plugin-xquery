@@ -64,6 +64,9 @@ const primaryExpressionHandlers: Record<string, Handler> = {
 	},
 
 	EnclosedExpr: (path, print, options) => {
+		const lineType = options.forceNewLineInfunctionBody ? hardline : line;
+		delete options.forceNewLineInfunctionBody;
+
 		const exprPart = printIfExist(path, print, "Expr");
 		const braceOpenKeyword = path.map(print, "childrenByName", "'{'");
 		const braceCloseKeyword = path.map(print, "childrenByName", "'}'");
@@ -75,8 +78,6 @@ const primaryExpressionHandlers: Record<string, Handler> = {
 			}
 			return group([braceOpenKeyword, braceCloseKeyword]);
 		}
-		const lineType = options.forceNewLineInfunctionBody ? hardline : line;
-		delete options.forceNewLineInfunctionBody;
 		return group([braceOpenKeyword, indent([lineType, path.map(print, "childrenByName", "Expr")]), lineType, braceCloseKeyword]);
 	},
 };
