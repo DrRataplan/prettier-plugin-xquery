@@ -1,6 +1,8 @@
 declare namespace functx = "http://www.example.com/";
 
-(:~ : Updates the attribute value of an XML element : : @author Priscilla Walmsley, Datypic : @version 1.0 : @see http://www.xqueryfunctions.com/xq/functx_update-attributes.html : @param $elements the element(s) for which you wish to update the attribute : @param $attrNames the name(s) of the attribute(s) to add : @param $attrValues the value(s) of the attribute(s) to add :)
+(:~
+ : Updates the attribute value of an XML element : : @author Priscilla Walmsley, Datypic : @version 1.0 : @see http://www.xqueryfunctions.com/xq/functx_update-attributes.html : @param $elements the element(s) for which you wish to update the attribute : @param $attrNames the name(s) of the attribute(s) to add : @param $attrValues the value(s) of the attribute(s) to add
+ :)
 declare function functx:update-attributes (
   $elements as element()*,
   $attrNames as xs:QName*,

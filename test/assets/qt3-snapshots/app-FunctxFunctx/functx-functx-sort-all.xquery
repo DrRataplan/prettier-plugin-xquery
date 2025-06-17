@@ -1,6 +1,8 @@
 declare namespace functx = "http://www.example.com/";
 
-(:~ : Sorts a sequence of values or nodes : : @author Priscilla Walmsley, Datypic : @version 1.0 : @see http://www.xqueryfunctions.com/xq/functx_sort.html : @param $seq the sequence to sort :)
+(:~
+ : Sorts a sequence of values or nodes : : @author Priscilla Walmsley, Datypic : @version 1.0 : @see http://www.xqueryfunctions.com/xq/functx_sort.html : @param $seq the sequence to sort
+ :)
 declare function functx:sort ($seq as item()*) as item()* {
   for $item in $seq
   order by $item

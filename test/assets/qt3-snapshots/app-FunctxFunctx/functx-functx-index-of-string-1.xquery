@@ -1,6 +1,8 @@
 declare namespace functx = "http://www.example.com/";
 
-(:~ : The position(s) of a substring : : @author Priscilla Walmsley, Datypic : @version 1.0 : @see http://www.xqueryfunctions.com/xq/functx_index-of-string.html : @param $arg the string : @param $substring the substring to find :)
+(:~
+ : The position(s) of a substring : : @author Priscilla Walmsley, Datypic : @version 1.0 : @see http://www.xqueryfunctions.com/xq/functx_index-of-string.html : @param $arg the string : @param $substring the substring to find
+ :)
 declare function functx:index-of-string (
   $arg as xs:string?,
   $substring as xs:string

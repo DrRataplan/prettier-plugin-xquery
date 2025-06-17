@@ -1,6 +1,8 @@
 declare namespace functx = "http://www.example.com/";
 
-(:~ : The first argument if it is not empty, otherwise the second argument : : @author W3C XML Query WG : @version 1.0 : @see http://www.xqueryfunctions.com/xq/functx_if-absent.html : @param $arg the item(s) that may be absent : @param $value the item(s) to use if the item is absent :)
+(:~
+ : The first argument if it is not empty, otherwise the second argument : : @author W3C XML Query WG : @version 1.0 : @see http://www.xqueryfunctions.com/xq/functx_if-absent.html : @param $arg the item(s) that may be absent : @param $value the item(s) to use if the item is absent
+ :)
 declare function functx:if-absent (
   $arg as item()*,
   $value as item()*
@@ -11,7 +13,9 @@ declare function functx:if-absent (
     $value
 };
 
-(:~ : Performs multiple replacements, using pairs of replace parameters : : @author Priscilla Walmsley, Datypic : @version 1.0 : @see http://www.xqueryfunctions.com/xq/functx_replace-multi.html : @param $arg the string to manipulate : @param $changeFrom the sequence of strings or patterns to change from : @param $changeTo the sequence of strings to change to :)
+(:~
+ : Performs multiple replacements, using pairs of replace parameters : : @author Priscilla Walmsley, Datypic : @version 1.0 : @see http://www.xqueryfunctions.com/xq/functx_replace-multi.html : @param $arg the string to manipulate : @param $changeFrom the sequence of strings or patterns to change from : @param $changeTo the sequence of strings to change to
+ :)
 declare function functx:replace-multi (
   $arg as xs:string?,
   $changeFrom as xs:string*,

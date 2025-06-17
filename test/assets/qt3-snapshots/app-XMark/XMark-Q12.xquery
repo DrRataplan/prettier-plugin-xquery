@@ -1,4 +1,4 @@
-(: Purpose: For each richer-than-average person, list the 
+(: Purpose: For each richer-than-average person, list the
          number of items currently on sale whose price does not exceed 0.02% of the person's income. :)
 <XMark-result-Q12>
   {

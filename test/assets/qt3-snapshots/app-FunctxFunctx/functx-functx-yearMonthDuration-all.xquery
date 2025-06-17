@@ -1,6 +1,8 @@
 declare namespace functx = "http://www.example.com/";
 
-(:~ : The first argument if it is not blank, otherwise the second argument : : @author Priscilla Walmsley, Datypic : @version 1.0 : @see http://www.xqueryfunctions.com/xq/functx_if-empty.html : @param $arg the node that may be empty : @param $value the item(s) to use if the node is empty :)
+(:~
+ : The first argument if it is not blank, otherwise the second argument : : @author Priscilla Walmsley, Datypic : @version 1.0 : @see http://www.xqueryfunctions.com/xq/functx_if-empty.html : @param $arg the node that may be empty : @param $value the item(s) to use if the node is empty
+ :)
 declare function functx:if-empty (
   $arg as item()?,
   $value as item()*
@@ -11,7 +13,9 @@ declare function functx:if-empty (
     $value
 };
 
-(:~ : Construct a yearMonthDuration from a number of years and months : : @author Priscilla Walmsley, Datypic : @version 1.0 : @see http://www.xqueryfunctions.com/xq/functx_yearmonthduration.html : @param $years the number of years : @param $months the number of months :)
+(:~
+ : Construct a yearMonthDuration from a number of years and months : : @author Priscilla Walmsley, Datypic : @version 1.0 : @see http://www.xqueryfunctions.com/xq/functx_yearmonthduration.html : @param $years the number of years : @param $months the number of months
+ :)
 declare function functx:yearMonthDuration (
   $years as xs:decimal?,
   $months as xs:integer?

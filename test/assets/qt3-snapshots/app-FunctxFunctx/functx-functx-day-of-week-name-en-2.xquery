@@ -1,6 +1,8 @@
 declare namespace functx = "http://www.example.com/";
 
-(:~ : The name of the day of the week, from a date, in English : : @author Priscilla Walmsley, Datypic : @version 1.0 : @see http://www.xqueryfunctions.com/xq/functx_day-of-week-name-en.html : @param $date the date :)
+(:~
+ : The name of the day of the week, from a date, in English : : @author Priscilla Walmsley, Datypic : @version 1.0 : @see http://www.xqueryfunctions.com/xq/functx_day-of-week-name-en.html : @param $date the date
+ :)
 declare function functx:day-of-week-name-en (
   $date as xs:anyAtomicType?
 ) as xs:string? {
@@ -9,7 +11,9 @@ declare function functx:day-of-week-name-en (
   )[functx:day-of-week($date) + 1]
 };
 
-(:~ : The day of the week, from a date : : @author Priscilla Walmsley, Datypic : @version 1.0 : @see http://www.xqueryfunctions.com/xq/functx_day-of-week.html : @param $date the date :)
+(:~
+ : The day of the week, from a date : : @author Priscilla Walmsley, Datypic : @version 1.0 : @see http://www.xqueryfunctions.com/xq/functx_day-of-week.html : @param $date the date
+ :)
 declare function functx:day-of-week (
   $date as xs:anyAtomicType?
 ) as xs:integer? {

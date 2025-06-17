@@ -1,6 +1,8 @@
 declare namespace functx = "http://www.example.com/";
 
-(:~ : Sorts a sequence of values or nodes regardless of capitalization : : @author Priscilla Walmsley, Datypic : @version 1.0 : @see http://www.xqueryfunctions.com/xq/functx_sort-case-insensitive.html : @param $seq the sequence to sort :)
+(:~
+ : Sorts a sequence of values or nodes regardless of capitalization : : @author Priscilla Walmsley, Datypic : @version 1.0 : @see http://www.xqueryfunctions.com/xq/functx_sort-case-insensitive.html : @param $seq the sequence to sort
+ :)
 declare function functx:sort-case-insensitive ($seq as item()*) as item()* {
   for $item in $seq
   order by upper-case(string($item))

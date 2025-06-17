@@ -1,6 +1,8 @@
 declare namespace functx = "http://www.example.com/";
 
-(:~ : The XML node whose typed value is the minimum : : @author Priscilla Walmsley, Datypic : @version 1.0 : @see http://www.xqueryfunctions.com/xq/functx_min-node.html : @param $nodes the sequence of nodes to test :)
+(:~
+ : The XML node whose typed value is the minimum : : @author Priscilla Walmsley, Datypic : @version 1.0 : @see http://www.xqueryfunctions.com/xq/functx_min-node.html : @param $nodes the sequence of nodes to test
+ :)
 declare function functx:min-node ($nodes as node()*) as node()* {
   $nodes[. = min($nodes)]
 };

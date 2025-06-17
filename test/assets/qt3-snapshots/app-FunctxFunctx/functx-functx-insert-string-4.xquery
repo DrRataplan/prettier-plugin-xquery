@@ -1,6 +1,8 @@
 declare namespace functx = "http://www.example.com/";
 
-(:~ : Inserts a string at a specified position : : @author Priscilla Walmsley, Datypic : @version 1.0 : @see http://www.xqueryfunctions.com/xq/functx_insert-string.html : @param $originalString the original string to insert into : @param $stringToInsert the string to insert : @param $pos the position :)
+(:~
+ : Inserts a string at a specified position : : @author Priscilla Walmsley, Datypic : @version 1.0 : @see http://www.xqueryfunctions.com/xq/functx_insert-string.html : @param $originalString the original string to insert into : @param $stringToInsert the string to insert : @param $pos the position
+ :)
 declare function functx:insert-string (
   $originalString as xs:string?,
   $stringToInsert as xs:string?,

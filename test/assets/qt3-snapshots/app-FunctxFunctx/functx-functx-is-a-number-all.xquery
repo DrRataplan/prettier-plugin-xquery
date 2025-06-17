@@ -1,6 +1,8 @@
 declare namespace functx = "http://www.example.com/";
 
-(:~ : Whether a value is numeric : : @author Priscilla Walmsley, Datypic : @version 1.0 : @see http://www.xqueryfunctions.com/xq/functx_is-a-number.html : @param $value the value to test :)
+(:~
+ : Whether a value is numeric : : @author Priscilla Walmsley, Datypic : @version 1.0 : @see http://www.xqueryfunctions.com/xq/functx_is-a-number.html : @param $value the value to test
+ :)
 declare function functx:is-a-number (
   $value as xs:anyAtomicType?
 ) as xs:boolean {

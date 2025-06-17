@@ -1,6 +1,8 @@
 declare namespace functx = "http://www.example.com/";
 
-(:~ : The distinct names of all attributes in an XML fragment : : @author Priscilla Walmsley, Datypic : @version 1.0 : @see http://www.xqueryfunctions.com/xq/functx_distinct-attribute-names.html : @param $nodes the root to start from :)
+(:~
+ : The distinct names of all attributes in an XML fragment : : @author Priscilla Walmsley, Datypic : @version 1.0 : @see http://www.xqueryfunctions.com/xq/functx_distinct-attribute-names.html : @param $nodes the root to start from
+ :)
 declare function functx:distinct-attribute-names (
   $nodes as node()*
 ) as xs:string* {

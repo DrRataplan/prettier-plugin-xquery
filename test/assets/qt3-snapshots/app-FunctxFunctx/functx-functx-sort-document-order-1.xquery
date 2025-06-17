@@ -1,6 +1,8 @@
 declare namespace functx = "http://www.example.com/";
 
-(:~ : Sorts a sequence of nodes in document order : : @author Priscilla Walmsley, Datypic : @version 1.0 : @see http://www.xqueryfunctions.com/xq/functx_sort-document-order.html : @param $seq the sequence to sort :)
+(:~
+ : Sorts a sequence of nodes in document order : : @author Priscilla Walmsley, Datypic : @version 1.0 : @see http://www.xqueryfunctions.com/xq/functx_sort-document-order.html : @param $seq the sequence to sort
+ :)
 declare function functx:sort-document-order ($seq as node()*) as node()* {
   $seq/.
 };

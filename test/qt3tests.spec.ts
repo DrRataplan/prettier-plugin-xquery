@@ -143,7 +143,7 @@ Result of first round: ${resultOfFirstPrettification}`,
 *
 * Other failures: ${totalFailureCount - amountOfRoundtripFailures - amountOfTypeErrors - amountOfCommentErors}
 */
-export default ${JSON.stringify(ignoreList, null, "\t")} as Record<string,Record<string,string>>;
+export default ${JSON.stringify(ignoreList, null, "\t")} as Record<string,Record<string,string[]>>;
 `,
 		);
 	});

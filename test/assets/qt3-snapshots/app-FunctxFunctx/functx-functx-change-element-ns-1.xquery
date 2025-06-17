@@ -1,6 +1,8 @@
 declare namespace functx = "http://www.example.com/";
 
-(:~ : Changes the namespace of XML elements : : @author Priscilla Walmsley, Datypic : @version 1.0 : @see http://www.xqueryfunctions.com/xq/functx_change-element-ns.html : @param $elements the elements to change : @param $newns the new namespace : @param $prefix the prefix to use for the new namespace :)
+(:~
+ : Changes the namespace of XML elements : : @author Priscilla Walmsley, Datypic : @version 1.0 : @see http://www.xqueryfunctions.com/xq/functx_change-element-ns.html : @param $elements the elements to change : @param $newns the new namespace : @param $prefix the prefix to use for the new namespace
+ :)
 declare function functx:change-element-ns (
   $elements as element()*,
   $newns as xs:string,

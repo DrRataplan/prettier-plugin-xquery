@@ -39,4 +39,4 @@ export default {
 			"Error: Comment \"(::)\" was not printed. Please report this error!"
 		]
 	}
-} as Record<string,Record<string,string>>;
+} as Record<string,Record<string,string[]>>;

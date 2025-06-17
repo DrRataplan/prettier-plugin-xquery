@@ -1,6 +1,8 @@
 declare namespace functx = "http://www.example.com/";
 
-(:~ : Number of days in the month : : @author Priscilla Walmsley, Datypic : @version 1.0 : @see http://www.xqueryfunctions.com/xq/functx_days-in-month.html : @param $date the date :)
+(:~
+ : Number of days in the month : : @author Priscilla Walmsley, Datypic : @version 1.0 : @see http://www.xqueryfunctions.com/xq/functx_days-in-month.html : @param $date the date
+ :)
 declare function functx:days-in-month (
   $date as xs:anyAtomicType?
 ) as xs:integer? {
@@ -12,7 +14,9 @@ declare function functx:days-in-month (
     )[month-from-date(xs:date($date))]
 };
 
-(:~ : Whether a date falls in a leap year : : @author Priscilla Walmsley, Datypic : @version 1.0 : @see http://www.xqueryfunctions.com/xq/functx_is-leap-year.html : @param $date the date or year :)
+(:~
+ : Whether a date falls in a leap year : : @author Priscilla Walmsley, Datypic : @version 1.0 : @see http://www.xqueryfunctions.com/xq/functx_is-leap-year.html : @param $date the date or year
+ :)
 declare function functx:is-leap-year (
   $date as xs:anyAtomicType?
 ) as xs:boolean {

@@ -1,6 +1,8 @@
 declare namespace functx = "http://www.example.com/";
 
-(:~ : Whether an XML node is in a sequence, based on node identity : : @author Priscilla Walmsley, Datypic : @version 1.0 : @see http://www.xqueryfunctions.com/xq/functx_is-node-in-sequence.html : @param $node the node to test : @param $seq the sequence of nodes to search :)
+(:~
+ : Whether an XML node is in a sequence, based on node identity : : @author Priscilla Walmsley, Datypic : @version 1.0 : @see http://www.xqueryfunctions.com/xq/functx_is-node-in-sequence.html : @param $node the node to test : @param $seq the sequence of nodes to search
+ :)
 declare function functx:is-node-in-sequence (
   $node as node()?,
   $seq as node()*

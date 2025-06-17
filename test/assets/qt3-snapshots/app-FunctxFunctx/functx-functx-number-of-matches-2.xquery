@@ -1,6 +1,8 @@
 declare namespace functx = "http://www.example.com/";
 
-(:~ : The number of regions that match a pattern : : @author Priscilla Walmsley, Datypic : @version 1.0 : @see http://www.xqueryfunctions.com/xq/functx_number-of-matches.html : @param $arg the string to test : @param $pattern the regular expression :)
+(:~
+ : The number of regions that match a pattern : : @author Priscilla Walmsley, Datypic : @version 1.0 : @see http://www.xqueryfunctions.com/xq/functx_number-of-matches.html : @param $arg the string to test : @param $pattern the regular expression
+ :)
 declare function functx:number-of-matches (
   $arg as xs:string?,
   $pattern as xs:string

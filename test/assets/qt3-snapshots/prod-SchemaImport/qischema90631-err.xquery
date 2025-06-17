@@ -1,4 +1,4 @@
-import schema namespace z =  "http://www.w3.org/XQueryTest/money"(:at "qischema063.xsd":) ;
+import schema namespace z =  "http://www.w3.org/XQueryTest/money"(: at "qischema063.xsd" :) ;
 
 validate strict {
   <z:a

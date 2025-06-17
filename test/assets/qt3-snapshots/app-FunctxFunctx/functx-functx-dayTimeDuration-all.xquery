@@ -1,6 +1,8 @@
 declare namespace functx = "http://www.example.com/";
 
-(:~ : Construct a dayTimeDuration from a number of days, hours, etc. : : @author Priscilla Walmsley, Datypic : @version 1.0 : @see http://www.xqueryfunctions.com/xq/functx_daytimeduration.html : @param $days the number of days : @param $hours the number of hours : @param $minutes the number of minutes : @param $seconds the number of seconds :)
+(:~
+ : Construct a dayTimeDuration from a number of days, hours, etc. : : @author Priscilla Walmsley, Datypic : @version 1.0 : @see http://www.xqueryfunctions.com/xq/functx_daytimeduration.html : @param $days the number of days : @param $hours the number of hours : @param $minutes the number of minutes : @param $seconds the number of seconds
+ :)
 declare function functx:dayTimeDuration (
   $days as xs:decimal?,
   $hours as xs:decimal?,
@@ -13,7 +15,9 @@ declare function functx:dayTimeDuration (
     (xs:dayTimeDuration("PT1S") * functx:if-empty($seconds, 0))
 };
 
-(:~ : The first argument if it is not blank, otherwise the second argument : : @author Priscilla Walmsley, Datypic : @version 1.0 : @see http://www.xqueryfunctions.com/xq/functx_if-empty.html : @param $arg the node that may be empty : @param $value the item(s) to use if the node is empty :)
+(:~
+ : The first argument if it is not blank, otherwise the second argument : : @author Priscilla Walmsley, Datypic : @version 1.0 : @see http://www.xqueryfunctions.com/xq/functx_if-empty.html : @param $arg the node that may be empty : @param $value the item(s) to use if the node is empty
+ :)
 declare function functx:if-empty (
   $arg as item()?,
   $value as item()*

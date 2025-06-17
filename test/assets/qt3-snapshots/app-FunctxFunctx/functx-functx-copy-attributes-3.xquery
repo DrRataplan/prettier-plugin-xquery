@@ -1,6 +1,8 @@
 declare namespace functx = "http://www.example.com/";
 
-(:~ : Copies attributes from one element to another : : @author Priscilla Walmsley, Datypic : @version 1.0 : @see http://www.xqueryfunctions.com/xq/functx_copy-attributes.html : @param $copyTo the element to copy attributes to : @param $copyFrom the element to copy attributes from :)
+(:~
+ : Copies attributes from one element to another : : @author Priscilla Walmsley, Datypic : @version 1.0 : @see http://www.xqueryfunctions.com/xq/functx_copy-attributes.html : @param $copyTo the element to copy attributes to : @param $copyFrom the element to copy attributes from
+ :)
 declare function functx:copy-attributes (
   $copyTo as element(),
   $copyFrom as element()

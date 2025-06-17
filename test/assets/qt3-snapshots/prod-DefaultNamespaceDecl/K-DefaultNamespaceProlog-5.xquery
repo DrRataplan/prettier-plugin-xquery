@@ -1,4 +1,4 @@
-declare (:..:) default (:..:) function (:..:) namespace (:..:) "http://example.com/"(:..:) ;
+declare (: .. :) default (: .. :) function (: .. :) namespace (: .. :) "http://example.com/"(: .. :) ;
 
-(:..:) boolean(1)
-(:..:) 
+(: .. :) boolean(1)
+(: .. :) 

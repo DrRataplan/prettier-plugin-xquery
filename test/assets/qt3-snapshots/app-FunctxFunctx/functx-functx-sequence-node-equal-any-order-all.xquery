@@ -1,6 +1,8 @@
 declare namespace functx = "http://www.example.com/";
 
-(:~ : Whether two sequences contain the same XML nodes, regardless of order : : @author Priscilla Walmsley, Datypic : @version 1.0 : @see http://www.xqueryfunctions.com/xq/functx_sequence-node-equal-any-order.html : @param $seq1 the first sequence of nodes : @param $seq2 the second sequence of nodes :)
+(:~
+ : Whether two sequences contain the same XML nodes, regardless of order : : @author Priscilla Walmsley, Datypic : @version 1.0 : @see http://www.xqueryfunctions.com/xq/functx_sequence-node-equal-any-order.html : @param $seq1 the first sequence of nodes : @param $seq2 the second sequence of nodes
+ :)
 declare function functx:sequence-node-equal-any-order (
   $seq1 as node()*,
   $seq2 as node()*
