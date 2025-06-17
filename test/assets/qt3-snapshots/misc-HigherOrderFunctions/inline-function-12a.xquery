@@ -1,3 +1,1 @@
-function ($a, $a) {
-  "lala", $a
-}("gibbon", "monkey")
+function ($a, $a) { "lala", $a }("gibbon", "monkey")

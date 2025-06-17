@@ -1,4 +1,2 @@
-for $n in processing-instruction return {
-    ()
-  }
+for $n in processing-instruction return { () }
 return 1

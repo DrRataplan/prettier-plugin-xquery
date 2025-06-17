@@ -5,8 +5,8 @@
       end next $y when xs:dateTime($y/@time) - xs:dateTime($x/@time) gt
         xs:dayTimeDuration("PT30M")
     where $w[person eq "Anton"] and $w[person eq "Barbara"]
-    return <alert time="{
-          xs:dateTime($y/@time)
-        }">Anton and Barbara just arrived</alert>
+    return <alert
+        time="{ xs:dateTime($y/@time) }"
+      >Anton and Barbara just arrived</alert>
   }
 </result>

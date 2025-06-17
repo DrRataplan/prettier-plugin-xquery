@@ -1,3 +1,1 @@
-fn:path(attribute name {
-    "fred"
-  })
+fn:path(attribute name { "fred" })

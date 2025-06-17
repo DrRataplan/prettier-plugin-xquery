@@ -4,6 +4,4 @@ try {
     "Description",
     ("Value", 3, <a />, true())
   )
-} catch * {
-  count($err:value)
-}
+} catch * { count($err:value) }

@@ -4,6 +4,4 @@ try {
     "Description",
     (1, 2)
   )
-} catch Q{http://www.example.com/}EXER3141 {
-  $err:value[2]
-}
+} catch Q{http://www.example.com/}EXER3141 { $err:value[2] }

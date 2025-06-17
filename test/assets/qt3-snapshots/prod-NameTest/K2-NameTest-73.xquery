@@ -1,3 +1,1 @@
-<e>{
-    <e><b /></e>/element(foo, notBound:type)
-  }</e>
+<e>{ <e><b /></e>/element(foo, notBound:type) }</e>

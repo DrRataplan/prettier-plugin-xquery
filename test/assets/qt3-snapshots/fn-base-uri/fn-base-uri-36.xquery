@@ -1,3 +1,1 @@
-(processing-instruction {"PItarget"} {
-    "PIcontent"
-  })/base-uri()
+(processing-instruction {"PItarget"} { "PIcontent" })/base-uri()

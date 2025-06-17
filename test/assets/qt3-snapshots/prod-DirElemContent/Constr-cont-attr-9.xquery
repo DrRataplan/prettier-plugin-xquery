@@ -1,5 +1,1 @@
-<elem>{
-    //west/@west-attr-1
-  }{
-    //west/@west-attr-2
-  }</elem>
+<elem>{ //west/@west-attr-1 }{ //west/@west-attr-2 }</elem>

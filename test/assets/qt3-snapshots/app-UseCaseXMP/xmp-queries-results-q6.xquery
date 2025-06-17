@@ -3,9 +3,7 @@
     for $b in //book
     where count($b/author) > 0
     return <book>
-        {
-          $b/title
-        }
+        { $b/title }
         {
           for $a in $b/author[position() <= 2]
           return $a

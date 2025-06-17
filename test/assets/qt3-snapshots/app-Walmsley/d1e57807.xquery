@@ -1,3 +1,1 @@
-array:for-each(["a", "b", "c"], function ($x) {
-    $x, "x"
-  })
+array:for-each(["a", "b", "c"], function ($x) { $x, "x" })

@@ -1,3 +1,1 @@
-<foo attr="{
-    <?target dat a ?>
-  }" />
+<foo attr="{ <?target dat a ?> }" />

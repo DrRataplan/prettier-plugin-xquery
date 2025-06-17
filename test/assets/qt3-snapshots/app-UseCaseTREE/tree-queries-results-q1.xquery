@@ -1,8 +1,6 @@
 declare function local:toc ($book-or-section as element()) as element()* {
   for $section in $book-or-section/section
-  return <section>{
-        $section/@*, $section/title, local:toc($section)
-      }</section>
+  return <section>{ $section/@*, $section/title, local:toc($section) }</section>
 };
 
 <toc>

@@ -1,3 +1,1 @@
-empty(document-uri(attribute name {
-      "content"
-    }))
+empty(document-uri(attribute name { "content" }))

@@ -6,6 +6,4 @@ let $params :=
     <output:omit-xml-declaration value="yes" />
     <output:item-separator value="==" />
   </output:serialization-parameters>
-return serialize((1 to 4)!text {
-      .
-    }, $params)
+return serialize((1 to 4)!text { . }, $params)

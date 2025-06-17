@@ -1,5 +1,1 @@
-document {
-  "content"
-} is document {
-    "content"
-  }
+document { "content" } is document { "content" }

@@ -10,6 +10,8 @@ let $employees :=
 	    <emp id='7'><name><first>Martin</first><first>James</first><last>Cawcutt</last></name></emp>
 	  </emps>"
   )
-return fn:sort($employees//emp, default-collation(), function ($emp) {
-      $emp/name/last, $emp/name/first
-    })!number(@id)
+return fn:sort(
+    $employees//emp,
+    default-collation(),
+    function ($emp) { $emp/name/last, $emp/name/first }
+  )!number(@id)

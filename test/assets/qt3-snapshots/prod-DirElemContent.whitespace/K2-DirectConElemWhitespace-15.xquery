@@ -1,11 +1,6 @@
-count(<elem>str{
-      ""
-    }asdas{
-      "asd", "asd", "''", ""
-    }{
-      ""
-    }asd{
-      ""
-    }{
-      ""
-    }</elem>/text())
+count(
+  <elem>str{ "" }asdas{ "asd", "asd", "''", "" }
+    { "" }asd{ "" }
+    { "" }
+  </elem>/text()
+)

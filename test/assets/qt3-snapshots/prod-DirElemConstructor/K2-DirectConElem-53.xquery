@@ -1,5 +1,1 @@
-namespace {
-  "p"
-} {
-  "abc"
-}
+namespace { "p" } { "abc" }

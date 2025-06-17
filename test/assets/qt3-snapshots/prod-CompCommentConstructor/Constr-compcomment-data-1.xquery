@@ -1,3 +1,1 @@
-fn:data(comment {
-    "a", element a {}, "b"
-  })
+fn:data(comment { "a", element a {}, "b" })

@@ -1,3 +1,1 @@
-data(comment {
-    "content"
-  }) instance of xs:string
+data(comment { "content" }) instance of xs:string

@@ -4,6 +4,4 @@ declare function local:test () {
   $defs:two
 };
 
-<a>{
-    local:test()
-  }</a>
+<a>{ local:test() }</a>

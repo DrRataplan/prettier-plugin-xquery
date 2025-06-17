@@ -1,3 +1,1 @@
-array:fold-right([], 0, function ($a, $b) {
-    $a + $b
-  })
+array:fold-right([], 0, function ($a, $b) { $a + $b })

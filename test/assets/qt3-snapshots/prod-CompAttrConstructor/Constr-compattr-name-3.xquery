@@ -1,5 +1,1 @@
-element elem {
-  attribute foo:attr {
-    "text"
-  }
-}
+element elem { attribute foo:attr { "text" } }

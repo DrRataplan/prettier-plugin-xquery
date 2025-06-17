@@ -1,3 +1,1 @@
-<new xmlns:foo="http://www.example.com">{
-    //*:child1
-  }</new>
+<new xmlns:foo="http://www.example.com">{ //*:child1 }</new>

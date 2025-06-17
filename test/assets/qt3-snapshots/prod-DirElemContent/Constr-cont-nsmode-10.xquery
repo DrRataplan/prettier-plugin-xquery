@@ -1,5 +1,3 @@
 declare construction preserve;
 
-element {"new"} {
-  //*:QName/@*
-}
+element {"new"} { //*:QName/@* }

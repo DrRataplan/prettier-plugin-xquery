@@ -11,14 +11,6 @@ declare variable $n external;
           1 to $x
         )
       )
-    return <a p="{
-          $p
-        }" q="{
-          $q
-        }">{
-          $x
-        },{
-          $y
-        }</a>
+    return <a p="{ $p }" q="{ $q }">{ $x },{ $y }</a>
   }
 </out>

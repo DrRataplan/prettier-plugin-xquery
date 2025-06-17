@@ -1,3 +1,1 @@
-empty(document-uri(processing-instruction name {
-      123
-    }))
+empty(document-uri(processing-instruction name { 123 }))

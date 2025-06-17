@@ -1,3 +1,5 @@
-fn:count(fn:namespace-uri-from-QName(fn:node-name(attribute attributeName {
-        "an attribute value"
-      })))
+fn:count(
+  fn:namespace-uri-from-QName(
+    fn:node-name(attribute attributeName { "an attribute value" })
+  )
+)

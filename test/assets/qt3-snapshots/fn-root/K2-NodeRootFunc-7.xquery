@@ -1,3 +1,1 @@
-fn:root(text {
-    "text node"
-  })
+fn:root(text { "text node" })

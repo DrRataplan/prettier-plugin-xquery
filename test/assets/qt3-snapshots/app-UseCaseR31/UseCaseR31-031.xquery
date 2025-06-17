@@ -8,9 +8,7 @@
             json-doc(
               "http://www.w3.org/qt3/app/UseCaseR31/table-json"
             )?col-labels?*
-          return <th>{
-                $th
-              }</th>
+          return <th>{ $th }</th>
         }
       </tr>
       { (: Data for each row :)
@@ -18,15 +16,15 @@
           json-doc("http://www.w3.org/qt3/app/UseCaseR31/table-json")?data?*
         return <tr>
             {
-              <th>{
+              <th>
+                {
                   json-doc(
                     "http://www.w3.org/qt3/app/UseCaseR31/table-json"
                   )?row-labels[$i]
-                }</th>,
+                }
+              </th>,
               for $c in $r?*
-              return <td>{
-                    $c
-                  }</td>
+              return <td>{ $c }</td>
             }
           </tr>
       }

@@ -1,5 +1,1 @@
-try {
-  fn:error()
-} catch * {
-  $err:code
-}
+try { fn:error() } catch * { $err:code }

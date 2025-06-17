@@ -1,3 +1,1 @@
-<out>{
-    array:flatten([<a />, [<b />, <c />]])
-  }</out>
+<out>{ array:flatten([<a />, [<b />, <c />]]) }</out>

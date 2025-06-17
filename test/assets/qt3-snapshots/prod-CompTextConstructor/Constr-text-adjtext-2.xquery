@@ -1,7 +1,1 @@
-count(document {
-    text {
-      "te"
-    }, text {
-      "xt"
-    }
-  }/text())
+count(document { text { "te" }, text { "xt" } }/text())

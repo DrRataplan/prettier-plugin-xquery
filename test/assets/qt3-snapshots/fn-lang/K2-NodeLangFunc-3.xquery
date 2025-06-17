@@ -1,3 +1,1 @@
-lang("de", attribute xml:lang {
-    ()
-  })
+lang("de", attribute xml:lang { () })

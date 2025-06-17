@@ -1,3 +1,1 @@
-processing-instruction {xs:untypedAtomic("p i")} {
-  "text"
-}
+processing-instruction {xs:untypedAtomic("p i")} { "text" }

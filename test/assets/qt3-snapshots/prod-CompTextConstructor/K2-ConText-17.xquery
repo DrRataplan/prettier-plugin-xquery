@@ -1,3 +1,1 @@
-count(data(text {
-      <_ />[text()]
-    }))
+count(data(text { <_ />[text()] }))

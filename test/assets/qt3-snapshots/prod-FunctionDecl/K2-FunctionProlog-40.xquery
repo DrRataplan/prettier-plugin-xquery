@@ -1,6 +1,4 @@
-declare variable $A := (<A>{
-      local:functionA()
-    }</A>);
+declare variable $A := (<A>{ local:functionA() }</A>);
 
 declare function local:functionA () as element() {
   <input>testing ...</input>

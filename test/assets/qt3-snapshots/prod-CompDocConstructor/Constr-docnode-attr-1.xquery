@@ -1,3 +1,1 @@
-document {
-  //@mark
-}
+document { //@mark }

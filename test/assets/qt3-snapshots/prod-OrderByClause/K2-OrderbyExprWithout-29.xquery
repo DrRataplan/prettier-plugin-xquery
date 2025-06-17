@@ -1,8 +1,6 @@
 <r>
   {
-    for $i in attribute name {
-        ()
-      }
+    for $i in attribute name { () }
     order by ()
     return ()
   }

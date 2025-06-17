@@ -7,7 +7,5 @@ deep-equal(
       }
     )
   return $result?output,
-  document {
-    <p>There are 4 products in the catalog.</p>
-  }
+  document { <p>There are 4 products in the catalog.</p> }
 )

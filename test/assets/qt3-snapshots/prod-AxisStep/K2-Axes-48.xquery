@@ -1,5 +1,3 @@
 declare variable $myVar := <e />;
 
-$myVar/(<a />, <b />, <?d ?>, <!-- e-->, attribute name {}, document {
-    ()
-  })/3
+$myVar/(<a />, <b />, <?d ?>, <!-- e-->, attribute name {}, document { () })/3

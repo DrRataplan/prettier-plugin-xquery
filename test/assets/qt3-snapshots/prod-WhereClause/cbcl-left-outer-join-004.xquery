@@ -32,9 +32,7 @@
         return <entry>
             {
               $matches/(
-                <link>{
-                    node()
-                  }</link>,
+                <link>{ node() }</link>,
                 text {
                   if (position() lt last()) then
                     "; "

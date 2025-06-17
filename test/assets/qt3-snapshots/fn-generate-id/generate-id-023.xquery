@@ -1,12 +1,4 @@
-let $nodes := (text {
-      ""
-    }, text {
-      ""
-    }, text {
-      ""
-    }, text {
-      ""
-    })
+let $nodes := (text { "" }, text { "" }, text { "" }, text { "" })
 let $ids :=
   for $n in $nodes
   return generate-id($n)

@@ -9,6 +9,4 @@ try {
     previous $eprev
     next $enext when true()
   return $x
-} catch err:XPTY0004 {
-  0
-}
+} catch err:XPTY0004 { 0 }

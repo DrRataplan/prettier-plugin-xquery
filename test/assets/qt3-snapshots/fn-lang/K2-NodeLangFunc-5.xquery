@@ -1,3 +1,1 @@
-fn:lang("fr", attribute xml:lang {
-    "fr"
-  })
+fn:lang("fr", attribute xml:lang { "fr" })

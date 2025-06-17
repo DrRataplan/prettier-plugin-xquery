@@ -1,4 +1,2 @@
-let $add := function ($x, $y) {
-    $x + $y
-  }
+let $add := function ($x, $y) { $x + $y }
 return function-arity($add)

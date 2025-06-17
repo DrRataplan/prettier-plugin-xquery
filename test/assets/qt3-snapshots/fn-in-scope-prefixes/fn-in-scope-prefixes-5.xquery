@@ -1,3 +1,1 @@
-fn:in-scope-prefixes(element anElement {
-    "Some content"
-  })
+fn:in-scope-prefixes(element anElement { "Some content" })

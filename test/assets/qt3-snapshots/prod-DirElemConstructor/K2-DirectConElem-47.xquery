@@ -8,8 +8,6 @@ let $in :=
 return <r>
     {
       for $n in $in/*/namespace-uri(.)
-      return <e ns="{
-            $n
-          }" />
+      return <e ns="{ $n }" />
     }
   </r>

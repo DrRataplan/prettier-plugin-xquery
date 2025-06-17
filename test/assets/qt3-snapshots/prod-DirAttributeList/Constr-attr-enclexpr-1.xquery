@@ -1,4 +1,5 @@
-<elem attr="{
+<elem
+  attr="{
     1,
     "string",
     3.14,

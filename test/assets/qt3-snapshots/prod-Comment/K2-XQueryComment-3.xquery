@@ -5,6 +5,4 @@
 (: Purpose: Have a computed comment constructor as a last step. :)
 (:*******************************************************:)
 let $i := <e><b /><b /><b /></e>
-return $i/b/comment {
-    "content"
-  }
+return $i/b/comment { "content" }

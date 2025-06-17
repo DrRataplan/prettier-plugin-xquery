@@ -1,5 +1,1 @@
-element elem {
-  attribute {xs:QName("aQname")} {
-    "text"
-  }
-}
+element elem { attribute {xs:QName("aQname")} { "text" } }

@@ -1,3 +1,1 @@
-empty(base-uri(attribute name {
-      "value"
-    }))
+empty(base-uri(attribute name { "value" }))

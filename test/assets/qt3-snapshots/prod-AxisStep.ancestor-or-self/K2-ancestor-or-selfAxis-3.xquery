@@ -1,3 +1,7 @@
-1, (attribute name {
+1,
+(
+  attribute name {
     "content"
-  }/ancestor-or-self::node() instance of attribute(name)), 1
+  }/ancestor-or-self::node() instance of attribute(name)
+),
+1

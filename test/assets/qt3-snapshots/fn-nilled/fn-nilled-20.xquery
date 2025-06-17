@@ -1,3 +1,1 @@
-fn:nilled(attribute size {
-    1
-  })
+fn:nilled(attribute size { 1 })

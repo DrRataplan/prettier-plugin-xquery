@@ -1,5 +1,1 @@
-<a>{
-    data(document {
-        <a />, <b />, <c />
-      })
-  }</a>
+<a>{ data(document { <a />, <b />, <c /> }) }</a>

@@ -1,3 +1,1 @@
-fn:base-uri(attribute anAttribute {
-    "attribute value"
-  })
+fn:base-uri(attribute anAttribute { "attribute value" })

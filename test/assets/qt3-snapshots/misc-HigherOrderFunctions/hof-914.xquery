@@ -6,7 +6,6 @@ declare function local:apply (
   return $f($s)
 };
 
-let $ops := (upper-case#1, lower-case#1, function ($x as xs:double) {
-      string($x)
-    })
+let $ops :=
+  (upper-case#1, lower-case#1, function ($x as xs:double) { string($x) })
 return string-join(local:apply($ops, "Michael Kay"), "~")

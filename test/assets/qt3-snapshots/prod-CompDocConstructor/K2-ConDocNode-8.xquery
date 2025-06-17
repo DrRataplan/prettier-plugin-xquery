@@ -1,5 +1,1 @@
-string(document {
-    attribute name {
-      "content"
-    }, <e />, "some text"
-  })
+string(document { attribute name { "content" }, <e />, "some text" })

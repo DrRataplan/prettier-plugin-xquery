@@ -13,13 +13,7 @@
               for $t2 in $ei
               where $t/itemref/@item = $t2/@id
               return $t2
-            return <item>{
-                  $n/name/text()
-                }</item>
-        return <person name="{
-              $p/name/text()
-            }">{
-              $a
-            }</person>
+            return <item>{ $n/name/text() }</item>
+        return <person name="{ $p/name/text() }">{ $a }</person>
   }
 </XMark-result-Q9>

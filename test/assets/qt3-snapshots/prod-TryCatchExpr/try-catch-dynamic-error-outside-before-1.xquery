@@ -1,5 +1,1 @@
-1 div 0, try {
-  ()
-} catch * {
-  "Division by zero"
-}
+1 div 0, try { () } catch * { "Division by zero" }

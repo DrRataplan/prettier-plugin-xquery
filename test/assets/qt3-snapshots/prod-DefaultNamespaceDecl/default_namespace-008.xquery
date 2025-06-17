@@ -12,10 +12,6 @@ declare variable $ten := fact(10);
 <table>
   {
     for $i in 1 to 10
-    return <tr><td>10!/{
-            $i
-          }! = {
-            $ten div fact($i)
-          }</td></tr>
+    return <tr><td>10!/{ $i }! = { $ten div fact($i) }</td></tr>
   }
 </table>

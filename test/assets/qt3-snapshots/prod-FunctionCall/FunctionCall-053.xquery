@@ -5,8 +5,6 @@ import schema  "http://www.w3.org/XQueryTest/unionListDefined";
 declare variable $f := function (
 
   $in as element(*, lu:approximateDateAlternative)
-) as xs:integer {
-  string-length(string($in))
-};
+) as xs:integer { string-length(string($in)) };
 
 $f instance of function (element(*, lu:restrictedUnion)) as xs:integer

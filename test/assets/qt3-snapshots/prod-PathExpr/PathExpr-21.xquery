@@ -1,3 +1,1 @@
-/ordered{
-  bid
-}
+/ordered{ bid }

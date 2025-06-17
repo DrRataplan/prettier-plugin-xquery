@@ -1,3 +1,1 @@
-validate lax { document {
-    "hello"
-  } }
+validate lax { document { "hello" } }

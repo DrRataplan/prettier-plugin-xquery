@@ -1,5 +1,3 @@
-declare variable $myVar := <e>{
-    nametest
-  }</e>;
+declare variable $myVar := <e>{ nametest }</e>;
 
 <e />/$myVar

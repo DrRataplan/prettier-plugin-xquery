@@ -1,3 +1,1 @@
-empty(document {
-    ()
-  }/(+element()))
+empty(document { () }/(+element()))

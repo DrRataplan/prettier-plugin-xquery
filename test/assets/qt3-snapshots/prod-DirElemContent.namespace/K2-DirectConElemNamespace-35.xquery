@@ -1,3 +1,1 @@
-<e xmlns="{
-    1
-  }" />/@xmlns
+<e xmlns="{ 1 }" />/@xmlns

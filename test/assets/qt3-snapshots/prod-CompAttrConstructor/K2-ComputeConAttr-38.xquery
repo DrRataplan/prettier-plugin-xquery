@@ -1,3 +1,1 @@
-attribute {"xmlns:localName"} {
-  "content"
-}
+attribute {"xmlns:localName"} { "content" }

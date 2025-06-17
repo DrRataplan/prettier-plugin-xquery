@@ -6,9 +6,7 @@ declare variable $count := count($codepoints);
 
 declare variable $lineWidth := 70;
 
-<allCodepoints><r>{
-      codepoints-to-string($codepoints)
-    }</r></allCodepoints>
+<allCodepoints><r>{ codepoints-to-string($codepoints) }</r></allCodepoints>
 (:<allCodepoints>{ 
             for $i in (1 to $count idiv $lineWidth) 
             let $startOffset := (($i - 1) * $lineWidth) + 1 

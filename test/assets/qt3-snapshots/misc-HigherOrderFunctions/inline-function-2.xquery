@@ -1,3 +1,1 @@
-function-name(function () {
-    5
-  })
+function-name(function () { 5 })

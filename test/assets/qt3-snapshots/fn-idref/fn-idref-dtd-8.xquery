@@ -1,3 +1,1 @@
-<results>{
-    fn:idref(("id1", "id2"), /IDS[1])
-  }</results>
+<results>{ fn:idref(("id1", "id2"), /IDS[1]) }</results>

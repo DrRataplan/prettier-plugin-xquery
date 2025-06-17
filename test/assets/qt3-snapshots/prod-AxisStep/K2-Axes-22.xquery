@@ -1,3 +1,1 @@
-empty(comment {
-    "some text"
-  }/..)
+empty(comment { "some text" }/..)

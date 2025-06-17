@@ -1,3 +1,1 @@
-element {fn:QName("http://www.example.com/example", "")} {
-  "test"
-}
+element {fn:QName("http://www.example.com/example", "")} { "test" }

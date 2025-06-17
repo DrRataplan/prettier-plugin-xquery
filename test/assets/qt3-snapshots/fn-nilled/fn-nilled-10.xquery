@@ -1,3 +1,1 @@
-fn:not(fn:nilled(<shoe xsi:nil="{
-        fn:false()
-      }" />))
+fn:not(fn:nilled(<shoe xsi:nil="{ fn:false() }" />))

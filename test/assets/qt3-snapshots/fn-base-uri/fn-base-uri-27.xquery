@@ -1,3 +1,1 @@
-fn:count((element anElement {
-      "An Element Node"
-    })/base-uri())
+fn:count((element anElement { "An Element Node" })/base-uri())

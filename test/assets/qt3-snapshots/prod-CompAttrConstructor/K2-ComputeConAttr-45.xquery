@@ -1,3 +1,1 @@
-attribute xmlns {
-  "content"
-}
+attribute xmlns { "content" }

@@ -1,3 +1,1 @@
-fn:count(fn:document-uri(processing-instruction {"PITarget"} {
-      "PIContent"
-    }))
+fn:count(fn:document-uri(processing-instruction {"PITarget"} { "PIContent" }))

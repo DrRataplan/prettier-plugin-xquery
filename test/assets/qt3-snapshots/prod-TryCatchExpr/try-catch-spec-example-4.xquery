@@ -1,4 +1,6 @@
-let $output := (try {
+let $output :=
+  (
+    try {
       fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOER0000"))
     } catch * {
       $err:code,
@@ -10,5 +12,6 @@ let $output := (try {
       ",",
       $err:column-number,
       ")"
-    })
+    }
+  )
 return true()

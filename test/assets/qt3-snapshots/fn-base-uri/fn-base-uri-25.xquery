@@ -1,3 +1,1 @@
-(comment {
-    "A Comment Node "
-  })/fn:base-uri()
+(comment { "A Comment Node " })/fn:base-uri()

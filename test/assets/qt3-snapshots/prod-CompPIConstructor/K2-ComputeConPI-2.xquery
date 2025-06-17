@@ -1,3 +1,1 @@
-processing-instruction {"xml"} {
-  "content"
-}
+processing-instruction {"xml"} { "content" }

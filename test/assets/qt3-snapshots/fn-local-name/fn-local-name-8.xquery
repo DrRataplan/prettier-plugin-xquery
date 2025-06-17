@@ -1,3 +1,1 @@
-fn:count(fn:local-name(document {
-      <aDocument>some content</aDocument>
-    }))
+fn:count(fn:local-name(document { <aDocument>some content</aDocument> }))

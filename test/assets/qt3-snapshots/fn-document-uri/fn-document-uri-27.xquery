@@ -1,3 +1,1 @@
-(document {
-    <anElement>element content</anElement>
-  })/document-uri()
+(document { <anElement>element content</anElement> })/document-uri()

@@ -1,3 +1,1 @@
-count((document {
-      1, 2, <a />, 3, 4, <b />, 5, 6
-    })/text())
+count((document { 1, 2, <a />, 3, 4, <b />, 5, 6 })/text())

@@ -12,6 +12,8 @@ let $employees :=
   </emp>, <emp id='7'>
     <name><first>Martin</first><first>James</first><last>Cawcutt</last></name>
   </emp>]
-return array:sort($employees, default-collation(), function ($emp) {
-      $emp/name/last, $emp/name/first
-    })?*!number(@id)
+return array:sort(
+    $employees,
+    default-collation(),
+    function ($emp) { $emp/name/last, $emp/name/first }
+  )?*!number(@id)

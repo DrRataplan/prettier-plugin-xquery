@@ -1,6 +1,4 @@
 try {
   let $x as xs:integer := ""
   return $x
-} catch err:XPTY0004 {
-  0
-}
+} catch err:XPTY0004 { 0 }

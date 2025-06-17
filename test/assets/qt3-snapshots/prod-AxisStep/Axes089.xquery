@@ -273,9 +273,7 @@ declare function tour:print-board ($board as xs:integer*) as element() {
     <head><title>Knight's tour</title></head>
     <body>
       <div align="center">
-        <h1>Knight's tour starting at {
-            $start
-          }</h1>
+        <h1>Knight's tour starting at { $start }</h1>
         <table border="1" cellpadding="4">
           {
             for $row in 0 to 7
@@ -287,15 +285,11 @@ declare function tour:print-board ($board as xs:integer*) as element() {
                       "xffff44"
                     else
                       "white"
-                  return <td align="center" bgcolor="{
-                        $color
-                      }" width="22">
+                  return <td align="center" bgcolor="{ $color }" width="22">
                       {
                         let $n := $board[$row * 8 + $column + 1]
                         return if ($endd != 64 and $n = $endd) then
-                            <b>{
-                                $n
-                              }</b>
+                            <b>{ $n }</b>
                           else if ($n = 0) then
                             "&#xa0;"
                           else
@@ -309,11 +303,7 @@ declare function tour:print-board ($board as xs:integer*) as element() {
         <p>
           {
             if ($endd != 64) then
-              <a href="Tour?start={
-                  $start
-                }&amp;end={
-                  $endd + 1
-                }">Step</a>
+              <a href="Tour?start={ $start }&amp;end={ $endd + 1 }">Step</a>
             else (
             )
           }

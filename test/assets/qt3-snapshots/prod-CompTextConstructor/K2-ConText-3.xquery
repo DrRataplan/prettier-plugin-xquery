@@ -1,3 +1,1 @@
-string(text {
-    ""
-  }) eq ""
+string(text { "" }) eq ""

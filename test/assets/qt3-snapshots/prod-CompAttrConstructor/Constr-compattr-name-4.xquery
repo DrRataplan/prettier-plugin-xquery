@@ -1,3 +1,1 @@
-element x {
-  attribute Q{http://example.com/x}y {}
-}
+element x { attribute Q{http://example.com/x}y {} }

@@ -1,6 +1,4 @@
 try {
   let $i as xs:string := 1
   return $i
-} catch err:* {
-  "Type error"
-}
+} catch err:* { "Type error" }

@@ -1,3 +1,1 @@
-function () as xs:integer {
-  5
-}()
+function () as xs:integer { 5 }()

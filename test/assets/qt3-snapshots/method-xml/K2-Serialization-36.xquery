@@ -4,6 +4,6 @@ declare option output:method "xml";
 declare option output:indent "true";
 declare option output:suppress-indentation "para";
 
-<chapter><section><para><b>bold</b>{
-        " "
-      }<i>italic</i></para></section></chapter>
+<chapter>
+  <section><para><b>bold</b>{ " " }<i>italic</i></para></section>
+</chapter>

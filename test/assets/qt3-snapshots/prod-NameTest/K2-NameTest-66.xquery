@@ -1,3 +1,1 @@
-<e>{
-    <e foo="asd" />/attribute(notBound:foo, xs:untypedAtomic)
-  }</e>
+<e>{ <e foo="asd" />/attribute(notBound:foo, xs:untypedAtomic) }</e>

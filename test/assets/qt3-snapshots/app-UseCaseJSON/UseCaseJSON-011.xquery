@@ -6,9 +6,7 @@
     return <tr>
         {
           for $i in $w
-          return <td>{
-                $i?color
-              }</td>
+          return <td>{ $i?color }</td>
         }
       </tr>
   }

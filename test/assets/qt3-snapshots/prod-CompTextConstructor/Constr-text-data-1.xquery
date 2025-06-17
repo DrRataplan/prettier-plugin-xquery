@@ -1,3 +1,1 @@
-fn:data(text {
-    "a", element a {}, "b"
-  })
+fn:data(text { "a", element a {}, "b" })

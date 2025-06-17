@@ -11,8 +11,6 @@ json-to-xml(
     "duplicates": "use-first",
     "validate": false(),
     "escape": false(),
-    "fallback": function ($s) {
-        "ERROR!!"
-      }
+    "fallback": function ($s) { "ERROR!!" }
   }
 )

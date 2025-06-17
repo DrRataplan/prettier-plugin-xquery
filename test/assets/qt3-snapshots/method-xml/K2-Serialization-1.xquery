@@ -1,3 +1,1 @@
-attribute name {
-  <anElement />
-}
+attribute name { <anElement /> }

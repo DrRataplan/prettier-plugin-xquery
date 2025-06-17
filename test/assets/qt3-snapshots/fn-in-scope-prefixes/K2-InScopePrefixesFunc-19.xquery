@@ -1,3 +1,1 @@
-count(in-scope-prefixes(element xml:space {
-      ()
-    }))
+count(in-scope-prefixes(element xml:space { () }))

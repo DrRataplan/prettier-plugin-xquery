@@ -1,3 +1,1 @@
-<e xmlns:p="http://www.w3.org/2001/XMLSchema" a="{
-    1 castable as p:string
-  }" />
+<e xmlns:p="http://www.w3.org/2001/XMLSchema" a="{ 1 castable as p:string }" />

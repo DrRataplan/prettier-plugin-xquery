@@ -1,3 +1,1 @@
-<e xmlns="http://{
-    exa
-  }mple.com/" />/@xmlns
+<e xmlns="http://{ exa }mple.com/" />/@xmlns

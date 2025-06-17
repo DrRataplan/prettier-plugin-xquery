@@ -4,6 +4,4 @@ declare function local:test () {
   $i + 1
 };
 
-<a>{
-    local:test()
-  }</a>
+<a>{ local:test() }</a>

@@ -1,3 +1,1 @@
-data(element foo {
-    "dsa"
-  })
+data(element foo { "dsa" })

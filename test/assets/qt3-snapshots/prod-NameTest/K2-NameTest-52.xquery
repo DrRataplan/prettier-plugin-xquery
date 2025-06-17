@@ -1,5 +1,1 @@
-<a>{
-    comment {
-      "content"
-    }/*
-  }</a>
+<a>{ comment { "content" }/* }</a>

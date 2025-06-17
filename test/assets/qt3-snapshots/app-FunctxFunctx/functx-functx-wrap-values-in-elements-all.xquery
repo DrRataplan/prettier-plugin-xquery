@@ -7,9 +7,7 @@ declare function functx:wrap-values-in-elements (
   $elementName as xs:QName
 ) as element()* {
   for $value in $values
-  return element {$elementName} {
-      $value
-    }
+  return element {$elementName} { $value }
 };
 
 (

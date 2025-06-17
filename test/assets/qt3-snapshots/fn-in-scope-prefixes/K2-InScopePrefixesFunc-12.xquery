@@ -1,6 +1,7 @@
 declare default element namespace "http://www.example.com/";
 
-let $i := element e {
+let $i :=
+  element e {
     element {QName("", "a")} {},
     element {QName("http://www.example.com/", "b")} {},
     element {QName("http://www.example.com/Second", "c")} {}

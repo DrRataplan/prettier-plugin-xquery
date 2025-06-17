@@ -1,5 +1,1 @@
-local-name(<elem attr="{
-      attribute name {
-        " content "
-      }
-    }" />/@attr)
+local-name(<elem attr="{ attribute name { " content " } }" />/@attr)

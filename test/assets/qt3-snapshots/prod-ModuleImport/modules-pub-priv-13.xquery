@@ -4,6 +4,4 @@ declare function local:test () {
   defs:g(42)
 };
 
-<a>{
-    local:test()
-  }</a>
+<a>{ local:test() }</a>

@@ -1,3 +1,1 @@
-processing-instruction pi {
-  "text?>text"
-}
+processing-instruction pi { "text?>text" }

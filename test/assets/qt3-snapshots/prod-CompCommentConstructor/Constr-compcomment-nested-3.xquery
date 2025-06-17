@@ -1,9 +1,3 @@
 document {
-  comment {
-    "one"
-  }, <a />, comment {
-    "two"
-  }, <b />, comment {
-    "three"
-  }
+  comment { "one" }, <a />, comment { "two" }, <b />, comment { "three" }
 }

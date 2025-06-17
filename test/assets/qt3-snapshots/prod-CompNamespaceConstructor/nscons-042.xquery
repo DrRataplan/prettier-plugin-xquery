@@ -1,7 +1,1 @@
-element e {
-  namespace {
-    ""
-  } {
-    "http://example.com/uri"
-  }
-}
+element e { namespace { "" } { "http://example.com/uri" } }

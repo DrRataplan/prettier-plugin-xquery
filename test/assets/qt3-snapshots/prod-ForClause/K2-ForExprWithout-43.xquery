@@ -1,4 +1,2 @@
-for $n in element return {
-    ()
-  }
+for $n in element return { () }
 return 1

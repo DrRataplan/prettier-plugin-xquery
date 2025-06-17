@@ -1,4 +1,5 @@
-let $var := document {
+let $var :=
+  document {
     <anElement>
       <anInternalElement>element content</anInternalElement>
     </anElement>

@@ -24,17 +24,12 @@ declare variable $input := <Events>
         let $entry := xs:dateTime(translate($enter/@datetime, " ", "T"))
         let $departure := xs:dateTime(translate($leave/@datetime, " ", "T"))
         let $duration := $departure - $entry
-        return <TRIP date="{
-              xs:date($entry)
-            }" duration="{
-              $duration
-            }" enter="{
-              $enter/@datetime
-            }" leave="{
-              $leave/@datetime
-            }" name="{
-              $enter/@name
-            }" />
+        return <TRIP
+            date="{ xs:date($entry) }"
+            duration="{ $duration }"
+            enter="{ $enter/@datetime }"
+            leave="{ $leave/@datetime }"
+            name="{ $enter/@name }" />
       )
     return for $trip in $trips
       let $tripDate := $trip/@date, $tripName := $trip/@name
@@ -42,12 +37,9 @@ declare variable $input := <Events>
       group by $tripDate, $tripName
       let $totalDuration := sum($trip/@duration/xs:dayTimeDuration(.))
       order by $tripDate descending, $tripName
-      return <DATA datetime="{
-            $tripDate
-          }" name="{
-            $tripName
-          }" totaltime="{
-            $totalDuration div xs:dayTimeDuration("PT1H")
-          }" />
+      return <DATA
+          datetime="{ $tripDate }"
+          name="{ $tripName }"
+          totaltime="{ $totalDuration div xs:dayTimeDuration("PT1H") }" />
   }
 </Result>

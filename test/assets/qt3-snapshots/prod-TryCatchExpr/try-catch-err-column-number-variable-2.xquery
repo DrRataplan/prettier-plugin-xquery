@@ -1,5 +1,1 @@
-try {
-  fn:error()
-} catch * {
-  count($err:column-number)
-}
+try { fn:error() } catch * { count($err:column-number) }

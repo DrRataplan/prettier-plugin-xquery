@@ -1,3 +1,1 @@
-fn:data(document {
-    "a", element a {}, "b"
-  })
+fn:data(document { "a", element a {}, "b" })

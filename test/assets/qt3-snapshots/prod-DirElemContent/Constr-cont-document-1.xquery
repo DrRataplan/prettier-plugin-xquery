@@ -1,5 +1,5 @@
-count(<wrapper>{
-      "abc", document {
-        "def", <anode />, "ghi"
-      }, "jkl"
-    }</wrapper>/node())
+count(
+  <wrapper>
+    { "abc", document { "def", <anode />, "ghi" }, "jkl" }
+  </wrapper>/node()
+)

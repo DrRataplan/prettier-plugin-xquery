@@ -4,9 +4,10 @@ declare namespace functx = "http://www.example.com/";
 declare function functx:day-of-week-abbrev-en (
   $date as xs:anyAtomicType?
 ) as xs:string? {
-  (
-    "Sun", "Mon", "Tues", "Wed", "Thurs", "Fri", "Sat"
-  )[functx:day-of-week($date) + 1]
+  ("Sun", "Mon", "Tues", "Wed", "Thurs", "Fri", "Sat")[functx:day-of-week(
+    $date
+  ) +
+    1]
 };
 
 (:~ : The day of the week, from a date : : @author Priscilla Walmsley, Datypic : @version 1.0 : @see http://www.xqueryfunctions.com/xq/functx_day-of-week.html : @param $date the date :)

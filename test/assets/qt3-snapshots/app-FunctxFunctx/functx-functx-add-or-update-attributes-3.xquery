@@ -10,9 +10,7 @@ declare function functx:add-or-update-attributes (
   for $element in $elements
   return element {node-name($element)} {
       for $attrName in $attrNames
-      return attribute {$attrName} {
-          $attrValues[$seq]
-        },
+      return attribute {$attrName} { $attrValues[$seq] },
       $element/@*[not(node-name(.) = $attrNames)],
       $element/node()
     }

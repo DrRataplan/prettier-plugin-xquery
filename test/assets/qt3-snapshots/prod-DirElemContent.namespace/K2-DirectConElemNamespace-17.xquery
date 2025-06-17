@@ -1,3 +1,1 @@
-<e xmlns="content{
-    ()
-  }" />
+<e xmlns="content{ () }" />

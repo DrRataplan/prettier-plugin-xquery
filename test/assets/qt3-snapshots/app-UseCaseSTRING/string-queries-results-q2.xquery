@@ -36,8 +36,4 @@ where some
             )
         )
     )
-return <news_item>{
-      $item/title
-    }{
-      $item/date
-    }</news_item>
+return <news_item>{ $item/title }{ $item/date }</news_item>

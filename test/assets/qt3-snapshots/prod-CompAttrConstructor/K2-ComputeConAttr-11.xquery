@@ -1,5 +1,1 @@
-<a>{
-    (<?target content?>, attribute name {
-        "content"
-      })[2]
-  }</a>
+<a>{ (<?target content?>, attribute name { "content" })[2] }</a>

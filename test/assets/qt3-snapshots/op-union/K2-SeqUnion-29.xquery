@@ -1,3 +1,1 @@
-empty(<e />/(a union text {
-        ()
-      }))
+empty(<e />/(a union text { () }))

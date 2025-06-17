@@ -1,3 +1,1 @@
-fn:count(fn:local-name((comment {
-        "A Comment Node"
-      })))
+fn:count(fn:local-name((comment { "A Comment Node" })))

@@ -1,11 +1,5 @@
-count(document {
-    "", document {
-      ""
-    }, document {
-      document {
-        ()
-      }, document {
-        ""
-      }
-    }, ""
-  }/text())
+count(
+  document {
+    "", document { "" }, document { document { () }, document { "" } }, ""
+  }/text()
+)

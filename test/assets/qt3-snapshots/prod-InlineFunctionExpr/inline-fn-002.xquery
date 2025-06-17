@@ -1,4 +1,2 @@
-let $pi := function () {
-    3.14159
-  }
+let $pi := function () { 3.14159 }
 return $pi()

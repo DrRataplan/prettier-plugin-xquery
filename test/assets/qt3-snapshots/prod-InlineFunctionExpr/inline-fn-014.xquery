@@ -1,12 +1,8 @@
 let $process :=
   function ($op, $x, $y) as function(*) {
     if ($op = "+") then
-      function () {
-        $x + $y
-      }
+      function () { $x + $y }
     else
-      function () {
-        $x - $y
-      }
+      function () { $x - $y }
   }
 return $process("+", 3, 4)()

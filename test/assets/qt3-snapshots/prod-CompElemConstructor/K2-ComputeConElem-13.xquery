@@ -1,5 +1,1 @@
-element e {
-  element b {
-    ()
-  }
-}
+element e { element b { () } }

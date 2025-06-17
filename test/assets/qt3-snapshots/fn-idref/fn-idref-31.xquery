@@ -10,10 +10,8 @@ import schema namespace ids =  "http://www.w3.org/XQueryTest/ididrefs";
       (//i:IDREFS-content, //i:IDREF-List-content, //i:W/@i:Restricted-IDREF)
     for $s in distinct-values(tokenize(normalize-space(string($z)), "\s"))
     order by $s
-    return <e val="{
-          $s
-        }">{
-          idref($s, (/))[self::attribute()], idref($s, (/))[self::element()]
-        }</e>
+    return <e val="{ $s }">
+        { idref($s, (/))[self::attribute()], idref($s, (/))[self::element()] }
+      </e>
   }
 </out>

@@ -1,3 +1,1 @@
-element {//*:NCName[1]} {
-  "text"
-}
+element {//*:NCName[1]} { "text" }

@@ -9,6 +9,4 @@ declare function local:fold-right (
     $f(fn:head($seq), fn:fold-right(fn:tail($seq), $zero, $f))
 };
 
-local:fold-right((2, 3, 5, 7), 1, function ($a, $b) {
-    $a * $b
-  })
+local:fold-right((2, 3, 5, 7), 1, function ($a, $b) { $a * $b })

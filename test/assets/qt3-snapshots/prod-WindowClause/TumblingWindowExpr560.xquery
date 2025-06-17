@@ -8,9 +8,5 @@ declare option output:indent "yes";
 let $results :=
   for tumbling window $chunk in /*/*
     start at $sp when $sp mod $chunk-size = 1
-  return document {
-      element {node-name(head($chunk)/..)} {
-        $chunk
-      }
-    }
+  return document { element {node-name(head($chunk)/..)} { $chunk } }
 return $results instance of document-node()+

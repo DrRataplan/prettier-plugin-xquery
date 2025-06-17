@@ -1,3 +1,1 @@
-string(document {
-    "abc"
-  })
+string(document { "abc" })

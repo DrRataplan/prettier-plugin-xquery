@@ -1,3 +1,1 @@
-processing-instruction pi {
-  ""
-}
+processing-instruction pi { "" }

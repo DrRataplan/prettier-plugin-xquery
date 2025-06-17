@@ -1,3 +1,1 @@
-function () {
-  5
-} instance of function(*)
+function () { 5 } instance of function(*)

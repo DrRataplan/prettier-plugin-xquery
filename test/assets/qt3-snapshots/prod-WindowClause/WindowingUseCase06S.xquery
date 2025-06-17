@@ -4,6 +4,4 @@ for sliding window $w in ./stream/event
 return let $avg := fn:avg($w/@temp)
   where $avg * 2 lt xs:double($next/@temp) or
     $avg div 2 gt xs:double($next/@temp)
-  return <alarm>Outlier detected. Event id:{
-        data($next/@time)
-      }</alarm>
+  return <alarm>Outlier detected. Event id:{ data($next/@time) }</alarm>

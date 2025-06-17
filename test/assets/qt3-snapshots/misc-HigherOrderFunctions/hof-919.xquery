@@ -3,9 +3,12 @@ declare function local:round ($x as xs:double) as xs:double {
 };
 
 declare function local:ops () as (function (xs:double) as xs:double)* {
-  (abs#1, local:round#1, function ($x as xs:float) {
-      $x + 1
-    }, round-half-to-even(?, 2))
+  (
+    abs#1,
+    local:round#1,
+    function ($x as xs:float) { $x + 1 },
+    round-half-to-even(?, 2)
+  )
 };
 
 string-join(

@@ -1,3 +1,1 @@
-data(function ($a, $b) {
-    $a + $b
-  })
+data(function ($a, $b) { $a + $b })

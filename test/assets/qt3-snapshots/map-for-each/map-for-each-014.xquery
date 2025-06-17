@@ -3,7 +3,5 @@ map:for-each(
     for $n in 1 to 500000
     return map:entry($n, $n + 1)
   ),
-  function ($k, $v) {
-    $k
-  }
+  function ($k, $v) { $k }
 )

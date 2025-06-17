@@ -1,3 +1,1 @@
-attribute e {
-  "content"
-} instance of element(*)
+attribute e { "content" } instance of element(*)

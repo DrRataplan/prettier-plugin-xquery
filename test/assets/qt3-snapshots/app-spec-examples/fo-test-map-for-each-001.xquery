@@ -1,3 +1,1 @@
-map:for-each(map {1: "yes", 2: "no"}, function ($k, $v) {
-    $k
-  })
+map:for-each(map {1: "yes", 2: "no"}, function ($k, $v) { $k })

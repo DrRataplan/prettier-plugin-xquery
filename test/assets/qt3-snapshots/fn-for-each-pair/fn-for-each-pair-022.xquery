@@ -1,3 +1,1 @@
-fn:for-each-pair(fn:error(), fn:error(), function ($arg1, $arg2) {
-    ()
-  })
+fn:for-each-pair(fn:error(), fn:error(), function ($arg1, $arg2) { () })

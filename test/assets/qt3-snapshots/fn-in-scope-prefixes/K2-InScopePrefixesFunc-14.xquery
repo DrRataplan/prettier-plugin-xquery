@@ -1,3 +1,1 @@
-count(in-scope-prefixes(element e {
-      ()
-    }))
+count(in-scope-prefixes(element e { () }))

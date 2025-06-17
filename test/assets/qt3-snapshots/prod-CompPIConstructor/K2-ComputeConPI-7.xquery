@@ -1,3 +1,1 @@
-processing-instruction {"thename"} {
-  "asdas?>"
-}
+processing-instruction {"thename"} { "asdas?>" }

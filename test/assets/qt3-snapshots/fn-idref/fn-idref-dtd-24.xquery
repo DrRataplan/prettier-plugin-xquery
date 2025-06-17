@@ -1,3 +1,1 @@
-<results>{
-    fn:idref("language", /)
-  }</results>
+<results>{ fn:idref("language", /) }</results>

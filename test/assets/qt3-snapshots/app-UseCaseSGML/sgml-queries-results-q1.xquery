@@ -1,3 +1,1 @@
-<result>{
-    //report//para
-  }</result>
+<result>{ //report//para }</result>

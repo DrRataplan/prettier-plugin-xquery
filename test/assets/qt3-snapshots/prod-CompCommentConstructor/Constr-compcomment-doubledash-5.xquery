@@ -1,3 +1,1 @@
-comment {
-  "com", "-", "-", "ment"
-}
+comment { "com", "-", "-", "ment" }

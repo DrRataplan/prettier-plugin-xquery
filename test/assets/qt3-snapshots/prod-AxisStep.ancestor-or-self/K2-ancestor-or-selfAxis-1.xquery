@@ -1,3 +1,1 @@
-<out>{
-    1, <element />/ancestor-or-self::node(), 1
-  }</out>
+<out>{ 1, <element />/ancestor-or-self::node(), 1 }</out>

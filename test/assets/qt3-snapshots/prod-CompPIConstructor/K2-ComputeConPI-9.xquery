@@ -1,3 +1,1 @@
-string(processing-instruction {"thename"} {
-    "content {1+ } {"
-  })
+string(processing-instruction {"thename"} { "content {1+ } {" })

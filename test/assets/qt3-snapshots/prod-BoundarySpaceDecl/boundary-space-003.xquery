@@ -1,5 +1,3 @@
 declare boundary-space strip;
 
-<a> z {
-    "abc"
-  }</a>
+<a> z { "abc" }</a>

@@ -1,3 +1,1 @@
-element elem {
-  attribute {"foo:attr"} {}
-}
+element elem { attribute {"foo:attr"} {} }

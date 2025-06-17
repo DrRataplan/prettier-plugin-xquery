@@ -1,3 +1,1 @@
-<e>{
-    <e><b /></e>/element(foo, xs:doesNotExist)
-  }</e>
+<e>{ <e><b /></e>/element(foo, xs:doesNotExist) }</e>

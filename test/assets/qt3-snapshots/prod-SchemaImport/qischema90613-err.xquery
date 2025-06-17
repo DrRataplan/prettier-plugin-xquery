@@ -10,6 +10,4 @@ declare function local:p () as schema-element(z:person) {
     }
 };
 
-<out>{
-    local:p()
-  }</out>
+<out>{ local:p() }</out>

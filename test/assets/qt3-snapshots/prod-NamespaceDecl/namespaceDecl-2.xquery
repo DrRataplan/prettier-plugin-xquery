@@ -1,3 +1,1 @@
-element foo:anElement {
-  "Element content"
-}
+element foo:anElement { "Element content" }

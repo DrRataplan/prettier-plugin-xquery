@@ -1,3 +1,1 @@
-empty(<e />/(a intersect text {
-        ()
-      }))
+empty(<e />/(a intersect text { () }))

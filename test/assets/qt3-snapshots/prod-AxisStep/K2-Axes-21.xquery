@@ -1,3 +1,1 @@
-empty(element theName {
-    "some text"
-  }/..)
+empty(element theName { "some text" }/..)

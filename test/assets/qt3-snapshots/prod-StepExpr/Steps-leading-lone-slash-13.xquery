@@ -1,7 +1,3 @@
-declare variable $var := document {
-  <a>123</a>
-};
+declare variable $var := document { <a>123</a> };
 
-$var[/unordered{
-  a
-}]
+$var[/unordered{ a }]

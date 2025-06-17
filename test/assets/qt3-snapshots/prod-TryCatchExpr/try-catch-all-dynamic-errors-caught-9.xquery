@@ -1,7 +1,1 @@
-try {
-  comment {
-    "--"
-  }
-} catch err:XQDY0072 {
-  "Invalid comment."
-}
+try { comment { "--" } } catch err:XQDY0072 { "Invalid comment." }

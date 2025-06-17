@@ -1,3 +1,1 @@
-empty(<e />/(a intersect processing-instruction {"name"} {
-        ()
-      }))
+empty(<e />/(a intersect processing-instruction {"name"} { () }))

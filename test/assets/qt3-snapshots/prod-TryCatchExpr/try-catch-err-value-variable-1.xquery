@@ -4,6 +4,4 @@ try {
     "Description",
     "Value"
   )
-} catch * {
-  $err:value
-}
+} catch * { $err:value }

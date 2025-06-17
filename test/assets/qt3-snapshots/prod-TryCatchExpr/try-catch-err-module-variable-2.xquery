@@ -1,5 +1,1 @@
-try {
-  fn:error()
-} catch * {
-  count($err:module)
-}
+try { fn:error() } catch * { count($err:module) }

@@ -9,6 +9,4 @@ for sliding window $w in local:words-only(
 )
   start at $i when true()
   only end at $j when $j - $i eq 2
-return array{
-    $w
-  }
+return array{ $w }

@@ -1,9 +1,1 @@
-comment {
-  comment {
-    "one", comment {
-      "two"
-    }
-  }, "three", comment {
-    "four"
-  }
-}
+comment { comment { "one", comment { "two" } }, "three", comment { "four" } }

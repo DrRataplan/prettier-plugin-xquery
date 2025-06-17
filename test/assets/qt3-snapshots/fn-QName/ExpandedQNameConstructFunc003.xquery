@@ -1,3 +1,1 @@
-element {fn:QName("", "person")} {
-  "test"
-}
+element {fn:QName("", "person")} { "test" }

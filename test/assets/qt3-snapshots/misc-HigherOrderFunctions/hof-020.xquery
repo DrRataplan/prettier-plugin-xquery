@@ -5,6 +5,9 @@ declare function local:scramble (
   $x($y)
 };
 
-local:scramble(function ($x) {
+local:scramble(
+  function ($x) {
     translate($x, "abcdefghijklmnopqrstuvwxyz", "nopqrstuvwxyzabcdefghijklm")
-  }, "john")
+  },
+  "john"
+)

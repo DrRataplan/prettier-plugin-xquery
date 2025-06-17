@@ -1,7 +1,1 @@
-<doo>{
-    document {
-      attribute name {
-        "content"
-      }
-    }
-  }</doo>
+<doo>{ document { attribute name { "content" } } }</doo>

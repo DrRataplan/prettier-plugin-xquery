@@ -1,5 +1,3 @@
 import module namespace test = "urn:example:animal:ferret:nose";
 
-<result>{
-    test:ok()
-  }</result>
+<result>{ test:ok() }</result>

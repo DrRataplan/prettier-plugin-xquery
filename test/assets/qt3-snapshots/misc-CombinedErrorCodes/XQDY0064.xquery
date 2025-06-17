@@ -1,5 +1,1 @@
-<a>{
-    processing-instruction {"xml"} {
-      "content"
-    }
-  }</a>
+<a>{ processing-instruction {"xml"} { "content" } }</a>

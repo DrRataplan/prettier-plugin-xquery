@@ -1,5 +1,3 @@
 declare construction strip;
 
-<elem>{
-    //*:decimal
-  }</elem>/* cast as xs:integer
+<elem>{ //*:decimal }</elem>/* cast as xs:integer

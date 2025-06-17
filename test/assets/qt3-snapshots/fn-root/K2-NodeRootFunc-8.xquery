@@ -1,3 +1,1 @@
-root(document {
-    ()
-  }) instance of document-node()
+root(document { () }) instance of document-node()

@@ -1,3 +1,1 @@
-text {
-  'He said, "I don''t like it."'
-}
+text { 'He said, "I don''t like it."' }

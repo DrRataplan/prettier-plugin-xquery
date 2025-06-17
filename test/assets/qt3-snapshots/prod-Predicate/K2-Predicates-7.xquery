@@ -1,3 +1,1 @@
-<r>{
-    <e xml:lang="ene" />/(ancestor-or-self::*/@xml:lang)[last()]
-  }</r>
+<r>{ <e xml:lang="ene" />/(ancestor-or-self::*/@xml:lang)[last()] }</r>

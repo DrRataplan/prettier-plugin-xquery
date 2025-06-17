@@ -6,9 +6,7 @@ declare function functx:replace-element-values (
   $values as xs:anyAtomicType*
 ) as element()* {
   for $element in $elements
-  return element {node-name($element)} {
-      $element/@*, $values[$seq]
-    }
+  return element {node-name($element)} { $element/@*, $values[$seq] }
 };
 
 let $in-xml :=

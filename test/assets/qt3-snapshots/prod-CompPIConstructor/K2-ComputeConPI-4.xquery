@@ -1,3 +1,1 @@
-local-name(processing-instruction {" name "} {
-    "content"
-  })
+local-name(processing-instruction {" name "} { "content" })

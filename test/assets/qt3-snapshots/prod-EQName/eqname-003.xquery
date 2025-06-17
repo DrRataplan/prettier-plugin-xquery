@@ -4,6 +4,4 @@ declare function Q{http://www.example.com/ns/my}fn (
   $a + 2
 };
 
-<out>{
-    Q{http://www.example.com/ns/my}fn(12)
-  }</out>
+<out>{ Q{http://www.example.com/ns/my}fn(12) }</out>

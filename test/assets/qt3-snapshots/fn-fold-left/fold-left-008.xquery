@@ -1,4 +1,5 @@
-let $hours := function ($emp as element(employee)) as xs:integer {
+let $hours :=
+  function ($emp as element(employee)) as xs:integer {
     sum($emp/hours/xs:integer(.))
   },
   $highest :=

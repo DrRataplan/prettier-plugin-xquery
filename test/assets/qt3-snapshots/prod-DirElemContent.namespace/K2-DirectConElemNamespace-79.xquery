@@ -1,4 +1,5 @@
-let $e := document {
+let $e :=
+  document {
     (
       <X1:L xmlns:X1="http://ns.example.com/URL1">1</X1:L>,
       <X2:L xmlns:X2="http://ns.example.com/URL2">2</X2:L>

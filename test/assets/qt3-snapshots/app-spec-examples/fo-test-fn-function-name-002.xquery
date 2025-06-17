@@ -1,3 +1,1 @@
-fn:function-name(function ($node) {
-    count($node/*)
-  })
+fn:function-name(function ($node) { count($node/*) })

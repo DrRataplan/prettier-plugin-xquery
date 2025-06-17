@@ -11,11 +11,13 @@ declare function local:recurseMetaObject (
   $object as element(metaObject),
   $count as xs:integer
 ) {
-  <s:text fill="blue" font-family="Verdana" font-size="55" x="{
-      10 * $count
-    }" y="10">{
-      string($object/@className)
-    }</s:text>
+  <s:text
+    fill="blue"
+    font-family="Verdana"
+    font-size="55"
+    x="{ 10 * $count }"
+    y="10"
+  >{ string($object/@className) }</s:text>
 };
 
 declare function local:drawDiagram (

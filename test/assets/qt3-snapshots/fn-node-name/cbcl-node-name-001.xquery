@@ -1,3 +1,1 @@
-empty(node-name(comment {
-      "comments have no name "
-    }))
+empty(node-name(comment { "comments have no name " }))

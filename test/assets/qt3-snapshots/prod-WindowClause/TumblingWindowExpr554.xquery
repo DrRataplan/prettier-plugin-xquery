@@ -7,9 +7,7 @@ declare function local:window () {
   for tumbling window $w2 in $w1
     start $s when true()
     end $e when true()
-  return <window>{
-        fn:distinct-values($w1[. = $w2])
-      }</window>
+  return <window>{ fn:distinct-values($w1[. = $w2]) }</window>
 };
 
 local:window()

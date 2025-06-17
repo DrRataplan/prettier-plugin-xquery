@@ -1,3 +1,1 @@
-/array{
-  bid, bid
-}
+/array{ bid, bid }

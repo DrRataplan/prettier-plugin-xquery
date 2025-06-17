@@ -4,9 +4,7 @@ declare function local:thrice ($x as xs:integer) as xs:integer {
       "three"
     else
       3
-  } catch * {
-    3
-  }
+  } catch * { 3 }
 };
 
 local:thrice(3)

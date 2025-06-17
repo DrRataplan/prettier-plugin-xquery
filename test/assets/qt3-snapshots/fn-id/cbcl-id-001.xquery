@@ -5,7 +5,5 @@ declare function local:generate ($arg as xs:integer?) as xs:string* {
   "id2"
 };
 
-let $doc := document {
-    <root />
-  }
+let $doc := document { <root /> }
 return fn:empty(fn:id(local:generate(0), $doc))

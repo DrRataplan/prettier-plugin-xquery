@@ -1,3 +1,1 @@
-count((<elem>{
-        ""
-      }</elem>)/text())
+count((<elem>{ "" }</elem>)/text())

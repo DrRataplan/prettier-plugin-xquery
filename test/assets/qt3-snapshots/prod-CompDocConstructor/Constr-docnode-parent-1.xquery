@@ -1,3 +1,1 @@
-count((document {
-      ()
-    })/..)
+count((document { () })/..)

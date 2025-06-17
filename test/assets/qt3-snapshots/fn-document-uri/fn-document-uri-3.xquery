@@ -1,3 +1,1 @@
-fn:count(fn:document-uri(element anElement {
-      "some content"
-    }))
+fn:count(fn:document-uri(element anElement { "some content" }))

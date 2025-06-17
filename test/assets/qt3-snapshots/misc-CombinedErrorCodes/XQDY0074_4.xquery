@@ -1,3 +1,1 @@
-<a>{
-    attribute {"1localName"} {}
-  }</a>
+<a>{ attribute {"1localName"} {} }</a>

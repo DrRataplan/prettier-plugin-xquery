@@ -18,9 +18,7 @@ return let $expected := parse-xml("<b>89</b>")/*
               "indent": false()
             },
           "source-node": parse-xml("<a><b>89</b></a>"),
-          "post-process": function ($uri, $out) {
-              $out + 3
-            }
+          "post-process": function ($uri, $out) { $out + 3 }
         }
       )
     return deep-equal(trace($trans-result("output"), "actual"), 45)

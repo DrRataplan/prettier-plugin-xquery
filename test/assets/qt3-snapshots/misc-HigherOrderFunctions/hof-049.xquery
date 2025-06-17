@@ -5,6 +5,4 @@ declare function local:tf ($i as xs:integer) as function () as xs:boolean {
     false#0
 };
 
-<out>{
-    (local:tf(0)(), local:tf(1)())
-  }</out>
+<out>{ (local:tf(0)(), local:tf(1)()) }</out>

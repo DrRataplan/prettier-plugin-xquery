@@ -5,11 +5,7 @@
       $first in distinct-values($a[last = $last]/first)
     order by $last , $first
     return <result>
-        <author><last>{
-              $last
-            }</last><first>{
-              $first
-            }</first></author>
+        <author><last>{ $last }</last><first>{ $first }</first></author>
         {
           for $b in /bib/book
           where some

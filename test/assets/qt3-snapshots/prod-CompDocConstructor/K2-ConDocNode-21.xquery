@@ -1,9 +1,1 @@
-document {
-  document {
-    document {
-      document {
-        <e />
-      }
-    }
-  }
-}/child::node()
+document { document { document { document { <e /> } } } }/child::node()

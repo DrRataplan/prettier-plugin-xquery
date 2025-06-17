@@ -1,5 +1,3 @@
-<e>{
-    attribute {QName("http://www.w3.org/2000/xmlns/", "space")} {
-      "default"
-    }
-  }</e>
+<e>
+  { attribute {QName("http://www.w3.org/2000/xmlns/", "space")} { "default" } }
+</e>

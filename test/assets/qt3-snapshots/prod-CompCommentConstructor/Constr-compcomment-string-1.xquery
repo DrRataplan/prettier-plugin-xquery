@@ -1,3 +1,1 @@
-fn:string(comment {
-    "a", element a {}, "b"
-  })
+fn:string(comment { "a", element a {}, "b" })

@@ -7,6 +7,4 @@ declare function foo:content ($type as xs:integer) {
     <foo />
 };
 
-document {
-  foo:content(1)
-}
+document { foo:content(1) }

@@ -9,9 +9,7 @@ let $numbers :=
     <e>NaN</e>,
     <e />,
     <e>3</e>,
-    comment {
-      "3"
-    }
+    comment { "3" }
   )
 return (
     for $i in $numbers

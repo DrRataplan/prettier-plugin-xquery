@@ -1,5 +1,1 @@
-try {
-  doc("rubbish.xml")
-} catch * {
-  "ok"
-}
+try { doc("rubbish.xml") } catch * { "ok" }

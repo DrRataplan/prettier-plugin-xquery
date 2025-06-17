@@ -1,5 +1,1 @@
-try {
-  0
-} catch * {
-  "No error"
-}
+try { 0 } catch * { "No error" }

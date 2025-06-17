@@ -2,9 +2,7 @@ let $r :=
   fn:sort(
     ("boy", "for", "new", "chosen", "black", "pope"),
     (),
-    function ($input as xs:anyAtomicType*) as item()* {
-      fn:data($input)
-    }
+    function ($input as xs:anyAtomicType*) as item()* { fn:data($input) }
   )
 return (
     count($r) eq 6 and

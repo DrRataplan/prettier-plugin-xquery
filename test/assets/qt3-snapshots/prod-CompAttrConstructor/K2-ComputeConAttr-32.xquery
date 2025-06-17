@@ -1,7 +1,1 @@
-<e>{
-    attribute name {
-      <anElement />
-    }, attribute name2 {
-      "content"
-    }
-  }</e>
+<e>{ attribute name { <anElement /> }, attribute name2 { "content" } }</e>

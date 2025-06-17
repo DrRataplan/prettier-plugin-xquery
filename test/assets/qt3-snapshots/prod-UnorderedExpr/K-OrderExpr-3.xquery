@@ -1,3 +1,1 @@
-ordered{
-  true()
-}
+ordered{ true() }

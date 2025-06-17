@@ -1,4 +1,5 @@
-let $f := function ($ff as (function (item()) as item()), $s as xs:string) {
+let $f :=
+  function ($ff as (function (item()) as item()), $s as xs:string) {
     $ff($ff($s))
   }
 return for-each(

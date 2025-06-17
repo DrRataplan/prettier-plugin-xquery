@@ -1,3 +1,1 @@
-function () as empty-sequence() {
-  ()
-} instance of function () as xs:error?
+function () as empty-sequence() { () } instance of function () as xs:error?

@@ -5,14 +5,6 @@ declare variable $n external;
 <out>
   {
     for $x in 1 to $m, $y in 1 to $n
-    return <a p="{
-          $p
-        }" q="{
-          $q
-        }">{
-          $x
-        },{
-          $y
-        }</a>
+    return <a p="{ $p }" q="{ $q }">{ $x },{ $y }</a>
   }
 </out>

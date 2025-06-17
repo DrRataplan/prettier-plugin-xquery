@@ -1,3 +1,1 @@
-<e>{
-    <e foo="1" />/attribute(foo, doesNotExistExampleCom)
-  }</e>
+<e>{ <e foo="1" />/attribute(foo, doesNotExistExampleCom) }</e>

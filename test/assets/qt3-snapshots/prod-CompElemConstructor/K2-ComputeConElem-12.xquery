@@ -1,5 +1,3 @@
 declare construction strip;
 
-element e {
-  "content"
-} instance of element(b, xs:untyped)
+element e { "content" } instance of element(b, xs:untyped)

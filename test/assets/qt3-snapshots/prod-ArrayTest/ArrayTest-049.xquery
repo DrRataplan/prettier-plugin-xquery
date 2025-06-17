@@ -1,3 +1,1 @@
-element a {
-  ["a", ["b", "c"], "d"]
-}
+element a { ["a", ["b", "c"], "d"] }
