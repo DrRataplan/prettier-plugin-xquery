@@ -1,1 +1,1 @@
-<elem>content{ (:comment:) }content</elem>
+<elem>content{ (: comment :) }content</elem>

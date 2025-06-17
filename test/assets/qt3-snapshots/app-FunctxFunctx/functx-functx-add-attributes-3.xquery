@@ -1,13 +1,14 @@
 declare namespace functx = "http://www.example.com/";
 declare namespace new = "http://new";
 
-(:~ 
-            : Adds attributes to XML elements : 
-            : @author Priscilla Walmsley, Datypic 
-            : @version 1.0 : @see http://www.xqueryfunctions.com/xq/functx_add-attributes.html 
-            : @param $elements the element(s) to which you wish to add the attribute 
-            : @param $attrNames the name(s) of the attribute(s) to add 
-            : @param $attrValues the value(s) of the attribute(s) to add :)
+(:~
+ : Adds attributes to XML elements :
+ : @author Priscilla Walmsley, Datypic
+ : @version 1.0 : @see http://www.xqueryfunctions.com/xq/functx_add-attributes.html
+ : @param $elements the element(s) to which you wish to add the attribute
+ : @param $attrNames the name(s) of the attribute(s) to add
+ : @param $attrValues the value(s) of the attribute(s) to add
+ :)
 declare function functx:add-attributes (
   $elements as element()*,
   $attrNames as xs:QName*,

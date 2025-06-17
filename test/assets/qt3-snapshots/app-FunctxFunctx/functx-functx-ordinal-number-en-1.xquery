@@ -1,6 +1,8 @@
 declare namespace functx = "http://www.example.com/";
 
-(:~ : Reformats a number as an ordinal number, e.g. 1st, 2nd, 3rd. : : @author Priscilla Walmsley, Datypic : @version 1.0 : @see http://www.xqueryfunctions.com/xq/functx_ordinal-number-en.html : @param $num the number :)
+(:~
+ : Reformats a number as an ordinal number, e.g. 1st, 2nd, 3rd. : : @author Priscilla Walmsley, Datypic : @version 1.0 : @see http://www.xqueryfunctions.com/xq/functx_ordinal-number-en.html : @param $num the number
+ :)
 declare function functx:ordinal-number-en ($num as xs:integer?) as xs:string {
   concat(
     xs:string($num),

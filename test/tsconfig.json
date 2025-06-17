@@ -5,9 +5,13 @@
 		"rewriteRelativeImportExtensions": true,
 		"erasableSyntaxOnly": true,
 		"verbatimModuleSyntax": true,
-		"baseUrl": "./src/main.ts"
+		"baseUrl": "./src/main.ts",
+		"lib": ["ESNext"]
 	},
 	"include": [
-		"src/*"
+		"./**/*.ts"
+	],
+	"exclude": [
+		"assets/*.ts"
 	]
 }

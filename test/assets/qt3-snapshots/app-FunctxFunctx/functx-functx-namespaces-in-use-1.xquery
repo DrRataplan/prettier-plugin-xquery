@@ -1,6 +1,8 @@
 declare namespace functx = "http://www.example.com/";
 
-(:~ : A list of namespaces used in element/attribute names in an XML fragment : : @author Priscilla Walmsley, Datypic : @version 1.0 : @see http://www.xqueryfunctions.com/xq/functx_namespaces-in-use.html : @param $root the root node to start from :)
+(:~
+ : A list of namespaces used in element/attribute names in an XML fragment : : @author Priscilla Walmsley, Datypic : @version 1.0 : @see http://www.xqueryfunctions.com/xq/functx_namespaces-in-use.html : @param $root the root node to start from
+ :)
 declare function functx:namespaces-in-use ($root as node()?) as xs:anyURI* {
   distinct-values($root/descendant-or-self::*/(. | @*)/namespace-uri(.))
 };

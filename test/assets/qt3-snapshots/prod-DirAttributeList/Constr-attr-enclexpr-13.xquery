@@ -1,1 +1,1 @@
-<e attr="abc{ 23 (:":) }xyz" />
+<e attr="abc{ 23 (: " :) }xyz" />

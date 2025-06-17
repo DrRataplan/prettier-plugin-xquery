@@ -1,6 +1,8 @@
 declare namespace functx = "http://www.example.com/";
 
-(:~ : Performs substring-before, returning the entire string if it does not contain the delimiter : : @author Priscilla Walmsley, Datypic : @version 1.0 : @see http://www.xqueryfunctions.com/xq/functx_substring-before-if-contains.html : @param $arg the string to substring : @param $delim the delimiter :)
+(:~
+ : Performs substring-before, returning the entire string if it does not contain the delimiter : : @author Priscilla Walmsley, Datypic : @version 1.0 : @see http://www.xqueryfunctions.com/xq/functx_substring-before-if-contains.html : @param $arg the string to substring : @param $delim the delimiter
+ :)
 declare function functx:substring-before-if-contains (
   $arg as xs:string?,
   $delim as xs:string

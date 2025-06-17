@@ -1,6 +1,8 @@
 declare namespace functx = "http://www.example.com/";
 
-(:~ : The minimum value in a sequence, figuring out its type (numeric or string) : : @author Priscilla Walmsley, Datypic : @version 1.0 : @see http://www.xqueryfunctions.com/xq/functx_min-determine-type.html : @param $seq the sequence of values to test :)
+(:~
+ : The minimum value in a sequence, figuring out its type (numeric or string) : : @author Priscilla Walmsley, Datypic : @version 1.0 : @see http://www.xqueryfunctions.com/xq/functx_min-determine-type.html : @param $seq the sequence of values to test
+ :)
 declare function functx:min-determine-type (
   $seq as xs:anyAtomicType*
 ) as xs:anyAtomicType? {

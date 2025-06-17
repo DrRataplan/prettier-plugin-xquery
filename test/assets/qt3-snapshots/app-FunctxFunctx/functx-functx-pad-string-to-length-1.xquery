@@ -1,12 +1,13 @@
 declare namespace functx = "http://www.example.com/";
 
-(:~ 
-                     : Pads a string to a desired length : 
-                     : @author Priscilla Walmsley, Datypic 
-                     : @version 1.0 : @see http://www.xqueryfunctions.com/xq/functx_pad-string-to-length.html 
-                     : @param $stringToPad the string to pad 
-                     : @param $padChar the character(s) to use as padding 
-                     : @param $length the desired length :)
+(:~
+ : Pads a string to a desired length :
+ : @author Priscilla Walmsley, Datypic
+ : @version 1.0 : @see http://www.xqueryfunctions.com/xq/functx_pad-string-to-length.html
+ : @param $stringToPad the string to pad
+ : @param $padChar the character(s) to use as padding
+ : @param $length the desired length
+ :)
 
 declare function functx:pad-string-to-length (
   $stringToPad as xs:string?,

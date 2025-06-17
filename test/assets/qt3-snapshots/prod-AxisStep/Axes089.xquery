@@ -7,14 +7,14 @@ declare namespace tour = "http://wrox.com/tour";
     XQuery program to perform a knight's tour of the chessboard.
     Author: Michael H. Kay
     Date: 26 June 2003
-    
+
     This version modified to use XQuery 1.0, with sequences and functions.
 
     This query does not use a source document.
     There is an optional parameter, start, which can be set to any square on the
     chessboard, e.g. a3 or h5. XQuery does not allow parameters to be given a
     default value, so the parameter is mandatory.
-    
+
     There is a second optional parameter, end, which indicates that the processing should stop
     after a given number of steps. This can be used to animate the display of the tour. This
     works especially well when the query is compiled into a Java servlet.
@@ -23,12 +23,12 @@ declare namespace tour = "http://wrox.com/tour";
 
     Internally, the following data representations are used:
     * A square on the chessboard: represented as a number in the range 0 to 63
-    * A state of the chessboard: a sequence of 64 integers, each containing a move number. 
+    * A state of the chessboard: a sequence of 64 integers, each containing a move number.
       A square that has not been visited yet is represented by a zero.
     * A set of possible moves: represented as a sequence of integers,
     * each integer representing the number of the destination square
-      
-:)
+
+ :)
 
 declare variable $start := "a1";
 
@@ -118,11 +118,11 @@ declare function tour:try-possible-moves (
   $square as xs:integer (: range 0 to 63 :),
   $possible-moves as xs:integer*
 ) as xs:integer* {
-  (:   This function tries a set of possible moves that the knight can make
+  (: This function tries a set of possible moves that the knight can make
          from a given position. It determines the best move as the one to the square with
          fewest exits. If this is unsuccessful then it can backtrack and
-         try another move; however this turns out rarely to be necessary. 
-         
+         try another move; however this turns out rarely to be necessary.
+
          The function makes the selected move, and then calls make-moves() to make
          subsequent moves, returning the final state of the board. :)
 
@@ -145,7 +145,7 @@ declare function tour:make-best-move (
        and proceeds recursively to make further moves, eventually returning the
        final state of the board. :)
 
-  (:  if at least one move is possible, find the best one :)
+  (: if at least one move is possible, find the best one :)
 
   let $best-move as xs:integer :=
     tour:find-best-move($board, $possible-moves, 9, 999)
@@ -158,12 +158,12 @@ declare function tour:make-best-move (
 
   (: now make further moves using a recursive call, until the board is complete :)
   let $final-board as xs:integer* :=
-    if ($move < $endd) (:count($next-board[.=0])!=0:) then
+    if ($move < $endd) (: count($next-board[.=0])!=0 :) then
       tour:make-moves($move + 1, $next-board, $best-move)
     else
       $next-board
 
-  (:   if the final board has the special value '()', we got stuck, and have to choose
+  (: if the final board has the special value '()', we got stuck, and have to choose
          the next best of the possible moves. This is done by a recursive call. I thought
          that the knight never did get stuck, but it does: if the starting square is f1,
          the wrong choice is made at move 58, and needs to be reversed. :)
@@ -179,10 +179,10 @@ declare function tour:find-best-move (
   $fewest-exits as xs:integer,
   $best-so-far as xs:integer
 ) as xs:integer {
-  (:  This function finds from among the possible moves, the one with fewest exits.
+  (: This function finds from among the possible moves, the one with fewest exits.
          It calls itself recursively. :)
 
-  (:  split the list of possible moves into the first move and the rest of the moves :)
+  (: split the list of possible moves into the first move and the rest of the moves :)
 
   let $trial-move as xs:integer := $possible-moves[1]
 
@@ -197,17 +197,17 @@ declare function tour:find-best-move (
 
   let $number-of-exits as xs:integer := count($trial-move-exit-list)
 
-  (:  determine whether this trial move has fewer exits than those considered up till now :)
+  (: determine whether this trial move has fewer exits than those considered up till now :)
   let $minimum-exits as xs:integer := min(($number-of-exits, $fewest-exits))
 
-  (:  determine which is the best move (the one with fewest exits) so far :)
+  (: determine which is the best move (the one with fewest exits) so far :)
   let $new-best-so-far as xs:integer :=
     if ($number-of-exits < $fewest-exits) then
       $trial-move
     else
       $best-so-far
 
-  (:  if there are other possible moves, consider them too, using a recursive call.
+  (: if there are other possible moves, consider them too, using a recursive call.
         Otherwise return the best move found. :)
   return if (count($other-possible-moves) != 0) then
       tour:find-best-move(
@@ -224,7 +224,7 @@ declare function tour:list-possible-moves (
   $board as xs:integer*,
   $square as xs:integer
 ) as xs:integer* {
-  (:   This function, given the knight's position on the board, returns the set of squares
+  (: This function, given the knight's position on the board, returns the set of squares
          he can move to. The squares will be ones that have not been visited before :)
 
   let $row as xs:integer := $square idiv 8

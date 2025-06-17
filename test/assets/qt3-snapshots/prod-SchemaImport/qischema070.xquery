@@ -1,4 +1,4 @@
-import schema namespace fpml =  "http://www.fpml.org/2005/FpML-4-2"(:at "mini-fpml.xsd" :) ;
+import schema namespace fpml =  "http://www.fpml.org/2005/FpML-4-2"(: at "mini-fpml.xsd" :) ;
 
 declare variable $v := "4.2";
 

@@ -1,6 +1,8 @@
 declare namespace functx = "http://www.example.com/";
 
-(:~ : Whether two sequences have the same XML node content and/or values : : @author Priscilla Walmsley, Datypic : @version 1.0 : @see http://www.xqueryfunctions.com/xq/functx_sequence-deep-equal.html : @param $seq1 the first sequence : @param $seq2 the second sequence :)
+(:~
+ : Whether two sequences have the same XML node content and/or values : : @author Priscilla Walmsley, Datypic : @version 1.0 : @see http://www.xqueryfunctions.com/xq/functx_sequence-deep-equal.html : @param $seq1 the first sequence : @param $seq2 the second sequence
+ :)
 declare function functx:sequence-deep-equal (
   $seq1 as item()*,
   $seq2 as item()*

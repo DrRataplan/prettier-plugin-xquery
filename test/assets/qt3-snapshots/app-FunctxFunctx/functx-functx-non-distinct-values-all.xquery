@@ -1,6 +1,8 @@
 declare namespace functx = "http://www.example.com/";
 
-(:~ : Returns any values that appear more than once in a sequence : : @author Priscilla Walmsley, Datypic : @version 1.0 : @see http://www.xqueryfunctions.com/xq/functx_non-distinct-values.html : @param $seq the sequence of values :)
+(:~
+ : Returns any values that appear more than once in a sequence : : @author Priscilla Walmsley, Datypic : @version 1.0 : @see http://www.xqueryfunctions.com/xq/functx_non-distinct-values.html : @param $seq the sequence of values
+ :)
 declare function functx:non-distinct-values (
   $seq as xs:anyAtomicType*
 ) as xs:anyAtomicType* {

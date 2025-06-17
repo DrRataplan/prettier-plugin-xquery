@@ -1,6 +1,8 @@
 declare namespace functx = "http://www.example.com/";
 
-(:~ : The minimum of a sequence of strings, ignoring "empty" values : : @author Priscilla Walmsley, Datypic : @version 1.0 : @see http://www.xqueryfunctions.com/xq/functx_min-non-empty-string.html : @param $strings the sequence of strings to search :)
+(:~
+ : The minimum of a sequence of strings, ignoring "empty" values : : @author Priscilla Walmsley, Datypic : @version 1.0 : @see http://www.xqueryfunctions.com/xq/functx_min-non-empty-string.html : @param $strings the sequence of strings to search
+ :)
 declare function functx:min-non-empty-string (
   $strings as xs:string*
 ) as xs:string? {

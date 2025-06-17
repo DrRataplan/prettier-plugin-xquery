@@ -1,3 +1,3 @@
-declare (::) ordering unordered;
+declare (:  :) ordering unordered;
 
 1 eq 1

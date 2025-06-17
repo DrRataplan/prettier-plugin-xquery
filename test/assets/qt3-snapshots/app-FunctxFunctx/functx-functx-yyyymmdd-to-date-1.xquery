@@ -1,6 +1,8 @@
 declare namespace functx = "http://www.example.com/";
 
-(:~ : Converts a string with format YYYYMMDD (with any delimiters) to a date : : @author Priscilla Walmsley, Datypic : @version 1.1 : @see http://www.xqueryfunctions.com/xq/functx_yyyymmdd-to-date.html : @param $dateString the YYYYMMDD string :)
+(:~
+ : Converts a string with format YYYYMMDD (with any delimiters) to a date : : @author Priscilla Walmsley, Datypic : @version 1.1 : @see http://www.xqueryfunctions.com/xq/functx_yyyymmdd-to-date.html : @param $dateString the YYYYMMDD string
+ :)
 declare function functx:yyyymmdd-to-date (
   $dateString as xs:string?
 ) as xs:date? {

@@ -1,6 +1,8 @@
 declare namespace functx = "http://www.example.com/";
 
-(:~ : The position of a node in a sequence, based on contents and attributes : : @author Priscilla Walmsley, Datypic : @version 1.0 : @see http://www.xqueryfunctions.com/xq/functx_index-of-deep-equal-node.html : @param $nodes the node sequence : @param $nodeToFind the node to find in the sequence :)
+(:~
+ : The position of a node in a sequence, based on contents and attributes : : @author Priscilla Walmsley, Datypic : @version 1.0 : @see http://www.xqueryfunctions.com/xq/functx_index-of-deep-equal-node.html : @param $nodes the node sequence : @param $nodeToFind the node to find in the sequence
+ :)
 declare function functx:index-of-deep-equal-node (
   $nodes as node()*,
   $nodeToFind as node()

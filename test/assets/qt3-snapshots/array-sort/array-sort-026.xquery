@@ -1,7 +1,7 @@
 declare namespace array = "http://www.w3.org/2005/xpath-functions/array";
 declare namespace serialization = "http://www.w3.org/2010/xslt-xquery-serialization";
 
-(:declare option serialization:method "adaptive";:)
+(: declare option serialization:method "adaptive"; :)
 
 declare function local:fact ($n as xs:integer) {
   if ($n eq 1) then

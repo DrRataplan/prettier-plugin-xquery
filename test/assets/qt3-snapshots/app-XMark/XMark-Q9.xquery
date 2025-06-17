@@ -1,4 +1,4 @@
-(: Purpose: List the names of persons and the names of the items 
+(: Purpose: List the names of persons and the names of the items
          they bought in Europe(joins person, closed auction, item). :)
 <XMark-result-Q9>
   {

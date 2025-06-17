@@ -1,6 +1,8 @@
 declare namespace functx = "http://www.example.com/";
 
-(:~ : Whether a name matches a list of names or name wildcards : : @author Priscilla Walmsley, Datypic : @version 1.0 : @see http://www.xqueryfunctions.com/xq/functx_name-test.html : @param $testname the name to test : @param $names the list of names or name wildcards :)
+(:~
+ : Whether a name matches a list of names or name wildcards : : @author Priscilla Walmsley, Datypic : @version 1.0 : @see http://www.xqueryfunctions.com/xq/functx_name-test.html : @param $testname the name to test : @param $names the list of names or name wildcards
+ :)
 declare function functx:name-test (
   $testname as xs:string?,
   $names as xs:string*
@@ -19,7 +21,9 @@ declare function functx:name-test (
       )
 };
 
-(:~ : Removes attributes from an XML element, based on name : : @author Priscilla Walmsley, Datypic : @version 1.0 : @see http://www.xqueryfunctions.com/xq/functx_remove-attributes.html : @param $elements the element(s) from which to remove the attributes : @param $names the names of the attributes to remove, or * for all attributes :)
+(:~
+ : Removes attributes from an XML element, based on name : : @author Priscilla Walmsley, Datypic : @version 1.0 : @see http://www.xqueryfunctions.com/xq/functx_remove-attributes.html : @param $elements the element(s) from which to remove the attributes : @param $names the names of the attributes to remove, or * for all attributes
+ :)
 declare function functx:remove-attributes (
   $elements as element()*,
   $names as xs:string*
@@ -30,7 +34,9 @@ declare function functx:remove-attributes (
     }
 };
 
-(:~ : Performs substring-after, returning the entire string if it does not contain the delimiter : : @author Priscilla Walmsley, Datypic : @version 1.0 : @see http://www.xqueryfunctions.com/xq/functx_substring-after-if-contains.html : @param $arg the string to substring : @param $delim the delimiter :)
+(:~
+ : Performs substring-after, returning the entire string if it does not contain the delimiter : : @author Priscilla Walmsley, Datypic : @version 1.0 : @see http://www.xqueryfunctions.com/xq/functx_substring-after-if-contains.html : @param $arg the string to substring : @param $delim the delimiter
+ :)
 declare function functx:substring-after-if-contains (
   $arg as xs:string?,
   $delim as xs:string

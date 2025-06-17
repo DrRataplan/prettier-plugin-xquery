@@ -1,3 +1,3 @@
-declare (::) default order empty (::) least;
+declare (:  :) default order empty (:  :) least;
 
 1 eq 1

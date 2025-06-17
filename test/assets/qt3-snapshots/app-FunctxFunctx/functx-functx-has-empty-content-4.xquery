@@ -1,6 +1,8 @@
 declare namespace functx = "http://www.example.com/";
 
-(:~ : Whether an element has empty content : : @author Priscilla Walmsley, Datypic : @version 1.0 : @see http://www.xqueryfunctions.com/xq/functx_has-empty-content.html : @param $element the XML element to test :)
+(:~
+ : Whether an element has empty content : : @author Priscilla Walmsley, Datypic : @version 1.0 : @see http://www.xqueryfunctions.com/xq/functx_has-empty-content.html : @param $element the XML element to test
+ :)
 declare function functx:has-empty-content (
   $element as element()
 ) as xs:boolean {

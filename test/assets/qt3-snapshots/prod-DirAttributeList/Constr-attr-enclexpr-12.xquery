@@ -1,1 +1,1 @@
-<elem attr="z{ (:comment:) }z" />
+<elem attr="z{ (: comment :) }z" />

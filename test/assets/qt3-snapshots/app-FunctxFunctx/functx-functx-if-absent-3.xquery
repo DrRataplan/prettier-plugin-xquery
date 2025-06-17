@@ -1,6 +1,8 @@
 declare namespace functx = "http://www.example.com/";
 
-(:~ : The first argument if it is not empty, otherwise the second argument : : @author W3C XML Query WG : @version 1.0 : @see http://www.xqueryfunctions.com/xq/functx_if-absent.html : @param $arg the item(s) that may be absent : @param $value the item(s) to use if the item is absent :)
+(:~
+ : The first argument if it is not empty, otherwise the second argument : : @author W3C XML Query WG : @version 1.0 : @see http://www.xqueryfunctions.com/xq/functx_if-absent.html : @param $arg the item(s) that may be absent : @param $value the item(s) to use if the item is absent
+ :)
 declare function functx:if-absent (
   $arg as item()*,
   $value as item()*

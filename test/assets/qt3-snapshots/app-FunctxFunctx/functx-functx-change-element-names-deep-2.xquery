@@ -1,7 +1,9 @@
 declare namespace functx = "http://www.example.com/";
 declare namespace dty = "http://datypic.com";
 
-(:~ : Changes the names of elements in an XML fragment : : @author Priscilla Walmsley, Datypic : @version 1.0 : @see http://www.xqueryfunctions.com/xq/functx_change-element-names-deep.html : @param $nodes the element(s) to change : @param $oldNames the sequence of names to change from : @param $newNames the sequence of names to change to :)
+(:~
+ : Changes the names of elements in an XML fragment : : @author Priscilla Walmsley, Datypic : @version 1.0 : @see http://www.xqueryfunctions.com/xq/functx_change-element-names-deep.html : @param $nodes the element(s) to change : @param $oldNames the sequence of names to change from : @param $newNames the sequence of names to change to
+ :)
 declare function functx:change-element-names-deep (
   $nodes as node()*,
   $oldNames as xs:QName*,
@@ -27,7 +29,9 @@ declare function functx:change-element-names-deep (
         $node
 };
 
-(:~ : The first argument if it is not blank, otherwise the second argument : : @author Priscilla Walmsley, Datypic : @version 1.0 : @see http://www.xqueryfunctions.com/xq/functx_if-empty.html : @param $arg the node that may be empty : @param $value the item(s) to use if the node is empty :)
+(:~
+ : The first argument if it is not blank, otherwise the second argument : : @author Priscilla Walmsley, Datypic : @version 1.0 : @see http://www.xqueryfunctions.com/xq/functx_if-empty.html : @param $arg the node that may be empty : @param $value the item(s) to use if the node is empty
+ :)
 declare function functx:if-empty (
   $arg as item()?,
   $value as item()*

@@ -1,6 +1,8 @@
 declare namespace functx = "http://www.example.com/";
 
-(:~ : Gets XML element(s) that have an attribute with a particular value : : @author Priscilla Walmsley, Datypic : @version 1.0 : @see http://www.xqueryfunctions.com/xq/functx_id-untyped.html : @param $node the root node(s) to start from : @param $id the "id" to find :)
+(:~
+ : Gets XML element(s) that have an attribute with a particular value : : @author Priscilla Walmsley, Datypic : @version 1.0 : @see http://www.xqueryfunctions.com/xq/functx_id-untyped.html : @param $node the root node(s) to start from : @param $id the "id" to find
+ :)
 declare function functx:id-untyped (
   $node as node()*,
   $id as xs:anyAtomicType

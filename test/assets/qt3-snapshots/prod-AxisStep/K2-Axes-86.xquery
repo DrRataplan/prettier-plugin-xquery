@@ -2,7 +2,7 @@ declare variable $root := . treat as document-node();
 
 <out>
   <empty>
-    { (: attribute axis, and all other axes that inference can assert might produce attributes. 
+    { (: attribute axis, and all other axes that inference can assert might produce attributes.
              These are placed first, so we don't raise XQTY0024. :)
       $root/foo/child::attribute(foo),
       $root//element()/self::attribute(),

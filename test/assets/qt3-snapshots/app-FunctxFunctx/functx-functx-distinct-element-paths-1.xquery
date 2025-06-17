@@ -1,13 +1,17 @@
 declare namespace functx = "http://www.example.com/";
 
-(:~ : The distinct paths of all descendant elements in an XML fragment : : @author Priscilla Walmsley, Datypic : @version 1.0 : @see http://www.xqueryfunctions.com/xq/functx_distinct-element-paths.html : @param $nodes the root(s) to start from :)
+(:~
+ : The distinct paths of all descendant elements in an XML fragment : : @author Priscilla Walmsley, Datypic : @version 1.0 : @see http://www.xqueryfunctions.com/xq/functx_distinct-element-paths.html : @param $nodes the root(s) to start from
+ :)
 declare function functx:distinct-element-paths (
   $nodes as node()*
 ) as xs:string* {
   distinct-values(functx:path-to-node($nodes/descendant-or-self::*))
 };
 
-(:~ : A path to an XML node (or sequence of nodes) : : @author Priscilla Walmsley, Datypic : @version 1.0 : @see http://www.xqueryfunctions.com/xq/functx_path-to-node.html : @param $nodes the node sequence :)
+(:~
+ : A path to an XML node (or sequence of nodes) : : @author Priscilla Walmsley, Datypic : @version 1.0 : @see http://www.xqueryfunctions.com/xq/functx_path-to-node.html : @param $nodes the node sequence
+ :)
 declare function functx:path-to-node ($nodes as node()*) as xs:string* {
   $nodes/string-join(ancestor-or-self::*/name(.), "/")
 };

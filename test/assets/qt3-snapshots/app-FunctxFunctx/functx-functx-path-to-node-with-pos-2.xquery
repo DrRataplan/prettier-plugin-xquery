@@ -1,6 +1,8 @@
 declare namespace functx = "http://www.example.com/";
 
-(:~ : The position of a node in a sequence, based on node identity : : @author W3C XML Query Working Group : @version 1.0 : @see http://www.xqueryfunctions.com/xq/functx_index-of-node.html : @param $nodes the node sequence : @param $nodeToFind the node to find in the sequence :)
+(:~
+ : The position of a node in a sequence, based on node identity : : @author W3C XML Query Working Group : @version 1.0 : @see http://www.xqueryfunctions.com/xq/functx_index-of-node.html : @param $nodes the node sequence : @param $nodeToFind the node to find in the sequence
+ :)
 declare function functx:index-of-node (
   $nodes as node()*,
   $nodeToFind as node()
@@ -9,7 +11,9 @@ declare function functx:index-of-node (
   return $seq[$nodes[$seq] is $nodeToFind]
 };
 
-(:~ : A unique path to an XML node (or sequence of nodes) : : @author Priscilla Walmsley, Datypic : @version 1.0 : @see http://www.xqueryfunctions.com/xq/functx_path-to-node-with-pos.html : @param $node the node sequence :)
+(:~
+ : A unique path to an XML node (or sequence of nodes) : : @author Priscilla Walmsley, Datypic : @version 1.0 : @see http://www.xqueryfunctions.com/xq/functx_path-to-node-with-pos.html : @param $node the node sequence
+ :)
 declare function functx:path-to-node-with-pos ($node as node()?) as xs:string {
   string-join(
     for $ancestor in $node/ancestor-or-self::*
