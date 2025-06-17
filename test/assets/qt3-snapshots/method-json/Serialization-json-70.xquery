@@ -11,10 +11,11 @@ map {
       "title": "Data on the Web",
       "year": 2000,
       "author":
-        [map {"last": "Abiteboul", "first": "Serge"}, map {
-          "last": "Buneman",
-          "first": "Peter"
-        }, map {"last": "Suciu", "first": "Dan"}],
+        [
+          map {"last": "Abiteboul", "first": "Serge"},
+          map {"last": "Buneman", "first": "Peter"},
+          map {"last": "Suciu", "first": "Dan"}
+        ],
       "xml-content": <complex><simple>text-value</simple></complex>,
       "publisher": "Morgan Kaufmann Publishers",
       "price": 39.95

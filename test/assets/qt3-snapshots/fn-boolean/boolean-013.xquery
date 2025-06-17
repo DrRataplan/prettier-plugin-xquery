@@ -1,1 +1,1 @@
-boolean(array{})
+boolean(array {})

@@ -1,5 +1,5 @@
 let $x := [map {"x": 1, "y": 2}, "x"]
-let $y := [array{ 1, 2, 3 }, 1]
+let $y := [array { 1, 2, 3 }, 1]
 let $z := ($x, $y)
 for $e in $z
 return typeswitch ($e?1)

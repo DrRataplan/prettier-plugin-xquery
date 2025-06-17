@@ -1,1 +1,1 @@
-apply(true#0, array{})
+apply(true#0, array {})

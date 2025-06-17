@@ -15,6 +15,10 @@ map {
   xs:date("2014-09-30"): "date-key",
   "2014-09-30": "string date key",
   "array":
-    [xs:integer("123456"), xs:date("2014-09-30"), xs:boolean("true"),
-    xs:boolean("false")]
+    [
+      xs:integer("123456"),
+      xs:date("2014-09-30"),
+      xs:boolean("true"),
+      xs:boolean("false")
+    ]
 }

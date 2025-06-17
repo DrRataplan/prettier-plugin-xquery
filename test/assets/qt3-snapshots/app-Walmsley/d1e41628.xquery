@@ -1,1 +1,1 @@
-array{ "a", "b", "c" }
+array { "a", "b", "c" }

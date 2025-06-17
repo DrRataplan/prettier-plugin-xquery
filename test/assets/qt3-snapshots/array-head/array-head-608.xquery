@@ -1,1 +1,1 @@
-array:head(array{ (), (27, 17, 0) })
+array:head(array { (), (27, 17, 0) })
