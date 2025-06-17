@@ -7,11 +7,7 @@ declare function functx:get-matches-and-non-matches (
 ) as element()* {
   let $iomf := functx:index-of-match-first($string, $regex)
   return if (empty($iomf)) then
-      <non-match>
-        {
-          $string
-        }
-      </non-match>
+      <non-match>{ $string }</non-match>
     else if ($iomf > 1) then (
       <non-match>{ substring($string, 1, $iomf - 1) }</non-match>,
       functx:get-matches-and-non-matches(substring($string, $iomf), $regex)

@@ -13,7 +13,9 @@ declare function local:self ($e as node()) as node() {
 declare function local:union (
   $f as function (node()) as node()*,
   $g as function (node()) as node()*
-) as function (node()) as node()* { function ($a) { $f($a) | $g($a) } };
+) as function (node()) as node()* {
+  function ($a) { $f($a) | $g($a) }
+};
 
 let $data := (/a),
   $f :=

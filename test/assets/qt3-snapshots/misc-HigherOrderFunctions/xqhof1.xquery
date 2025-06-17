@@ -24,7 +24,9 @@ declare function map:contains (
 declare function map:get (
   $map as (function () as item()+)*,
   $key as item()
-) as item()* { map:process($map, $key, map:value#1, (), function ($a) { () }) };
+) as item()* {
+  map:process($map, $key, map:value#1, (), function ($a) { () })
+};
 
 declare function map:process (
   $map as (function () as item()+)*,
@@ -68,7 +70,9 @@ declare function map:process (
 declare function map:pair (
   $key as item(),
   $value as item()*
-) as function () as item()+ { function () { $key, $value } };
+) as function () as item()+ {
+  function () { $key, $value }
+};
 
 declare function map:put (
   $map as (function () as item()+)*,

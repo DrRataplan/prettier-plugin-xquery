@@ -26,9 +26,7 @@ declare function local:drawDiagram (
   <s:g>
     {
       if (string($object/@objectName)) then
-        attribute xml:id {
-          $object/@objectName
-        }
+        attribute xml:id { $object/@objectName }
       else (
       ),
       $metaObjects[@className = $object/@className]/local:recurseMetaObject(

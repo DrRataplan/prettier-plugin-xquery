@@ -4,9 +4,7 @@ declare function local:numbers ($positive) {
   if ($positive) then
     <PositiveNumbers><orderData>1</orderData></PositiveNumbers>
   else
-    document {
-      <NegativeNumbers><orderData>-1</orderData></NegativeNumbers>
-    }
+    document { <NegativeNumbers><orderData>-1</orderData></NegativeNumbers> }
 };
 
 let $positive as element(orderData, xs:decimal) :=
