@@ -14,7 +14,8 @@ declare function prnt (
     fn:concat($n, " ", $n2, " ", $n3, " ", $n4, " ", $n5, " ", $n6)
 };
 
-<table>{
+<table>
+  {
     <td>Value is = {
         prnt(
           4,
@@ -24,5 +25,7 @@ declare function prnt (
           xs:string("well"),
           xs:decimal(1.2)
         )
-      }</td>
-  }</table>
+      }
+    </td>
+  }
+</table>

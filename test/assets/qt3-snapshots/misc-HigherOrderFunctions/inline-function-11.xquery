@@ -1,4 +1,2 @@
 let $a := "monkey"
-return function ($a) {
-    "lala", $a
-  }("gibbon")
+return function ($a) { "lala", $a }("gibbon")

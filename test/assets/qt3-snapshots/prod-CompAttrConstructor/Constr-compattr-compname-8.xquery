@@ -1,5 +1,1 @@
-element elem {
-  attribute {//*:NCName[1]} {
-    "text"
-  }
-}
+element elem { attribute {//*:NCName[1]} { "text" } }

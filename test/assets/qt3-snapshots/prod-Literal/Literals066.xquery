@@ -1,3 +1,1 @@
-<test>{
-    'He said, "I don''t like it."'
-  }</test>
+<test>{ 'He said, "I don''t like it."' }</test>

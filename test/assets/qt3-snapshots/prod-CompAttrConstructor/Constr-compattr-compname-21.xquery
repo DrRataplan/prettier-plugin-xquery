@@ -1,3 +1,1 @@
-element x {
-  attribute {" Q{}y "} {}
-}
+element x { attribute {" Q{}y "} {} }

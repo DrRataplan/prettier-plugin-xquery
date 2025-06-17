@@ -1,5 +1,1 @@
-count(document {
-    text {
-      ""
-    }
-  }/text())
+count(document { text { "" } }/text())

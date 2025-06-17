@@ -1,3 +1,1 @@
-element {xs:untypedAtomic("el em")} {
-  "text"
-}
+element {xs:untypedAtomic("el em")} { "text" }

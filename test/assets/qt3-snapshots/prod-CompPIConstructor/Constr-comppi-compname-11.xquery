@@ -1,3 +1,1 @@
-processing-instruction {"pi", ()} {
-  "text"
-}
+processing-instruction {"pi", ()} { "text" }

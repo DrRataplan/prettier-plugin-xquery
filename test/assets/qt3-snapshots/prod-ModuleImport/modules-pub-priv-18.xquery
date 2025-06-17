@@ -4,6 +4,4 @@ declare %private function local:inc ($i as xs:integer) {
 
 declare variable $test := local:inc(1);
 
-<a>{
-    $test
-  }</a>
+<a>{ $test }</a>

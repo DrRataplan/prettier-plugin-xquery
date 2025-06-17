@@ -1,3 +1,1 @@
-processing-instruction pi {
-  /root
-}
+processing-instruction pi { /root }

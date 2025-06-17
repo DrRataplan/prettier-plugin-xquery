@@ -18,9 +18,8 @@ return let $expected := parse-xml("<b>89</b>")/*
               "indent": false()
             },
           "source-node": parse-xml("<a><b>89</b></a>"),
-          "post-process": function ($uri, $out) {
-              concat(substring($out, 1, 12), "...")
-            }
+          "post-process":
+            function ($uri, $out) { concat(substring($out, 1, 12), "...") }
         }
       )
     return deep-equal(

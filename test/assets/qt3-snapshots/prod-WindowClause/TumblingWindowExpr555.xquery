@@ -4,9 +4,7 @@ declare function local:window () {
   for tumbling window $w in $local:foo
     start $s when false()
     end $e when false()
-  return <window>{
-        $w
-      }</window>
+  return <window>{ $w }</window>
 };
 
 local:window()

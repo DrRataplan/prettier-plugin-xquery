@@ -1,3 +1,1 @@
-document {
-  <A><B /><C /></A>
-}//*[head(./*/last()) <= 1]
+document { <A><B /><C /></A> }//*[head(./*/last()) <= 1]

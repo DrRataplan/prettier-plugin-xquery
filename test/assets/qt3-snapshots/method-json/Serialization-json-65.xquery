@@ -16,9 +16,7 @@ map {
           "last": "Buneman",
           "first": "Peter"
         }, map {"last": "Suciu", "first": "Dan"}],
-      "xml-content": element simple {
-          "text-value"
-        },
+      "xml-content": element simple { "text-value" },
       "publisher": "Morgan Kaufmann Publishers",
       "price": 39.95
     }

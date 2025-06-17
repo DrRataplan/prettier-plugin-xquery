@@ -3,9 +3,7 @@
     for tumbling window $w in ./stream/event[direction eq "in"]
       start  when true()
       only end next $x when $x/person eq "Clara"
-    return <result time="{
-          $x/@time
-        }">
+    return <result time="{ $x/@time }">
         {
           distinct-values(
             for $y in $w

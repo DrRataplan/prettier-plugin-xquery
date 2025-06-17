@@ -1,9 +1,1 @@
-count(document {
-    document {
-      document {
-        document {
-          ()
-        }
-      }
-    }
-  }/child::node())
+count(document { document { document { document { () } } } }/child::node())

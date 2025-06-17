@@ -1,5 +1,1 @@
-(try {
-    ""
-  } catch *:FOAR0001 {
-    "Invalid argument"
-  }) + 1
+(try { "" } catch *:FOAR0001 { "Invalid argument" }) + 1

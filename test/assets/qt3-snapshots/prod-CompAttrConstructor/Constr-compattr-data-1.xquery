@@ -1,3 +1,1 @@
-fn:data(attribute attr {
-    "a", element a {}, "b"
-  })
+fn:data(attribute attr { "a", element a {}, "b" })

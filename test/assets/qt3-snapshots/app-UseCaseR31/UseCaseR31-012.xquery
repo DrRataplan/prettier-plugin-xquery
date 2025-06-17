@@ -12,6 +12,13 @@ declare function local:play (
       $translator("The secret number is lower.")
 };
 
-local:play(76, 86, function ($x) {
-    $x
-  }) (: Keep English :), local:play(76, 86, map {"You won!": "Du hast gewonnen!", "The secret number is greater.": "Die geheime Zahl ist groesser.", "The secret number is lower.": "Die geheime Zahl ist kleiner."})
+local:play(76, 86, function ($x) { $x }) (: Keep English :),
+local:play(
+  76,
+  86,
+  map {
+    "You won!": "Du hast gewonnen!",
+    "The secret number is greater.": "Die geheime Zahl ist groesser.",
+    "The secret number is lower.": "Die geheime Zahl ist kleiner."
+  }
+)

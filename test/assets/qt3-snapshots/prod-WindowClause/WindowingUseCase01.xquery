@@ -6,9 +6,7 @@
     return <tr>
         {
           for $i in $w
-          return <td>{
-                data($i)
-              }</td>
+          return <td>{ data($i) }</td>
         }
       </tr>
   }

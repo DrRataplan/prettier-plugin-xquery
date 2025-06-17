@@ -1,3 +1,1 @@
-<codepoints>{
-    string-to-codepoints(<elem>&#xD;&#xA;</elem>)
-  }</codepoints>
+<codepoints>{ string-to-codepoints(<elem>&#xD;&#xA;</elem>) }</codepoints>

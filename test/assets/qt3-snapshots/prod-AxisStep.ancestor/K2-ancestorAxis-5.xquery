@@ -1,3 +1,1 @@
-empty(document {
-    ()
-  }/ancestor::node())
+empty(document { () }/ancestor::node())

@@ -1,4 +1,6 @@
-let $emp := validate lax { document {
+let $emp :=
+  validate lax {
+    document {
       <employees
         xmlns:xs="http://www.w3.org/2001/XMLSchema"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -16,7 +18,8 @@ let $emp := validate lax { document {
           <manager xsi:type="xs:IDREF">ID21256</manager>
         </employee>
       </employees>
-    } }
+    }
+    }
 
 return $emp/(
     element-with-id("ID21256")/@xml:id => fn:idref()

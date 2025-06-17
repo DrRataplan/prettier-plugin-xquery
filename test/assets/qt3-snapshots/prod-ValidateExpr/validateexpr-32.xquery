@@ -7,10 +7,8 @@ declare function local:numbers ($positive) {
     <NegativeNumbers><orderData>-1</orderData></NegativeNumbers>
 };
 
-let $positive as element(orderData, xs:decimal) := (validate { document {
-        local:numbers(true())
-      } })//orderData
-let $negative as element(orderData, xs:decimal) := (validate { document {
-        local:numbers(false())
-      } })//orderData
+let $positive as element(orderData, xs:decimal) :=
+  (validate { document { local:numbers(true()) } })//orderData
+let $negative as element(orderData, xs:decimal) :=
+  (validate { document { local:numbers(false()) } })//orderData
 return $positive + $negative

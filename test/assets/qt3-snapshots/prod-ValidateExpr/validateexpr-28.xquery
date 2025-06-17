@@ -1,11 +1,14 @@
 import schema namespace t =  "http://www.example.com/ns/test/xq-e18";
 
-let $doc := validate strict { document {
+let $doc :=
+  validate strict {
+    document {
       <doc xmlns="http://www.example.com/ns/test/xq-e18">
         <para1>PT3H21M</para1>
         <para2>P3M</para2>
       </doc>
-    } }
+    }
+    }
 let $p1 := data($doc/t:doc/t:para1)
 let $p2 := data($doc/t:doc/t:para2)
 let $t1 := xs:dayTimeDuration("PT3H21M")

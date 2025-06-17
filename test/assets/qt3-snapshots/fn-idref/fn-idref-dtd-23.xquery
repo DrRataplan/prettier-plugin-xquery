@@ -1,5 +1,3 @@
 declare ordering ordered;
 
-<results>{
-    fn:idref("id4", /IDS[1])
-  }</results>
+<results>{ fn:idref("id4", /IDS[1]) }</results>

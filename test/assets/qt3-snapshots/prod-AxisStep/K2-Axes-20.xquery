@@ -1,3 +1,1 @@
-empty(attribute theName {
-    "some text"
-  }/..)
+empty(attribute theName { "some text" }/..)

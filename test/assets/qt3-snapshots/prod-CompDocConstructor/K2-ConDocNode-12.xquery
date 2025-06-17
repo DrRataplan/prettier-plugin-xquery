@@ -1,5 +1,1 @@
-<a>{
-    string(document {
-        <a />, <b />, <c />
-      })
-  }</a>
+<a>{ string(document { <a />, <b />, <c /> }) }</a>

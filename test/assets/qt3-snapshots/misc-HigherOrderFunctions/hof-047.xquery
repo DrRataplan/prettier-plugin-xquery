@@ -4,9 +4,7 @@ declare function local:splitter (
   for $sep in ("\s", ",", "!")
   return function () {
       for $i in tokenize($x, $sep)
-      return let $f := function () {
-            concat($sep, ":", upper-case($i))
-          }
+      return let $f := function () { concat($sep, ":", upper-case($i)) }
         return $f()
     }
 };
@@ -18,9 +16,7 @@ declare function local:splitter (
     return <tokens>
         {
           for $t in $f()
-          return <t>{
-                $t
-              }</t>
+          return <t>{ $t }</t>
         }
       </tokens>
   }

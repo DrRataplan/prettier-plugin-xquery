@@ -1,3 +1,1 @@
-deep-equal(attribute name {
-    "content"
-  }, attribute name {})
+deep-equal(attribute name { "content" }, attribute name {})

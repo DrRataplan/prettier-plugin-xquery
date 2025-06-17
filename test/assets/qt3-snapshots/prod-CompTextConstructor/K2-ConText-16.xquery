@@ -1,4 +1,2 @@
-let $t := text {
-    <_ />[text()]
-  }
+let $t := text { <_ />[text()] }
 return count(data($t))

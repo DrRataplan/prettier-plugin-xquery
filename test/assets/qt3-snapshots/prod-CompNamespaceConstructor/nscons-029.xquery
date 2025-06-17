@@ -1,3 +1,1 @@
-serialize(namespace z {
-    "http://www.zorba-xquery.com/"
-  })
+serialize(namespace z { "http://www.zorba-xquery.com/" })

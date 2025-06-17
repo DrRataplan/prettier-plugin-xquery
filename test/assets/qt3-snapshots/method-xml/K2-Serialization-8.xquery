@@ -1,3 +1,1 @@
-<a attr="{
-    codepoints-to-string(1 to 31)
-  }" />
+<a attr="{ codepoints-to-string(1 to 31) }" />

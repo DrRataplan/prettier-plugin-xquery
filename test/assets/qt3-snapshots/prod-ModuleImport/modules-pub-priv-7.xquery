@@ -1,5 +1,3 @@
 declare %public variable $i := 1;
 
-<a>{
-    $i + 1
-  }</a>
+<a>{ $i + 1 }</a>

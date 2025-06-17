@@ -1,5 +1,1 @@
-string(<elem attr="{
-      attribute name {
-        " content "
-      }
-    }" />/@attr)
+string(<elem attr="{ attribute name { " content " } }" />/@attr)

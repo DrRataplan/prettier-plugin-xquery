@@ -7,6 +7,4 @@ declare function foo:something ($type as xs:integer) {
     "foo"
 };
 
-<e>{
-    attribute {foo:something(1)} {}
-  }</e>
+<e>{ attribute {foo:something(1)} {} }</e>

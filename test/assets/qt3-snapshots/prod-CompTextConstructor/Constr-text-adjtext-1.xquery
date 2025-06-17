@@ -1,7 +1,1 @@
-count(<elem>{
-      text {
-        "te"
-      }, text {
-        "xt"
-      }
-    }</elem>/text())
+count(<elem>{ text { "te" }, text { "xt" } }</elem>/text())

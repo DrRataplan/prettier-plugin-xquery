@@ -5,22 +5,16 @@
         { (: Column headings :)
           <th />,
           for $th in json-doc("table.json")("col labels")?*
-          return <th>{
-                $th
-              }</th>
+          return <th>{ $th }</th>
         }
       </tr>
       { (: Data for each row :)
         for $r in json-doc("table.json")("data")?*
         return <tr>
             {
-              <th>{
-                  json-doc("table.json")("row labels")[$i]
-                }</th>,
+              <th>{ json-doc("table.json")("row labels")[$i] }</th>,
               for $c in $r?*
-              return <td>{
-                    $c
-                  }</td>
+              return <td>{ $c }</td>
             }
           </tr>
       }

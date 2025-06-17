@@ -12,9 +12,7 @@ return let $expected := parse-xml("<b>89</b>")/*
           "stylesheet-text": $xsl,
           "delivery-format": "document",
           "source-node": parse-xml("<a><b>89</b></a>"),
-          "post-process": function ($uri, $doc) {
-              $doc/out/a/b
-            }
+          "post-process": function ($uri, $doc) { $doc/out/a/b }
         }
       )
     return deep-equal(trace($trans-result("output"), "actual"), $expected)

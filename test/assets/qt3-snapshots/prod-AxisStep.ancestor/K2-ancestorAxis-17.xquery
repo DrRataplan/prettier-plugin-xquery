@@ -1,5 +1,1 @@
-document {
-  ()
-}/ancestor::node(), count(document {
-    ()
-  }/ancestor::node()), 1
+document { () }/ancestor::node(), count(document { () }/ancestor::node()), 1

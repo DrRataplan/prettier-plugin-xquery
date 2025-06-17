@@ -1,3 +1,1 @@
-try {
-  1 div 0
-} catch * {}
+try { 1 div 0 } catch * {}

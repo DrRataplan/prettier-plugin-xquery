@@ -1,3 +1,1 @@
-(attribute anAttribute {
-    "an attribute node"
-  })/document-uri()
+(attribute anAttribute { "an attribute node" })/document-uri()

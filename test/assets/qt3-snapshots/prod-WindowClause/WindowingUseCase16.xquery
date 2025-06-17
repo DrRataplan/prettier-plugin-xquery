@@ -7,16 +7,12 @@
       ) ne
         fn:day-from-dateTime(xs:dateTime($s_curr/pubDate))
     return <item>
-        <date>{
-            xs:date(xs:dateTime($s_curr/pubDate))
-          }</date>
+        <date>{ xs:date(xs:dateTime($s_curr/pubDate)) }</date>
         {
           for $a in fn:distinct-values($w/author)
-          return <author name="{
-                $a
-              }"><titles>{
-                  $w[author eq $a]/title
-                }</titles></author>
+          return <author name="{ $a }">
+              <titles>{ $w[author eq $a]/title }</titles>
+            </author>
         }
       </item>
   }

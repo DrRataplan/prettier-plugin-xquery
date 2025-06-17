@@ -8,7 +8,5 @@ declare function local:hof (
   $f(3) + 1
 };
 
-let $f := function ($a as lu:unionType) as xs:integer {
-    $a + 2
-  }
+let $f := function ($a as lu:unionType) as xs:integer { $a + 2 }
 return local:hof($f)

@@ -8,8 +8,6 @@
         ($e/person eq "Barbara" and $e/direction eq "in") or
         ($e/person eq "Anton" and $e/direction eq "out")
     where $e/person eq "Barbara" and $e/direction eq "in"
-    return <warning time="{
-          $e/@time
-        }">Barbara: Anton arrived 1h ago</warning>
+    return <warning time="{ $e/@time }">Barbara: Anton arrived 1h ago</warning>
   }
 </result>

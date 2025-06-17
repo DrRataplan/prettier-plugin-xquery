@@ -1,5 +1,3 @@
-local-name(<elem attr="{
-      processing-instruction name {
-        " content "
-      }
-    }" />/@attr)
+local-name(
+  <elem attr="{ processing-instruction name { " content " } }" />/@attr
+)

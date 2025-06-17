@@ -9,9 +9,7 @@ declare namespace g = "http://example.com/NotThis2";
       order by $i
       return $i,
       "|",
-      for $i in in-scope-prefixes(element e {
-            ()
-          })
+      for $i in in-scope-prefixes(element e { () })
       order by $i
       return $i
     }

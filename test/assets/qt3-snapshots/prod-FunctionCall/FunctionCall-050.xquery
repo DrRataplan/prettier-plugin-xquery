@@ -15,6 +15,9 @@ declare function local:hof (
   $f($e) = 10
 };
 
-local:hof(function ($in as element(*, lu:restrictedUnion)) as xs:integer {
+local:hof(
+  function ($in as element(*, lu:restrictedUnion)) as xs:integer {
     string-length(string($in))
-  }, $elem/lu:e)
+  },
+  $elem/lu:e
+)

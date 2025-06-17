@@ -1,3 +1,1 @@
-processing-instruction xml {
-  "pi"
-}
+processing-instruction xml { "pi" }

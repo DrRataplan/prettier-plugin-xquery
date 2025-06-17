@@ -1,3 +1,1 @@
-element e {
-  "content"
-} instance of element(*, xs:untyped)
+element e { "content" } instance of element(*, xs:untyped)

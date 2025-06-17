@@ -1,3 +1,1 @@
-<a>{
-    <?target data?>/*
-  }</a>
+<a>{ <?target data?>/* }</a>

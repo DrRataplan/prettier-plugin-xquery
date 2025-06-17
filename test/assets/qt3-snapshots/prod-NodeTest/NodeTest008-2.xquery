@@ -1,3 +1,1 @@
-<out>{
-    fn:count(//center/text())
-  }</out>
+<out>{ fn:count(//center/text()) }</out>

@@ -1,3 +1,1 @@
-empty(base-uri(processing-instruction target {
-      "data"
-    }))
+empty(base-uri(processing-instruction target { "data" }))

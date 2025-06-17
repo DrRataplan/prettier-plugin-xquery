@@ -1,9 +1,3 @@
-declare function local:myFunc () {
-  <elem />, attribute name {
-    "content"
-  }
-};
+declare function local:myFunc () { <elem />, attribute name { "content" } };
 
-<b>{
-    local:myFunc()[2]
-  }</b>
+<b>{ local:myFunc()[2] }</b>

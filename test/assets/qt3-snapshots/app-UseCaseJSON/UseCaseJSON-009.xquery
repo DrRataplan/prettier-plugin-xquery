@@ -6,19 +6,11 @@ declare variable $data := map {
   "points": [[10, 10], [20, 10], [20, 20], [10, 20]]
 };
 
-declare variable $stroke := attribute stroke {
-  $data("color")
-};
+declare variable $stroke := attribute stroke { $data("color") };
 
-declare variable $points := attribute points {
-  array:flatten($data("points"))
-};
+declare variable $points := attribute points { array:flatten($data("points")) };
 
 if ($data("closed")) then
-  <svg><polygon>{
-        $stroke, $points
-      }</polygon></svg>
+  <svg><polygon>{ $stroke, $points }</polygon></svg>
 else
-  <svg><polyline>{
-        $stroke, $points
-      }</polyline></svg>
+  <svg><polyline>{ $stroke, $points }</polyline></svg>

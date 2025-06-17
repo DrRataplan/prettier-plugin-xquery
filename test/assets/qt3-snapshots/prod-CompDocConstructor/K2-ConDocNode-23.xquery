@@ -1,11 +1,5 @@
-string(document {
-    text {
-      "data"
-    }, text {
-      "data"
-    }, text {
-      "data"
-    }, text {
-      "data"
-    }
-  })
+string(
+  document {
+    text { "data" }, text { "data" }, text { "data" }, text { "data" }
+  }
+)

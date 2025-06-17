@@ -1,3 +1,1 @@
-array:size(array{
-    (), ("A", "B", "C"), "D"
-  })
+array:size(array{ (), ("A", "B", "C"), "D" })

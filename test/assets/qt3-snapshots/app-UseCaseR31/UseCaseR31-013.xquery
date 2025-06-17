@@ -10,10 +10,6 @@ declare variable $s := [["A", "DT"], ["bride", "NN"], [",", ","], ["you",
 <s>
   {
     for $w in $s?*
-    return <w pos="{
-          $w(2)
-        }">{
-          $w(1)
-        }</w>
+    return <w pos="{ $w(2) }">{ $w(1) }</w>
   }
 </s>

@@ -1,3 +1,1 @@
-document {
-  1, "a", 3.5, 4e2
-}
+document { 1, "a", 3.5, 4e2 }

@@ -1,3 +1,1 @@
-element a {
-  avg#1
-}
+element a { avg#1 }

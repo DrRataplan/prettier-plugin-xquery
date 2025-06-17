@@ -1,3 +1,1 @@
-empty(text {
-    "some text"
-  }/..)
+empty(text { "some text" }/..)

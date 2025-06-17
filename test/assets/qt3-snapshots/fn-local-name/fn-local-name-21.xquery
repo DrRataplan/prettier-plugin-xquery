@@ -1,3 +1,3 @@
-fn:upper-case(fn:string(fn:local-name(attribute anAttribute {
-        "Some content"
-      })))
+fn:upper-case(
+  fn:string(fn:local-name(attribute anAttribute { "Some content" }))
+)

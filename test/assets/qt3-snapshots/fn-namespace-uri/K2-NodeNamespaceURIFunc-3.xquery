@@ -1,3 +1,1 @@
-namespace-uri(text {
-    ()
-  }) eq ""
+namespace-uri(text { () }) eq ""

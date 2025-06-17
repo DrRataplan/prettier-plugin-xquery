@@ -19,9 +19,7 @@ declare function functx:change-element-ns (
           local-name($element)
         )
       )
-      } {
-      $element/@*, $element/node()
-    }
+      } { $element/@*, $element/node() }
 };
 
 let $in-xml :=

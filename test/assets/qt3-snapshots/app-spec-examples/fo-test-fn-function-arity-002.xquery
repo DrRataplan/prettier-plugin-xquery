@@ -1,3 +1,1 @@
-fn:function-arity(function ($node) {
-    name($node)
-  })
+fn:function-arity(function ($node) { name($node) })

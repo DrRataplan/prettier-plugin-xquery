@@ -1,3 +1,1 @@
-processing-instruction {xs:dateTime("1999-05-31T13:20:00")} {
-  "text"
-}
+processing-instruction {xs:dateTime("1999-05-31T13:20:00")} { "text" }

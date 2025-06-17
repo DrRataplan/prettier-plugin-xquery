@@ -1,3 +1,1 @@
-empty(document-uri(text {
-      123
-    }))
+empty(document-uri(text { 123 }))

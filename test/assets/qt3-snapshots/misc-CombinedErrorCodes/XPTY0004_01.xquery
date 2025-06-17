@@ -1,3 +1,1 @@
-attribute {1} {
-  1
-}
+attribute {1} { 1 }

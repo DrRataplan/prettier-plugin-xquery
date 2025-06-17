@@ -1,3 +1,1 @@
-fn:data(element elem {
-    "a", element a {}, "b"
-  })
+fn:data(element elem { "a", element a {}, "b" })

@@ -1,3 +1,1 @@
-fn:count((document {
-      <aDocument>some content</aDocument>
-    })/base-uri())
+fn:count((document { <aDocument>some content</aDocument> })/base-uri())

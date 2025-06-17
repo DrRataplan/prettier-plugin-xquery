@@ -1,3 +1,1 @@
-document {
-  1, "", 2
-}
+document { 1, "", 2 }

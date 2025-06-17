@@ -12,10 +12,6 @@
     where $book1 << $book2 and
       not($book1/title = $book2/title) and
       deep-equal($aut1, $aut2)
-    return <book-pair>{
-          $book1/title
-        }{
-          $book2/title
-        }</book-pair>
+    return <book-pair>{ $book1/title }{ $book2/title }</book-pair>
   }
 </bib>

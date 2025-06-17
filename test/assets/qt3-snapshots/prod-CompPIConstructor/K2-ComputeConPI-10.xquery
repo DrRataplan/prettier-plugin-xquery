@@ -1,3 +1,1 @@
-processing-instruction name {
-  " "
-} eq ""
+processing-instruction name { " " } eq ""

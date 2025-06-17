@@ -1,3 +1,1 @@
-empty(attribute name {
-    "content"
-  }/ancestor::node())
+empty(attribute name { "content" }/ancestor::node())

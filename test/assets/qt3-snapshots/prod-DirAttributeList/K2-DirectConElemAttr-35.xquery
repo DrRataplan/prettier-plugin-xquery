@@ -1,5 +1,1 @@
-local-name(<elem attr="{
-      comment {
-        " content "
-      }
-    }" />/@attr)
+local-name(<elem attr="{ comment { " content " } }" />/@attr)

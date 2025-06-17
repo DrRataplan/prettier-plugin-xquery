@@ -1,5 +1,1 @@
-string(<elem attr="{
-      comment {
-        " content "
-      }
-    }" />/@attr)
+string(<elem attr="{ comment { " content " } }" />/@attr)

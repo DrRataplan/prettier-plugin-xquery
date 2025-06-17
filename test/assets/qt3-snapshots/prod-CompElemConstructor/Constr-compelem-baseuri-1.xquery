@@ -1,5 +1,1 @@
-fn:base-uri(element elem {
-    attribute xml:base {
-      "http://www.example.com"
-    }
-  })
+fn:base-uri(element elem { attribute xml:base { "http://www.example.com" } })

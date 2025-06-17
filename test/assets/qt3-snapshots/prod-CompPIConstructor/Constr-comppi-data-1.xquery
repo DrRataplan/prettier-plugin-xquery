@@ -1,3 +1,1 @@
-fn:data(processing-instruction pi {
-    "a", element a {}, "b"
-  })
+fn:data(processing-instruction pi { "a", element a {}, "b" })

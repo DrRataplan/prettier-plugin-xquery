@@ -1,5 +1,3 @@
 element elem {
-  attribute {xs:untypedAtomic("one"), xs:untypedAtomic("two")} {
-    "text"
-  }
+  attribute {xs:untypedAtomic("one"), xs:untypedAtomic("two")} { "text" }
 }

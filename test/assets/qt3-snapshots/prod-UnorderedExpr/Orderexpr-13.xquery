@@ -1,3 +1,1 @@
-ordered{
-  //part[@partof < 2] except //part[@partid = 2]
-}
+ordered{ //part[@partof < 2] except //part[@partid = 2] }

@@ -1,3 +1,1 @@
-in-scope-prefixes(text {
-    "some text"
-  })
+in-scope-prefixes(text { "some text" })

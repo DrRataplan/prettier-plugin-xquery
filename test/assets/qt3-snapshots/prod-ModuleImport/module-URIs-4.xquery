@@ -1,5 +1,3 @@
 import module namespace test = "http://www.w3.org/TestModules/test/../../TestModules/./test";
 
-<result>{
-    test:ok()
-  }</result>
+<result>{ test:ok() }</result>

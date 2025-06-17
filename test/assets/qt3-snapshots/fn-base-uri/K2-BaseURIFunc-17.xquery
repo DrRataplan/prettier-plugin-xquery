@@ -1,5 +1,3 @@
 declare base-uri "http://www.example.com";
 
-empty(base-uri(attribute name {
-      "data"
-    }))
+empty(base-uri(attribute name { "data" }))

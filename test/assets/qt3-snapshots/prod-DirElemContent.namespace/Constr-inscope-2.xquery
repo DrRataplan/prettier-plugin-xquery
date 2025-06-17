@@ -1,3 +1,1 @@
-<new>{
-    //@*:attr1, //@*:attr2
-  }</new>
+<new>{ //@*:attr1, //@*:attr2 }</new>

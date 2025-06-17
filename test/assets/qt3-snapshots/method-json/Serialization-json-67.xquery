@@ -15,9 +15,7 @@ map {
         [map {"last": "Abiteboul", "first": "Serge"}, map {
           "last": "Buneman",
           "first": "Peter"
-        }, element simple {
-          1 + 1
-        }, map {"last": "Suciu", "first": "Dan"}],
+        }, element simple { 1 + 1 }, map {"last": "Suciu", "first": "Dan"}],
       "publisher": "Morgan Kaufmann Publishers",
       "price": 39.95
     }

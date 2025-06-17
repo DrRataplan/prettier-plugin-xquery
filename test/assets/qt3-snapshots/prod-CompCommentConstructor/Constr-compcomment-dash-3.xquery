@@ -1,3 +1,1 @@
-comment {
-  "comment&#x2D;"
-}
+comment { "comment&#x2D;" }

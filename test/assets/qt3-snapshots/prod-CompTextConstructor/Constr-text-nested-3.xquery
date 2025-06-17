@@ -1,9 +1,1 @@
-document {
-  text {
-    "one"
-  }, <a />, text {
-    "two"
-  }, <b />, text {
-    "three"
-  }
-}
+document { text { "one" }, <a />, text { "two" }, <b />, text { "three" } }

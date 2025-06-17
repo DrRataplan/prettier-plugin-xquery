@@ -1,5 +1,1 @@
-element elem {
-  attribute {123} {
-    "text"
-  }
-}
+element elem { attribute {123} { "text" } }

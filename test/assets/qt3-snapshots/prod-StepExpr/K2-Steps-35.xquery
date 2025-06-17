@@ -1,3 +1,1 @@
-<e />[1]/text {
-  string-join(., " ")
-}, 1
+<e />[1]/text { string-join(., " ") }, 1

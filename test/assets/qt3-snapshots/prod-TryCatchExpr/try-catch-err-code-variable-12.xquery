@@ -1,5 +1,1 @@
-try {
-  fn:error()
-} catch * {
-  fn:namespace-uri-from-QName($err:code)
-}
+try { fn:error() } catch * { fn:namespace-uri-from-QName($err:code) }

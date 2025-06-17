@@ -1,3 +1,1 @@
-document {
-  <T />
-}//T[(@t <= 0) or (@t >= -10)]
+document { <T /> }//T[(@t <= 0) or (@t >= -10)]

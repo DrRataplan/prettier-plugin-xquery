@@ -236,7 +236,7 @@ const modulesAndPrologsHandlers: Record<string, Handler> = {
 		]);
 	},
 
-	FunctionDecl: (path, print) => {
+	FunctionDecl: (path, print, options) => {
 		const functionKeyword = path.map(print, "childrenByName", "'function'");
 		const eQNamePart = path.map(print, "childrenByName", "EQName");
 		const paramListPart = path.node.childrenByName["ParamList"] ? path.map(print, "childrenByName", "ParamList") : [];
@@ -245,8 +245,11 @@ const modulesAndPrologsHandlers: Record<string, Handler> = {
 			? [asKeyword!, space, path.map(print, "childrenByName", "SequenceType"), space]
 			: [];
 
+		// Enforce a newline in a function body.
+		options.forceNewLineInfunctionBody = true;
 		const functionBodyPart =
 			printIfExist(path, print, "FunctionBody") ?? path.map(print, "childrenByName", "'external'");
+		delete options.forceNewLineInfunctionBody;
 
 		const parenOpenKeyword = path.map(print, "childrenByName", "'('");
 		const parenCloseKeyword = path.map(print, "childrenByName", "')'");

@@ -1,3 +1,1 @@
-element {xs:QName("aQname")} {
-  "text"
-}
+element {xs:QName("aQname")} { "text" }

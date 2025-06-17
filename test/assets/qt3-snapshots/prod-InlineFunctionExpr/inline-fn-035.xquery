@@ -5,8 +5,6 @@ declare function local:negate ($x) {
 };
 
 declare variable $f := let $x := $p
-return function ($a) {
-    local:negate($a + $x + $p)
-  };
+return function ($a) { local:negate($a + $x + $p) };
 
 $f(12)

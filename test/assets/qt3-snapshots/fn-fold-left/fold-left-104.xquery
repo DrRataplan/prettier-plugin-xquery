@@ -9,6 +9,8 @@ declare function local:fold-left (
     fn:fold-left(fn:tail($seq), $f($zero, fn:head($seq)), $f)
 };
 
-local:fold-left((true(), false(), false()), false(), function ($a, $b) {
-    $a and $b
-  })
+local:fold-left(
+  (true(), false(), false()),
+  false(),
+  function ($a, $b) { $a and $b }
+)

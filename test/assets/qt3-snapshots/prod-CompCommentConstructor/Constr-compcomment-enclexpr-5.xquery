@@ -1,3 +1,1 @@
-comment {
-  /root
-}
+comment { /root }

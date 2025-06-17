@@ -1,3 +1,1 @@
-processing-instruction {//*:NCName[1]} {
-  "text"
-}
+processing-instruction {//*:NCName[1]} { "text" }

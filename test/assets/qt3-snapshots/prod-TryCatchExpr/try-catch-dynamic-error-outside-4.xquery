@@ -1,5 +1,1 @@
-1 + (try {
-      ""
-    } catch *:XPTY0004 {
-      "Invalid argument"
-    })
+1 + (try { "" } catch *:XPTY0004 { "Invalid argument" })

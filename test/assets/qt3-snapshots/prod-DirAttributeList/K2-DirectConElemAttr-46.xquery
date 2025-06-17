@@ -1,3 +1,1 @@
-<e>{
-    <b a="bo" attr="fo" />/@*
-  }</e>
+<e>{ <b a="bo" attr="fo" />/@* }</e>

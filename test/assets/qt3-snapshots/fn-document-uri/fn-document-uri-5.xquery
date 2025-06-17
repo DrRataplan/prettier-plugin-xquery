@@ -1,3 +1,1 @@
-fn:count(fn:document-uri(text {
-      "a text node"
-    }))
+fn:count(fn:document-uri(text { "a text node" }))

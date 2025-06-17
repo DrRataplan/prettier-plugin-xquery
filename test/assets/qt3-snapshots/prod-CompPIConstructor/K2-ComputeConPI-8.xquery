@@ -1,3 +1,1 @@
-string(processing-instruction {"thename"} {
-    "asdas? >"
-  })
+string(processing-instruction {"thename"} { "asdas? >" })

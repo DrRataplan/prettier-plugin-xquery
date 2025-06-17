@@ -1,3 +1,1 @@
-local-name(processing-instruction {" XmLnaMe "} {
-    "content"
-  })
+local-name(processing-instruction {" XmLnaMe "} { "content" })

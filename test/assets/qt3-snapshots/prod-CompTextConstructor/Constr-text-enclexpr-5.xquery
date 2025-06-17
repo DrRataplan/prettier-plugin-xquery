@@ -1,3 +1,1 @@
-text {
-  /root
-}
+text { /root }

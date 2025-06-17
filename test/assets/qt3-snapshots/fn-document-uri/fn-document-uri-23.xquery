@@ -1,3 +1,1 @@
-(processing-instruction {"PITarget"} {
-    "PIContent"
-  })/document-uri()
+(processing-instruction {"PITarget"} { "PIContent" })/document-uri()

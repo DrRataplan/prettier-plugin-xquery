@@ -1,3 +1,1 @@
-count((comment {
-      "comment"
-    })/..)
+count((comment { "comment" })/..)

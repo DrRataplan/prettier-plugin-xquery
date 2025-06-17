@@ -1,5 +1,1 @@
-try {
-  $x
-} catch * {
-  "Undefined variable"
-}
+try { $x } catch * { "Undefined variable" }

@@ -1,3 +1,1 @@
-element {"el em"} {
-  "text"
-}
+element {"el em"} { "text" }

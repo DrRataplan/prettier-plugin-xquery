@@ -9,6 +9,4 @@ declare function local:fold-left (
     fn:fold-left(fn:tail($seq), $f($zero, fn:head($seq)), $f)
 };
 
-local:fold-left((2, 3, 5, 7), 1, function ($a, $b) {
-    $a * $b
-  })
+local:fold-left((2, 3, 5, 7), 1, function ($a, $b) { $a * $b })

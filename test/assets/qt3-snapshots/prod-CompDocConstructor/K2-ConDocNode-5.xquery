@@ -1,5 +1,1 @@
-document {
-  attribute name {
-    "content"
-  }, <e />, "some text"
-}
+document { attribute name { "content" }, <e />, "some text" }

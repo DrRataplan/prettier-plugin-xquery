@@ -4,6 +4,4 @@ declare function test1:ok () {
   "ok"
 };
 
-<result>{
-    test1:ok()
-  }</result>
+<result>{ test1:ok() }</result>

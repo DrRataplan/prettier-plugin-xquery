@@ -1,3 +1,1 @@
-document {
-  attribute {"foo"} {}
-}
+document { attribute {"foo"} {} }

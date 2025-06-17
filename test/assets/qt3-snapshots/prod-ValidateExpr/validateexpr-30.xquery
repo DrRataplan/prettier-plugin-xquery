@@ -1,6 +1,7 @@
 import schema default element namespace  "http://www.w3.org/XQueryTestOrderBy";
 
-let $document as document-node(element(Strings)) := document {
+let $document as document-node(element(Strings)) :=
+  document {
     (
       <!--comment-->,
       <Strings><orderData>one string</orderData></Strings>,

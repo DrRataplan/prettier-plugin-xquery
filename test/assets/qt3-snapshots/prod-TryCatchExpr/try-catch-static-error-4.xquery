@@ -1,5 +1,1 @@
-try {
-  $x
-} catch *:XPST0008 {
-  "Undefined variable"
-}
+try { $x } catch *:XPST0008 { "Undefined variable" }

@@ -1,5 +1,3 @@
 import module namespace test = "http:test";
 
-<result>{
-    test:ok()
-  }</result>
+<result>{ test:ok() }</result>

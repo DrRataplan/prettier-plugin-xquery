@@ -1,3 +1,1 @@
-fn:filter((), function ($a as item()) as xs:boolean? {
-    ()
-  })
+fn:filter((), function ($a as item()) as xs:boolean? { () })

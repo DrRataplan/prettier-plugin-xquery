@@ -1,3 +1,1 @@
-fn:string(document {
-    "a", element a {}, "b"
-  })
+fn:string(document { "a", element a {}, "b" })

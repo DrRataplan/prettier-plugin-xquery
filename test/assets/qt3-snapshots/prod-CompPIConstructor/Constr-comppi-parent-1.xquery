@@ -1,3 +1,1 @@
-count((processing-instruction pi {
-      ()
-    })/..)
+count((processing-instruction pi { () })/..)

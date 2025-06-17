@@ -26,12 +26,9 @@ declare variable $input := <Events>
     group by $tripDate, $tripName
     let $totalDuration := sum($duration)
     order by $tripDate descending, $tripName
-    return <DATA datetime="{
-          $tripDate
-        }" name="{
-          $tripName
-        }" totaltime="{
-          $totalDuration div xs:dayTimeDuration("PT1H")
-        }" />
+    return <DATA
+        datetime="{ $tripDate }"
+        name="{ $tripName }"
+        totaltime="{ $totalDuration div xs:dayTimeDuration("PT1H") }" />
   }
 </Result>

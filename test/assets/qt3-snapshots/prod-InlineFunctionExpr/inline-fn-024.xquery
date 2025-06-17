@@ -1,3 +1,1 @@
-function ($x, $y) {
-  $x + $y
-}(12, 5)
+function ($x, $y) { $x + $y }(12, 5)

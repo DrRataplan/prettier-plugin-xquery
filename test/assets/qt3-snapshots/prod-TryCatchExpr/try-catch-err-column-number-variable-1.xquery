@@ -1,6 +1,4 @@
-try {
-  fn:error()
-} catch * {
+try { fn:error() } catch * {
   let $n := $err:column-number
   return true()
 }

@@ -1,3 +1,1 @@
-1, text {
-  ""
-}/ancestor-or-self::node(), 1
+1, text { "" }/ancestor-or-self::node(), 1

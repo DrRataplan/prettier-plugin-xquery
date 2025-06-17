@@ -1,4 +1,6 @@
-let $emp := validate lax { document {
+let $emp :=
+  validate lax {
+    document {
       <employee
         xmlns:xs="http://www.w3.org/2001/XMLSchema"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -8,6 +10,7 @@ let $emp := validate lax { document {
         <first>John</first>
         <last>Brown</last>
       </employee>
-    } }
+    }
+    }
 
 return $emp/fn:element-with-id("E21256")/name()

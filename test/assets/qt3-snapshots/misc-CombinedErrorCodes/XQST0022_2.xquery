@@ -1,3 +1,1 @@
-<a xmlns:prefix="{
-    1
-  }" />
+<a xmlns:prefix="{ 1 }" />

@@ -16,8 +16,6 @@ return transform(
       "delivery-format": "document",
       "base-output-uri": "http://example.com/",
       "source-node": parse-xml("<a><b>89</b></a>"),
-      "post-process": function ($uri, $doc) {
-          xs:integer($doc/out) + 3
-        }
+      "post-process": function ($uri, $doc) { xs:integer($doc/out) + 3 }
     }
   )

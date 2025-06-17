@@ -1,5 +1,1 @@
-(try {
-    ""
-  } catch err:* {
-    "Invalid argument"
-  }) + 1
+(try { "" } catch err:* { "Invalid argument" }) + 1

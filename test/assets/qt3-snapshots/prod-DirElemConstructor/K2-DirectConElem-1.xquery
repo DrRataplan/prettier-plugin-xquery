@@ -1,3 +1,1 @@
-string(<pi>{
-      <?pi x?>
-    }</pi>) eq ""
+string(<pi>{ <?pi x?> }</pi>) eq ""

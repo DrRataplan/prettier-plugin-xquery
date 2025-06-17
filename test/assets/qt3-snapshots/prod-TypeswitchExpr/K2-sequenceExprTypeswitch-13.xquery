@@ -1,6 +1,12 @@
-declare variable $i := (<e />, attribute name {
-    "content"
-  }, <a attr="content" />, <e />, 1, "str", <!-- a comment -->);
+declare variable $i := (
+  <e />,
+  attribute name { "content" },
+  <a attr="content" />,
+  <e />,
+  1,
+  "str",
+  <!-- a comment -->
+);
 
 <d>
   {
@@ -8,9 +14,7 @@ declare variable $i := (<e />, attribute name {
       case $b as element(e) return
         concat("Found an element by name ", $b)
       case $b as element() return
-        comment {
-          concat("Found: ", $b)
-        }
+        comment { concat("Found: ", $b) }
       case $c as attribute(doesntMatch) return
         $c/..
 

@@ -1,3 +1,1 @@
-<e xmlns="http://www.example.com/" a="{
-    <e><b>data</b></e>/b
-  }" />
+<e xmlns="http://www.example.com/" a="{ <e><b>data</b></e>/b }" />

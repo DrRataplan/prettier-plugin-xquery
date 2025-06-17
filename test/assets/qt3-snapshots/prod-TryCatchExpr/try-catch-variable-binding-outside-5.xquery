@@ -7,8 +7,4 @@ for tumbling window $x as xs:string in (2, 4, 6, 8, 10)
   at $epos
   previous $eprev
   next $enext when true()
-return try {
-    $x
-  } catch err:XPTY0004 {
-    0
-  }
+return try { $x } catch err:XPTY0004 { 0 }

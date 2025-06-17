@@ -8,10 +8,4 @@ declare function local:myFunc ($recurse as xs:integer) as item() {
   </nested>
 };
 
-<b>{
-    local:myFunc(3)
-  }{
-    attribute name {
-      "content"
-    }
-  }</b>
+<b>{ local:myFunc(3) }{ attribute name { "content" } }</b>

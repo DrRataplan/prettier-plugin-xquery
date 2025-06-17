@@ -1,3 +1,1 @@
-element {"aPrefix:localName"} {
-  "content"
-}
+element {"aPrefix:localName"} { "content" }

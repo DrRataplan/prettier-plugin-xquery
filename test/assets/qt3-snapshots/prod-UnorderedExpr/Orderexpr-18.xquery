@@ -1,3 +1,1 @@
-unordered{
-  fn:reverse((2, 3))
-}
+unordered{ fn:reverse((2, 3)) }

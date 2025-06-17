@@ -1,3 +1,1 @@
-empty(<e />/(a intersect element {"name"} {
-        ()
-      }))
+empty(<e />/(a intersect element {"name"} { () }))

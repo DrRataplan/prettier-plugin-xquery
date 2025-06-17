@@ -1,3 +1,1 @@
-fn:path(text {
-    "fred"
-  })
+fn:path(text { "fred" })

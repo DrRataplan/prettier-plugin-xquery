@@ -1,3 +1,1 @@
-string(attribute xml:id {
-    " ab c d "
-  })
+string(attribute xml:id { " ab c d " })

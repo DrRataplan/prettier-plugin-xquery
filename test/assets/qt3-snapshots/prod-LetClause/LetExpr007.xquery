@@ -1,4 +1,2 @@
-let $x := <a>{
-      1 + 1
-    }</a>
+let $x := <a>{ 1 + 1 }</a>
 return $x

@@ -1,3 +1,1 @@
-<a>{
-    <a b="blah" />/@*/self::attribute(b)
-  }</a>
+<a>{ <a b="blah" />/@*/self::attribute(b) }</a>

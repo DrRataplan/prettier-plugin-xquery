@@ -12,12 +12,9 @@ for tumbling window $w in $stock//closing
   next $second when $first/price < $second/price
   end $last
   next $beyond when $last/price > $beyond/price
-return <run-up><start-date>{
-        fn:data($first/date)
-      }</start-date><start-price>{
-        fn:data($first/price)
-      }</start-price><end-date>{
-        fn:data($last/date)
-      }</end-date><end-price>{
-        fn:data($last/price)
-      }</end-price></run-up>
+return <run-up>
+    <start-date>{ fn:data($first/date) }</start-date>
+    <start-price>{ fn:data($first/price) }</start-price>
+    <end-date>{ fn:data($last/date) }</end-date>
+    <end-price>{ fn:data($last/price) }</end-price>
+  </run-up>

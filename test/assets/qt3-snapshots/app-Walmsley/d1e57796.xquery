@@ -1,3 +1,1 @@
-array:for-each(["a", "b", "c"], function ($x) {
-    concat($x, "x")
-  })
+array:for-each(["a", "b", "c"], function ($x) { concat($x, "x") })

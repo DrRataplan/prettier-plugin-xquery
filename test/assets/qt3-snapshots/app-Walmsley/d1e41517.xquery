@@ -4,7 +4,5 @@ declare variable $deptnames := map {
   "MEN": "Men's"
 };
 
-let $f := function ($k, $v) {
-    concat("Key: ", $k, ", value: ", $v)
-  }
+let $f := function ($k, $v) { concat("Key: ", $k, ", value: ", $v) }
 return map:for-each($deptnames, $f)

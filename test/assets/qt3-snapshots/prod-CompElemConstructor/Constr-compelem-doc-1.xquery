@@ -1,3 +1,1 @@
-element elem {
-  ., .
-}
+element elem { ., . }

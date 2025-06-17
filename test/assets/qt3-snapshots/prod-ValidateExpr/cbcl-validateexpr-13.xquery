@@ -1,3 +1,1 @@
-validate lax { document {
-    (<a />, <b />)
-  } }
+validate lax { document { (<a />, <b />) } }

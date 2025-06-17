@@ -1,3 +1,1 @@
-map:for-each(map:merge(()), function ($k, $v) {
-    $k || $v
-  })
+map:for-each(map:merge(()), function ($k, $v) { $k || $v })

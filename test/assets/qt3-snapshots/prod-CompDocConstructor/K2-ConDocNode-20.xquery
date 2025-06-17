@@ -1,9 +1,1 @@
-1, document {
-  document {
-    document {
-      document {
-        ()
-      }
-    }
-  }
-}/child::node(), 1
+1, document { document { document { document { () } } } }/child::node(), 1

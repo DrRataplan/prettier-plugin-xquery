@@ -1,3 +1,1 @@
-element {xs:untypedAtomic("aPrefix::localName")} {
-  "content"
-}
+element {xs:untypedAtomic("aPrefix::localName")} { "content" }

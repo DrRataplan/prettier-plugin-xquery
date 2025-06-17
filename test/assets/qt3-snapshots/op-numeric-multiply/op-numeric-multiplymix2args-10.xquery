@@ -1,3 +1,1 @@
-document {
-  <A>-1</A>
-}//A[(text() * 0) = 6]
+document { <A>-1</A> }//A[(text() * 0) = 6]

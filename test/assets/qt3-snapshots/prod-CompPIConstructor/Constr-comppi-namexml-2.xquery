@@ -1,3 +1,1 @@
-processing-instruction XmL {
-  "pi"
-}
+processing-instruction XmL { "pi" }

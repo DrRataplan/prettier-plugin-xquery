@@ -1,5 +1,1 @@
-<elem attr="{
-    (1)
-  }">{
-    (<child />), (<child />)
-  }</elem>
+<elem attr="{ (1) }">{ (<child />), (<child />) }</elem>

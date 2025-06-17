@@ -1,3 +1,1 @@
-fn:string(fn:local-name(element anElement {
-      "Some content"
-    }))
+fn:string(fn:local-name(element anElement { "Some content" }))

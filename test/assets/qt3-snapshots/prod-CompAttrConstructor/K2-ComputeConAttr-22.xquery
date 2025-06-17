@@ -1,7 +1,3 @@
-declare variable $myVar := (<elem />, attribute name {
-    "content"
-  });
+declare variable $myVar := (<elem />, attribute name { "content" });
 
-<b>{
-    $myVar
-  }</b>
+<b>{ $myVar }</b>

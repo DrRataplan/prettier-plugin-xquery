@@ -1,4 +1,5 @@
-let $e := document {
+let $e :=
+  document {
     <p
       xmlns="http://example.com/one"
       author="Friedrich von Schiller"

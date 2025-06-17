@@ -1,5 +1,3 @@
 declare construction strip;
 
-fn:count(fn:data((document {
-        //*:idrefs
-      })/*))
+fn:count(fn:data((document { //*:idrefs })/*))

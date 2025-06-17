@@ -16,8 +16,6 @@ return transform(
       "delivery-format": "raw",
       "base-output-uri": "http://example.com/",
       "source-node": parse-xml("<a><b>89</b></a>"),
-      "post-process": function ($uri, $val) {
-          $val + 5
-        }
+      "post-process": function ($uri, $val) { $val + 5 }
     }
   )

@@ -4,12 +4,8 @@ declare function local:f ($d as xs:integer) {
 
 declare variable $t := "text";
 
-try {
-  local:f(0)
-} catch * {
-  try {
-    local:f($t cast as xs:integer)
-  } catch * {
+try { local:f(0) } catch * {
+  try { local:f($t cast as xs:integer) } catch * {
     local-name-from-QName($err:code)
   }
 }

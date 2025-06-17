@@ -1,5 +1,3 @@
 declare base-uri "http://example.com/BASEURI";
 
-base-uri(document {
-    ()
-  })
+base-uri(document { () })

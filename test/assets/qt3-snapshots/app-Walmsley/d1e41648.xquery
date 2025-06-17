@@ -1,3 +1,1 @@
-array{
-  //product, ("a", "b", "c"), "d"
-}
+array{ //product, ("a", "b", "c"), "d" }

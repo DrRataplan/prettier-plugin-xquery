@@ -1,3 +1,1 @@
-<elem xml:id=" a{
-    "b c d", " "
-  }" />
+<elem xml:id=" a{ "b c d", " " }" />

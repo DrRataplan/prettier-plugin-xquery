@@ -1,3 +1,1 @@
-element foo:elem {
-  "text"
-}
+element foo:elem { "text" }

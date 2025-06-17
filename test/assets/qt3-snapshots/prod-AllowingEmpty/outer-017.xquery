@@ -11,14 +11,6 @@ declare variable $n external;
         )
       )
     where deep-equal($x, $y)
-    return <a p="{
-          $p
-        }" q="{
-          $q
-        }">{
-          $x
-        },{
-          $y
-        }</a>
+    return <a p="{ $p }" q="{ $q }">{ $x },{ $y }</a>
   }
 </out>

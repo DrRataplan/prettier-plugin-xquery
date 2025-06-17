@@ -3,6 +3,4 @@ try {
     fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOER0000"),
     "Description"
   )
-} catch * {
-  $err:description
-}
+} catch * { $err:description }

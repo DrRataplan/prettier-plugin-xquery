@@ -1,3 +1,1 @@
-empty(processing-instruction theName {
-    "some text"
-  }/..)
+empty(processing-instruction theName { "some text" }/..)

@@ -1,9 +1,1 @@
-text {
-  text {
-    "one", text {
-      "two"
-    }
-  }, "three", text {
-    "four"
-  }
-}
+text { text { "one", text { "two" } }, "three", text { "four" } }

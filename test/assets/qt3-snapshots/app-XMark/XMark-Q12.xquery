@@ -9,10 +9,6 @@
         where $p/profile/@income > 5000.0 * exactly-one($i/text())
         return $i
       where $p/profile/@income > 50000.0
-      return <items person="{
-            $p/profile/@income
-          }">{
-            count($l)
-          }</items>
+      return <items person="{ $p/profile/@income }">{ count($l) }</items>
   }
 </XMark-result-Q12>

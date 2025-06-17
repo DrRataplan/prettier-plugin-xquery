@@ -1,3 +1,1 @@
-processing-instruction {//*:QName} {
-  "text"
-}
+processing-instruction {//*:QName} { "text" }

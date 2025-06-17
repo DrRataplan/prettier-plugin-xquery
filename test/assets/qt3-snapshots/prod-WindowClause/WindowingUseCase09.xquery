@@ -7,10 +7,9 @@
     let $workingTime := xs:dateTime($e/@time) - xs:dateTime($s/@time)
     group by $person
     order by $person
-    return <working-time><person>{
-            $person
-          }</person><time>{
-            sum($workingTime)
-          }</time></working-time>
+    return <working-time>
+        <person>{ $person }</person>
+        <time>{ sum($workingTime) }</time>
+      </working-time>
   }
 </result>

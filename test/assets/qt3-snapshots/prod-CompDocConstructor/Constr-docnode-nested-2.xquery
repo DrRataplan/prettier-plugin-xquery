@@ -1,3 +1,1 @@
-document {
-  /root
-}
+document { /root }

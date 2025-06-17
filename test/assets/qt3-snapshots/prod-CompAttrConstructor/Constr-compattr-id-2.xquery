@@ -1,5 +1,1 @@
-element elem {
-  attribute xml:id {
-    " ab c d "
-  }
-}
+element elem { attribute xml:id { " ab c d " } }

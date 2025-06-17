@@ -1,3 +1,1 @@
-array:filter([4, 5, 6], function ($n) {
-    $n > 4
-  })
+array:filter([4, 5, 6], function ($n) { $n > 4 })

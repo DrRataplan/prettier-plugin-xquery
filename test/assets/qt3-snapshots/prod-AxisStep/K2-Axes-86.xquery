@@ -92,7 +92,5 @@ declare variable $root := . treat as document-node();
       $root//document-node()/self::comment()
     }
   </empty>
-  <ex>{
-      exists($root//*/attribute()/descendant-or-self::node())
-    }</ex>
+  <ex>{ exists($root//*/attribute()/descendant-or-self::node()) }</ex>
 </out>

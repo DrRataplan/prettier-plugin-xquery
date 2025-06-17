@@ -5,8 +5,4 @@ declare function local:get-words () {
 let $words := local:get-words()
 let $distinct-words := distinct-values($words)
 for $word in $distinct-words
-return <word count="{
-      count($words[. = $word])
-    }" word="{
-      $word
-    }" />
+return <word count="{ count($words[. = $word]) }" word="{ $word }" />

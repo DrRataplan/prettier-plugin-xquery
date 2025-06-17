@@ -11,15 +11,12 @@
         $item/itemno = $highbid/itemno and
         $highbid/userid = $buyer/userid and
         $highbid/bid = max($bids//bid_tuple[itemno = $item/itemno]/bid)
-      return <jones_bike>{
-            $item/itemno
-          }{
-            $item/description
-          }<high_bid>{
-              $highbid/bid
-            }</high_bid><high_bidder>{
-              $buyer/name
-            }</high_bidder></jones_bike>
+      return <jones_bike>
+          { $item/itemno }
+          { $item/description }
+          <high_bid>{ $highbid/bid }</high_bid>
+          <high_bidder>{ $buyer/name }</high_bidder>
+        </jones_bike>
     )
   }
 </result>

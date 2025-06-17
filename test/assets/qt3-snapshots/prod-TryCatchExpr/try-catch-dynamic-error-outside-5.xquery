@@ -1,5 +1,1 @@
-(try {
-    ""
-  } catch * {
-    "Invalid argument"
-  }) + 1
+(try { "" } catch * { "Invalid argument" }) + 1

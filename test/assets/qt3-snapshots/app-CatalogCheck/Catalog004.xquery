@@ -8,6 +8,4 @@ where not(
   $schema/@uri eq $targetNamespace or
     (empty($targetNamespace) and string(@uri) = "")
 )
-return ($schema, <file>{
-        base-uri($schema)
-      }</file>)
+return ($schema, <file>{ base-uri($schema) }</file>)

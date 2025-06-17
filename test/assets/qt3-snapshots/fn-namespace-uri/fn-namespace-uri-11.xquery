@@ -1,3 +1,1 @@
-fn:namespace-uri(element elementNode {
-    "with no namespace"
-  })
+fn:namespace-uri(element elementNode { "with no namespace" })

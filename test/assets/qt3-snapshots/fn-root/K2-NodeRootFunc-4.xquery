@@ -1,5 +1,1 @@
-<e>{
-    fn:root(attribute name {
-        "value"
-      })
-  }</e>
+<e>{ fn:root(attribute name { "value" }) }</e>

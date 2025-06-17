@@ -16,6 +16,4 @@ for $i in
     -4294967296,
     -4294967297
   )
-return $i[number(<_>{
-        $i
-      }</_>)]
+return $i[number(<_>{ $i }</_>)]

@@ -1,3 +1,1 @@
-comment {
-  1, <a />, 2
-}
+comment { 1, <a />, 2 }

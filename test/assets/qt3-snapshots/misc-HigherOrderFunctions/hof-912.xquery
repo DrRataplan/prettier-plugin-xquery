@@ -6,7 +6,11 @@ declare function local:apply (
   return $f($s)
 };
 
-let $ops := (upper-case#1, lower-case#1, function ($x) {
-      translate($x, "e", "i")
-    }, substring-before(?, " ", ?))
+let $ops :=
+  (
+    upper-case#1,
+    lower-case#1,
+    function ($x) { translate($x, "e", "i") },
+    substring-before(?, " ", ?)
+  )
 return string-join(local:apply($ops, "Michael Kay"), "~")

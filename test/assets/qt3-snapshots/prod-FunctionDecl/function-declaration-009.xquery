@@ -8,10 +8,6 @@ declare function local:fact ($n as xs:integer) as xs:integer {
 <table>
   {
     for $i in 1 to 10
-    return <tr><td>{
-            $i
-          }! = {
-            local:fact($i)
-          }</td></tr>
+    return <tr><td>{ $i }! = { local:fact($i) }</td></tr>
   }
 </table>

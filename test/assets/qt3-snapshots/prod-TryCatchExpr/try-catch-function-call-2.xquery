@@ -1,5 +1,1 @@
-try {
-  fn:one-or-more(())
-} catch err:FORG0004 {
-  0
-}
+try { fn:one-or-more(()) } catch err:FORG0004 { 0 }

@@ -1,3 +1,1 @@
-fn:count(fn:local-name-from-QName(fn:node-name(document {
-        ""
-      })))
+fn:count(fn:local-name-from-QName(fn:node-name(document { "" })))

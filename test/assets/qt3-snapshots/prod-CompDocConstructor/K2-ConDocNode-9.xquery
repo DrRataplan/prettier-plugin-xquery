@@ -1,3 +1,1 @@
-document {
-  <a />, <b />, <c />
-}
+document { <a />, <b />, <c /> }

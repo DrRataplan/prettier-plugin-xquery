@@ -5,12 +5,6 @@
     count$index
     where $index mod 3 = 0
     count$index
-    return <item><x>{
-            $x
-          }</x><y>{
-            $y
-          }</y><index>{
-            $index
-          }</index></item>
+    return <item><x>{ $x }</x><y>{ $y }</y><index>{ $index }</index></item>
   }
 </out>

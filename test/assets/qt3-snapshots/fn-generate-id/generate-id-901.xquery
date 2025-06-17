@@ -1,4 +1,2 @@
-let $f := function () {
-    generate-id()
-  }
+let $f := function () { generate-id() }
 return $f()

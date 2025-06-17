@@ -1,4 +1,2 @@
-let $f := function () {
-    fn:boolean(.)
-  }
+let $f := function () { fn:boolean(.) }
 return $f()

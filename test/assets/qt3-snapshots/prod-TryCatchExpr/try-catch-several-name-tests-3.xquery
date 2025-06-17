@@ -1,5 +1,3 @@
-try {
-  1 div 0
-} catch err:XPTY0004|err:FOAR0001|err:XPST0008 {
+try { 1 div 0 } catch err:XPTY0004|err:FOAR0001|err:XPST0008 {
   "Division by zero"
 }

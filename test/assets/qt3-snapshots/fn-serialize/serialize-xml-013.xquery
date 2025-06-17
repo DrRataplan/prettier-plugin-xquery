@@ -1,3 +1,1 @@
-serialize(namespace a {
-    "http://www.example.com"
-  })
+serialize(namespace a { "http://www.example.com" })

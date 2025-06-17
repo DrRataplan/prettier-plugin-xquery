@@ -1,3 +1,1 @@
-count(text {
-    ()
-  })
+count(text { () })

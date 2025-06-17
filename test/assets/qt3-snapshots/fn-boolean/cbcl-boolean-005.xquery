@@ -3,6 +3,4 @@ declare function local:repeat ($count as xs:integer, $arg as xs:string) {
   return $arg
 };
 
-fn:boolean(text {
-    local:repeat(0, "string")
-  })
+fn:boolean(text { local:repeat(0, "string") })

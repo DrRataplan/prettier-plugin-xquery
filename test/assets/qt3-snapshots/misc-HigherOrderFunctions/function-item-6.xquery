@@ -1,3 +1,1 @@
-attribute a {
-  avg#1
-}
+attribute a { avg#1 }

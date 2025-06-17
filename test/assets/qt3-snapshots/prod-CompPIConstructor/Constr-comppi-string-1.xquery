@@ -1,3 +1,1 @@
-fn:string(processing-instruction pi {
-    "a", element a {}, "b"
-  })
+fn:string(processing-instruction pi { "a", element a {}, "b" })

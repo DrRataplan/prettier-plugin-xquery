@@ -1,3 +1,1 @@
-fn:string(fn:local-name(attribute anAttribute {
-      "Attribute Value"
-    }))
+fn:string(fn:local-name(attribute anAttribute { "Attribute Value" }))

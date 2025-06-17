@@ -7,12 +7,10 @@
       $revenue := $sales/qty * $product/price
     group by $state, $category
     order by $state , $category
-    return <group><state>{
-            $state
-          }</state><category>{
-            $category
-          }</category><total-revenue>{
-            sum($revenue)
-          }</total-revenue></group>
+    return <group>
+        <state>{ $state }</state>
+        <category>{ $category }</category>
+        <total-revenue>{ sum($revenue) }</total-revenue>
+      </group>
   }
 </result>

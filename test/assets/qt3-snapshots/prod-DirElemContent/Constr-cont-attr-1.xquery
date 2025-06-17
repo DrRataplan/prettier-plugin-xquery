@@ -1,3 +1,1 @@
-<elem>{
-    1, //west/@mark
-  }</elem>
+<elem>{ 1, //west/@mark }</elem>

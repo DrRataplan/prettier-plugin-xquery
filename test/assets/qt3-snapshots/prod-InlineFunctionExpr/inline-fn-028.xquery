@@ -1,3 +1,1 @@
-string(function ($a, $b) {
-    $a + $b
-  })
+string(function ($a, $b) { $a + $b })

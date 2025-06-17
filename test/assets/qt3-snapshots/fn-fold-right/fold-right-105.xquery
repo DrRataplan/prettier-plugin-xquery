@@ -9,7 +9,5 @@ declare function local:fold-right (
     $f(fn:head($seq), fn:fold-right(fn:tail($seq), $zero, $f))
 };
 
-let $f := function ($a, $b) {
-    ($b, $a)
-  }
+let $f := function ($a, $b) { ($b, $a) }
 return local:fold-right(1 to 5, (), $f)

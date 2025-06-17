@@ -1,3 +1,1 @@
-unordered{
-  true()
-}
+unordered{ true() }

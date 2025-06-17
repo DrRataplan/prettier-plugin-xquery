@@ -1,3 +1,1 @@
-element elem {
-  element a {}, //west/@mark
-}
+element elem { element a {}, //west/@mark }

@@ -1,5 +1,1 @@
-<a><!-- content -->{
-    attribute name {
-      "content"
-    }
-  }</a>
+<a><!-- content -->{ attribute name { "content" } }</a>

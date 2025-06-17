@@ -1,3 +1,1 @@
-count((text {
-      "text"
-    })/..)
+count((text { "text" })/..)

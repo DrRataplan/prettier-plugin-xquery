@@ -295,9 +295,7 @@ declare function fn:drawResult ($board as xs:integer+) as element() {
       <style
       >table {{ border-collapse: collapse; border: 1px solid black; }} td {{ padding: 10px; }} .norm {{ border-left: 1px solid #CCC; border-top: 1px solid #CCC; }} .csep {{ border-left: 1px solid black; }} .rsep {{ border-top: 1px solid black; }}</style>
     </head>
-    <body>{
-        fn:drawBoard($board)
-      }</body>
+    <body>{ fn:drawBoard($board) }</body>
   </html>
 };
 
@@ -323,9 +321,7 @@ declare function fn:drawBoard ($board as xs:integer+) as element() {
                     "norm"
                   )
                 }"
-              >{
-                  $board[$pos]
-                }</td>
+              >{ $board[$pos] }</td>
           }
         </tr>
     }

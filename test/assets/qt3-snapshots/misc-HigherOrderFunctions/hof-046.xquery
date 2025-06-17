@@ -15,9 +15,7 @@ declare function local:splitter (
     return <tokens>
         {
           for $t in $f()
-          return <t>{
-                $t
-              }</t>
+          return <t>{ $t }</t>
         }
       </tokens>
   }

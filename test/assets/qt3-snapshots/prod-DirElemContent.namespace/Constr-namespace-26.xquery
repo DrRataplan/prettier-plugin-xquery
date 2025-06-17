@@ -1,3 +1,1 @@
-<elem xmlns:cm="http://www.example.com">{
-    count(//cm:b)
-  }</elem>
+<elem xmlns:cm="http://www.example.com">{ count(//cm:b) }</elem>

@@ -1,6 +1,6 @@
-declare variable $in := (<doc><A /><B />{
-      (1 to 10000)!<C />
-    }<B /><A /></doc>)/*;
+declare variable $in := (
+  <doc><A /><B />{ (1 to 10000)!<C /> }<B /><A /></doc>
+)/*;
 
 declare variable $fsm := map {
   0:
@@ -24,11 +24,7 @@ declare variable $fsm := map {
       else
         2
     },
-  3: function ($x) {
-      3
-    }
+  3: function ($x) { 3 }
 };
 
-fold-left($in, 0, function ($state, $node) {
-    $fsm($state)($node)
-  }) ne 3
+fold-left($in, 0, function ($state, $node) { $fsm($state)($node) }) ne 3

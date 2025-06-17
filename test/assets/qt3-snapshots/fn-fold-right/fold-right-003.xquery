@@ -1,3 +1,1 @@
-fold-right((true(), false(), false()), false(), function ($a, $b) {
-    $a or $b
-  })
+fold-right((true(), false(), false()), false(), function ($a, $b) { $a or $b })

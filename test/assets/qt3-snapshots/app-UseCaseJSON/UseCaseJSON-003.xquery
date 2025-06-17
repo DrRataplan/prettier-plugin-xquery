@@ -19,9 +19,7 @@ declare function local:deep-put (
         )
       )
     else if ($i instance of array(*)) then
-      array{
-        local:deep-put($i?*, $key, $value)
-      }
+      array{ local:deep-put($i?*, $key, $value) }
     else
       $i
 };

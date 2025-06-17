@@ -1,3 +1,1 @@
-1, document {
-  ()
-}/ancestor-or-self::node(), 1
+1, document { () }/ancestor-or-self::node(), 1

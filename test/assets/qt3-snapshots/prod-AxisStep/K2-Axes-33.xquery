@@ -1,5 +1,3 @@
-declare variable $myVar := document {
-  <e />
-};
+declare variable $myVar := document { <e /> };
 
 empty($myVar/(/)/..)

@@ -16,8 +16,6 @@ return transform(
       "delivery-format": "serialized",
       "base-output-uri": "http://example.com/",
       "source-node": parse-xml("<a><b>89</b></a>"),
-      "post-process": function ($uri, $doc) {
-          replace($doc, "out>", "output>")
-        }
+      "post-process": function ($uri, $doc) { replace($doc, "out>", "output>") }
     }
   )

@@ -1,5 +1,3 @@
 declare boundary-space preserve;
 
-<a> {
-    "abc"
-  } </a>
+<a> { "abc" } </a>

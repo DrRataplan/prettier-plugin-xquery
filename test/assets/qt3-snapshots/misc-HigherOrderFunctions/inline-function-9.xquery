@@ -1,3 +1,1 @@
-function () {
-  true()
-} instance of function () as item()*
+function () { true() } instance of function () as item()*

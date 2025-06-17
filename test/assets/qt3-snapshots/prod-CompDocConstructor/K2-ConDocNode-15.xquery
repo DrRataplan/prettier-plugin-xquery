@@ -1,3 +1,1 @@
-data(document {
-    "content"
-  }) instance of xs:untypedAtomic
+data(document { "content" }) instance of xs:untypedAtomic

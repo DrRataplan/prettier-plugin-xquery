@@ -1,3 +1,1 @@
-fn:function-name(function ($node) {
-    name($node)
-  })
+fn:function-name(function ($node) { name($node) })

@@ -1,3 +1,1 @@
-processing-instruction {"one", "two"} {
-  "text"
-}
+processing-instruction {"one", "two"} { "text" }

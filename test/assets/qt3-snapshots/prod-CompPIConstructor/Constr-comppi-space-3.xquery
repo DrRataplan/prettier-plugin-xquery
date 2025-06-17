@@ -1,3 +1,1 @@
-string-to-codepoints(processing-instruction pi {
-    " text"
-  })
+string-to-codepoints(processing-instruction pi { " text" })

@@ -2,9 +2,7 @@ import module namespace other = "http://example.com/other" at "http://example.co
 
 document {
   <result>
-    <other>{
-        other:do("hello", "world")
-      }</other>
+    <other>{ other:do("hello", "world") }</other>
     <transitive>
       {
         let $f1 :=

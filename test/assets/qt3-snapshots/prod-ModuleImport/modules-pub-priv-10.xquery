@@ -6,6 +6,4 @@ declare function local:test () {
   local:inc(1)
 };
 
-<a>{
-    local:test()
-  }</a>
+<a>{ local:test() }</a>

@@ -7,9 +7,12 @@ let $employees :=
     <emp><name><first>Susan</first><last>Cawcutt</last></name></emp>,
     <emp><name><first>Martin</first><last>Cawcutt</last></name></emp>
   ),
-  $r := fn:sort($employees, default-collation(), function ($emp) {
-      $emp/name/last, $emp/name/first
-    })
+  $r :=
+  fn:sort(
+    $employees,
+    default-collation(),
+    function ($emp) { $emp/name/last, $emp/name/first }
+  )
 return (
     count($r) eq 6 and
       fn:data($r[1]/name/first) eq "Martin" and

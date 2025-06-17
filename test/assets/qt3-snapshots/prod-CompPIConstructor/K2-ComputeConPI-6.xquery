@@ -1,3 +1,1 @@
-processing-instruction {"1.das "} {
-  "content"
-}
+processing-instruction {"1.das "} { "content" }

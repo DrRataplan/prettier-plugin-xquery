@@ -1,5 +1,1 @@
-<a>{
-    processing-instruction name {
-      "content"
-    }/*
-  }</a>
+<a>{ processing-instruction name { "content" }/* }</a>

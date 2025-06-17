@@ -1,3 +1,1 @@
-xs:boolean(fn:nilled(<shoe xsi:nil="{
-        fn:false()
-      }" />))
+xs:boolean(fn:nilled(<shoe xsi:nil="{ fn:false() }" />))

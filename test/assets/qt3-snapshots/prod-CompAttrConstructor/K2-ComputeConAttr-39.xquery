@@ -1,3 +1,1 @@
-attribute aPrefix:localName {
-  "content"
-}
+attribute aPrefix:localName { "content" }

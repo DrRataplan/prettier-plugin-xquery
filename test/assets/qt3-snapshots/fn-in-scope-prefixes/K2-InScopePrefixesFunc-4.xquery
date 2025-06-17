@@ -1,3 +1,1 @@
-in-scope-prefixes(comment {
-    "content"
-  })
+in-scope-prefixes(comment { "content" })

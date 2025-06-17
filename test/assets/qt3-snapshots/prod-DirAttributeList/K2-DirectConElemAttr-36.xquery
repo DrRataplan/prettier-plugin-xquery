@@ -1,5 +1,1 @@
-string(<elem attr="{
-      processing-instruction name {
-        " content "
-      }
-    }" />/@attr)
+string(<elem attr="{ processing-instruction name { " content " } }" />/@attr)

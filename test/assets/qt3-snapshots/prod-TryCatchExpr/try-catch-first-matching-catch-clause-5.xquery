@@ -1,9 +1,3 @@
-try {
-  1 div 0
-} catch err:FOAR0001 {
-  "Clause 1"
-}catch err:XPTY0004 {
+try { 1 div 0 } catch err:FOAR0001 { "Clause 1" }catch err:XPTY0004 {
   "Clause 2"
-}catch err:XQST008 {
-  "Clause 3"
-}
+}catch err:XQST008 { "Clause 3" }

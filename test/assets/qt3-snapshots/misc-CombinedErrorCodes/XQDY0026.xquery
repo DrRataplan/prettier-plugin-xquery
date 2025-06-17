@@ -1,3 +1,1 @@
-processing-instruction target {
-  "?>"
-}
+processing-instruction target { "?>" }

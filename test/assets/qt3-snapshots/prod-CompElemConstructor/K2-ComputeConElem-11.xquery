@@ -1,3 +1,1 @@
-element e {
-  "content"
-} instance of element(a, xs:anyType)
+element e { "content" } instance of element(a, xs:anyType)

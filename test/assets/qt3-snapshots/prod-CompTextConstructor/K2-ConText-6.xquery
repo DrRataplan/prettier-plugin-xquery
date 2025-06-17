@@ -1,3 +1,1 @@
-data(text {
-    "content"
-  }) instance of xs:untypedAtomic
+data(text { "content" }) instance of xs:untypedAtomic

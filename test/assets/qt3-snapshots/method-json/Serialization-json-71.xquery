@@ -9,11 +9,7 @@ declare option output:json-node-output-method "xml";
 map {
   "string-value": "a string",
   "numeric-value": 123.456,
-  "node-value": element el1 {
-      element el2 {
-        "simple content"
-      }
-    },
+  "node-value": element el1 { element el2 { "simple content" } },
   xs:integer("123456"): xs:integer("123456"),
   xs:date("2014-09-30"): "date-key",
   "array":

@@ -1,6 +1,4 @@
-let $i := document {
-    <e1 />, <e2 />, <e3 />, <e4 />
-  }
+let $i := document { <e1 />, <e2 />, <e3 />, <e4 /> }
 return (
     in-scope-prefixes($i/e1),
     in-scope-prefixes($i/e2),
