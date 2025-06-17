@@ -207,7 +207,10 @@ const xqueryPrinter: Printer<Node> = {
 					const preferredQuote = getPreferredQuote(stringValue, options.singleQuote);
 
 					// Re-escape quotes
-					const str = stringValue.replace(RegExp(`${preferredQuote}`, "g"), `${preferredQuote}${preferredQuote}`);
+					const str = stringValue.replace(
+						RegExp(`${preferredQuote}`, "g"),
+						`${preferredQuote}${preferredQuote}`,
+					);
 					return [preferredQuote, str, preferredQuote];
 				}
 
@@ -247,7 +250,8 @@ const pluginDefinition: Plugin<Node> = {
 			choices: [
 				{
 					value: "strip",
-					description: "Assume boundary spaces will be stripped by the processor, so they can be added for formatting",
+					description:
+						"Assume boundary spaces will be stripped by the processor, so they can be added for formatting",
 				},
 				{
 					value: "preserve",

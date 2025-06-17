@@ -24,6 +24,10 @@ describe("Formatting a whole module", () => {
 			plugins: [xqueryPlugin],
 		});
 		await assert.doesNotReject(secondPrettification, "Prettification should not result into syntax errors");
-		assert.strictEqual(result, await secondPrettification, "After one prettification, the result should remain stable");
+		assert.strictEqual(
+			result,
+			await secondPrettification,
+			"After one prettification, the result should remain stable",
+		);
 	});
 });
