@@ -22,8 +22,9 @@ declare function local:map-pairs ($f, $a, $b) {
 string-join(
   for $a in
     subsequence(
-      let $interleave :=
-        func:curry(local:map-pairs#3)(function ($a, $b) { $a, $b })
+      let $interleave := func:curry(local:map-pairs#3)(
+        function ($a, $b) { $a, $b }
+      )
       let $enumerate := $interleave(0 to 49)
       return $enumerate(local:fib2(50)),
       1,

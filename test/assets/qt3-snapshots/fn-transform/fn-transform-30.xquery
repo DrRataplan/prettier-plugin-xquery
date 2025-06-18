@@ -1,5 +1,4 @@
-let $out1 :=
-  fn:transform(
+let $out1 := fn:transform(
     map {
       "stylesheet-location": $render,
       "source-node": fn:doc($uri),
@@ -7,8 +6,7 @@ let $out1 :=
       "serialization-params": map {"indent": true()}
     }
   )("output"),
-  $out2 :=
-  fn:transform(
+  $out2 := fn:transform(
     map {
       "stylesheet-location": $render,
       "source-node": fn:doc($uri),

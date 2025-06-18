@@ -13,15 +13,14 @@ declare function local:distinct-nodes-stable ($seq as node()*) {
 };
 
 let $nodes := (<a />, <b />, <c />, <d />, <e />, <f />)
-let $perm :=
-  (
-    $nodes[1],
-    $nodes[2],
-    $nodes[4],
-    $nodes[1],
-    $nodes[2],
-    $nodes[3],
-    $nodes[2],
-    $nodes[1]
-  )
+let $perm := (
+  $nodes[1],
+  $nodes[2],
+  $nodes[4],
+  $nodes[1],
+  $nodes[2],
+  $nodes[3],
+  $nodes[2],
+  $nodes[1]
+)
 return local:distinct-nodes-stable($perm)/local-name()

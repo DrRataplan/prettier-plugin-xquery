@@ -1,11 +1,10 @@
 declare default element namespace "http://www.example.com/";
 
-let $i :=
-  <e>
-    <a xmlns="" />
-    <b xmlns="http://www.example.com/" />
-    <c xmlns="http://www.example.com/Second" />
-  </e>
+let $i := <e>
+  <a xmlns="" />
+  <b xmlns="http://www.example.com/" />
+  <c xmlns="http://www.example.com/Second" />
+</e>
 return document {
     (
       count(in-scope-prefixes($i)),

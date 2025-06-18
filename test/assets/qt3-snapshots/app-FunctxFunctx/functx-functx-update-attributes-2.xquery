@@ -20,12 +20,11 @@ declare function functx:update-attributes (
     }
 };
 
-let $in-xml :=
-  <in-xml xmlns:new='http://new'>
-    <a att1='def'>x</a>
-    <b>x</b>
-    <c new:att1='def'>x</c>
-  </in-xml>
+let $in-xml := <in-xml xmlns:new='http://new'>
+  <a att1='def'>x</a>
+  <b>x</b>
+  <c new:att1='def'>x</c>
+</in-xml>
 return (
     functx:update-attributes(
       $in-xml/a,

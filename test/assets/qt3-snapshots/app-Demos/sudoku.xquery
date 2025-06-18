@@ -186,8 +186,8 @@ declare function fn:getCol (
 ) as xs:integer+ {
   let $gap := ($index - 1) mod 9,
     $colIndexes :=
-    for $x in $rowStarts
-    return $x + $gap
+      for $x in $rowStarts
+      return $x + $gap
   return one-or-more($board[position() = $colIndexes])
 };
 
@@ -206,12 +206,11 @@ declare function fn:getAllowedValues (
   $board as xs:integer+,
   $index as xs:integer
 ) as xs:integer* {
-  let $existingValues :=
-    (
-      fn:getRow($board, $index),
-      fn:getCol($board, $index),
-      fn:getGroup($board, $index)
-    )
+  let $existingValues := (
+    fn:getRow($board, $index),
+    fn:getCol($board, $index),
+    fn:getGroup($board, $index)
+  )
   return for $x in (1 to 9)
     return if (not($x = $existingValues)) then
         $x
@@ -225,14 +224,15 @@ declare function fn:tryValues (
   $possibleValues as xs:integer+
 ) as xs:integer* {
   let $index as xs:integer := $emptyCells[1],
-    $newBoard as xs:integer+ :=
-    (
+    $newBoard as xs:integer+ := (
       $board[position() < $index],
       $possibleValues[1],
       $board[position() > $index]
     ),
-    $result as xs:integer* :=
-    fn:populateValues($newBoard, $emptyCells[position() != 1])
+    $result as xs:integer* := fn:populateValues(
+      $newBoard,
+      $emptyCells[position() != 1]
+    )
   return if (empty($result)) then
       if (count($possibleValues) > 1) then
         fn:tryValues(
@@ -252,8 +252,9 @@ declare function fn:populateValues (
 ) as xs:integer* {
   if (not(empty($emptyCells))) then
     let $index as xs:integer := exactly-one($emptyCells[1]),
-      $possibleValues as xs:integer* :=
-      distinct-values(fn:getAllowedValues($board, $index))
+      $possibleValues as xs:integer* := distinct-values(
+        fn:getAllowedValues($board, $index)
+      )
     return if (count($possibleValues) > 1) then
         fn:tryValues(
           $board,
@@ -261,12 +262,11 @@ declare function fn:populateValues (
           one-or-more($possibleValues)
         )
       else if (count($possibleValues) = 1) then
-        let $newBoard as xs:integer+ :=
-          (
-            $board[position() < $index],
-            exactly-one($possibleValues[1]),
-            $board[position() > $index]
-          )
+        let $newBoard as xs:integer+ := (
+          $board[position() < $index],
+          exactly-one($possibleValues[1]),
+          $board[position() > $index]
+        )
         return fn:populateValues($newBoard, $emptyCells[position() != 1])
       else (
       )
@@ -276,11 +276,11 @@ declare function fn:populateValues (
 
 declare function fn:solveSudoku ($startBoard as xs:integer+) as xs:integer+ {
   let $emptyCells as xs:integer* :=
-    for $x in (1 to 81)
-    return if ($startBoard[$x] = 0) then
-        $x
-      else (
-      ),
+      for $x in (1 to 81)
+      return if ($startBoard[$x] = 0) then
+          $x
+        else (
+        ),
     $endBoard as xs:integer* := fn:populateValues($startBoard, $emptyCells)
   return if (empty($endBoard)) then
       $startBoard

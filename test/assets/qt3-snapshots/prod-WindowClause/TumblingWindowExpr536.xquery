@@ -1,12 +1,11 @@
-let $stock :=
-  <stock>
-    <closing><date>2008-01-01</date><price>105</price></closing>
-    <closing><date>2008-01-02</date><price>101</price></closing>
-    <closing><date>2008-01-03</date><price>102</price></closing>
-    <closing><date>2008-01-04</date><price>103</price></closing>
-    <closing><date>2008-01-05</date><price>102</price></closing>
-    <closing><date>2008-01-06</date><price>104</price></closing>
-  </stock>
+let $stock := <stock>
+  <closing><date>2008-01-01</date><price>105</price></closing>
+  <closing><date>2008-01-02</date><price>101</price></closing>
+  <closing><date>2008-01-03</date><price>102</price></closing>
+  <closing><date>2008-01-04</date><price>103</price></closing>
+  <closing><date>2008-01-05</date><price>102</price></closing>
+  <closing><date>2008-01-06</date><price>104</price></closing>
+</stock>
 for tumbling window $w in $stock//closing
   start $first
   next $second when $first/price < $second/price

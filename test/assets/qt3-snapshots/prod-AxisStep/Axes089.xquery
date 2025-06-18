@@ -67,12 +67,18 @@ declare function tour:main () as element() {
       return 0
 
     (: Place the knight on the board at the chosen starting position :)
-    let $initial-board as xs:integer* :=
-      tour:place-knight(1, $empty-board, $start-row * 8 + $start-column)
+    let $initial-board as xs:integer* := tour:place-knight(
+      1,
+      $empty-board,
+      $start-row * 8 + $start-column
+    )
 
     (: Evaluate the knight's tour :)
-    let $final-board as xs:integer* :=
-      tour:make-moves(2, $initial-board, $start-row * 8 + $start-column)
+    let $final-board as xs:integer* := tour:make-moves(
+      2,
+      $initial-board,
+      $start-row * 8 + $start-column
+    )
 
     (: produce the HTML output :)
     return tour:print-board($final-board)
@@ -105,8 +111,10 @@ declare function tour:make-moves (
 
   (: determine the possible moves that the knight can make :)
 
-  let $possible-move-list as xs:integer* :=
-    tour:list-possible-moves($board, $square)
+  let $possible-move-list as xs:integer* := tour:list-possible-moves(
+    $board,
+    $square
+  )
 
   (: try these moves in turn until one is found that works :)
   return tour:try-possible-moves($move, $board, $square, $possible-move-list)
@@ -147,8 +155,12 @@ declare function tour:make-best-move (
 
   (: if at least one move is possible, find the best one :)
 
-  let $best-move as xs:integer :=
-    tour:find-best-move($board, $possible-moves, 9, 999)
+  let $best-move as xs:integer := tour:find-best-move(
+    $board,
+    $possible-moves,
+    9,
+    999
+  )
 
   (: find the list of possible moves excluding the best one :)
   let $other-possible-moves as xs:integer* := $possible-moves[. != $best-move]
@@ -157,11 +169,12 @@ declare function tour:make-best-move (
   let $next-board as xs:integer* := tour:place-knight($move, $board, $best-move)
 
   (: now make further moves using a recursive call, until the board is complete :)
-  let $final-board as xs:integer* :=
-    if ($move < $endd) (: count($next-board[.=0])!=0 :) then
-      tour:make-moves($move + 1, $next-board, $best-move)
-    else
-      $next-board
+  let $final-board as xs:integer* := if (
+    $move < $endd
+  ) (: count($next-board[.=0])!=0 :) then
+    tour:make-moves($move + 1, $next-board, $best-move)
+  else
+    $next-board
 
   (: if the final board has the special value '()', we got stuck, and have to choose
          the next best of the possible moves. This is done by a recursive call. I thought
@@ -192,8 +205,10 @@ declare function tour:find-best-move (
   let $trial-board as xs:integer* := tour:place-knight(99, $board, $trial-move)
 
   (: see how many moves would be possible the next time :)
-  let $trial-move-exit-list as xs:integer* :=
-    tour:list-possible-moves($trial-board, $trial-move)
+  let $trial-move-exit-list as xs:integer* := tour:list-possible-moves(
+    $trial-board,
+    $trial-move
+  )
 
   let $number-of-exits as xs:integer := count($trial-move-exit-list)
 
@@ -201,11 +216,12 @@ declare function tour:find-best-move (
   let $minimum-exits as xs:integer := min(($number-of-exits, $fewest-exits))
 
   (: determine which is the best move (the one with fewest exits) so far :)
-  let $new-best-so-far as xs:integer :=
-    if ($number-of-exits < $fewest-exits) then
-      $trial-move
-    else
-      $best-so-far
+  let $new-best-so-far as xs:integer := if (
+    $number-of-exits < $fewest-exits
+  ) then
+    $trial-move
+  else
+    $best-so-far
 
   (: if there are other possible moves, consider them too, using a recursive call.
         Otherwise return the best move found. :)
@@ -280,11 +296,10 @@ declare function tour:print-board ($board as xs:integer*) as element() {
             return <tr>
                 {
                   for $column in 0 to 7
-                  let $color :=
-                    if ((($row + $column) mod 2) = 1) then
-                      "xffff44"
-                    else
-                      "white"
+                  let $color := if ((($row + $column) mod 2) = 1) then
+                    "xffff44"
+                  else
+                    "white"
                   return <td align="center" bgcolor="{ $color }" width="22">
                       {
                         let $n := $board[$row * 8 + $column + 1]

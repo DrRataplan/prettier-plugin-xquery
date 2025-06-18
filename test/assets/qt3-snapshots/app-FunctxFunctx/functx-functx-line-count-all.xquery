@@ -15,7 +15,7 @@ declare function functx:lines ($arg as xs:string?) as xs:string* {
 };
 
 let $lines :=
-  "a 
+"a 
                     value 
                     on 
                     many 

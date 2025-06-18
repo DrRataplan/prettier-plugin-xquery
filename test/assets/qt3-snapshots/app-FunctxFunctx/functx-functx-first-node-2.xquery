@@ -7,9 +7,8 @@ declare function functx:first-node ($nodes as node()*) as node()? {
   ($nodes/.)[1]
 };
 
-let $in-xml :=
-  <authors>
-    <author><fName>Kate</fName><lName>Jones</lName></author>
-    <author><fName>John</fName><lName>Doe</lName></author>
-  </authors>
+let $in-xml := <authors>
+  <author><fName>Kate</fName><lName>Jones</lName></author>
+  <author><fName>John</fName><lName>Doe</lName></author>
+</authors>
 return (functx:first-node(($in-xml//lName, $in-xml//fName)))

@@ -7,9 +7,8 @@ declare function functx:last-node ($nodes as node()*) as node()? {
   ($nodes/.)[last()]
 };
 
-let $in-xml :=
-  <authors>
-    <author><fName>Kate</fName><lName>Jones</lName></author>
-    <author><fName>John</fName><lName>Doe</lName></author>
-  </authors>
+let $in-xml := <authors>
+  <author><fName>Kate</fName><lName>Jones</lName></author>
+  <author><fName>John</fName><lName>Doe</lName></author>
+</authors>
 return (functx:last-node(($in-xml//lName, $in-xml//fName)))

@@ -11,12 +11,11 @@ declare function functx:replace-element-values (
   return element {node-name($element)} { $element/@*, $values[$seq] }
 };
 
-let $in-xml :=
-  <in-xml>
-    <price num="1">12</price>
-    <price num="2">20</price>
-    <price num="3">5</price>
-  </in-xml>
+let $in-xml := <in-xml>
+  <price num="1">12</price>
+  <price num="2">20</price>
+  <price num="3">5</price>
+</in-xml>
 return (
     for $p in $in-xml/price
     return functx:replace-element-values($p, concat($p, ".0"))

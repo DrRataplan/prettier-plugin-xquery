@@ -14,9 +14,8 @@ declare function functx:get-matches-and-non-matches (
       <non-match>{ substring($string, 1, $iomf - 1) }</non-match>,
       functx:get-matches-and-non-matches(substring($string, $iomf), $regex)
     ) else
-      let $length :=
-        string-length($string) -
-          string-length(functx:replace-first($string, $regex, ""))
+      let $length := string-length($string) -
+        string-length(functx:replace-first($string, $regex, ""))
       return (
           <match>{ substring($string, 1, $length) }</match>,
           if (string-length($string) > $length) then

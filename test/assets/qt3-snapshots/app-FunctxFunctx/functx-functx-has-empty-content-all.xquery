@@ -9,16 +9,15 @@ declare function functx:has-empty-content (
   not($element/node())
 };
 
-let $in-xml :=
-  <in-xml>
-    <a />
-    <b />
-    <c />
-    <d>xml</d>
-    <e><x>xml</x></e>
-    <f>mixed <x>xml</x></f>
-    <g><x>xml</x></g>
-  </in-xml>
+let $in-xml := <in-xml>
+  <a />
+  <b />
+  <c />
+  <d>xml</d>
+  <e><x>xml</x></e>
+  <f>mixed <x>xml</x></f>
+  <g><x>xml</x></g>
+</in-xml>
 return (
     functx:has-empty-content($in-xml/a),
     functx:has-empty-content($in-xml/b),

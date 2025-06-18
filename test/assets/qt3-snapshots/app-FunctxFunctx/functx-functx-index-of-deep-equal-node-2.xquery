@@ -11,13 +11,14 @@ declare function functx:index-of-deep-equal-node (
   return $seq[deep-equal($nodes[$seq], $nodeToFind)]
 };
 
-let $in-xml :=
-  <authors>
-    <author><fName /><lName>Smith</lName></author>
-    <author><fName>Kate</fName><lName>Jones</lName></author>
-    <author><fName>John</fName><lName>Doe</lName></author>
-  </authors>
+let $in-xml := <authors>
+  <author><fName /><lName>Smith</lName></author>
+  <author><fName>Kate</fName><lName>Jones</lName></author>
+  <author><fName>John</fName><lName>Doe</lName></author>
+</authors>
 return let $anAuthor := <author><fName>Kate</fName><lName>Jones</lName></author>
-  return let $anotherAuthor :=
-      <author><fName>John</fName><lName>Smith</lName></author>
+  return let $anotherAuthor := <author>
+      <fName>John</fName>
+      <lName>Smith</lName>
+    </author>
     return (functx:index-of-deep-equal-node($in-xml/author, $anotherAuthor))

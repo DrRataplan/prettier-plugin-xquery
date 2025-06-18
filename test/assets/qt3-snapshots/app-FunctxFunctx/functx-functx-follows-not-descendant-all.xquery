@@ -10,11 +10,10 @@ declare function functx:follows-not-descendant (
   $a >> $b and empty($b intersect $a/ancestor::node())
 };
 
-let $in-xml :=
-  <authors>
-    <author><fName>Kate</fName><lName>Jones</lName></author>
-    <author><fName>John</fName><lName>Doe</lName></author>
-  </authors>
+let $in-xml := <authors>
+  <author><fName>Kate</fName><lName>Jones</lName></author>
+  <author><fName>John</fName><lName>Doe</lName></author>
+</authors>
 return (
     functx:follows-not-descendant($in-xml//author[2], $in-xml//author[1]),
     functx:follows-not-descendant($in-xml//author[1]/fName, $in-xml//author[1]),

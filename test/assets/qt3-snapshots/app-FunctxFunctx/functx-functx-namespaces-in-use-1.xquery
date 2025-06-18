@@ -7,14 +7,13 @@ declare function functx:namespaces-in-use ($root as node()?) as xs:anyURI* {
   distinct-values($root/descendant-or-self::*/(. | @*)/namespace-uri(.))
 };
 
-let $in-xml :=
-  <authors
-    xmlns="http://ns.example.com/abc"
-    xmlns:d="http://ns.example.com/def"
-  >
-    <author xmlns="http://ns.example.com/ghi">
-      <fName xmlns:x="http://ns.example.com/xyz" x:attr="123">Kate</fName>
-      <lName>Jones</lName>
-    </author>
-  </authors>
+let $in-xml := <authors
+  xmlns="http://ns.example.com/abc"
+  xmlns:d="http://ns.example.com/def"
+>
+  <author xmlns="http://ns.example.com/ghi">
+    <fName xmlns:x="http://ns.example.com/xyz" x:attr="123">Kate</fName>
+    <lName>Jones</lName>
+  </author>
+</authors>
 return (functx:namespaces-in-use($in-xml))

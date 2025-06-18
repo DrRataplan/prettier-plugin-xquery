@@ -1,5 +1,5 @@
 let $xsl :=
-  "<xsl:stylesheet xmlns:xsl='http://www.w3.org/1999/XSL/Transform' version='3.0'>
+"<xsl:stylesheet xmlns:xsl='http://www.w3.org/1999/XSL/Transform' version='3.0'>
                 <xsl:param name='static-param' static='yes' select='&quot;success&quot;'/>
                 <xsl:param name='alt-param' static='yes' select='upper-case($static-param)'/>
                 <xsl:template match='/'>

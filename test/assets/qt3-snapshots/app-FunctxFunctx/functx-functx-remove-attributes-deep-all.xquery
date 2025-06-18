@@ -54,10 +54,9 @@ declare function functx:substring-after-if-contains (
 };
 
 let $in-xml-1 := <a attr1="123" attr2="456"><b attr1="xzy">abc</b></a>
-return let $in-xml-2 :=
-    <a xmlns:a="http://a" a:attr1="123" attr1="456">
-      <b a:attr1="ghi" attr1="xzy">abc</b>
-    </a>
+return let $in-xml-2 := <a xmlns:a="http://a" a:attr1="123" attr1="456">
+    <b a:attr1="ghi" attr1="xzy">abc</b>
+  </a>
   return (
       functx:remove-attributes-deep($in-xml-1, ("attr1", "attr2")),
       functx:remove-attributes-deep($in-xml-1, ("attr1", "attr3")),

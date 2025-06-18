@@ -59,12 +59,14 @@ declare function functx:substring-after-if-contains (
     $arg
 };
 
-let $in-xml-1 :=
-  <in-xml><a>123</a><a>456</a><c>Mixed <b>content</b></c></in-xml>
-return let $in-xml-2 :=
-    <in-xml xmlns:x="http://x">
-      <a>123</a>
-      <x:a>456</x:a>
-      <c>Mixed <x:a>content</x:a></c>
-    </in-xml>
+let $in-xml-1 := <in-xml>
+  <a>123</a>
+  <a>456</a>
+  <c>Mixed <b>content</b></c>
+</in-xml>
+return let $in-xml-2 := <in-xml xmlns:x="http://x">
+    <a>123</a>
+    <x:a>456</x:a>
+    <c>Mixed <x:a>content</x:a></c>
+  </in-xml>
   return (functx:remove-elements($in-xml-2, "x:a"))

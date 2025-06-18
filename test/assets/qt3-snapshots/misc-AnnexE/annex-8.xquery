@@ -7,6 +7,7 @@ declare function eg:distinct-nodes-stable ($arg as node()*) as node()* {
   return $a
 };
 
-let $arg1 :=
-  (<element1>some data 1</element1>, <element2>some data 2</element2>)
+let $arg1 := (
+  <element1>some data 1</element1>, <element2>some data 2</element2>
+)
 return eg:distinct-nodes-stable($arg1)

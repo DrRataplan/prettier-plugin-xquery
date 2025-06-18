@@ -1,5 +1,8 @@
-let $r :=
-  fn:sort(("boy", "for", "new", "chosen", "black", "pope"), (), fn:data#1)
+let $r := fn:sort(
+  ("boy", "for", "new", "chosen", "black", "pope"),
+  (),
+  fn:data#1
+)
 return (
     count($r) eq 6 and
       $r[1] eq "black" and

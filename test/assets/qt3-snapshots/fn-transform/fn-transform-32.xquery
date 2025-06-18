@@ -1,6 +1,5 @@
-let $in :=
-  xs:string(
-    "<books>
+let $in := xs:string(
+  "<books>
     <book>
         <title>XSLT Programmer?s Reference</title>
         <author>Michael H. Kay</author>
@@ -12,10 +11,9 @@ let $in :=
         <author>Robert Romano</author>
     </book>
 </books>"
-  )
-return let $style :=
-    xs:string(
-      '<xsl:stylesheet version="2.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+)
+return let $style := xs:string(
+    '<xsl:stylesheet version="2.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
     <xsl:template match="/">
         <html>
             <body>
@@ -29,7 +27,7 @@ return let $style :=
         </html>
     </xsl:template>
 </xsl:stylesheet>'
-    )
+  )
   return transform(
       map {
         "source-node": fn:parse-xml($in),

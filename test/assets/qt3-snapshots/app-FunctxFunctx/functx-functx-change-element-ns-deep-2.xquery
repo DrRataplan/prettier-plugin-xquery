@@ -31,6 +31,8 @@ declare function functx:change-element-ns-deep (
       $node
 };
 
-let $in-xml :=
-  <bar:a xmlns:bar="http://bar"><bar:b>557</bar:b><bar:c>xyz</bar:c></bar:a>
+let $in-xml := <bar:a xmlns:bar="http://bar">
+  <bar:b>557</bar:b>
+  <bar:c>xyz</bar:c>
+</bar:a>
 return (functx:change-element-ns-deep($in-xml, "http://foo", "foo"))

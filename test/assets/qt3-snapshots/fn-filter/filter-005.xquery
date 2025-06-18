@@ -1,5 +1,8 @@
-let $index-of-node :=
-  function ($seqParam as node()*, $srchParam as node()) as xs:integer* {
+let $index-of-node := function (
+
+    $seqParam as node()*,
+    $srchParam as node()
+  ) as xs:integer* {
     filter(
       1 to count($seqParam),
       function ($this as xs:integer) as xs:boolean {
@@ -8,8 +11,7 @@ let $index-of-node :=
     )
   },
   $nodes := /*/*,
-  $perm :=
-  (
+  $perm := (
     $nodes[1],
     $nodes[2],
     $nodes[3],

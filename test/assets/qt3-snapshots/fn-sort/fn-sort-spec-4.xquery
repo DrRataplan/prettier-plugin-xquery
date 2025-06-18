@@ -1,5 +1,4 @@
-let $employees :=
-  (
+let $employees := (
     <emp><name><first>Reginald</first><last>Cawcutt</last></name></emp>,
     <emp><name><first>Hans</first><last>Gro&#xeb;r</last></name></emp>,
     <emp><name><first>Domingo</first><last>De Silveira</last></name></emp>,
@@ -7,8 +6,7 @@ let $employees :=
     <emp><name><first>Susan</first><last>Cawcutt</last></name></emp>,
     <emp><name><first>Martin</first><last>Cawcutt</last></name></emp>
   ),
-  $r :=
-  fn:sort(
+  $r := fn:sort(
     $employees,
     default-collation(),
     function ($emp) { $emp/name/last, $emp/name/first }

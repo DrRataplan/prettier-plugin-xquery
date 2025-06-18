@@ -1,9 +1,8 @@
 import schema namespace s =  "http://www.w3.org/XQueryTest/unionListDefined";
 
-let $fn as function (xs:string?) as xs:anyAtomicType* :=
-  function-lookup(
-    QName("http://www.w3.org/XQueryTest/unionListDefined", "unionOfLists"),
-    1
-  )
+let $fn as function (xs:string?) as xs:anyAtomicType* := function-lookup(
+  QName("http://www.w3.org/XQueryTest/unionListDefined", "unionOfLists"),
+  1
+)
 let $result := $fn(xs:untypedAtomic("a b xs:integer"))
 return count($result) eq 3 and ($result instance of s:sensitiveUnion*)

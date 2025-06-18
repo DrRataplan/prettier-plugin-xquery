@@ -1,6 +1,5 @@
-let $employees :=
-  parse-xml(
-    "<emps>
+let $employees := parse-xml(
+  "<emps>
 	    <emp id='1'><name><last>Cawcutt</last></name></emp>
 	    <emp id='2'><name><first>Hans</first><last>Gro&#xeb;r</last></name></emp>
 	    <emp id='3'><name><first>Domingo</first><last>De Silveira</last></name></emp>
@@ -9,7 +8,7 @@ let $employees :=
 	    <emp id='6'><name><first>Martin</first><last>Cawcutt</last></name></emp>
 	    <emp id='7'><name><first>Martin</first><first>James</first><last>Cawcutt</last></name></emp>
 	  </emps>"
-  )
+)
 return fn:sort(
     $employees//emp,
     default-collation(),

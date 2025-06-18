@@ -13,10 +13,9 @@ declare function functx:sequence-node-equal (
     $seq1[$i] is $seq2[$i]
 };
 
-let $in-xml :=
-  <authors>
-    <author><fName>Kate</fName><lName>Jones</lName></author>
-    <author><fName>John</fName><lName>Doe</lName></author>
-  </authors>
+let $in-xml := <authors>
+  <author><fName>Kate</fName><lName>Jones</lName></author>
+  <author><fName>John</fName><lName>Doe</lName></author>
+</authors>
 return let $anAuthor := <author><fName>Kate</fName><lName>Jones</lName></author>
   return (functx:sequence-node-equal($in-xml/author[1], $anAuthor))

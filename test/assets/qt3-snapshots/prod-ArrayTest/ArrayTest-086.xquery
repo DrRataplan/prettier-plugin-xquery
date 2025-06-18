@@ -1,5 +1,4 @@
-let $f :=
-  function (
+let $f := function (
 
     $a as array(map(xs:integer, map(xs:integer, map(xs:integer, map(*)))))
   ) as xs:boolean { array:size($a) eq 1 },

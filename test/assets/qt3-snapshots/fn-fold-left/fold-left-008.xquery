@@ -1,9 +1,11 @@
-let $hours :=
-  function ($emp as element(employee)) as xs:integer {
+let $hours := function ($emp as element(employee)) as xs:integer {
     sum($emp/hours/xs:integer(.))
   },
-  $highest :=
-  function ($f as function (item()) as xs:anyAtomicType, $seq as item()*) {
+  $highest := function (
+
+    $f as function (item()) as xs:anyAtomicType,
+    $seq as item()*
+  ) {
     fold-left(
       $seq,
       (),

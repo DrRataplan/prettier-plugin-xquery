@@ -7,9 +7,8 @@ declare function functx:depth-of-node ($node as node()?) as xs:integer {
   count($node/ancestor-or-self::node())
 };
 
-let $in-xml :=
-  <authors>
-    <author><fName>Kate</fName><lName>Jones</lName></author>
-    <author><fName>John</fName><lName>Doe</lName></author>
-  </authors>
+let $in-xml := <authors>
+  <author><fName>Kate</fName><lName>Jones</lName></author>
+  <author><fName>John</fName><lName>Doe</lName></author>
+</authors>
 return (functx:depth-of-node($in-xml))

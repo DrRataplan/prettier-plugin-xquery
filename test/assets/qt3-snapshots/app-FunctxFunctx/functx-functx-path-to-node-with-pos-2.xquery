@@ -29,9 +29,8 @@ declare function functx:path-to-node-with-pos ($node as node()?) as xs:string {
   )
 };
 
-let $in-xml :=
-  <authors>
-    <author><fName>Kate</fName><lName>Jones</lName></author>
-    <author><fName>John</fName><lName>Doe</lName></author>
-  </authors>
+let $in-xml := <authors>
+  <author><fName>Kate</fName><lName>Jones</lName></author>
+  <author><fName>John</fName><lName>Doe</lName></author>
+</authors>
 return (functx:path-to-node-with-pos($in-xml/*[1]))

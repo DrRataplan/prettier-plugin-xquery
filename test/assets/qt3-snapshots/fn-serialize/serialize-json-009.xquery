@@ -1,6 +1,5 @@
 let $params := map {"method": "json", "json-node-output-method": "xml"},
-  $s :=
-  serialize(
+  $s := serialize(
     array
       {
         text { "a" },

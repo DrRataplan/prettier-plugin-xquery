@@ -1,7 +1,7 @@
 import schema  "http://www.w3.org/2005/xpath-functions";
 
 let $json :=
-  '
+'
            {
              "a" : "foo",
              "b" : 123,

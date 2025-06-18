@@ -21,10 +21,9 @@ function () as xs:integer+ {
 
 	it("correctly formats inline functions in let bindings", async () => {
 		const code = `
-let $x :=
-  function () as xs:integer+ {
-    2, 3, 5, 7, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31
-  }
+let $x := function () as xs:integer+ {
+  2, 3, 5, 7, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31
+}
 return $x()
 `.trimStart();
 
@@ -38,12 +37,11 @@ return $x()
 
 	it("correctly formats inline functions passed as arguments", async () => {
 		const code = `
-let $x :=
-  filter(
-    function () as xs:integer+ {
-      2, 3, 5, 7, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31
-    }
-  )
+let $x := filter(
+  function () as xs:integer+ {
+    2, 3, 5, 7, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31
+  }
+)
 return $x()
 `.trimStart();
 

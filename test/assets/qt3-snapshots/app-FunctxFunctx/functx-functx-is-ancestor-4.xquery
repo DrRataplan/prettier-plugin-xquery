@@ -10,9 +10,8 @@ declare function functx:is-ancestor (
   exists($node1 intersect $node2/ancestor::node())
 };
 
-let $in-xml :=
-  <authors>
-    <author><fName>Kate</fName><lName>Jones</lName></author>
-    <author><fName>John</fName><lName>Doe</lName></author>
-  </authors>
+let $in-xml := <authors>
+  <author><fName>Kate</fName><lName>Jones</lName></author>
+  <author><fName>John</fName><lName>Doe</lName></author>
+</authors>
 return (functx:is-ancestor($in-xml//author[1], $in-xml//author[2]))

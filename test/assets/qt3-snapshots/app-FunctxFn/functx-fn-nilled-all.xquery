@@ -1,11 +1,10 @@
-let $in-xml :=
-  <root xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-    <child>12</child>
-    <child xsi:nil="true" />
-    <child />
-    <child />
-    <child xsi:nil="false" />
-  </root>
+let $in-xml := <root xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <child>12</child>
+  <child xsi:nil="true" />
+  <child />
+  <child />
+  <child xsi:nil="false" />
+</root>
 return (
     nilled($in-xml//child[1]),
     nilled($in-xml//child[3]),
