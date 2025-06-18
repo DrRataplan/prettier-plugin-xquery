@@ -1,5 +1,5 @@
 let $json :=
-  '
+'
                 {
                   "method" : "xml",
                   "indent" : true, 

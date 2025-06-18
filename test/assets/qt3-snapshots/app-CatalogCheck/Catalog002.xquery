@@ -1,7 +1,8 @@
 import schema namespace fots =  "http://www.w3.org/2010/09/qt-fots-catalog";
 
-let $testsets :=
-  //fots:test-set/@file/(validate { doc(resolve-uri(., base-uri(..))) })
+let $testsets := //fots:test-set/@file/(
+  validate { doc(resolve-uri(., base-uri(..))) }
+)
 for $test in
   $testsets//fots:test-case[not(fots:result/fots:error)][contains(
     test,

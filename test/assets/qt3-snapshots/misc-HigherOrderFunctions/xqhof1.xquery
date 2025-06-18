@@ -90,24 +90,23 @@ declare function map:put (
 };
 
 string-join(
-  let $map :=
+  let $map := map:put(
     map:put(
       map:put(
         map:put(
-          map:put(
-            map:put(map:put((), "a", "aardvark"), "z", "zebra"),
-            "e",
-            ("elephant", "eagle")
-          ),
-          "o",
-          "osterich"
+          map:put(map:put((), "a", "aardvark"), "z", "zebra"),
+          "e",
+          ("elephant", "eagle")
         ),
-        "t",
-        "terrapin"
+        "o",
+        "osterich"
       ),
-      "a",
-      "antelope"
-    )
+      "t",
+      "terrapin"
+    ),
+    "a",
+    "antelope"
+  )
   return (
       map:get($map, "o"),
       for $m in $map

@@ -8,10 +8,10 @@ declare namespace fots = "http://www.w3.org/2010/09/qt-fots-catalog";
     let $testsets := $testfiles/fots:test-set
     for $token in distinct-values($changesid)
     let $relevant-testsets := $testsets[tokenize(@covers, " ") = $token]
-    let $relevant-testcases :=
-      $testsets/fots:test-case[tokenize(@covers, " ") = $token]
-    let $count :=
-      count($relevant-testsets/fots:test-case) + count($relevant-testcases)
+    let $relevant-testcases := $testsets/fots:test-case[tokenize(@covers, " ") =
+      $token]
+    let $count := count($relevant-testsets/fots:test-case) +
+      count($relevant-testcases)
     where $count lt 5
     return <out
         change="{ $token }"

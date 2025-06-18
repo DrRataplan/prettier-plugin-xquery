@@ -11,9 +11,8 @@ declare function functx:index-of-node (
   return $seq[$nodes[$seq] is $nodeToFind]
 };
 
-let $in-xml :=
-  <authors>
-    <author><fName>Kate</fName><lName>Jones</lName></author>
-    <author><fName>John</fName><lName>Doe</lName></author>
-  </authors>
+let $in-xml := <authors>
+  <author><fName>Kate</fName><lName>Jones</lName></author>
+  <author><fName>John</fName><lName>Doe</lName></author>
+</authors>
 return (functx:index-of-node($in-xml/author, $in-xml/author[1]))

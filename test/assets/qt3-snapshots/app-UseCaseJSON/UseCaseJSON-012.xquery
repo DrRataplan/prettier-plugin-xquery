@@ -1,14 +1,12 @@
-let $users :=
-  [
-    map {"userid": "W0342", "firstname": "Walter", "lastname": "Denisovich"},
-    map {"userid": "M0535", "firstname": "Mick", "lastname": "Goulish"}
-  ]?*
-let $holdings :=
-  [
-    map {"userid": "W0342", "ticker": "DIS", "shares": 153212312},
-    map {"userid": "M0535", "ticker": "DIS", "shares": 10},
-    map {"userid": "M0535", "ticker": "AIG", "shares": 23412}
-  ]?*
+let $users := [
+  map {"userid": "W0342", "firstname": "Walter", "lastname": "Denisovich"},
+  map {"userid": "M0535", "firstname": "Mick", "lastname": "Goulish"}
+]?*
+let $holdings := [
+  map {"userid": "W0342", "ticker": "DIS", "shares": 153212312},
+  map {"userid": "M0535", "ticker": "DIS", "shares": 10},
+  map {"userid": "M0535", "ticker": "AIG", "shares": 23412}
+]?*
 return array
     {
       for $u in $users

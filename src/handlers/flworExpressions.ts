@@ -6,7 +6,7 @@ import type { Handler } from "./util/Handler.ts";
 import isPreviousLineEmpty from "./util/isPreviousLineEmpty.ts";
 import printComment from "./util/printComment.ts";
 
-const { join, line, group, indent, hardline, hardlineWithoutBreakParent } = doc.builders;
+const { join, line, group, indent, hardline, ifBreak } = doc.builders;
 
 const flworExpressionHandlers: Record<string, Handler> = {
 	FLWORExpr: (path, print) => {
@@ -123,29 +123,37 @@ const flworExpressionHandlers: Record<string, Handler> = {
 		];
 		return group(result);
 	},
-	LetClause: (path, print, options) => {
+	LetClause: (path, print) => {
 		const letKeyword = path.map(print, "childrenByName", "'let'");
+
+		const formattedLetBindings = path.map(print, "childrenByName", "LetBinding");
+
 		const result: Doc[] = [
 			letKeyword,
 			space,
-			indent([join([",", line], path.map(print, "childrenByName", "LetBinding"))]),
+			formattedLetBindings.length > 1 ? indent([join([",", line], formattedLetBindings)]) : formattedLetBindings,
 		];
 		return group(result);
 	},
 	LetBinding: (path, print) => {
+		const toReturn: Doc[] = [];
 		const varNamePart = path.map(print, "childrenByName", "VarName");
-		const exprSinglePart = path.map(print, "childrenByName", "ExprSingle");
 		const typeDeclPart = printIfExist(path, print, "TypeDeclaration");
 		const walrusKeyword = path.map(print, "childrenByName", "':='");
-		return group([
-			"$",
-			varNamePart,
-			space,
-			typeDeclPart ? [typeDeclPart, space] : [],
-			walrusKeyword,
-			line,
-			exprSinglePart,
-		]);
+
+		const exprSinglePart = path.map(print, "childrenByName", "ExprSingle");
+
+		toReturn.push("$", varNamePart, space);
+		if (typeDeclPart) {
+			toReturn.push(typeDeclPart, space);
+		}
+		// If we are outputting a nested FLWOR expression, force an indent. those indents are needed for readability
+		const childIsFLWOR = path.node.childrenByName.ExprSingle[0].childrenByName.FLWORExpr;
+		// Break here as a last resort, if the variable value really cannot be cut down. Just output a space otherwise
+		const valuePart = childIsFLWOR ? [indent([line, exprSinglePart])] : [group(line), exprSinglePart];
+		toReturn.push(walrusKeyword, valuePart);
+
+		return toReturn;
 	},
 	ForBinding: (path, print) => {
 		const varNamePart = path.map(print, "childrenByName", "VarName");

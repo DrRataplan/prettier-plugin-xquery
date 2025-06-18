@@ -24,6 +24,8 @@ declare function functx:change-element-ns (
       } { $element/@*, $element/node() }
 };
 
-let $in-xml :=
-  <bar:a xmlns:bar="http://bar"><bar:b>557</bar:b><bar:c>xyz</bar:c></bar:a>
+let $in-xml := <bar:a xmlns:bar="http://bar">
+  <bar:b>557</bar:b>
+  <bar:c>xyz</bar:c>
+</bar:a>
 return (functx:change-element-ns($in-xml, "http://foo", "foo"))

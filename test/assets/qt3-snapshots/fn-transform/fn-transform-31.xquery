@@ -1,5 +1,4 @@
-let $in :=
-  xs:string(
+let $in := xs:string(
     "<books>
     <book>
         <title>XSLT Programmer?s Reference</title>
@@ -13,8 +12,7 @@ let $in :=
     </book>
 </books>"
   ),
-  $style :=
-  xs:string(
+  $style := xs:string(
     '<xsl:stylesheet version="2.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
     <xsl:template match="/">
         <html>

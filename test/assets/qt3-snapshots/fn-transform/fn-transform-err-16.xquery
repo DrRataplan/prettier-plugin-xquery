@@ -1,5 +1,5 @@
 let $xsl :=
-  "<xsl:stylesheet xmlns:xsl='http://www.w3.org/1999/XSL/Transform'
+"<xsl:stylesheet xmlns:xsl='http://www.w3.org/1999/XSL/Transform'
             xmlns:my='http://www.w3.org/fots/fn/transform/myfunctions' version='3.0'>
                 <xsl:function name='my:user-function'>
                     <xsl:param name='param1'/>

@@ -9,16 +9,15 @@ declare function functx:has-mixed-content (
   $element/text()[normalize-space(.) != ""] and $element/*
 };
 
-let $in-xml :=
-  <in-xml>
-    <a />
-    <b />
-    <c />
-    <d>xml</d>
-    <e><x>xml</x></e>
-    <f>mixed <x>xml</x></f>
-    <g><x>xml</x></g>
-  </in-xml>
+let $in-xml := <in-xml>
+  <a />
+  <b />
+  <c />
+  <d>xml</d>
+  <e><x>xml</x></e>
+  <f>mixed <x>xml</x></f>
+  <g><x>xml</x></g>
+</in-xml>
 return (
     functx:has-mixed-content($in-xml/a),
     functx:has-mixed-content($in-xml/b),

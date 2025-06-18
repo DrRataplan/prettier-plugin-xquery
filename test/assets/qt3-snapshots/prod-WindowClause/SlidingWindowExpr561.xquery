@@ -15,22 +15,20 @@ declare variable $input := <Events>
 
 <Result>
   {
-    let $trips :=
-      (
-        for sliding window $window in reverse($input//DATA)
-          start $enter when $enter/@action = "enter"
-          end $leave when $leave/@action = "leave" and
-            $leave/@name = $enter/@name
-        let $entry := xs:dateTime(translate($enter/@datetime, " ", "T"))
-        let $departure := xs:dateTime(translate($leave/@datetime, " ", "T"))
-        let $duration := $departure - $entry
-        return <TRIP
-            date="{ xs:date($entry) }"
-            duration="{ $duration }"
-            enter="{ $enter/@datetime }"
-            leave="{ $leave/@datetime }"
-            name="{ $enter/@name }" />
-      )
+    let $trips := (
+      for sliding window $window in reverse($input//DATA)
+        start $enter when $enter/@action = "enter"
+        end $leave when $leave/@action = "leave" and $leave/@name = $enter/@name
+      let $entry := xs:dateTime(translate($enter/@datetime, " ", "T"))
+      let $departure := xs:dateTime(translate($leave/@datetime, " ", "T"))
+      let $duration := $departure - $entry
+      return <TRIP
+          date="{ xs:date($entry) }"
+          duration="{ $duration }"
+          enter="{ $enter/@datetime }"
+          leave="{ $leave/@datetime }"
+          name="{ $enter/@name }" />
+    )
     return for $trip in $trips
       let $tripDate := $trip/@date, $tripName := $trip/@name
 

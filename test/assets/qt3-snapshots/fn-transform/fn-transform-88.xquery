@@ -1,5 +1,5 @@
 let $xsl :=
-  "<xsl:stylesheet xmlns:xsl='http://www.w3.org/1999/XSL/Transform'
+"<xsl:stylesheet xmlns:xsl='http://www.w3.org/1999/XSL/Transform'
             version='3.0' default-mode='x'> 
             <xsl:template match='/' mode='#unnamed'>WRONG</xsl:template>
             <xsl:template match='/' mode='x'>RIGHT</xsl:template>

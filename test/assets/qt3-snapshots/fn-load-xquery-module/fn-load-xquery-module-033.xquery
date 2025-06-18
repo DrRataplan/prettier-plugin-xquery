@@ -3,8 +3,7 @@ let $module-ns :=
   $qn-var1 := QName($module-ns, "var1"),
   $qn-var2 := QName($module-ns, "var2"),
   $qn-var3 := QName($module-ns, "var3")
-return let $module1 :=
-    fn:load-xquery-module(
+return let $module1 := fn:load-xquery-module(
       $module-ns,
       map {
         "variables":
@@ -15,8 +14,7 @@ return let $module1 :=
           }
       }
     ),
-    $module2 :=
-    fn:load-xquery-module(
+    $module2 := fn:load-xquery-module(
       $module-ns,
       map {
         "variables":

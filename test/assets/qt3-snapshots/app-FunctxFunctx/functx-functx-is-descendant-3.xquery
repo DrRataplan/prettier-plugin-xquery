@@ -10,11 +10,10 @@ declare function functx:is-descendant (
   boolean($node2 intersect $node1/ancestor::node())
 };
 
-let $in-xml :=
-  <authors>
-    <author><fName>Kate</fName><lName>Jones</lName></author>
-    <author><fName>John</fName><lName>Doe</lName></author>
-  </authors>
+let $in-xml := <authors>
+  <author><fName>Kate</fName><lName>Jones</lName></author>
+  <author><fName>John</fName><lName>Doe</lName></author>
+</authors>
 return (
     functx:is-descendant(
       $in-xml//author[1]/fName/text(),

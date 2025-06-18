@@ -10,11 +10,10 @@ declare function functx:sequence-node-equal-any-order (
   not(($seq1 except $seq2, $seq2 except $seq1))
 };
 
-let $in-xml :=
-  <authors>
-    <author><fName>Kate</fName><lName>Jones</lName></author>
-    <author><fName>John</fName><lName>Doe</lName></author>
-  </authors>
+let $in-xml := <authors>
+  <author><fName>Kate</fName><lName>Jones</lName></author>
+  <author><fName>John</fName><lName>Doe</lName></author>
+</authors>
 return let $anAuthor := <author><fName>Kate</fName><lName>Jones</lName></author>
   return (
       functx:sequence-node-equal-any-order($in-xml/author, $in-xml/*),

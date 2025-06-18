@@ -6,9 +6,9 @@
         for $e in $end_dates
         return month-from-date($e)
       )
-    let $item :=
-      $items//item_tuple[year-from-date(exactly-one(end_date)) = 1999 and
-        month-from-date(exactly-one(end_date)) = $m]
+    let $item := $items//item_tuple[year-from-date(exactly-one(end_date)) =
+      1999 and
+      month-from-date(exactly-one(end_date)) = $m]
     order by $m
     return <monthly_result>
         <month>{ $m }</month>

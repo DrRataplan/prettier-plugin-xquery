@@ -18,6 +18,8 @@ declare function local:union (
 };
 
 let $data := (/a),
-  $f :=
-  local:union(local:children#1, local:union(local:attributes#1, local:self#1))
+  $f := local:union(
+    local:children#1,
+    local:union(local:attributes#1, local:self#1)
+  )
 return for-each($data/*, $f)[not(. instance of attribute())]

@@ -7,13 +7,12 @@ declare function functx:siblings ($node as node()?) as node()* {
   $node/../node() except $node
 };
 
-let $in-xml :=
-  <authors a1='xyz'>
-    <author a2='abc'>
-      <fName a3='def'>Kate</fName>
-      <fName a3='def'>Jane</fName>
-      <lName>Jones</lName>
-    </author>
-    <author><fName a3='def'>John</fName><lName>Doe</lName></author>
-  </authors>
+let $in-xml := <authors a1='xyz'>
+  <author a2='abc'>
+    <fName a3='def'>Kate</fName>
+    <fName a3='def'>Jane</fName>
+    <lName>Jones</lName>
+  </author>
+  <author><fName a3='def'>John</fName><lName>Doe</lName></author>
+</authors>
 return (functx:siblings($in-xml/author[1]/fName[2]))

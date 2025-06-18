@@ -14,12 +14,11 @@ declare function functx:copy-attributes (
   }
 };
 
-let $in-xml :=
-  <in-xml>
-    <a>123</a>> <b x="1" y="2">456</b>
-    <c x="9">123</c>
-    <d z="5">123</d>
-  </in-xml>
+let $in-xml := <in-xml>
+  <a>123</a>> <b x="1" y="2">456</b>
+  <c x="9">123</c>
+  <d z="5">123</d>
+</in-xml>
 return (
     functx:copy-attributes($in-xml/a, $in-xml/b),
     functx:copy-attributes($in-xml/b, $in-xml/c),

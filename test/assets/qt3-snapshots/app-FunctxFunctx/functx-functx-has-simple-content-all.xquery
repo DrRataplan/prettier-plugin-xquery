@@ -9,15 +9,14 @@ declare function functx:has-simple-content (
   $element/text() and not($element/*)
 };
 
-let $in-xml :=
-  <in-xml>
-    <a />
-    <b />
-    <c />
-    <d>xml</d>
-    <e><x>xml</x></e>
-    <f>mixed <x>xml</x></f>
-  </in-xml>
+let $in-xml := <in-xml>
+  <a />
+  <b />
+  <c />
+  <d>xml</d>
+  <e><x>xml</x></e>
+  <f>mixed <x>xml</x></f>
+</in-xml>
 return (
     functx:has-simple-content($in-xml/a),
     functx:has-simple-content($in-xml/b),

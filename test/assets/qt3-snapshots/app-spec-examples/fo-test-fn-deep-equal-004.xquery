@@ -1,7 +1,6 @@
-let $at :=
-  <attendees>
-    <name first='Peter' last='Parker' />
-    <name first='Bob' last='Barker' />
-    <name first='Peter' last='Parker' />
-  </attendees>
+let $at := <attendees>
+  <name first='Peter' last='Parker' />
+  <name first='Bob' last='Barker' />
+  <name first='Peter' last='Parker' />
+</attendees>
 return fn:deep-equal($at/name[1], "Peter Parker")

@@ -10,11 +10,10 @@ declare function functx:precedes-not-ancestor (
   $a << $b and empty($a intersect $b/ancestor::node())
 };
 
-let $in-xml :=
-  <authors>
-    <author><fName>Kate</fName><lName>Jones</lName></author>
-    <author><fName>John</fName><lName>Doe</lName></author>
-  </authors>
+let $in-xml := <authors>
+  <author><fName>Kate</fName><lName>Jones</lName></author>
+  <author><fName>John</fName><lName>Doe</lName></author>
+</authors>
 return (
     functx:precedes-not-ancestor($in-xml//author[1], $in-xml//author[2]),
     functx:precedes-not-ancestor($in-xml//author[1], $in-xml//author[1]/fName),

@@ -67,11 +67,10 @@ declare function functx:substring-before-if-contains (
     $arg
 };
 
-let $in-xml :=
-  <authors>
-    <author test="abc"><first>Kate</first><last>Jones</last></author>
-    <author><first>John</first><a:last xmlns:a="http://a">Doe</a:last></author>
-  </authors>
+let $in-xml := <authors>
+  <author test="abc"><first>Kate</first><last>Jones</last></author>
+  <author><first>John</first><a:last xmlns:a="http://a">Doe</a:last></author>
+</authors>
 return document {
     (
       functx:dynamic-path($in-xml, "author/first"),

@@ -6,22 +6,21 @@ declare option output:method "html";
 declare option output:indent "no";
 declare option output:version "4.0";
 
-let $html :=
-  <html>
-    <body>
-      <area />
-      <base />
-      <br />
-      <col />
-      <embed />
-      <frame />
-      <hr />
-      <img />
-      <input />
-      <isindex />
-      <link />
-      <meta />
-      <param />
-    </body>
-  </html>
+let $html := <html>
+  <body>
+    <area />
+    <base />
+    <br />
+    <col />
+    <embed />
+    <frame />
+    <hr />
+    <img />
+    <input />
+    <isindex />
+    <link />
+    <meta />
+    <param />
+  </body>
+</html>
 return [$html]

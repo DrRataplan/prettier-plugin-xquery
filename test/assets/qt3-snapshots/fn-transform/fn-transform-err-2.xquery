@@ -10,12 +10,11 @@ let $xsl :=
                                                    <section>sect1</section>
                                                    <section>sect2</section>
                                                    </doc>"
-return let $result :=
-    fn:transform(
-      map {
-        "stylesheet-text": $xsl,
-        "stylesheet-location": $render,
-        "source-node": fn:parse-xml($xml)
-      }
-    )
+return let $result := fn:transform(
+    map {
+      "stylesheet-text": $xsl,
+      "stylesheet-location": $render,
+      "source-node": fn:parse-xml($xml)
+    }
+  )
   return $result?output

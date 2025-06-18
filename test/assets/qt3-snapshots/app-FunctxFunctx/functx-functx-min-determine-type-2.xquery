@@ -18,9 +18,8 @@ declare function functx:min-determine-type (
     )
 };
 
-let $in-xml :=
-  <values>
-    <nums><num>12</num><num>23</num><num>115</num><num>12.5</num></nums>
-    <strings><str>def</str><str>abc</str></strings>
-  </values>
+let $in-xml := <values>
+  <nums><num>12</num><num>23</num><num>115</num><num>12.5</num></nums>
+  <strings><str>def</str><str>abc</str></strings>
+</values>
 return (functx:min-determine-type($in-xml//str))

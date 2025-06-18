@@ -10,11 +10,10 @@ declare function functx:is-node-in-sequence-deep-equal (
   some $nodeInSeq in $seq satisfies deep-equal($nodeInSeq, $node)
 };
 
-let $in-xml :=
-  <authors>
-    <author><fName>Kate</fName><lName>Jones</lName></author>
-    <author><fName>John</fName><lName>Doe</lName></author>
-  </authors>
+let $in-xml := <authors>
+  <author><fName>Kate</fName><lName>Jones</lName></author>
+  <author><fName>John</fName><lName>Doe</lName></author>
+</authors>
 return let $anAuthor := <author><fName>John</fName><lName>Doe</lName></author>
   return (
       functx:is-node-in-sequence-deep-equal($in-xml/author[1], $in-xml/author)

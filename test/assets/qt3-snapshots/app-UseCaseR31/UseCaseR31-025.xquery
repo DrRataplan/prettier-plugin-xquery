@@ -5,13 +5,12 @@ declare function local:deep-put (
   $key as xs:string,
   $value as item()*
 ) as item()* {
-  let $mf :=
-    function ($k, $v) {
-      if ($k eq $key) then
-        map {$k: $value}
-      else
-        map {$k: local:deep-put($v, $key, $value)}
-    }
+  let $mf := function ($k, $v) {
+    if ($k eq $key) then
+      map {$k: $value}
+    else
+      map {$k: local:deep-put($v, $key, $value)}
+  }
   for $i in $input
   return if ($i instance of map(*)) then
       map:merge(map:for-each($i, $mf))
