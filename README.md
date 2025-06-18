@@ -8,7 +8,7 @@ A demo page lives at [xquery.elliat.nl](https://xquery.elliat.nl).
 
 ## Getting started
 
-To run `prettier` with the XML plugin, you're going to need [`node`](https://nodejs.org/en/download/).
+To run `prettier` with the XQuery plugin, you're going to need [`node`](https://nodejs.org/en/download/).
 
 If you're using the `npm` CLI, then add the plugin by:
 
@@ -86,3 +86,7 @@ This plugin is under development, the following features are planned:
 
 The package is available as open source under the terms of the [MIT
 License](https://opensource.org/licenses/MIT).
+
+## Credits
+
+This project uses the [rex parser generator](https://github.com/GuntherRademacher/rex-parser-generator) to parse XQuery.
