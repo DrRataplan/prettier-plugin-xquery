@@ -6,7 +6,7 @@ import joinChildrenWithSpaces from "./util/joinChildrenWithSpaces.ts";
 import type { Handler } from "./util/Handler.ts";
 import type { Node, NonTerminalNode } from "../tree.ts";
 
-const { join, group, hardline, softline, indent, line } = doc.builders;
+const { join, group, hardline, softline, indent, line, ifBreak } = doc.builders;
 
 const modulesAndPrologsHandlers: Record<string, Handler> = {
 	VersionDecl: (path, print) => {
@@ -52,17 +52,28 @@ const modulesAndPrologsHandlers: Record<string, Handler> = {
 		return group([moduleDeclPart.length ? [moduleDeclPart, hardline, hardline] : [], prologPart]);
 	},
 	ModuleDecl: (path, print) => {
-		const moduleKeyword = path.map(print, 'childrenByName', "'module'");
-		const namespaceKeyword = path.map(print, 'childrenByName', "'namespace'");
+		const moduleKeyword = path.map(print, "childrenByName", "'module'");
+		const namespaceKeyword = path.map(print, "childrenByName", "'namespace'");
 		const prefixPart = path.map(print, "childrenByName", "NCName");
 		const uriPart = path.map(print, "childrenByName", "URILiteral");
 		const separatorPart = path.map(print, "childrenByName", "Separator");
 
-		return group([moduleKeyword, space, namespaceKeyword, space, prefixPart, space, "=", space, uriPart, separatorPart]);
+		return group([
+			moduleKeyword,
+			space,
+			namespaceKeyword,
+			space,
+			prefixPart,
+			space,
+			"=",
+			space,
+			uriPart,
+			separatorPart,
+		]);
 	},
 	NamespaceDecl: (path, print) => {
-		const declareKeyword = path.map(print, 'childrenByName', "'declare'");
-		const namespaceKeyword = path.map(print, 'childrenByName', "'namespace'");
+		const declareKeyword = path.map(print, "childrenByName", "'declare'");
+		const namespaceKeyword = path.map(print, "childrenByName", "'namespace'");
 		const prefixPart = path.map(print, "childrenByName", "NCName");
 		const uriPart = path.map(print, "childrenByName", "URILiteral");
 		return group([declareKeyword, space, namespaceKeyword, space, prefixPart, space, "=", space, uriPart]);
@@ -115,9 +126,9 @@ const modulesAndPrologsHandlers: Record<string, Handler> = {
 	CopyNamespacesDecl: joinChildrenWithSpaces,
 	DecimalFormatDecl: joinChildrenWithSpaces,
 	BoundarySpaceDecl: (path, print, options) => {
-		const boundarySpaceOption = path.node.childrenByName["'strip'"] ? 'strip' : 'preserve';
+		const boundarySpaceOption = path.node.childrenByName["'strip'"] ? "strip" : "preserve";
 		options.boundarySpace = boundarySpaceOption;
-		return joinChildrenWithSpaces(path, print)
+		return joinChildrenWithSpaces(path, print);
 	},
 	DefaultNamespaceDecl: joinChildrenWithSpaces,
 	ModuleImport: (path, print) => {
@@ -227,19 +238,38 @@ const modulesAndPrologsHandlers: Record<string, Handler> = {
 	},
 	AnnotatedDecl: (path, print) => {
 		const declareKeyword = path.map(print, "childrenByName", "'declare'");
-		const annotationsPart = printIfExist(path, print, "Annotation") ?? [];
-		const actualDeclaration = printIfExist(path, print, "VarDecl") ?? printIfExist(path, print, "FunctionDecl") ?? [];
+		const annotationsPart = printIfExist(path, print, "Annotation");
+		const actualDeclaration =
+			printIfExist(path, print, "VarDecl") ?? path.map(print, "childrenByName", "FunctionDecl");
+
+		const annotations: Doc = annotationsPart ? indent([line, group(join(line, annotationsPart))]) : [];
+		return group([group([declareKeyword, annotations, line]), actualDeclaration]);
+	},
+
+	Annotation: (path, print) => {
+		const percentPart = path.map(print, "childrenByName", "'%'");
+		const eqNamePart = path.map(print, "childrenByName", "EQName");
+		const literalParts = printIfExist(path, print, "Literal");
+		if (!literalParts) {
+			return group([percentPart, eqNamePart]);
+		}
 
 		return group([
-			group([declareKeyword, annotationsPart.length ? space : [], indent([join(line, annotationsPart), line])]),
-			actualDeclaration,
+			percentPart,
+			eqNamePart,
+			"(",
+			indent([softline, join([",", line], literalParts)]),
+			softline,
+			")",
 		]);
 	},
 
 	FunctionDecl: (path, print, options) => {
 		const functionKeyword = path.map(print, "childrenByName", "'function'");
 		const eQNamePart = path.map(print, "childrenByName", "EQName");
-		const paramListPart = path.node.childrenByName["ParamList"] ? path.map(print, "childrenByName", "ParamList") : [];
+		const paramListPart = path.node.childrenByName["ParamList"]
+			? path.map(print, "childrenByName", "ParamList")
+			: [];
 		const asKeyword = printIfExist(path, print, "'as'");
 		const typeDeclarationPart = path.node.childrenByName["SequenceType"]
 			? [asKeyword!, space, path.map(print, "childrenByName", "SequenceType"), space]
@@ -288,9 +318,11 @@ const modulesAndPrologsHandlers: Record<string, Handler> = {
 				toReturn.push(space);
 			}
 		}
+
 		if (varValuePart) {
 			const walrusKeyword = path.map(print, "childrenByName", "':='");
-			toReturn.push(walrusKeyword, space, varValuePart);
+			// Break here as a last resort, if the variable value really cannot be cut down. Just output a space otherwise
+			toReturn.push(walrusKeyword, ifBreak(indent(group(line)), space), varValuePart);
 		}
 
 		return group(toReturn);

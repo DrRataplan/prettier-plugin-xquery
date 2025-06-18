@@ -4,8 +4,8 @@ declare variable $uri external;
 
 declare variable $root := doc($uri)/root/QObject;
 
-declare
-  variable $metaObjects := $root/preceding-sibling::metaObjects/metaObject;
+declare variable $metaObjects :=
+  $root/preceding-sibling::metaObjects/metaObject;
 
 declare function local:recurseMetaObject (
   $object as element(metaObject),
