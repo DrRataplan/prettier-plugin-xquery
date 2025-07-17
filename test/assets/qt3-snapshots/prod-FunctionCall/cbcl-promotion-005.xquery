@@ -1,5 +1,5 @@
 declare function local:index-of ($seq, $item) as xs:double? {
-  for $x in $seq
+  for $x at $p in $seq
   return if ($x eq $item) then
       $p
     else (

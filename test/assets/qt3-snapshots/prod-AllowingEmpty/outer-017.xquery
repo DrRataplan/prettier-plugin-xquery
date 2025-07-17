@@ -2,8 +2,8 @@ declare variable $n external;
 
 <out>
   {
-    for $x as xs:integer? in 1 to $n
-    for $y as xs:integer? in
+    for $x as xs:integer? allowing empty at $p in 1 to $n
+    for $y as xs:integer? allowing empty at $q in
       (
         if (empty($x)) then (
         ) else (

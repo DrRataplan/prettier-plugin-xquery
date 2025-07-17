@@ -2,7 +2,7 @@
   {
     for $x in 1 to 4
     count$ix
-    for $y in $x to 3
+    for $y allowing empty in $x to 3
     count$iy
     return <item>
         <x>{ $x }</x>

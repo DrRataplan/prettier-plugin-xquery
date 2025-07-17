@@ -3,7 +3,7 @@ declare variable $n external;
 <out>
   {
     string-join(
-      for $x in 1 to $n
+      for $x allowing empty in 1 to $n
       return concat("[", $x, "]"),
       "|"
     )

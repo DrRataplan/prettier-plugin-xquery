@@ -1,5 +1,5 @@
 1 eq
   (
-    for $i in 0
+    for $i at $p in 0
     return $p
   )

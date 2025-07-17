@@ -12,7 +12,7 @@
         }
       </tr>
       { (: Data for each row :)
-        for $r in
+        for $r at $i in
           json-doc("http://www.w3.org/qt3/app/UseCaseR31/table-json")?data?*
         return <tr>
             {

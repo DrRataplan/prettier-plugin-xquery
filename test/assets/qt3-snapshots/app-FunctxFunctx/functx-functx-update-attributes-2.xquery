@@ -10,7 +10,7 @@ declare function functx:update-attributes (
 ) as element()? {
   for $element in $elements
   return element {node-name($element)} {
-      for $attrName in $attrNames
+      for $attrName at $seq in $attrNames
       return if ($element/@*[node-name(.) = $attrName]) then
           attribute {$attrName} { $attrValues[$seq] }
         else (

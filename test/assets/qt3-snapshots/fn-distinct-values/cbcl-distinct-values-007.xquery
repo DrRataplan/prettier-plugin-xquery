@@ -1,4 +1,4 @@
-for $value in
+for $value at $p in
   (
     for $time in
       fn:distinct-values(

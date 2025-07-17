@@ -13,7 +13,7 @@ return (
         every
           $bool in
           (
-            for $d1 in $distinct, $d2 in $distinct[position() > $p]
+            for $d1 at $p in $distinct, $d2 in $distinct[position() > $p]
             return $d1 eq $d2
           ) satisfies
           not($bool)

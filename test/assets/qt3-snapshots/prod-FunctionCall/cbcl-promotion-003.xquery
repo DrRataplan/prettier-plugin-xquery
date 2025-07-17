@@ -5,7 +5,7 @@ declare function local:index-of (
   if (empty($item)) then
     -1
   else
-    for $x in $seq
+    for $x at $p in $seq
     return if ($x eq $item) then
         $p
       else (

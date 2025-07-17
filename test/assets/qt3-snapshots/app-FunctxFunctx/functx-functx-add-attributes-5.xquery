@@ -11,7 +11,7 @@ declare function functx:add-attributes (
 ) as element()? {
   for $element in $elements
   return element {node-name($element)} {
-      for $attrName in $attrNames
+      for $attrName at $seq in $attrNames
       return if ($element/@*[node-name(.) = $attrName]) then (
         ) else
           attribute {$attrName} { $attrValues[$seq] },

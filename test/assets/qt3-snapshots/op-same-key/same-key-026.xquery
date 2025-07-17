@@ -29,7 +29,7 @@ let $m := map:merge(
   map {"duplicates": "use-last"}
 )
 let $contents := string-join(
-  for $v in $values
+  for $v at $p in $values
   return ($p || " $m(" || local:type($v) || ") == " || local:type($m($v))),
   ", "
 )

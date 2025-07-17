@@ -8,6 +8,6 @@ declare function local:generate ($arg as xs:integer?) as xs:integer* {
 
 (
   local:generate(()),
-  for $x in local:generate(0)
+  for $x at $p in local:generate(0)
   return $p + $x
 )[last()]
