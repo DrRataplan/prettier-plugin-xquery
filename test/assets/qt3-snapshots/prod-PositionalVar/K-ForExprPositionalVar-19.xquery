@@ -1,5 +1,5 @@
 deep-equal(
   (1, 2, 3),
-  for $i in remove((1, 2, current-time()), 10)
+  for $i at $p in remove((1, 2, current-time()), 10)
   return $p
 )

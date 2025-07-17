@@ -1,2 +1,2 @@
-for $x in fn:error()
+for $x at $p in fn:error()
 return true()

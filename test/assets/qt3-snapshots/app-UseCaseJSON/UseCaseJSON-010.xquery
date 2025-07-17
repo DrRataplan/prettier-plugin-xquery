@@ -9,7 +9,7 @@
         }
       </tr>
       { (: Data for each row :)
-        for $r in json-doc("table.json")("data")?*
+        for $r at $i in json-doc("table.json")("data")?*
         return <tr>
             {
               <th>{ json-doc("table.json")("row labels")[$i] }</th>,

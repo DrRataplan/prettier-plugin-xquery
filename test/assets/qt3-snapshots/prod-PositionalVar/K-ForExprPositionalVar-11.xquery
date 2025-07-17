@@ -1,4 +1,4 @@
 empty(
-  for $i in ()
+  for $i at $p in ()
   return $p
 )

@@ -7,7 +7,7 @@ declare function functx:replace-element-values (
   $elements as element()*,
   $values as xs:anyAtomicType*
 ) as element()* {
-  for $element in $elements
+  for $element at $seq in $elements
   return element {node-name($element)} { $element/@*, $values[$seq] }
 };
 

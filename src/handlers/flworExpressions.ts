@@ -157,10 +157,18 @@ const flworExpressionHandlers: Record<string, Handler> = {
 	},
 	ForBinding: (path, print) => {
 		const varNamePart = path.map(print, "childrenByName", "VarName");
-		const exprSinglePart = path.map(print, "childrenByName", "ExprSingle");
+
 		const typeDeclPart = printIfExist(path, print, "TypeDeclaration");
-		return group(["$", varNamePart, space, typeDeclPart ? [typeDeclPart, space] : [], "in", line, exprSinglePart]);
+		const allowingEmptyPart = printIfExist(path, print, "AllowingEmpty");
+		const positionalVarPart = printIfExist(path, print, "PositionalVar");
+
+		const optionalParts = [typeDeclPart, allowingEmptyPart, positionalVarPart].filter((part) => !!part) as Doc[];
+
+		const inKeyword = path.map(print, "childrenByName", "'in'");
+		const exprSinglePart = path.map(print, "childrenByName", "ExprSingle");
+		return group(["$", varNamePart, space, join(space, [...optionalParts, inKeyword]), line, exprSinglePart]);
 	},
+	AllowingEmpty: joinChildrenWithSpaces,
 	TumblingWindowClause: (path, print) => {
 		const tumblingKeyword = path.map(print, "childrenByName", "'tumbling'");
 		const windowKeyword = path.map(print, "childrenByName", "'window'");

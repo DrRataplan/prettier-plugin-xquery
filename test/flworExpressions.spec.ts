@@ -85,6 +85,17 @@ for $x in ($x to 10)
 return $x + 1
 `.trimStart(),
 	},
+	{
+		name: "retains all optional parts",
+		input: `
+for $x as xs:integer allowing empty at $i in ($x to 10)
+return $x
+`,
+		output: `
+for $x as xs:integer allowing empty at $i in ($x to 10)
+return $x
+`.trimStart(),
+	},
 ];
 
 describe("flwor expressions", async (d) => {

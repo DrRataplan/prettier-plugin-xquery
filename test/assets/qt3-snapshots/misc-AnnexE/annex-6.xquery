@@ -4,7 +4,7 @@ declare function eg:index-of-node (
   $sequence as node()*,
   $srch as node()
 ) as xs:integer* {
-  for $n in $sequence
+  for $n at $i in $sequence
   where ($n is $srch)
   return $i
 };

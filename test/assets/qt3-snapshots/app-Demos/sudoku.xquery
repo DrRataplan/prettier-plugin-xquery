@@ -305,7 +305,7 @@ declare function fn:drawBoard ($board as xs:integer+) as element() {
       for $i in 1 to 9
       return <tr>
           {
-            for $j in 1 to 9
+            for $j at $p in 1 to 9
             let $pos := (($i - 1) * 9) + $j
             return <td
                 class="{
