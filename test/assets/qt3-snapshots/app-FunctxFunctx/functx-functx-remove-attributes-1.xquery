@@ -30,8 +30,8 @@ declare function functx:remove-attributes (
 ) as element() {
   for $element in $elements
   return element {node-name($element)} {
-      $element/@*[not(functx:name-test(name(), $names))], $element/node()
-    }
+    $element/@*[not(functx:name-test(name(), $names))], $element/node()
+  }
 };
 
 (:~

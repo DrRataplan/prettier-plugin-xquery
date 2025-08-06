@@ -16,33 +16,32 @@ array
     group by $state
     order by $state
     return map {
-        $state:
-          array
-            {
-              for $product in $productsVar?*
-              let $category := $product?category
-              group by $category
-              order by $category
-              return map {
-                  $category:
-                    map:merge(
-                      (
-                        for $sales in $salesVar?*
-                        where $sales?("store number") =
-                          $store?("store number") and
-                          $sales?product = $product?name
-                        let $pname := $sales?product
-                        group by $pname
-                        return map {
-                            $pname:
-                              sum(
-                                for $s in $sales
-                                return $s?quantity
-                              )
-                          }
-                      )
-                    )
-                }
+      $state:
+        array
+          {
+            for $product in $productsVar?*
+            let $category := $product?category
+            group by $category
+            order by $category
+            return map {
+              $category:
+                map:merge(
+                  (
+                    for $sales in $salesVar?*
+                    where $sales?("store number") = $store?("store number") and
+                      $sales?product = $product?name
+                    let $pname := $sales?product
+                    group by $pname
+                    return map {
+                      $pname:
+                        sum(
+                          for $s in $sales
+                          return $s?quantity
+                        )
+                    }
+                  )
+                )
             }
-      }
+          }
+    }
   }

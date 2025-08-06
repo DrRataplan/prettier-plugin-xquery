@@ -10,7 +10,7 @@
     where $total-store-profit > 100
     order by $total-store-profit descending
     return <store
-        number="{ $storeno }"
-        total-profit="{ $total-store-profit }" />
+      number="{ $storeno }"
+      total-profit="{ $total-store-profit }" />
   }
 </result>

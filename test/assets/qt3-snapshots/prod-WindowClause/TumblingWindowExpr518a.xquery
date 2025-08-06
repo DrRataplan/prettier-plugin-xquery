@@ -12,9 +12,9 @@ declare namespace w = "foo:bar";
       previous $Q{foo:bar}ep
       next $Q{foo:bar}en when false()
     return string-join(
-        for $w:w in ($w:w, $w:s, $w:x, $w:sp, $w:sn, $w:e, $w:y, $w:ep, $w:en)
-        return string($w:w),
-        " "
-      )
+      for $w:w in ($w:w, $w:s, $w:x, $w:sp, $w:sn, $w:e, $w:y, $w:ep, $w:en)
+      return string($w:w),
+      " "
+    )
   }
 </window>

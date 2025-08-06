@@ -30,15 +30,15 @@ declare function functx:remove-elements-deep (
 ) as node()* {
   for $node in $nodes
   return if ($node instance of element()) then
-      if (functx:name-test(name($node), $names)) then (
-      ) else
-        element {node-name($node)} {
-          $node/@*, functx:remove-elements-deep($node/node(), $names)
-        }
-    else if ($node instance of document-node()) then
-      functx:remove-elements-deep($node/node(), $names)
-    else
-      $node
+    if (functx:name-test(name($node), $names)) then (
+    ) else
+      element {node-name($node)} {
+        $node/@*, functx:remove-elements-deep($node/node(), $names)
+      }
+  else if ($node instance of document-node()) then
+    functx:remove-elements-deep($node/node(), $names)
+  else
+    $node
 };
 
 (:~
@@ -63,8 +63,8 @@ return let $in-xml-2 := <in-xml xmlns:x="http://x">
     <c>Mixed <b>content</b></c>
   </in-xml>
   return (
-      functx:remove-elements-deep($in-xml-1, "b"),
-      functx:remove-elements-deep($in-xml-1, "a"),
-      functx:remove-elements-deep($in-xml-1, ("b", "c")),
-      functx:remove-elements-deep($in-xml-2, "x:b")
-    )
+    functx:remove-elements-deep($in-xml-1, "b"),
+    functx:remove-elements-deep($in-xml-1, "a"),
+    functx:remove-elements-deep($in-xml-1, ("b", "c")),
+    functx:remove-elements-deep($in-xml-2, "x:b")
+  )

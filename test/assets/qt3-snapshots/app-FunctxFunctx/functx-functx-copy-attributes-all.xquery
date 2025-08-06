@@ -20,7 +20,7 @@ let $in-xml := <in-xml>
   <d z="5">123</d>
 </in-xml>
 return (
-    functx:copy-attributes($in-xml/a, $in-xml/b),
-    functx:copy-attributes($in-xml/b, $in-xml/c),
-    functx:copy-attributes($in-xml/d, $in-xml/c)
-  )
+  functx:copy-attributes($in-xml/a, $in-xml/b),
+  functx:copy-attributes($in-xml/b, $in-xml/c),
+  functx:copy-attributes($in-xml/d, $in-xml/c)
+)

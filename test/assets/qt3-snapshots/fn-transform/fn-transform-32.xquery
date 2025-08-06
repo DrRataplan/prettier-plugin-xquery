@@ -29,10 +29,10 @@ return let $style := xs:string(
 </xsl:stylesheet>'
   )
   return transform(
-      map {
-        "source-node": fn:parse-xml($in),
-        "stylesheet-text": $style,
-        "delivery-format": "serialized",
-        "serialization-params": map {"method": "xml"}
-      }
-    )("output")
+    map {
+      "source-node": fn:parse-xml($in),
+      "stylesheet-text": $style,
+      "delivery-format": "serialized",
+      "serialization-params": map {"method": "xml"}
+    }
+  )("output")

@@ -8,9 +8,9 @@ declare function local:makeDate (
 ) as lu:unionOfUnionType {
   let $date := $year || "-" || $in
   return if ($date castable as xs:date) then
-      xs:untypedAtomic($date)
-    else
-      current-date()
+    xs:untypedAtomic($date)
+  else
+    current-date()
 };
 
 let $make2012date := local:makeDate(?, 2012)

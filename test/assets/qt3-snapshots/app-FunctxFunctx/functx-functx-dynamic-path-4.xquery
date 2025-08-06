@@ -15,9 +15,9 @@ declare function functx:dynamic-path (
       $parent/@*[functx:name-test(name(), substring-after($nextStep, "@"))]
     )
   return if ($restOfSteps) then
-      functx:dynamic-path($child, $restOfSteps)
-    else
-      $child
+    functx:dynamic-path($child, $restOfSteps)
+  else
+    $child
 };
 
 (:~

@@ -11,18 +11,14 @@ declare function functx:add-or-update-attributes (
 ) as element()? {
   for $element in $elements
   return element {node-name($element)} {
-      for $attrName at $seq in $attrNames
-      return attribute {$attrName} { $attrValues[$seq] },
-      $element/@*[not(node-name(.) = $attrNames)],
-      $element/node()
-    }
+    for $attrName at $seq in $attrNames
+    return attribute {$attrName} { $attrValues[$seq] },
+    $element/@*[not(node-name(.) = $attrNames)],
+    $element/node()
+  }
 };
 
 let $in-xml := <in-xml><a>x</a><b att1="x">x</b></in-xml>
 return (
-    functx:add-or-update-attributes(
-      $in-xml/a,
-      QName("http://new", "new:att1"),
-      1
-    )
-  )
+  functx:add-or-update-attributes($in-xml/a, QName("http://new", "new:att1"), 1)
+)

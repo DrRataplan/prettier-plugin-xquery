@@ -6,11 +6,11 @@ let $keys :=
 let $map := map:merge(($keys, $keys)!map:entry(., .))
 
 return map:size($map) eq count($keys) and
-    (
-      every
-        $key in
-        $keys satisfies
-        $map($key) eq $key and
-          not(map:contains(map:remove($map, $key), $key)) and
-          map:get(map:put($map, $key, "x"), $key) eq "x"
-    )
+  (
+    every
+      $key in
+      $keys satisfies
+      $map($key) eq $key and
+        not(map:contains(map:remove($map, $key), $key)) and
+        map:get(map:put($map, $key, "x"), $key) eq "x"
+  )

@@ -16,17 +16,17 @@ let $in := parse-xml("<dummy/>")/*,
                     </xsl:stylesheet>"
   )
 return (
-    transform(
-      map {
-        "source-node": $in,
-        "stylesheet-node": $style,
-        "stylesheet-params":
-          map {
-            QName("", "v"): "2",
-            QName("", "w"): "3",
-            QName("", "y"): "5",
-            QName("", "x"): "4"
-          }
-      }
-    )
-  )("output")
+  transform(
+    map {
+      "source-node": $in,
+      "stylesheet-node": $style,
+      "stylesheet-params":
+        map {
+          QName("", "v"): "2",
+          QName("", "w"): "3",
+          QName("", "y"): "5",
+          QName("", "x"): "4"
+        }
+    }
+  )
+)("output")

@@ -10,9 +10,9 @@ declare function functx:format-as-title-en (
   for $title in $titles
   let $firstWord := functx:substring-before-match($title, "\W")
   return if ($firstWord = $wordsToMoveToEnd) then
-      replace($title, "(.*?)\W(.*)", "$2, $1")
-    else
-      $title
+    replace($title, "(.*?)\W(.*)", "$2, $1")
+  else
+    $title
 };
 
 (:~

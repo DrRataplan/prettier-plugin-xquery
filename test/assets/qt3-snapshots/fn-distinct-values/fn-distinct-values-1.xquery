@@ -8,14 +8,14 @@ let $input := (
   ),
   $distinct := distinct-values($input)
 return (
-    (every $n in $input satisfies $n = $distinct) and
-      (
-        every
-          $bool in
-          (
-            for $d1 at $p in $distinct, $d2 in $distinct[position() > $p]
-            return $d1 eq $d2
-          ) satisfies
-          not($bool)
-      )
-  )
+  (every $n in $input satisfies $n = $distinct) and
+    (
+      every
+        $bool in
+        (
+          for $d1 at $p in $distinct, $d2 in $distinct[position() > $p]
+          return $d1 eq $d2
+        ) satisfies
+        not($bool)
+    )
+)

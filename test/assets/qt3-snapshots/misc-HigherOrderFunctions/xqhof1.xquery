@@ -43,28 +43,28 @@ declare function map:process (
     let $pair := $map[$middle]
     let $pair_key := $pair()[1]
     return if ($pair_key eq $key) then (
-        $unused(subsequence($map, 1, $middle - 1)),
-        $found($pair),
-        $unused(subsequence($map, $middle + 1))
-      ) else if ($pair_key gt $key) then (
-        map:process(
-          subsequence($map, 1, $middle - 1),
-          $key,
-          $found,
-          $notfound,
-          $unused
-        ),
-        $unused(subsequence($map, $middle))
-      ) else (
-        $unused(subsequence($map, 1, $middle)),
-        map:process(
-          subsequence($map, $middle + 1),
-          $key,
-          $found,
-          $notfound,
-          $unused
-        )
+      $unused(subsequence($map, 1, $middle - 1)),
+      $found($pair),
+      $unused(subsequence($map, $middle + 1))
+    ) else if ($pair_key gt $key) then (
+      map:process(
+        subsequence($map, 1, $middle - 1),
+        $key,
+        $found,
+        $notfound,
+        $unused
+      ),
+      $unused(subsequence($map, $middle))
+    ) else (
+      $unused(subsequence($map, 1, $middle)),
+      map:process(
+        subsequence($map, $middle + 1),
+        $key,
+        $found,
+        $notfound,
+        $unused
       )
+    )
 };
 
 declare function map:pair (
@@ -81,12 +81,12 @@ declare function map:put (
 ) as (function () as item()+)+ {
   let $pair := map:pair($key, $value)
   return map:process(
-      $map,
-      $key,
-      function ($a) { $pair },
-      $pair,
-      function ($a) { $a }
-    )
+    $map,
+    $key,
+    function ($a) { $pair },
+    $pair,
+    function ($a) { $a }
+  )
 };
 
 string-join(
@@ -108,16 +108,16 @@ string-join(
     "antelope"
   )
   return (
-      map:get($map, "o"),
-      for $m in $map
-      return concat(
-          "key: ",
-          map:key($m),
-          ", value: (",
-          string-join(map:value($m), ", "),
-          ")"
-        )
-    ),
+    map:get($map, "o"),
+    for $m in $map
+    return concat(
+      "key: ",
+      map:key($m),
+      ", value: (",
+      string-join(map:value($m), ", "),
+      ")"
+    )
+  ),
   "
 "
 )

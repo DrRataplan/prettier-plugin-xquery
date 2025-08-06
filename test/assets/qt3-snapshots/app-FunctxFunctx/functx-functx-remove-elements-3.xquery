@@ -38,8 +38,8 @@ declare function functx:remove-elements (
 ) as element()* {
   for $element in $elements
   return element {node-name($element)} {
-      $element/@*, $element/node()[not(functx:name-test(name(), $names))]
-    }
+    $element/@*, $element/node()[not(functx:name-test(name(), $names))]
+  }
 };
 
 (:~

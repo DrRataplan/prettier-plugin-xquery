@@ -3,6 +3,6 @@ let $f := function-lookup(
   1
 )
 return if (exists($f)) then
-    $f(xs:date("2012-02-28"))
-  else
-    "not-available"
+  $f(xs:date("2012-02-28"))
+else
+  "not-available"

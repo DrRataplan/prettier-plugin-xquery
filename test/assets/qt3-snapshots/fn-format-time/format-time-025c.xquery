@@ -5,10 +5,10 @@
     )
     for $f in ("[H00]:[m00] [ZN]")
     return <time format="{ $f }">
-        {
-          for $t in $times
-          return <s>{ format-time($t, $f, (), (), "America/New_York") }</s>
-        }
-      </time>
+      {
+        for $t in $times
+        return <s>{ format-time($t, $f, (), (), "America/New_York") }</s>
+      }
+    </time>
   }
 </out>

@@ -9,7 +9,7 @@
         )
     where $e[self::ShipNotice]
     return <timeToShip orderID="{ $s/@orderID }">
-        { xs:dateTime($e/@date) - xs:dateTime($s/@date) }
-      </timeToShip>
+      { xs:dateTime($e/@date) - xs:dateTime($s/@date) }
+    </timeToShip>
   }
 </result>

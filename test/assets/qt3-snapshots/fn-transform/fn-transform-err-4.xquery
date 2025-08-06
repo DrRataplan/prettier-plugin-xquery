@@ -7,9 +7,9 @@ let $xsl :=
                 </xsl:template>
             </xsl:stylesheet>"
 return transform(
-    map {
-      "stylesheet-text": $xsl,
-      "source-node": parse-xml("<doc>this</doc>"),
-      "xslt-version": "2.0"
-    }
-  )
+  map {
+    "stylesheet-text": $xsl,
+    "source-node": parse-xml("<doc>this</doc>"),
+    "xslt-version": "2.0"
+  }
+)

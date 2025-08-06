@@ -8,7 +8,7 @@ let $root := <root>
   </order>
 </root>
 return (
-    resolve-QName("myName", $root),
-    resolve-QName("myName", $root/dty:order),
-    resolve-QName("ord:myName", $root/dty:order)
-  )
+  resolve-QName("myName", $root),
+  resolve-QName("myName", $root/dty:order),
+  resolve-QName("ord:myName", $root/dty:order)
+)

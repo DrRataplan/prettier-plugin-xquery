@@ -21,11 +21,10 @@ string-join(
     let $x-recentered := (($x div $width) - 0.5) * $aspect-ratio
     return (: plot-pixel returns us the rgb values of the color of this pixel.
         		  We convert these to an integer value in the range [0, 255], and output them. :) string-join(
-        for $channel in
-          raytracer:plot-pixel($scene, $x-recentered, $y-recentered)
-        return string(floor($channel * 255)),
-        " "
-      )
+      for $channel in raytracer:plot-pixel($scene, $x-recentered, $y-recentered)
+      return string(floor($channel * 255)),
+      " "
+    )
   ),
   "&#xA;"
 )

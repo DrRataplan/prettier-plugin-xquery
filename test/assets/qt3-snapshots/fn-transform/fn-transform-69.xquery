@@ -11,14 +11,14 @@ let $xsl :=
             </xsl:template>  
         </xsl:stylesheet>"
 return transform(
-    map {
-      "stylesheet-text": $xsl,
-      "initial-template": fn:QName("", "main"),
-      "delivery-format": "serialized",
-      "requested-properties":
-        map {
-          fn:QName("http://www.w3.org/1999/XSL/Transform", "product-name"):
-            "Xalan"
-        }
-    }
-  )
+  map {
+    "stylesheet-text": $xsl,
+    "initial-template": fn:QName("", "main"),
+    "delivery-format": "serialized",
+    "requested-properties":
+      map {
+        fn:QName("http://www.w3.org/1999/XSL/Transform", "product-name"):
+          "Xalan"
+      }
+  }
+)

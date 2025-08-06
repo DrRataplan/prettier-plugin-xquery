@@ -5,8 +5,8 @@ return let $d2 := $d + xs:dayTimeDuration("P1D") * $i
         "Mon", "Tues", "Weds", "Thurs", "Fri", "Sat", "Sun"
       )
       return (
-          substring($abb, 1, 3),
-          starts-with($expected[$i], $abb) and
-            string-length($abb) le 5 and
-            string-length($abb) ge 3
-        )
+        substring($abb, 1, 3),
+        starts-with($expected[$i], $abb) and
+          string-length($abb) le 5 and
+          string-length($abb) ge 3
+      )

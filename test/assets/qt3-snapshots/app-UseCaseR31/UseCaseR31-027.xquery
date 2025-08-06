@@ -3,10 +3,10 @@ Q{http://www.w3.org/2005/xpath-functions/map}merge(
   let $pname := $sales("product")
   group by $pname
   return map {
-      $pname:
-        sum(
-          for $s in $sales
-          return $s("quantity")
-        )
-    }
+    $pname:
+      sum(
+        for $s in $sales
+        return $s("quantity")
+      )
+  }
 )

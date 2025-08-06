@@ -9,4 +9,4 @@ let $x := (
 )
 let $two := year-from-date(current-date()) idiv 1000
 return $x[$two] instance of element(e,
-  tc:globalComplexTypeSimpleContentRestrictionOfBaseType)
+tc:globalComplexTypeSimpleContentRestrictionOfBaseType)

@@ -19,11 +19,11 @@ let $in-xml := <in-xml>
   <g><x>xml</x></g>
 </in-xml>
 return (
-    functx:has-mixed-content($in-xml/a),
-    functx:has-mixed-content($in-xml/b),
-    functx:has-mixed-content($in-xml/c),
-    functx:has-mixed-content($in-xml/d),
-    functx:has-mixed-content($in-xml/e),
-    functx:has-mixed-content($in-xml/f),
-    functx:has-mixed-content($in-xml/g)
-  )
+  functx:has-mixed-content($in-xml/a),
+  functx:has-mixed-content($in-xml/b),
+  functx:has-mixed-content($in-xml/c),
+  functx:has-mixed-content($in-xml/d),
+  functx:has-mixed-content($in-xml/e),
+  functx:has-mixed-content($in-xml/f),
+  functx:has-mixed-content($in-xml/g)
+)

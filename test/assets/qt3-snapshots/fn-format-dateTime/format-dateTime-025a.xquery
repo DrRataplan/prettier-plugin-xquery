@@ -15,10 +15,10 @@
         "[ZZ]"
       )
     return <time format="{ $f }">
-        {
-          for $t in $times
-          return <s>{ format-dateTime($t, $f) }</s>
-        }
-      </time>
+      {
+        for $t in $times
+        return <s>{ format-dateTime($t, $f) }</s>
+      }
+    </time>
   }
 </out>

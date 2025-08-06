@@ -6,14 +6,13 @@ let $xsl :=
             </xsl:template> 
         </xsl:stylesheet>"
 return transform(
-    map {
-      "stylesheet-text": $xsl,
-      "delivery-format": "serialized",
-      "initial-template": fn:QName("", "main"),
-      "requested-properties":
-        map {
-          fn:QName("http://www.w3.org/1999/XSL/Transform", "xpath-version"):
-            "3.1"
-        }
-    }
-  )
+  map {
+    "stylesheet-text": $xsl,
+    "delivery-format": "serialized",
+    "initial-template": fn:QName("", "main"),
+    "requested-properties":
+      map {
+        fn:QName("http://www.w3.org/1999/XSL/Transform", "xpath-version"): "3.1"
+      }
+  }
+)

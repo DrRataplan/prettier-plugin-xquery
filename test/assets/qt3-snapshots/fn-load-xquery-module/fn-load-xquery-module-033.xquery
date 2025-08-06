@@ -25,14 +25,14 @@ return let $module1 := fn:load-xquery-module(
       }
     )
   return (
-      $module1("variables")($qn-var1),
-      $module1("variables")($qn-var2),
-      $module1("variables")($qn-var3)("b"),
-      $module1("functions")(QName($module-ns, "get-var1"))(0)(),
-      $module1("functions")(QName($module-ns, "get-var2"))(0)(),
-      $module2("variables")($qn-var1),
-      $module2("variables")($qn-var2),
-      $module2("variables")($qn-var3)("b"),
-      $module2("functions")(QName($module-ns, "get-var1"))(0)(),
-      $module2("functions")(QName($module-ns, "get-var2"))(0)()
-    )
+    $module1("variables")($qn-var1),
+    $module1("variables")($qn-var2),
+    $module1("variables")($qn-var3)("b"),
+    $module1("functions")(QName($module-ns, "get-var1"))(0)(),
+    $module1("functions")(QName($module-ns, "get-var2"))(0)(),
+    $module2("variables")($qn-var1),
+    $module2("variables")($qn-var2),
+    $module2("variables")($qn-var3)("b"),
+    $module2("functions")(QName($module-ns, "get-var1"))(0)(),
+    $module2("functions")(QName($module-ns, "get-var2"))(0)()
+  )

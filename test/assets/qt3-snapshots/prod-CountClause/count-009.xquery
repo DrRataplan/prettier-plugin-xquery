@@ -7,10 +7,10 @@
     order by $remainder , $index
     count$index2
     return <item>
-        <x>{ $x }</x>
-        <y>{ $y }</y>
-        <remainder>{ $remainder }</remainder>
-        <index2>{ $index2 }</index2>
-      </item>
+      <x>{ $x }</x>
+      <y>{ $y }</y>
+      <remainder>{ $remainder }</remainder>
+      <index2>{ $index2 }</index2>
+    </item>
   }
 </out>

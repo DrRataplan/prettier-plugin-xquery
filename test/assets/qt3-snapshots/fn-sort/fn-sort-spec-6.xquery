@@ -10,7 +10,7 @@ let $employees := parse-xml(
 	  </emps>"
 )
 return fn:sort(
-    $employees//emp,
-    default-collation(),
-    function ($emp) { $emp/name/last, $emp/name/first }
-  )!number(@id)
+  $employees//emp,
+  default-collation(),
+  function ($emp) { $emp/name/last, $emp/name/first }
+)!number(@id)

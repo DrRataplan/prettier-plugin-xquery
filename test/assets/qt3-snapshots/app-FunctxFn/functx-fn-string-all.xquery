@@ -5,5 +5,5 @@ let $in-xml-2 := <product dept="MEN">
   <desc>Our <i>favorite</i> shirt!</desc>
 </product>
 return (
-    string($in-xml-2/number), string($in-xml-2/desc), string($in-xml-2/@dept)
-  )
+  string($in-xml-2/number), string($in-xml-2/desc), string($in-xml-2/@dept)
+)

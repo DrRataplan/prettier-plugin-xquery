@@ -19,7 +19,7 @@ let $in-xml := <authors>
 </authors>
 return let $anAuthor := <author><fName>Kate</fName><lName>Jones</lName></author>
   return (
-      functx:sequence-deep-equal($in-xml/author/*, $in-xml/*/*),
-      functx:sequence-deep-equal($in-xml/author[1], $anAuthor),
-      functx:sequence-deep-equal((1, 2, 3), (1.0, 2.0, 3.0))
-    )
+    functx:sequence-deep-equal($in-xml/author/*, $in-xml/*/*),
+    functx:sequence-deep-equal($in-xml/author[1], $anAuthor),
+    functx:sequence-deep-equal((1, 2, 3), (1.0, 2.0, 3.0))
+  )

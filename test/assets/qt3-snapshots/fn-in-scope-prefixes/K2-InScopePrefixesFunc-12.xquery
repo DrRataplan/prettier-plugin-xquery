@@ -6,12 +6,12 @@ let $i := element e {
   element {QName("http://www.example.com/Second", "c")} {}
 }
 return (
-    count(in-scope-prefixes($i)),
-    count(in-scope-prefixes(exactly-one($i/*[namespace-uri() eq ""]))),
-    count(in-scope-prefixes(exactly-one($i/b))),
-    count(
-      in-scope-prefixes(
-        exactly-one($i/*[namespace-uri() eq "http://www.example.com/Second"])
-      )
+  count(in-scope-prefixes($i)),
+  count(in-scope-prefixes(exactly-one($i/*[namespace-uri() eq ""]))),
+  count(in-scope-prefixes(exactly-one($i/b))),
+  count(
+    in-scope-prefixes(
+      exactly-one($i/*[namespace-uri() eq "http://www.example.com/Second"])
     )
   )
+)

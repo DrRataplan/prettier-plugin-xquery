@@ -8,9 +8,9 @@ let $in-xml := <noNamespace>
   ><unprefixed noNSAttr="b" pre:prefAttr="a">123</unprefixed></pre:prefixed>
 </noNamespace>
 return (
-    namespace-uri($in-xml),
-    namespace-uri($in-xml//pre:prefixed),
-    namespace-uri($in-xml//unpre:unprefixed),
-    namespace-uri($in-xml//@pre:prefAttr),
-    namespace-uri($in-xml//@noNSAttr)
-  )
+  namespace-uri($in-xml),
+  namespace-uri($in-xml//pre:prefixed),
+  namespace-uri($in-xml//unpre:unprefixed),
+  namespace-uri($in-xml//@pre:prefAttr),
+  namespace-uri($in-xml//@noNSAttr)
+)

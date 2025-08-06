@@ -8,9 +8,9 @@ let $in-xml := <noNamespace>
   ><unprefixed noNSAttr="b" pre:prefAttr="a">123</unprefixed></pre:prefixed>
 </noNamespace>
 return (
-    local-name($in-xml),
-    local-name($in-xml//pre:prefixed),
-    local-name($in-xml//unpre:unprefixed),
-    local-name($in-xml//@pre:prefAttr),
-    local-name($in-xml//@noNSAttr)
-  )
+  local-name($in-xml),
+  local-name($in-xml//pre:prefixed),
+  local-name($in-xml//unpre:unprefixed),
+  local-name($in-xml//@pre:prefAttr),
+  local-name($in-xml//@noNSAttr)
+)

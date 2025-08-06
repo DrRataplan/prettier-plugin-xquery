@@ -14,19 +14,19 @@ declare function functx:change-element-names-deep (
   else
     for $node in $nodes
     return if ($node instance of element()) then
-        element {
-          functx:if-empty(
-            $newNames[index-of($oldNames, node-name($node))],
-            node-name($node)
-          )
-          } {
-          $node/@*,
-          functx:change-element-names-deep($node/node(), $oldNames, $newNames)
-        }
-      else if ($node instance of document-node()) then
+      element {
+        functx:if-empty(
+          $newNames[index-of($oldNames, node-name($node))],
+          node-name($node)
+        )
+        } {
+        $node/@*,
         functx:change-element-names-deep($node/node(), $oldNames, $newNames)
-      else
-        $node
+      }
+    else if ($node instance of document-node()) then
+      functx:change-element-names-deep($node/node(), $oldNames, $newNames)
+    else
+      $node
 };
 
 (:~
@@ -47,5 +47,5 @@ return let $in-xml-2 := <in-xml xmlns:dty="http://datypic.com">
     <a><dty:b>b</dty:b><c>c</c></a>
   </in-xml>
   return (
-      functx:change-element-names-deep($in-xml-1, xs:QName("b"), xs:QName("y"))
-    )
+    functx:change-element-names-deep($in-xml-1, xs:QName("b"), xs:QName("y"))
+  )

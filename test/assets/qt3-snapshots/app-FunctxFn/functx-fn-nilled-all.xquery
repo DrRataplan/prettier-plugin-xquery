@@ -6,8 +6,8 @@ let $in-xml := <root xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <child xsi:nil="false" />
 </root>
 return (
-    nilled($in-xml//child[1]),
-    nilled($in-xml//child[3]),
-    nilled($in-xml//child[4]),
-    nilled($in-xml//child[5])
-  )
+  nilled($in-xml//child[1]),
+  nilled($in-xml//child[3]),
+  nilled($in-xml//child[4]),
+  nilled($in-xml//child[5])
+)

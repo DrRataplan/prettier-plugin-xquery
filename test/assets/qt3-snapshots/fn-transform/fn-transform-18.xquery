@@ -5,9 +5,9 @@ let $xsl :=
                     </xsl:template>
                     </xsl:stylesheet>"
 return fn:transform(
-    map {
-      "stylesheet-text": $xsl,
-      "initial-template": QName("", "main"),
-      "stylesheet-base-uri": "http://www.example.com"
-    }
-  )?output
+  map {
+    "stylesheet-text": $xsl,
+    "initial-template": QName("", "main"),
+    "stylesheet-base-uri": "http://www.example.com"
+  }
+)?output

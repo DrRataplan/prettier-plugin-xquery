@@ -12,7 +12,7 @@ import schema namespace ids =  "http://www.w3.org/XQueryTest/ididrefs";
         "\s"
       )
     return element {$z} {
-        idref($z, (/))[self::attribute()], idref($z, (/))[self::element()]
-      }
+      idref($z, (/))[self::attribute()], idref($z, (/))[self::element()]
+    }
   }
 </out>

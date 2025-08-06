@@ -5,10 +5,10 @@ let $xsl :=
             <xsl:template match='/' mode='x'>RIGHT</xsl:template>
         </xsl:stylesheet>"
 return transform(
-    map {
-      "stylesheet-text": $xsl,
-      "delivery-format": "raw",
-      "base-output-uri": "http://example.com/",
-      "source-node": parse-xml("<a><b>89</b></a>")
-    }
-  )
+  map {
+    "stylesheet-text": $xsl,
+    "delivery-format": "raw",
+    "base-output-uri": "http://example.com/",
+    "source-node": parse-xml("<a><b>89</b></a>")
+  }
+)

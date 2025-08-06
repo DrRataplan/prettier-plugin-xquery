@@ -6,10 +6,10 @@ let $items :=
     return $y mod 10
 for $dist in $distinct-items
 return if ($dist = 0) then
-    0
-  else
-    min(
-      for $item in $items
-      where $item = $dist
-      return fn:round(1000 div $item)
-    )
+  0
+else
+  min(
+    for $item in $items
+    where $item = $dist
+    return fn:round(1000 div $item)
+  )

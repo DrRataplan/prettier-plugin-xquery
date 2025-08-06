@@ -15,13 +15,13 @@ let $xsl :=
                 </xsl:template>
             </xsl:stylesheet>"
 return transform(
-    map {
-      "stylesheet-text": $xsl,
-      "source-node": parse-xml("<doc>this</doc>"),
-      "initial-function":
-        fn:QName(
-          "http://www.w3.org/fots/fn/transform/myfunctions",
-          "user-function"
-        )
-    }
-  )
+  map {
+    "stylesheet-text": $xsl,
+    "source-node": parse-xml("<doc>this</doc>"),
+    "initial-function":
+      fn:QName(
+        "http://www.w3.org/fots/fn/transform/myfunctions",
+        "user-function"
+      )
+  }
+)

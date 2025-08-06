@@ -22,8 +22,8 @@ declare variable $index := map:merge($book!map {isbn: .});
   {
     for $a in $author
     return <tr>
-        <td>{ $a/name/string() }</td>
-        <td>{ string-join($a/isbn!$index(.)/title/string(), ", ") }</td>
-      </tr>
+      <td>{ $a/name/string() }</td>
+      <td>{ string-join($a/isbn!$index(.)/title/string(), ", ") }</td>
+    </tr>
   }
 </table>

@@ -15,8 +15,8 @@ let $in-xml := <authors>
   <author><fName>John</fName><lName>Doe</lName></author>
 </authors>
 return (
-    functx:is-descendant(
-      $in-xml//author[1]/fName/text(),
-      $in-xml//author[1]/fName
-    )
+  functx:is-descendant(
+    $in-xml//author[1]/fName/text(),
+    $in-xml//author[1]/fName
   )
+)

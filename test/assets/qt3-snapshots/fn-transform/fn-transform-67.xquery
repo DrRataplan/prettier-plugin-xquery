@@ -12,10 +12,10 @@ let $xsl :=
             </xsl:template>  
         </xsl:stylesheet>"
 return transform(
-    map {
-      "stylesheet-text": $xsl,
-      "initial-template": fn:QName("", "main"),
-      "delivery-format": "serialized",
-      "serialization-params": map {"use-character-maps": map {"*": "(star)"}}
-    }
-  )
+  map {
+    "stylesheet-text": $xsl,
+    "initial-template": fn:QName("", "main"),
+    "delivery-format": "serialized",
+    "serialization-params": map {"use-character-maps": map {"*": "(star)"}}
+  }
+)

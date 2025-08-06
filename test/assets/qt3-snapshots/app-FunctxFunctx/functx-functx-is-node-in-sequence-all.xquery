@@ -17,7 +17,7 @@ let $in-xml := <prices>
 </prices>
 return let $aPrice := <price discount="" value="49.99" />
   return (
-      functx:is-node-in-sequence($in-xml/price[1], $in-xml/price),
-      functx:is-node-in-sequence($in-xml/price[1], $in-xml),
-      functx:is-node-in-sequence($aPrice, $in-xml/price)
-    )
+    functx:is-node-in-sequence($in-xml/price[1], $in-xml/price),
+    functx:is-node-in-sequence($in-xml/price[1], $in-xml),
+    functx:is-node-in-sequence($aPrice, $in-xml/price)
+  )

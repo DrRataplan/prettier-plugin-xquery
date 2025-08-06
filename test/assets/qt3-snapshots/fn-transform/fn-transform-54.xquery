@@ -12,15 +12,15 @@ let $xsl :=
                 </xsl:template>
             </xsl:stylesheet>"
 return transform(
-    map {
-      "stylesheet-text": $xsl,
-      "source-node": parse-xml("<doc>this</doc>"),
-      "initial-template": fn:QName("", "main"),
-      "template-params":
-        map {
-          QName("", "param1"): "new1",
-          QName("", "param2"): "new2",
-          QName("", "param4"): "new4"
-        }
-    }
-  )
+  map {
+    "stylesheet-text": $xsl,
+    "source-node": parse-xml("<doc>this</doc>"),
+    "initial-template": fn:QName("", "main"),
+    "template-params":
+      map {
+        QName("", "param1"): "new1",
+        QName("", "param2"): "new2",
+        QName("", "param4"): "new4"
+      }
+  }
+)

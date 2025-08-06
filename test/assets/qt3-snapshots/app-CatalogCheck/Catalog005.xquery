@@ -4,14 +4,14 @@ declare namespace fots = "http://www.w3.org/2010/09/qt-fots-catalog";
 declare function local:needs-xq ($t as element(fots:test-case)) as xs:boolean {
   let $spec := $t/fots:dependency[@type = "spec"][1]
   return exists($spec) and
-      contains($spec/@value, "XQ") and
-      not(contains($spec/@value, "XP")) and
-      not(
-        starts-with(
-          $t/@name,
-          "fo-test-"
-        (: special exemption for generated tests :) )
-      )
+    contains($spec/@value, "XQ") and
+    not(contains($spec/@value, "XP")) and
+    not(
+      starts-with(
+        $t/@name,
+        "fo-test-"
+      (: special exemption for generated tests :) )
+    )
 };
 
 let $testsets := //fots:test-set/@file/doc(resolve-uri(., base-uri(..)))

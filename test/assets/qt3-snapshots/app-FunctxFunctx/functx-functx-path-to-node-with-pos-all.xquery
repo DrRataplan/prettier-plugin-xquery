@@ -19,12 +19,12 @@ declare function functx:path-to-node-with-pos ($node as node()?) as xs:string {
     for $ancestor in $node/ancestor-or-self::*
     let $sibsOfSameName := $ancestor/../*[name() = name($ancestor)]
     return concat(
-        name($ancestor),
-        if (count($sibsOfSameName) <= 1) then
-          ""
-        else
-          concat("[", functx:index-of-node($sibsOfSameName, $ancestor), "]")
-      ),
+      name($ancestor),
+      if (count($sibsOfSameName) <= 1) then
+        ""
+      else
+        concat("[", functx:index-of-node($sibsOfSameName, $ancestor), "]")
+    ),
     "/"
   )
 };
@@ -34,6 +34,6 @@ let $in-xml := <authors>
   <author><fName>John</fName><lName>Doe</lName></author>
 </authors>
 return (
-    functx:path-to-node-with-pos($in-xml//lName[. = "Doe"]),
-    functx:path-to-node-with-pos($in-xml/*[1])
-  )
+  functx:path-to-node-with-pos($in-xml//lName[. = "Doe"]),
+  functx:path-to-node-with-pos($in-xml/*[1])
+)

@@ -11,8 +11,8 @@ declare function functx:sort-case-insensitive ($seq as item()*) as item()* {
 
 let $in-xml := <in-xml><f>a</f><f>c</f><e>B</e></in-xml>
 return document {
-    (
-      functx:sort-case-insensitive(("a", "c", "B")),
-      functx:sort-case-insensitive($in-xml/*)
-    )
-  }
+  (
+    functx:sort-case-insensitive(("a", "c", "B")),
+    functx:sort-case-insensitive($in-xml/*)
+  )
+}

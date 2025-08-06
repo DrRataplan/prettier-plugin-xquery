@@ -5,13 +5,13 @@ let $e := document {
   )
 }
 return <outer xmlns:P="http://ns.example.com/URL1">
-    {
-      let $outer as element(P:L) := $e/element(P:L)
-      return <inner xmlns:P="http://ns.example.com/URL2">
-          {
-            let $inner as element(P:L) := $outer
-            return $inner
-          }
-        </inner>
-    }
-  </outer>
+  {
+    let $outer as element(P:L) := $e/element(P:L)
+    return <inner xmlns:P="http://ns.example.com/URL2">
+      {
+        let $inner as element(P:L) := $outer
+        return $inner
+      }
+    </inner>
+  }
+</outer>

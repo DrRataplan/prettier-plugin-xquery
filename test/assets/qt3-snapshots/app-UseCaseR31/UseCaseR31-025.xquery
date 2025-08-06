@@ -13,11 +13,11 @@ declare function local:deep-put (
   }
   for $i in $input
   return if ($i instance of map(*)) then
-      map:merge(map:for-each($i, $mf))
-    else if ($i instance of array(*)) then
-      array { local:deep-put($i?*, $key, $value) }
-    else
-      $i
+    map:merge(map:for-each($i, $mf))
+  else if ($i instance of array(*)) then
+    array { local:deep-put($i?*, $key, $value) }
+  else
+    $i
 };
 
 local:deep-put(

@@ -15,11 +15,8 @@ let $in-xml := <authors>
   <author><fName>John</fName><lName>Doe</lName></author>
 </authors>
 return (
-    functx:is-ancestor($in-xml//author[1], $in-xml//author[1]/fName),
-    functx:is-ancestor($in-xml//author[1]/fName, $in-xml//author[1]),
-    functx:is-ancestor(
-      $in-xml//author[1]/fName,
-      $in-xml//author[1]/fName/text()
-    ),
-    functx:is-ancestor($in-xml//author[1], $in-xml//author[2])
-  )
+  functx:is-ancestor($in-xml//author[1], $in-xml//author[1]/fName),
+  functx:is-ancestor($in-xml//author[1]/fName, $in-xml//author[1]),
+  functx:is-ancestor($in-xml//author[1]/fName, $in-xml//author[1]/fName/text()),
+  functx:is-ancestor($in-xml//author[1], $in-xml//author[2])
+)

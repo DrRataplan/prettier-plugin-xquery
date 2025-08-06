@@ -3,9 +3,9 @@ let $xsl :=
                     <xsl:include href='staticbaseuri.xsl'/>
                     </xsl:stylesheet>"
 return fn:transform(
-    map {
-      "stylesheet-text": $xsl,
-      "initial-template": QName("", "main"),
-      "stylesheet-base-uri": "transform/include.xsl"
-    }
-  )?output
+  map {
+    "stylesheet-text": $xsl,
+    "initial-template": QName("", "main"),
+    "stylesheet-base-uri": "transform/include.xsl"
+  }
+)?output

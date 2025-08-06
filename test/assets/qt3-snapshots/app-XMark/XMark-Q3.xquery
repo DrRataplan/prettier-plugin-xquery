@@ -6,7 +6,7 @@
       where zero-or-one($b/bidder[1]/increase/text()) * 2.0 <=
         $b/bidder[last()]/increase/text()
       return <increase
-          first="{ $b/bidder[1]/increase/text() }"
-          last="{ $b/bidder[last()]/increase/text() }" />
+        first="{ $b/bidder[1]/increase/text() }"
+        last="{ $b/bidder[last()]/increase/text() }" />
   }
 </XMark-result-Q3>

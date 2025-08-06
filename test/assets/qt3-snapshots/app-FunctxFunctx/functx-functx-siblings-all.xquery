@@ -16,6 +16,6 @@ let $in-xml := <authors a1='xyz'>
   <author><fName a3='def'>John</fName><lName>Doe</lName></author>
 </authors>
 return (
-    functx:siblings($in-xml/author[1]),
-    functx:siblings($in-xml/author[1]/fName[2])
-  )
+  functx:siblings($in-xml/author[1]),
+  functx:siblings($in-xml/author[1]/fName[2])
+)

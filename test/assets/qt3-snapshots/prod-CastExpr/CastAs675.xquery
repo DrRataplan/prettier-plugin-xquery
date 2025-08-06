@@ -4,5 +4,5 @@ declare function local:clarkname ($q as xs:QName) as xs:string {
 
 let $var := <e>xml:space</e>
 return (
-    local:clarkname(node-name($var)), local:clarkname(xs:untypedAtomic($var))
-  )
+  local:clarkname(node-name($var)), local:clarkname(xs:untypedAtomic($var))
+)

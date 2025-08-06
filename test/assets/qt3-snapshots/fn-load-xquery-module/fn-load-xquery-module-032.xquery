@@ -13,8 +13,8 @@ let $module := fn:load-xquery-module(
   }
 )
 return (
-    $module("functions")(QName($module-ns, "get-var1"))(0)(),
-    evm:get-var1(),
-    $module("variables")(QName($module-ns, "var3"))?1,
-    $evm:var3(1)
-  )
+  $module("functions")(QName($module-ns, "get-var1"))(0)(),
+  evm:get-var1(),
+  $module("variables")(QName($module-ns, "var3"))?1,
+  $evm:var3(1)
+)

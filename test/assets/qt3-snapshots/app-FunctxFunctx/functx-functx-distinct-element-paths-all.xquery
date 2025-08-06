@@ -21,6 +21,6 @@ let $in-xml := <authors>
   <author><fName>John</fName><lName>Doe</lName></author>
 </authors>
 return (
-    functx:distinct-element-paths($in-xml),
-    functx:distinct-element-paths($in-xml/author[1])
-  )
+  functx:distinct-element-paths($in-xml),
+  functx:distinct-element-paths($in-xml/author[1])
+)

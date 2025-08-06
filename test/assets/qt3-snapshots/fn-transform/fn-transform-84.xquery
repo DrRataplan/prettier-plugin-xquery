@@ -6,9 +6,9 @@ let $xsl :=
             </xsl:template> 
         </xsl:stylesheet>"
 return transform(
-    map {
-      "stylesheet-text": $xsl,
-      "delivery-format": "raw",
-      "initial-match-selection": 1 to 5
-    }
-  )?output
+  map {
+    "stylesheet-text": $xsl,
+    "delivery-format": "raw",
+    "initial-match-selection": 1 to 5
+  }
+)?output

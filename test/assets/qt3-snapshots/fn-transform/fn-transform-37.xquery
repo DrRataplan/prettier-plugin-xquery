@@ -17,20 +17,20 @@ let $xsl :=
                                                    <section>sect3</section>
                                                    </doc>"
 return fn:transform(
-    map {
-      "stylesheet-text": $xsl,
-      "source-node": parse-xml($xml),
-      "base-output-uri":
-        resolve-uri(
-          "transform/sandbox/fn-transform-37/output.html",
-          static-base-uri()
-        ),
-      "delivery-format": "serialized"
-    }
-  )
-    => map:remove(
+  map {
+    "stylesheet-text": $xsl,
+    "source-node": parse-xml($xml),
+    "base-output-uri":
       resolve-uri(
         "transform/sandbox/fn-transform-37/output.html",
         static-base-uri()
-      )
+      ),
+    "delivery-format": "serialized"
+  }
+)
+  => map:remove(
+    resolve-uri(
+      "transform/sandbox/fn-transform-37/output.html",
+      static-base-uri()
     )
+  )

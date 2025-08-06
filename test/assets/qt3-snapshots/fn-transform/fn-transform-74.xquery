@@ -6,16 +6,16 @@ let $xsl :=
             </xsl:template>  
         </xsl:stylesheet>"
 return transform(
-    map {
-      "stylesheet-text": $xsl,
-      "source-node": parse-xml($xsl),
-      "delivery-format": "serialized",
-      "requested-properties":
-        map {
-          fn:QName(
-            "http://www.w3.org/1999/XSL/Transform",
-            "supports-namespace-axis"
-          ): true()
-        }
-    }
-  )
+  map {
+    "stylesheet-text": $xsl,
+    "source-node": parse-xml($xsl),
+    "delivery-format": "serialized",
+    "requested-properties":
+      map {
+        fn:QName(
+          "http://www.w3.org/1999/XSL/Transform",
+          "supports-namespace-axis"
+        ): true()
+      }
+  }
+)

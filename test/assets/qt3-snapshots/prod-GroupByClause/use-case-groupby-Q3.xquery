@@ -8,9 +8,9 @@
     group by $state, $category
     order by $state , $category
     return <group>
-        <state>{ $state }</state>
-        <category>{ $category }</category>
-        <total-revenue>{ sum($revenue) }</total-revenue>
-      </group>
+      <state>{ $state }</state>
+      <category>{ $category }</category>
+      <total-revenue>{ sum($revenue) }</total-revenue>
+    </group>
   }
 </result>

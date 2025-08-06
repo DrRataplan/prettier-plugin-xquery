@@ -30,9 +30,9 @@ let $in := xs:string(
 </xsl:stylesheet>'
   )
 return transform(
-    map {
-      "source-node": fn:parse-xml($in),
-      "stylesheet-text": $style,
-      "serialization-params": map {"indent": true()}
-    }
-  )("output")
+  map {
+    "source-node": fn:parse-xml($in),
+    "stylesheet-text": $style,
+    "serialization-params": map {"indent": true()}
+  }
+)("output")

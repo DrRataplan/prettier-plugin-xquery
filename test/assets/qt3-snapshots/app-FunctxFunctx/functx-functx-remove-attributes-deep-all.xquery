@@ -30,14 +30,14 @@ declare function functx:remove-attributes-deep (
 ) as node()* {
   for $node in $nodes
   return if ($node instance of element()) then
-      element {node-name($node)} {
-        $node/@*[not(functx:name-test(name(), $names))],
-        functx:remove-attributes-deep($node/node(), $names)
-      }
-    else if ($node instance of document-node()) then
+    element {node-name($node)} {
+      $node/@*[not(functx:name-test(name(), $names))],
       functx:remove-attributes-deep($node/node(), $names)
-    else
-      $node
+    }
+  else if ($node instance of document-node()) then
+    functx:remove-attributes-deep($node/node(), $names)
+  else
+    $node
 };
 
 (:~
@@ -58,7 +58,7 @@ return let $in-xml-2 := <a xmlns:a="http://a" a:attr1="123" attr1="456">
     <b a:attr1="ghi" attr1="xzy">abc</b>
   </a>
   return (
-      functx:remove-attributes-deep($in-xml-1, ("attr1", "attr2")),
-      functx:remove-attributes-deep($in-xml-1, ("attr1", "attr3")),
-      functx:remove-attributes-deep($in-xml-2, "a:attr1")
-    )
+    functx:remove-attributes-deep($in-xml-1, ("attr1", "attr2")),
+    functx:remove-attributes-deep($in-xml-1, ("attr1", "attr3")),
+    functx:remove-attributes-deep($in-xml-2, "a:attr1")
+  )

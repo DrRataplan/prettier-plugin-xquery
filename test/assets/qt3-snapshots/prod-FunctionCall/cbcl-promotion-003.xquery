@@ -7,9 +7,9 @@ declare function local:index-of (
   else
     for $x at $p in $seq
     return if ($x eq $item) then
-        $p
-      else (
-      )
+      $p
+    else (
+    )
 };
 
 local:index-of(1 to 10, 3)

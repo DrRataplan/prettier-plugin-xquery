@@ -13,20 +13,20 @@ let $p2 := data($doc/t:doc/t:para2)
 let $t1 := xs:dayTimeDuration("PT3H21M")
 let $t2 := xs:yearMonthDuration("P3M")
 return <results>
-    <case1>
-      {
-        if ($p1 = $t1) then
-          "pass"
-        else
-          "fail"
-      }
-    </case1>
-    <case2>
-      {
-        if ($p2 = $t2) then
-          "pass"
-        else
-          "fail"
-      }
-    </case2>
-  </results>
+  <case1>
+    {
+      if ($p1 = $t1) then
+        "pass"
+      else
+        "fail"
+    }
+  </case1>
+  <case2>
+    {
+      if ($p2 = $t2) then
+        "pass"
+      else
+        "fail"
+    }
+  </case2>
+</results>

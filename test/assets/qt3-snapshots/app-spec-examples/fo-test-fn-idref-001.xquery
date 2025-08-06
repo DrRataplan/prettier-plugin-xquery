@@ -21,6 +21,6 @@ let $emp := validate lax {
   }
 
 return $emp/(
-    element-with-id("ID21256")/@xml:id => fn:idref()
-  )/ancestor::employee/last
-    => string()
+  element-with-id("ID21256")/@xml:id => fn:idref()
+)/ancestor::employee/last
+  => string()

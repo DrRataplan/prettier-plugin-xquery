@@ -29,17 +29,17 @@
           where $g = string($row/entry[2][string(.)])
           return $row/entry[1]
         return <entry>
-            {
-              $matches/(
-                <link>{ node() }</link>,
-                text {
-                  if (position() lt last()) then
-                    "; "
-                  else (
-                  )
-                }
-              )
-            }
-          </entry>
+          {
+            $matches/(
+              <link>{ node() }</link>,
+              text {
+                if (position() lt last()) then
+                  "; "
+                else (
+                )
+              }
+            )
+          }
+        </entry>
   }
 </tbody>

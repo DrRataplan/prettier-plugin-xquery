@@ -16,7 +16,7 @@ let $in-xml := <in-xml>
   <c id="B001">ghi</c>
 </in-xml>
 return (
-    functx:id-untyped($in-xml, "B001"),
-    functx:id-untyped($in-xml, "A001"),
-    functx:id-untyped($in-xml, "C001")
-  )
+  functx:id-untyped($in-xml, "B001"),
+  functx:id-untyped($in-xml, "A001"),
+  functx:id-untyped($in-xml, "C001")
+)

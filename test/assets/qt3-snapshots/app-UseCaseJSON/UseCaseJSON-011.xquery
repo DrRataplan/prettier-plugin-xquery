@@ -4,10 +4,10 @@
       start at $x when fn:true()
       end at $y when $y - $x = 2
     return <tr>
-        {
-          for $i in $w
-          return <td>{ $i?color }</td>
-        }
-      </tr>
+      {
+        for $i in $w
+        return <td>{ $i?color }</td>
+      }
+    </tr>
   }
 </table>

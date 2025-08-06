@@ -11,7 +11,7 @@ import schema namespace ids =  "http://www.w3.org/XQueryTest/ididrefs";
     for $s in distinct-values(tokenize(normalize-space(string($z)), "\s"))
     order by $s
     return <e val="{ $s }">
-        { idref($s, (/))[self::attribute()], idref($s, (/))[self::element()] }
-      </e>
+      { idref($s, (/))[self::attribute()], idref($s, (/))[self::element()] }
+    </e>
   }
 </out>

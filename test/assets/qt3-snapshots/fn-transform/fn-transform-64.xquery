@@ -9,14 +9,14 @@ let $xsl :=
                 </xsl:function>
             </xsl:stylesheet>"
 return transform(
-    map {
-      "stylesheet-text": $xsl,
-      "initial-function":
-        fn:QName(
-          "http://www.w3.org/fots/fn/transform/myfunctions",
-          "user-function"
-        ),
-      "function-params": [1, 5],
-      "delivery-format": "raw"
-    }
-  )
+  map {
+    "stylesheet-text": $xsl,
+    "initial-function":
+      fn:QName(
+        "http://www.w3.org/fots/fn/transform/myfunctions",
+        "user-function"
+      ),
+    "function-params": [1, 5],
+    "delivery-format": "raw"
+  }
+)

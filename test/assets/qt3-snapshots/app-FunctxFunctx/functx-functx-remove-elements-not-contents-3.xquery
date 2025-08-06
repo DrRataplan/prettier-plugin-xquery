@@ -30,16 +30,16 @@ declare function functx:remove-elements-not-contents (
 ) as node()* {
   for $node in $nodes
   return if ($node instance of element()) then
-      if (functx:name-test(name($node), $names)) then
-        functx:remove-elements-not-contents($node/node(), $names)
-      else
-        element {node-name($node)} {
-          $node/@*, functx:remove-elements-not-contents($node/node(), $names)
-        }
-    else if ($node instance of document-node()) then
+    if (functx:name-test(name($node), $names)) then
       functx:remove-elements-not-contents($node/node(), $names)
     else
-      $node
+      element {node-name($node)} {
+        $node/@*, functx:remove-elements-not-contents($node/node(), $names)
+      }
+  else if ($node instance of document-node()) then
+    functx:remove-elements-not-contents($node/node(), $names)
+  else
+    $node
 };
 
 (:~

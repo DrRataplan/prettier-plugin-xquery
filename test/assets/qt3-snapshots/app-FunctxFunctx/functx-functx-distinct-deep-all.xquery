@@ -6,8 +6,8 @@ declare namespace functx = "http://www.example.com/";
 declare function functx:distinct-deep ($nodes as node()*) as node()* {
   for $seq in (1 to count($nodes))
   return $nodes[$seq][not(
-      functx:is-node-in-sequence-deep-equal(., $nodes[position() < $seq])
-    )]
+    functx:is-node-in-sequence-deep-equal(., $nodes[position() < $seq])
+  )]
 };
 
 (:~
@@ -26,7 +26,7 @@ let $in-xml := <authors>
   <author><fName>Kate</fName><lName>Doe</lName></author>
 </authors>
 return (
-    functx:distinct-deep($in-xml//author),
-    functx:distinct-deep($in-xml//lName),
-    functx:distinct-deep($in-xml//fName)
-  )
+  functx:distinct-deep($in-xml//author),
+  functx:distinct-deep($in-xml//lName),
+  functx:distinct-deep($in-xml//fName)
+)

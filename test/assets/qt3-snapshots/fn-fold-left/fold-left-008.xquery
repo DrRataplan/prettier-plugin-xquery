@@ -15,11 +15,11 @@ let $hours := function ($emp as element(employee)) as xs:integer {
         else
           let $thisValue := $f($this), $highestValue := $f($highestSoFar[1])
           return if ($thisValue gt $highestValue) then
-              $this
-            else if ($thisValue eq $highestValue) then (
-              $highestSoFar, $this
-            ) else
-              $highestSoFar
+            $this
+          else if ($thisValue eq $highestValue) then (
+            $highestSoFar, $this
+          ) else
+            $highestSoFar
       }
     )
   }

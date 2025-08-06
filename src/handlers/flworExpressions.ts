@@ -1,4 +1,4 @@
-import { doc, type Doc, util } from "prettier";
+import { doc, type Doc } from "prettier";
 import space from "./util/space.ts";
 import printIfExist from "./util/printIfExists.ts";
 import joinChildrenWithSpaces from "./util/joinChildrenWithSpaces.ts";
@@ -6,7 +6,7 @@ import type { Handler } from "./util/Handler.ts";
 import isPreviousLineEmpty from "./util/isPreviousLineEmpty.ts";
 import printComment from "./util/printComment.ts";
 
-const { join, line, group, indent, hardline, ifBreak } = doc.builders;
+const { join, line, group, indent, hardline } = doc.builders;
 
 const flworExpressionHandlers: Record<string, Handler> = {
 	FLWORExpr: (path, print) => {
@@ -269,8 +269,12 @@ const flworExpressionHandlers: Record<string, Handler> = {
 			}
 			result.push(line);
 		}
+		const returnContent = group(exprSinglePart);
+		// If we are outputting a nested FLWOR expression, force an indent. those indents are needed for readability
+		const childIsFLWOR = path.node.childrenByName.ExprSingle[0].childrenByName.FLWORExpr;
 
-		result.push(returnKeyword, space, indent(exprSinglePart));
+		result.push(group([returnKeyword, space, childIsFLWOR ? indent(returnContent) : returnContent]));
+
 		return group(result);
 	},
 };
