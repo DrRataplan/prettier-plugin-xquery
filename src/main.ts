@@ -44,6 +44,14 @@ const allHandlers: Record<string, Handler> = {
 	...validateExpressionHandlers,
 };
 
+function offsetToCoords(text: string, offset: number) {
+	const before = text.substring(0, offset);
+	const lines = before.split("\n");
+	const line = lines.length;
+	const column = lines[lines.length - 1].length;
+	return { line, column };
+}
+
 const xqueryParser: Parser<Node> = {
 	parse(text, _options) {
 		const handler = new Tree();
@@ -54,13 +62,16 @@ const xqueryParser: Parser<Node> = {
 			if (!(pe instanceof ParseException)) {
 				throw pe;
 			}
-			const offset = pe.getBegin();
-			const before = text.substring(0, offset);
-			const lines = before.split("\n");
-			const line = lines.length;
-			const column = lines[lines.length - 1].length;
+			const start = offsetToCoords(text, pe.getBegin());
+			const end = offsetToCoords(text, pe.getBegin());
 
-			throw new SyntaxError(`${parser.getErrorMessage(pe)} (${line}:${column})`);
+			const err = new SyntaxError(`${parser.getErrorMessage(pe)} (${start.line}:${start.column})`);
+			throw Object.assign(err, {
+				loc: {
+					start,
+					end,
+				},
+			});
 		}
 
 		const simplifyNode = (node: NonCommentNode): NonCommentNode[] => {
