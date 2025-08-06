@@ -22,7 +22,7 @@ return let $module := fn:load-xquery-module(
     }
   )
   return (
-      $module("variables")($qn-var1),
-      $module("variables")($qn-var2),
-      $module("variables")($qn-var3)("b")
-    )
+    $module("variables")($qn-var1),
+    $module("variables")($qn-var2),
+    $module("variables")($qn-var3)("b")
+  )

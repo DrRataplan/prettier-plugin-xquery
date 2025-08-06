@@ -3,10 +3,10 @@ for $string in ("
 
 	" cast as xs:NMTOKEN)
 return not(
-    contains($string, "	") or
-      contains($string, "
+  contains($string, "	") or
+    contains($string, "
 ") or
-      contains($string, "
+    contains($string, "
 ") or
-      string-length($string) ne 6
-  )
+    string-length($string) ne 6
+)

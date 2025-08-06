@@ -30,14 +30,14 @@ declare function functx:remove-attributes-deep (
 ) as node()* {
   for $node in $nodes
   return if ($node instance of element()) then
-      element {node-name($node)} {
-        $node/@*[not(functx:name-test(name(), $names))],
-        functx:remove-attributes-deep($node/node(), $names)
-      }
-    else if ($node instance of document-node()) then
+    element {node-name($node)} {
+      $node/@*[not(functx:name-test(name(), $names))],
       functx:remove-attributes-deep($node/node(), $names)
-    else
-      $node
+    }
+  else if ($node instance of document-node()) then
+    functx:remove-attributes-deep($node/node(), $names)
+  else
+    $node
 };
 
 (:~

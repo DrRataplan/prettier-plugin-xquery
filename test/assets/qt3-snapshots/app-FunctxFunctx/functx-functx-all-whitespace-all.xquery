@@ -9,10 +9,10 @@ declare function functx:all-whitespace ($arg as xs:string?) as xs:boolean {
 
 let $in-xml := <in-xml><a /><b>x </b><c><x>x</x></c></in-xml>
 return (
-    functx:all-whitespace(" "),
-    functx:all-whitespace(" x "),
-    functx:all-whitespace($in-xml/a),
-    functx:all-whitespace($in-xml/b),
-    functx:all-whitespace($in-xml/c),
-    functx:all-whitespace($in-xml/c/text()[1])
-  )
+  functx:all-whitespace(" "),
+  functx:all-whitespace(" x "),
+  functx:all-whitespace($in-xml/a),
+  functx:all-whitespace($in-xml/b),
+  functx:all-whitespace($in-xml/c),
+  functx:all-whitespace($in-xml/c/text()[1])
+)

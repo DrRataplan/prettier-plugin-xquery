@@ -5,9 +5,9 @@
     where contains(exactly-one($i/description), "Bicycle")
     order by $i/itemno
     return <item_tuple>
-        { $i/itemno }
-        { $i/description }
-        <high_bid>{ max($b/bid) }</high_bid>
-      </item_tuple>
+      { $i/itemno }
+      { $i/description }
+      <high_bid>{ max($b/bid) }</high_bid>
+    </item_tuple>
   }
 </result>

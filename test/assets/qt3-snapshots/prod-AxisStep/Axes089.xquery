@@ -95,9 +95,9 @@ declare function tour:place-knight (
 
   for $i in 1 to 64
   return if ($i = $square + 1) then
-      $move
-    else
-      $board[$i]
+    $move
+  else
+    $board[$i]
 };
 
 declare function tour:make-moves (
@@ -181,9 +181,9 @@ declare function tour:make-best-move (
          that the knight never did get stuck, but it does: if the starting square is f1,
          the wrong choice is made at move 58, and needs to be reversed. :)
   return if (empty($final-board)) then
-      tour:try-possible-moves($move, $board, $square, $other-possible-moves)
-    else
-      $final-board
+    tour:try-possible-moves($move, $board, $square, $other-possible-moves)
+  else
+    $final-board
 };
 
 declare function tour:find-best-move (
@@ -226,14 +226,14 @@ declare function tour:find-best-move (
   (: if there are other possible moves, consider them too, using a recursive call.
         Otherwise return the best move found. :)
   return if (count($other-possible-moves) != 0) then
-      tour:find-best-move(
-        $board,
-        $other-possible-moves,
-        $minimum-exits,
-        $new-best-so-far
-      )
-    else
+    tour:find-best-move(
+      $board,
+      $other-possible-moves,
+      $minimum-exits,
       $new-best-so-far
+    )
+  else
+    $new-best-so-far
 };
 
 declare function tour:list-possible-moves (
@@ -247,39 +247,39 @@ declare function tour:list-possible-moves (
   let $column as xs:integer := $square mod 8
 
   return (
-      if ($row > 1 and $column > 0 and $board[($square - 17) + 1] = 0) then
-        $square - 17
-      else (
-      ),
-      if ($row > 1 and $column < 7 and $board[($square - 15) + 1] = 0) then
-        $square - 15
-      else (
-      ),
-      if ($row > 0 and $column > 1 and $board[($square - 10) + 1] = 0) then
-        $square - 10
-      else (
-      ),
-      if ($row > 0 and $column < 6 and $board[($square - 6) + 1] = 0) then
-        $square - 6
-      else (
-      ),
-      if ($row < 6 and $column > 0 and $board[($square + 15) + 1] = 0) then
-        $square + 15
-      else (
-      ),
-      if ($row < 6 and $column < 7 and $board[($square + 17) + 1] = 0) then
-        $square + 17
-      else (
-      ),
-      if ($row < 7 and $column > 1 and $board[($square + 6) + 1] = 0) then
-        $square + 6
-      else (
-      ),
-      if ($row < 7 and $column < 6 and $board[($square + 10) + 1] = 0) then
-        $square + 10
-      else (
-      )
+    if ($row > 1 and $column > 0 and $board[($square - 17) + 1] = 0) then
+      $square - 17
+    else (
+    ),
+    if ($row > 1 and $column < 7 and $board[($square - 15) + 1] = 0) then
+      $square - 15
+    else (
+    ),
+    if ($row > 0 and $column > 1 and $board[($square - 10) + 1] = 0) then
+      $square - 10
+    else (
+    ),
+    if ($row > 0 and $column < 6 and $board[($square - 6) + 1] = 0) then
+      $square - 6
+    else (
+    ),
+    if ($row < 6 and $column > 0 and $board[($square + 15) + 1] = 0) then
+      $square + 15
+    else (
+    ),
+    if ($row < 6 and $column < 7 and $board[($square + 17) + 1] = 0) then
+      $square + 17
+    else (
+    ),
+    if ($row < 7 and $column > 1 and $board[($square + 6) + 1] = 0) then
+      $square + 6
+    else (
+    ),
+    if ($row < 7 and $column < 6 and $board[($square + 10) + 1] = 0) then
+      $square + 10
+    else (
     )
+  )
 };
 
 declare function tour:print-board ($board as xs:integer*) as element() {
@@ -294,25 +294,25 @@ declare function tour:print-board ($board as xs:integer*) as element() {
           {
             for $row in 0 to 7
             return <tr>
-                {
-                  for $column in 0 to 7
-                  let $color := if ((($row + $column) mod 2) = 1) then
-                    "xffff44"
-                  else
-                    "white"
-                  return <td align="center" bgcolor="{ $color }" width="22">
-                      {
-                        let $n := $board[$row * 8 + $column + 1]
-                        return if ($endd != 64 and $n = $endd) then
-                            <b>{ $n }</b>
-                          else if ($n = 0) then
-                            "&#xa0;"
-                          else
-                            $n
-                      }
-                    </td>
-                }
-              </tr>
+              {
+                for $column in 0 to 7
+                let $color := if ((($row + $column) mod 2) = 1) then
+                  "xffff44"
+                else
+                  "white"
+                return <td align="center" bgcolor="{ $color }" width="22">
+                  {
+                    let $n := $board[$row * 8 + $column + 1]
+                    return if ($endd != 64 and $n = $endd) then
+                      <b>{ $n }</b>
+                    else if ($n = 0) then
+                      "&#xa0;"
+                    else
+                      $n
+                  }
+                </td>
+              }
+            </tr>
           }
         </table>
         <p>

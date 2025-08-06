@@ -10,9 +10,9 @@ document {
           2
         )
         return if (exists($f1)) then
-            $f1("oh", "dear")
-          else
-            "***"
+          $f1("oh", "dear")
+        else
+          "***"
       }
     </transitive>
   </result>

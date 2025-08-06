@@ -1,9 +1,9 @@
 declare function local:two-digit ($number as xs:integer) {
   let $string := string($number)
   return if (string-length($string) lt 2) then
-      concat("0", $string)
-    else
-      $string
+    concat("0", $string)
+  else
+    $string
 };
 
 declare function local:time (

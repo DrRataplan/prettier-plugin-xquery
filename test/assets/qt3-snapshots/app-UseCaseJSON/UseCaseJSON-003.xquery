@@ -7,21 +7,21 @@ declare function local:deep-put (
 ) as item()* {
   for $i in $input
   return if ($i instance of map(*)) then
-      map:merge(
-        map:for-each(
-          $i,
-          function ($k, $v) {
-            if ($k eq $key) then
-              map {$k: $value}
-            else
-              map {$k: local:deep-put($v, $key, $value)}
-          }
-        )
+    map:merge(
+      map:for-each(
+        $i,
+        function ($k, $v) {
+          if ($k eq $key) then
+            map {$k: $value}
+          else
+            map {$k: local:deep-put($v, $key, $value)}
+        }
       )
-    else if ($i instance of array(*)) then
-      array { local:deep-put($i?*, $key, $value) }
-    else
-      $i
+    )
+  else if ($i instance of array(*)) then
+    array { local:deep-put($i?*, $key, $value) }
+  else
+    $i
 };
 
 local:deep-put(json-doc("bookinfo.json"), "first", "John")

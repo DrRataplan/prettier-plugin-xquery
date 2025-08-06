@@ -22,8 +22,8 @@ declare function functx:index-of-string (
     for $other in
       functx:index-of-string(substring-after($arg, $substring), $substring)
     return $other +
-        string-length(substring-before($arg, $substring)) +
-        string-length($substring)
+      string-length(substring-before($arg, $substring)) +
+      string-length($substring)
   ) else (
   )
 };

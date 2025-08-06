@@ -23,7 +23,7 @@ let $in-xml := <values>
   <strings><string>def</string><string>abc</string></strings>
 </values>
 return (
-    functx:max-determine-type($in-xml//num),
-    functx:max-determine-type($in-xml//string),
-    functx:max-determine-type($in-xml//(num | string))
-  )
+  functx:max-determine-type($in-xml//num),
+  functx:max-determine-type($in-xml//string),
+  functx:max-determine-type($in-xml//(num | string))
+)

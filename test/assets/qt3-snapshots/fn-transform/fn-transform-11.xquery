@@ -9,8 +9,8 @@ let $xsl :=
                 </xsl:template>
             </xsl:stylesheet>"
 return transform(
-    map {
-      "stylesheet-text": $xsl,
-      "initial-template": fn:QName("http://www.example.com", "main")
-    }
-  )
+  map {
+    "stylesheet-text": $xsl,
+    "initial-template": fn:QName("http://www.example.com", "main")
+  }
+)

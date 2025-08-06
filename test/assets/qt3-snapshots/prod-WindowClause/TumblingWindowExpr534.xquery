@@ -17,7 +17,7 @@ for tumbling window $x1 in (1 to 10)
   previous $x8
   next $x9 when false()
 return string-join(
-    for $i in ($x1, $x2, $x3, $x4, $x5, $x6, $x7, $x8, $x9)
-    return string($i),
-    " "
-  )
+  for $i in ($x1, $x2, $x3, $x4, $x5, $x6, $x7, $x8, $x9)
+  return string($i),
+  " "
+)

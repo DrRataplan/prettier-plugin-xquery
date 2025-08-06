@@ -21,13 +21,13 @@ let $in-xml := <in-xml>
   <i><x>xml</x><y>xml</y></i>
 </in-xml>
 return (
-    functx:has-element-only-content($in-xml/a),
-    functx:has-element-only-content($in-xml/b),
-    functx:has-element-only-content($in-xml/c),
-    functx:has-element-only-content($in-xml/d),
-    functx:has-element-only-content($in-xml/e),
-    functx:has-element-only-content($in-xml/f),
-    functx:has-element-only-content($in-xml/g),
-    functx:has-element-only-content($in-xml/h),
-    functx:has-element-only-content($in-xml/i)
-  )
+  functx:has-element-only-content($in-xml/a),
+  functx:has-element-only-content($in-xml/b),
+  functx:has-element-only-content($in-xml/c),
+  functx:has-element-only-content($in-xml/d),
+  functx:has-element-only-content($in-xml/e),
+  functx:has-element-only-content($in-xml/f),
+  functx:has-element-only-content($in-xml/g),
+  functx:has-element-only-content($in-xml/h),
+  functx:has-element-only-content($in-xml/i)
+)

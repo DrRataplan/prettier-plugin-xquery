@@ -12,11 +12,11 @@ let $employees := (
     function ($emp) { $emp/name/last, $emp/name/first }
   )
 return (
-    count($r) eq 6 and
-      fn:data($r[1]/name/first) eq "Martin" and
-      fn:data($r[2]/name/first) eq "Reginald" and
-      fn:data($r[3]/name/first) eq "Susan" and
-      fn:data($r[4]/name/first) eq "Domingo" and
-      fn:data($r[5]/name/first) eq "Hans" and
-      fn:data($r[6]/name/first) eq "Keith"
-  )
+  count($r) eq 6 and
+    fn:data($r[1]/name/first) eq "Martin" and
+    fn:data($r[2]/name/first) eq "Reginald" and
+    fn:data($r[3]/name/first) eq "Susan" and
+    fn:data($r[4]/name/first) eq "Domingo" and
+    fn:data($r[5]/name/first) eq "Hans" and
+    fn:data($r[6]/name/first) eq "Keith"
+)

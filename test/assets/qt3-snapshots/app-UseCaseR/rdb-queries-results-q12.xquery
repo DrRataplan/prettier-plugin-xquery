@@ -2,9 +2,9 @@ declare function local:bid_summary () as element()* {
   for $i in distinct-values($bids//itemno)
   let $b := $bids//bid_tuple[itemno = $i]
   return <bid_count>
-      <itemno>{ $i }</itemno>
-      <nbids>{ count($b) }</nbids>
-    </bid_count>
+    <itemno>{ $i }</itemno>
+    <nbids>{ count($b) }</nbids>
+  </bid_count>
 };
 
 <result>
@@ -15,9 +15,9 @@ declare function local:bid_summary () as element()* {
     for $item in $items//item_tuple, $bc in $bid_counts
     where $bc/nbids = $maxbids and $item/itemno = $bc/itemno
     return <popular_item>
-        { $item/itemno }
-        { $item/description }
-        <bid_count>{ $bc/nbids/text() }</bid_count>
-      </popular_item>
+      { $item/itemno }
+      { $item/description }
+      <bid_count>{ $bc/nbids/text() }</bid_count>
+    </popular_item>
   }
 </result>

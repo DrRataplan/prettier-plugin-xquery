@@ -11,7 +11,7 @@
     group by $job-type := $employee/employeeType
     let $totals := count($employee)
     return <total-by-job-type type="{ $job-type }">
-        { $totals }
-      </total-by-job-type>
+      { $totals }
+    </total-by-job-type>
   }
 </out>

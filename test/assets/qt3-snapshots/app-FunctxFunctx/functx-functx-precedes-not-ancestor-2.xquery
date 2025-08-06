@@ -15,5 +15,5 @@ let $in-xml := <authors>
   <author><fName>John</fName><lName>Doe</lName></author>
 </authors>
 return (
-    functx:precedes-not-ancestor($in-xml//author[1], $in-xml//author[1]/fName)
-  )
+  functx:precedes-not-ancestor($in-xml//author[1], $in-xml//author[1]/fName)
+)

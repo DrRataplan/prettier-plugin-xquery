@@ -14,17 +14,17 @@ let $xsl :=
             </xsl:template>  
         </xsl:stylesheet>"
 return transform(
-    map {
-      "stylesheet-text": $xsl,
-      "initial-template": fn:QName("", "main"),
-      "delivery-format": "serialized",
-      "serialization-params":
-        map {
-          "cdata-section-elements":
-            (
-              QName("http://www.w3.org/fots/fn/transform/myfunctions", "c"),
-              QName("", "c")
-            )
-        }
-    }
-  )
+  map {
+    "stylesheet-text": $xsl,
+    "initial-template": fn:QName("", "main"),
+    "delivery-format": "serialized",
+    "serialization-params":
+      map {
+        "cdata-section-elements":
+          (
+            QName("http://www.w3.org/fots/fn/transform/myfunctions", "c"),
+            QName("", "c")
+          )
+      }
+  }
+)

@@ -4,8 +4,8 @@ let $xsl :=
                           <xsl:value-of select='.' />
                          </out>"
 return transform(
-    map {
-      "stylesheet-node": parse-xml-fragment($xsl)/out,
-      "source-node": parse-xml("<doc>this</doc>")
-    }
-  )
+  map {
+    "stylesheet-node": parse-xml-fragment($xsl)/out,
+    "source-node": parse-xml("<doc>this</doc>")
+  }
+)

@@ -16,10 +16,10 @@ let $in-xml := <authors>
 </authors>
 return let $anAuthor := <author><fName>Kate</fName><lName>Jones</lName></author>
   return (
-      functx:sequence-node-equal-any-order($in-xml/author, $in-xml/*),
-      functx:sequence-node-equal-any-order(
-        $in-xml/author,
-        ($in-xml/author[2], $in-xml/author[1])
-      ),
-      functx:sequence-node-equal-any-order($in-xml/author[1], $anAuthor)
-    )
+    functx:sequence-node-equal-any-order($in-xml/author, $in-xml/*),
+    functx:sequence-node-equal-any-order(
+      $in-xml/author,
+      ($in-xml/author[2], $in-xml/author[1])
+    ),
+    functx:sequence-node-equal-any-order($in-xml/author[1], $anAuthor)
+  )

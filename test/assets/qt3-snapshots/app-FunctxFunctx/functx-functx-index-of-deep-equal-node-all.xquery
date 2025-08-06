@@ -26,7 +26,7 @@ return let $anAuthor := <author><fName>Kate</fName><lName>Jones</lName></author>
       <lName>Smith</lName>
     </author>
     return (
-        functx:index-of-deep-equal-node($in-xml/author, $anAuthor),
-        functx:index-of-deep-equal-node($in-xml/author, $anotherAuthor),
-        functx:index-of-deep-equal-node($in-xml/author/lName, $anAuthor/lName)
-      )
+      functx:index-of-deep-equal-node($in-xml/author, $anAuthor),
+      functx:index-of-deep-equal-node($in-xml/author, $anotherAuthor),
+      functx:index-of-deep-equal-node($in-xml/author/lName, $anAuthor/lName)
+    )

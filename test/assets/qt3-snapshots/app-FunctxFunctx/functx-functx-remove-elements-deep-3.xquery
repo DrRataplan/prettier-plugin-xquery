@@ -30,15 +30,15 @@ declare function functx:remove-elements-deep (
 ) as node()* {
   for $node in $nodes
   return if ($node instance of element()) then
-      if (functx:name-test(name($node), $names)) then (
-      ) else
-        element {node-name($node)} {
-          $node/@*, functx:remove-elements-deep($node/node(), $names)
-        }
-    else if ($node instance of document-node()) then
-      functx:remove-elements-deep($node/node(), $names)
-    else
-      $node
+    if (functx:name-test(name($node), $names)) then (
+    ) else
+      element {node-name($node)} {
+        $node/@*, functx:remove-elements-deep($node/node(), $names)
+      }
+  else if ($node instance of document-node()) then
+    functx:remove-elements-deep($node/node(), $names)
+  else
+    $node
 };
 
 (:~

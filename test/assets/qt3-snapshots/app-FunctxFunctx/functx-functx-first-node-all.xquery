@@ -12,6 +12,6 @@ let $in-xml := <authors>
   <author><fName>John</fName><lName>Doe</lName></author>
 </authors>
 return (
-    functx:first-node($in-xml//fName),
-    functx:first-node(($in-xml//lName, $in-xml//fName))
-  )
+  functx:first-node($in-xml//fName),
+  functx:first-node(($in-xml//lName, $in-xml//fName))
+)

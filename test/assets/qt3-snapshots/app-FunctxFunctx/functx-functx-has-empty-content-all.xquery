@@ -19,11 +19,11 @@ let $in-xml := <in-xml>
   <g><x>xml</x></g>
 </in-xml>
 return (
-    functx:has-empty-content($in-xml/a),
-    functx:has-empty-content($in-xml/b),
-    functx:has-empty-content($in-xml/c),
-    functx:has-empty-content($in-xml/d),
-    functx:has-empty-content($in-xml/e),
-    functx:has-empty-content($in-xml/f),
-    functx:has-empty-content($in-xml/g)
-  )
+  functx:has-empty-content($in-xml/a),
+  functx:has-empty-content($in-xml/b),
+  functx:has-empty-content($in-xml/c),
+  functx:has-empty-content($in-xml/d),
+  functx:has-empty-content($in-xml/e),
+  functx:has-empty-content($in-xml/f),
+  functx:has-empty-content($in-xml/g)
+)

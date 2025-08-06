@@ -16,7 +16,7 @@ let $in-xml := <authors>
   <author><fName>John</fName><lName>Doe</lName></author>
 </authors>
 return (
-    functx:index-of-node($in-xml/author, $in-xml/author[1]),
-    functx:index-of-node($in-xml/author, $in-xml/author[2]),
-    functx:index-of-node($in-xml/author, $in-xml/author[lName = "Doe"])
-  )
+  functx:index-of-node($in-xml/author, $in-xml/author[1]),
+  functx:index-of-node($in-xml/author, $in-xml/author[2]),
+  functx:index-of-node($in-xml/author, $in-xml/author[lName = "Doe"])
+)

@@ -30,16 +30,16 @@ declare function functx:remove-elements-not-contents (
 ) as node()* {
   for $node in $nodes
   return if ($node instance of element()) then
-      if (functx:name-test(name($node), $names)) then
-        functx:remove-elements-not-contents($node/node(), $names)
-      else
-        element {node-name($node)} {
-          $node/@*, functx:remove-elements-not-contents($node/node(), $names)
-        }
-    else if ($node instance of document-node()) then
+    if (functx:name-test(name($node), $names)) then
       functx:remove-elements-not-contents($node/node(), $names)
     else
-      $node
+      element {node-name($node)} {
+        $node/@*, functx:remove-elements-not-contents($node/node(), $names)
+      }
+  else if ($node instance of document-node()) then
+    functx:remove-elements-not-contents($node/node(), $names)
+  else
+    $node
 };
 
 (:~
@@ -64,8 +64,8 @@ return let $in-xml-2 := <in-xml xmlns:x="http://x">
     <c>Mixed <x:b>content</x:b></c>
   </in-xml>
   return (
-      functx:remove-elements-not-contents($in-xml-1, "b"),
-      functx:remove-elements-not-contents($in-xml-1, ("b", "c")),
-      functx:remove-elements-not-contents($in-xml-1, "a"),
-      functx:remove-elements-not-contents($in-xml-2, "x:b")
-    )
+    functx:remove-elements-not-contents($in-xml-1, "b"),
+    functx:remove-elements-not-contents($in-xml-1, ("b", "c")),
+    functx:remove-elements-not-contents($in-xml-1, "a"),
+    functx:remove-elements-not-contents($in-xml-2, "x:b")
+  )

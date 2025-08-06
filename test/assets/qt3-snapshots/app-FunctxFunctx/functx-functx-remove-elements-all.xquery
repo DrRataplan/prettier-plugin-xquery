@@ -30,8 +30,8 @@ declare function functx:remove-elements (
 ) as element()* {
   for $element in $elements
   return element {node-name($element)} {
-      $element/@*, $element/node()[not(functx:name-test(name(), $names))]
-    }
+    $element/@*, $element/node()[not(functx:name-test(name(), $names))]
+  }
 };
 
 (:~
@@ -58,7 +58,7 @@ return let $in-xml-2 := <in-xml xmlns:x="http://x">
     <c>Mixed <x:a>content</x:a></c>
   </in-xml>
   return (
-      functx:remove-elements($in-xml-1, "c"),
-      functx:remove-elements($in-xml-1, ("a", "b")),
-      functx:remove-elements($in-xml-2, "x:a")
-    )
+    functx:remove-elements($in-xml-1, "c"),
+    functx:remove-elements($in-xml-1, ("a", "b")),
+    functx:remove-elements($in-xml-2, "x:a")
+  )

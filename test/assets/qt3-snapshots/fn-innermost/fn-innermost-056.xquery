@@ -3,6 +3,6 @@ let $in :=
   order by local-name($x)
   return $x
 return deep-equal(
-    fn:innermost(($in, $in))/local-name(),
-    fn:innermost(//*)/local-name()
-  )
+  fn:innermost(($in, $in))/local-name(),
+  fn:innermost(//*)/local-name()
+)

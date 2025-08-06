@@ -12,7 +12,7 @@ let $in-xml := <authors>
   <author><fName>John</fName><lName>Doe</lName></author>
 </authors>
 return (
-    functx:depth-of-node($in-xml),
-    functx:depth-of-node($in-xml/author[1]),
-    functx:depth-of-node($in-xml/author[1]/fName/text())
-  )
+  functx:depth-of-node($in-xml),
+  functx:depth-of-node($in-xml/author[1]),
+  functx:depth-of-node($in-xml/author[1]/fName/text())
+)

@@ -36,9 +36,9 @@ declare function functx:substring-after-if-contains (
 
 let $in-xml := <pre:a xmlns:pre="http://ns/example.com/ns1">abc</pre:a>
 return (
-    functx:name-test(name($in-xml), ("*")),
-    functx:name-test(name($in-xml), ("pre:*")),
-    functx:name-test(name($in-xml), ("*:a")),
-    functx:name-test(name($in-xml), ("pre:a", "pre:b")),
-    functx:name-test(name($in-xml), ("a", "b", "c"))
-  )
+  functx:name-test(name($in-xml), ("*")),
+  functx:name-test(name($in-xml), ("pre:*")),
+  functx:name-test(name($in-xml), ("*:a")),
+  functx:name-test(name($in-xml), ("pre:a", "pre:b")),
+  functx:name-test(name($in-xml), ("a", "b", "c"))
+)

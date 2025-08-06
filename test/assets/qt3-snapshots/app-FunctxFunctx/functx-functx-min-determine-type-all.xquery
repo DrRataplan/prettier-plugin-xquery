@@ -23,7 +23,7 @@ let $in-xml := <values>
   <strings><str>def</str><str>abc</str></strings>
 </values>
 return (
-    functx:min-determine-type($in-xml//num),
-    functx:min-determine-type($in-xml//str),
-    functx:min-determine-type($in-xml//(num | str))
-  )
+  functx:min-determine-type($in-xml//num),
+  functx:min-determine-type($in-xml//str),
+  functx:min-determine-type($in-xml//(num | str))
+)

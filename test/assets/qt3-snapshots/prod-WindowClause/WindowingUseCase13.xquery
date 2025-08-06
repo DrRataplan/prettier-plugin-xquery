@@ -6,6 +6,6 @@
         xs:dayTimeDuration("PT1H")
     where count($w[person eq $s/person and direction eq "in"]) ge 3
     return <alert time="{ $e/@time }">
-        { fn:data($s/person) } is suspicious</alert>
+      { fn:data($s/person) } is suspicious</alert>
   }
 </result>

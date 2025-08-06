@@ -8,93 +8,93 @@ declare function functx:atomic-type (
 ) as xs:string* {
   for $val in $values
   return (
-      if ($val instance of xs:untypedAtomic) then
-        "xs:untypedAtomic"
-      else if ($val instance of xs:anyURI) then
-        "xs:anyURI"
-      else if ($val instance of xs:ENTITY) then
-        "xs:ENTITY"
-      else if ($val instance of xs:ID) then
-        "xs:ID"
-      else if ($val instance of xs:NMTOKEN) then
-        "xs:NMTOKEN"
-      else if ($val instance of xs:language) then
-        "xs:language"
-      else if ($val instance of xs:NCName) then
-        "xs:NCName"
-      else if ($val instance of xs:Name) then
-        "xs:Name"
-      else if ($val instance of xs:token) then
-        "xs:token"
-      else if ($val instance of xs:normalizedString) then
-        "xs:normalizedString"
-      else if ($val instance of xs:string) then
-        "xs:string"
-      else if ($val instance of xs:QName) then
-        "xs:QName"
-      else if ($val instance of xs:boolean) then
-        "xs:boolean"
-      else if ($val instance of xs:base64Binary) then
-        "xs:base64Binary"
-      else if ($val instance of xs:hexBinary) then
-        "xs:hexBinary"
-      else if ($val instance of xs:byte) then
-        "xs:byte"
-      else if ($val instance of xs:short) then
-        "xs:short"
-      else if ($val instance of xs:int) then
-        "xs:int"
-      else if ($val instance of xs:long) then
-        "xs:long"
-      else if ($val instance of xs:unsignedByte) then
-        "xs:unsignedByte"
-      else if ($val instance of xs:unsignedShort) then
-        "xs:unsignedShort"
-      else if ($val instance of xs:unsignedInt) then
-        "xs:unsignedInt"
-      else if ($val instance of xs:unsignedLong) then
-        "xs:unsignedLong"
-      else if ($val instance of xs:positiveInteger) then
-        "xs:positiveInteger"
-      else if ($val instance of xs:nonNegativeInteger) then
-        "xs:nonNegativeInteger"
-      else if ($val instance of xs:negativeInteger) then
-        "xs:negativeInteger"
-      else if ($val instance of xs:nonPositiveInteger) then
-        "xs:nonPositiveInteger"
-      else if ($val instance of xs:integer) then
-        "xs:integer"
-      else if ($val instance of xs:decimal) then
-        "xs:decimal"
-      else if ($val instance of xs:float) then
-        "xs:float"
-      else if ($val instance of xs:double) then
-        "xs:double"
-      else if ($val instance of xs:date) then
-        "xs:date"
-      else if ($val instance of xs:time) then
-        "xs:time"
-      else if ($val instance of xs:dateTime) then
-        "xs:dateTime"
-      else if ($val instance of xs:dayTimeDuration) then
-        "xs:dayTimeDuration"
-      else if ($val instance of xs:yearMonthDuration) then
-        "xs:yearMonthDuration"
-      else if ($val instance of xs:duration) then
-        "xs:duration"
-      else if ($val instance of xs:gMonth) then
-        "xs:gMonth"
-      else if ($val instance of xs:gYear) then
-        "xs:gYear"
-      else if ($val instance of xs:gYearMonth) then
-        "xs:gYearMonth"
-      else if ($val instance of xs:gDay) then
-        "xs:gDay"
-      else if ($val instance of xs:gMonthDay) then
-        "xs:gMonthDay"
-      else
-        "unknown"
-    )
+    if ($val instance of xs:untypedAtomic) then
+      "xs:untypedAtomic"
+    else if ($val instance of xs:anyURI) then
+      "xs:anyURI"
+    else if ($val instance of xs:ENTITY) then
+      "xs:ENTITY"
+    else if ($val instance of xs:ID) then
+      "xs:ID"
+    else if ($val instance of xs:NMTOKEN) then
+      "xs:NMTOKEN"
+    else if ($val instance of xs:language) then
+      "xs:language"
+    else if ($val instance of xs:NCName) then
+      "xs:NCName"
+    else if ($val instance of xs:Name) then
+      "xs:Name"
+    else if ($val instance of xs:token) then
+      "xs:token"
+    else if ($val instance of xs:normalizedString) then
+      "xs:normalizedString"
+    else if ($val instance of xs:string) then
+      "xs:string"
+    else if ($val instance of xs:QName) then
+      "xs:QName"
+    else if ($val instance of xs:boolean) then
+      "xs:boolean"
+    else if ($val instance of xs:base64Binary) then
+      "xs:base64Binary"
+    else if ($val instance of xs:hexBinary) then
+      "xs:hexBinary"
+    else if ($val instance of xs:byte) then
+      "xs:byte"
+    else if ($val instance of xs:short) then
+      "xs:short"
+    else if ($val instance of xs:int) then
+      "xs:int"
+    else if ($val instance of xs:long) then
+      "xs:long"
+    else if ($val instance of xs:unsignedByte) then
+      "xs:unsignedByte"
+    else if ($val instance of xs:unsignedShort) then
+      "xs:unsignedShort"
+    else if ($val instance of xs:unsignedInt) then
+      "xs:unsignedInt"
+    else if ($val instance of xs:unsignedLong) then
+      "xs:unsignedLong"
+    else if ($val instance of xs:positiveInteger) then
+      "xs:positiveInteger"
+    else if ($val instance of xs:nonNegativeInteger) then
+      "xs:nonNegativeInteger"
+    else if ($val instance of xs:negativeInteger) then
+      "xs:negativeInteger"
+    else if ($val instance of xs:nonPositiveInteger) then
+      "xs:nonPositiveInteger"
+    else if ($val instance of xs:integer) then
+      "xs:integer"
+    else if ($val instance of xs:decimal) then
+      "xs:decimal"
+    else if ($val instance of xs:float) then
+      "xs:float"
+    else if ($val instance of xs:double) then
+      "xs:double"
+    else if ($val instance of xs:date) then
+      "xs:date"
+    else if ($val instance of xs:time) then
+      "xs:time"
+    else if ($val instance of xs:dateTime) then
+      "xs:dateTime"
+    else if ($val instance of xs:dayTimeDuration) then
+      "xs:dayTimeDuration"
+    else if ($val instance of xs:yearMonthDuration) then
+      "xs:yearMonthDuration"
+    else if ($val instance of xs:duration) then
+      "xs:duration"
+    else if ($val instance of xs:gMonth) then
+      "xs:gMonth"
+    else if ($val instance of xs:gYear) then
+      "xs:gYear"
+    else if ($val instance of xs:gYearMonth) then
+      "xs:gYearMonth"
+    else if ($val instance of xs:gDay) then
+      "xs:gDay"
+    else if ($val instance of xs:gMonthDay) then
+      "xs:gMonthDay"
+    else
+      "unknown"
+  )
 };
 
 (:~
@@ -103,19 +103,19 @@ declare function functx:atomic-type (
 declare function functx:node-kind ($nodes as node()*) as xs:string* {
   for $node in $nodes
   return if ($node instance of element()) then
-      "element"
-    else if ($node instance of attribute()) then
-      "attribute"
-    else if ($node instance of text()) then
-      "text"
-    else if ($node instance of document-node()) then
-      "document-node"
-    else if ($node instance of comment()) then
-      "comment"
-    else if ($node instance of processing-instruction()) then
-      "processing-instruction"
-    else
-      "unknown"
+    "element"
+  else if ($node instance of attribute()) then
+    "attribute"
+  else if ($node instance of text()) then
+    "text"
+  else if ($node instance of document-node()) then
+    "document-node"
+  else if ($node instance of comment()) then
+    "comment"
+  else if ($node instance of processing-instruction()) then
+    "processing-instruction"
+  else
+    "unknown"
 };
 
 (:~
@@ -153,15 +153,15 @@ let $in-xml := <in-xml>
   <!-- comment -->
 </in-xml>
 return (
-    functx:sequence-type(2),
-    functx:sequence-type(("abc", "def")),
-    functx:sequence-type(("abc", 2)),
-    functx:sequence-type(()),
-    functx:sequence-type($in-xml/*[1]),
-    functx:sequence-type($in-xml/*),
-    functx:sequence-type($in-xml/*/@*),
-    functx:sequence-type($in-xml/*/text()),
-    functx:sequence-type($in-xml/comment()),
-    functx:sequence-type($in-xml/node()),
-    functx:sequence-type(($in-xml/*, "2"))
-  )
+  functx:sequence-type(2),
+  functx:sequence-type(("abc", "def")),
+  functx:sequence-type(("abc", 2)),
+  functx:sequence-type(()),
+  functx:sequence-type($in-xml/*[1]),
+  functx:sequence-type($in-xml/*),
+  functx:sequence-type($in-xml/*/@*),
+  functx:sequence-type($in-xml/*/text()),
+  functx:sequence-type($in-xml/comment()),
+  functx:sequence-type($in-xml/node()),
+  functx:sequence-type(($in-xml/*, "2"))
+)

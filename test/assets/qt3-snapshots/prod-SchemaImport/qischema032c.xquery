@@ -11,7 +11,7 @@ declare function local:f () {
 
 let $e := ./*
 return validate {
-    element {"res:resource"} {
-      $e/@*, attribute {"frg:fragility"} { 3 }, local:f(), $e/*
-    }
-    }
+  element {"res:resource"} {
+    $e/@*, attribute {"frg:fragility"} { 3 }, local:f(), $e/*
+  }
+  }

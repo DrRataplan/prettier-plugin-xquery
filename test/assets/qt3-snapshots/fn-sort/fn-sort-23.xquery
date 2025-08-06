@@ -12,6 +12,6 @@ let $input := (
   $more := ($input, reverse($input), $input),
   $sorted := trace(sort($more))
 return empty(
-    for $i in 1 to count($sorted), $j in $i + 1 to count($sorted)
-    return "x"[$sorted[$i] gt $sorted[$j]]
-  )
+  for $i in 1 to count($sorted), $j in $i + 1 to count($sorted)
+  return "x"[$sorted[$i] gt $sorted[$j]]
+)

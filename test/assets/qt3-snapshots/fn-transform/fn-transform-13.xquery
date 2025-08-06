@@ -15,10 +15,10 @@ let $xsl :=
                                    <section>sect3</section>
                                </doc>"
 return fn:transform(
-    map {
-      "stylesheet-text": $xsl,
-      "source-node": parse-xml($xml),
-      "base-output-uri": "http://www.w3.org/fots/fn/transform/output-doc.xml"
-    }
-  )
-    => map:remove("http://www.w3.org/fots/fn/transform/output-doc.xml")
+  map {
+    "stylesheet-text": $xsl,
+    "source-node": parse-xml($xml),
+    "base-output-uri": "http://www.w3.org/fots/fn/transform/output-doc.xml"
+  }
+)
+  => map:remove("http://www.w3.org/fots/fn/transform/output-doc.xml")

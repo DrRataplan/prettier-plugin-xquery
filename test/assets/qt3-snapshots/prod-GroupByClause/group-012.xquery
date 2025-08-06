@@ -4,10 +4,10 @@
     let $key := @gender
     group by $key
     return <group gender="{ $key }">
-        {
-          for $e in $x
-          return <person>{ $e/@name/string() }</person>
-        }
-      </group>
+      {
+        for $e in $x
+        return <person>{ $e/@name/string() }</person>
+      }
+    </group>
   }
 </out>

@@ -9,20 +9,20 @@
         )
     where $wENext[self::ShipNotice]
     return <bundleWith orderId="{ $wSPrev/@orderID }">
-        {
-          for sliding window $bundle in $w
-            start $bSCur when $bSCur[self::OrderRequest] and
-              $bSCur/@shipTo eq $wSPrev/@shipTo
-            end $bECur
-            next $bENext when $bECur/@orderID eq $bSCur/@orderID and
-              (
-                $bECur[self::ConfirmationRequest] and
-                  $bECur/@status eq "reject" or
-                  $bECur[self::ShipNotice]
-              )
-          where empty($bENext)
-          return $bSCur
-        }
-      </bundleWith>
+      {
+        for sliding window $bundle in $w
+          start $bSCur when $bSCur[self::OrderRequest] and
+            $bSCur/@shipTo eq $wSPrev/@shipTo
+          end $bECur
+          next $bENext when $bECur/@orderID eq $bSCur/@orderID and
+            (
+              $bECur[self::ConfirmationRequest] and
+                $bECur/@status eq "reject" or
+                $bECur[self::ShipNotice]
+            )
+        where empty($bENext)
+        return $bSCur
+      }
+    </bundleWith>
   }
 </result>

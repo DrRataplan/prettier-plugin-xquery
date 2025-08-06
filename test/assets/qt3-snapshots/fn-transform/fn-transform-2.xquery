@@ -15,18 +15,18 @@ let $xsl :=
                                    <section>sect2</section>
                                  </doc>"
 return element {xs:QName("html")} {
-    element {xs:QName("body")} {
-      for $x in
-        fn:transform(
-          map {
-            "xslt-version": 2.0,
-            "stylesheet-text": $xsl,
-            "base-output-uri":
-              "http://www.w3.org/fots/fn/transform/output-doc.xml",
-            "initial-template": fn:QName("http://www.example.com", "main"),
-            "source-node": fn:parse-xml($xml)
-          }
-        )?*
-      return $x
-    }
+  element {xs:QName("body")} {
+    for $x in
+      fn:transform(
+        map {
+          "xslt-version": 2.0,
+          "stylesheet-text": $xsl,
+          "base-output-uri":
+            "http://www.w3.org/fots/fn/transform/output-doc.xml",
+          "initial-template": fn:QName("http://www.example.com", "main"),
+          "source-node": fn:parse-xml($xml)
+        }
+      )?*
+    return $x
   }
+}

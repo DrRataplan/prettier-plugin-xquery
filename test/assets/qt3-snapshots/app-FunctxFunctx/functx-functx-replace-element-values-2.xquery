@@ -17,6 +17,6 @@ let $in-xml := <in-xml>
   <price num="3">5</price>
 </in-xml>
 return (
-    for $p in $in-xml/price
-    return functx:replace-element-values($p, concat($p, ".0"))
-  )
+  for $p in $in-xml/price
+  return functx:replace-element-values($p, concat($p, ".0"))
+)

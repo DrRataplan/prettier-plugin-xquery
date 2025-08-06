@@ -5,5 +5,5 @@ let $module-ns :=
     map {"variables": map {QName($module-ns, "b"): true()}}
   )
 return $module("variables")(QName($module-ns, "var1"))("variables")(
-    QName($module-ns, "var1")
-  )
+  QName($module-ns, "var1")
+)

@@ -1,9 +1,9 @@
 declare function local:index-of ($seq, $item) as xs:double? {
   for $x at $p in $seq
   return if ($x eq $item) then
-      $p
-    else (
-    )
+    $p
+  else (
+  )
 };
 
 local:index-of((1, 2.0, xs:float(3), 2), 2)

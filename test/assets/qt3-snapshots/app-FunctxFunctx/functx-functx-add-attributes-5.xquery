@@ -11,13 +11,13 @@ declare function functx:add-attributes (
 ) as element()? {
   for $element in $elements
   return element {node-name($element)} {
-      for $attrName at $seq in $attrNames
-      return if ($element/@*[node-name(.) = $attrName]) then (
-        ) else
-          attribute {$attrName} { $attrValues[$seq] },
-      $element/@*,
-      $element/node()
-    }
+    for $attrName at $seq in $attrNames
+    return if ($element/@*[node-name(.) = $attrName]) then (
+    ) else
+      attribute {$attrName} { $attrValues[$seq] },
+    $element/@*,
+    $element/node()
+  }
 };
 
 let $in-xml := <in-xml><a>x</a><b att1="x">x</b></in-xml>

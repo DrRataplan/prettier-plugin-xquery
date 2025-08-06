@@ -6,9 +6,9 @@ let $xsl :=
                 </xsl:template>
             </xsl:stylesheet>"
 return transform(
-    map {
-      "stylesheet-node": parse-xml($xsl),
-      "source-node": parse-xml("<doc>this</doc>"),
-      "static-params": map {QName("", "static-param"): "Hello World"}
-    }
-  )
+  map {
+    "stylesheet-node": parse-xml($xsl),
+    "source-node": parse-xml("<doc>this</doc>"),
+    "static-params": map {QName("", "static-param"): "Hello World"}
+  }
+)

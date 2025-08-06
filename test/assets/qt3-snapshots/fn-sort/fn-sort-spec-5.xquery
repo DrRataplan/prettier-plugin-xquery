@@ -10,7 +10,7 @@ let $employees := (
   </emp>
 )
 return fn:sort(
-    $employees,
-    default-collation(),
-    function ($emp) { $emp/name/last, $emp/name/first }
-  )!number(@id)
+  $employees,
+  default-collation(),
+  function ($emp) { $emp/name/last, $emp/name/first }
+)!number(@id)

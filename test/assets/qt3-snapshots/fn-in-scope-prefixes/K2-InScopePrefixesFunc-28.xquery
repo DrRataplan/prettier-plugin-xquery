@@ -6,15 +6,15 @@ let $i := <e>
   <c xmlns="http://www.example.com/Second" />
 </e>
 return document {
-    (
-      count(in-scope-prefixes($i)),
-      count(in-scope-prefixes(exactly-one($i/*[namespace-uri() eq ""]))),
-      count(in-scope-prefixes(exactly-one($i/b))),
-      count(
-        in-scope-prefixes(
-          exactly-one($i/*[namespace-uri() eq "http://www.example.com/Second"])
-        )
-      ),
-      $i
-    )
-  }
+  (
+    count(in-scope-prefixes($i)),
+    count(in-scope-prefixes(exactly-one($i/*[namespace-uri() eq ""]))),
+    count(in-scope-prefixes(exactly-one($i/b))),
+    count(
+      in-scope-prefixes(
+        exactly-one($i/*[namespace-uri() eq "http://www.example.com/Second"])
+      )
+    ),
+    $i
+  )
+}

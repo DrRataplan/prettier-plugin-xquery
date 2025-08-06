@@ -11,12 +11,12 @@ declare function functx:is-a-number (
 
 let $in-xml := <in-xml><a>123</a><b>abc</b></in-xml>
 return (
-    functx:is-a-number("123"),
-    functx:is-a-number(123),
-    functx:is-a-number(" 123 "),
-    functx:is-a-number(""),
-    functx:is-a-number("123abc"),
-    functx:is-a-number("NaN"),
-    functx:is-a-number($in-xml/a),
-    functx:is-a-number($in-xml/b)
-  )
+  functx:is-a-number("123"),
+  functx:is-a-number(123),
+  functx:is-a-number(" 123 "),
+  functx:is-a-number(""),
+  functx:is-a-number("123abc"),
+  functx:is-a-number("NaN"),
+  functx:is-a-number($in-xml/a),
+  functx:is-a-number($in-xml/b)
+)

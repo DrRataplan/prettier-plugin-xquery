@@ -5,10 +5,10 @@
     )
     for $f in ("[ZN]")
     return <time format="{ $f }">
-        {
-          for $t in $times
-          return <s>{ format-dateTime($t, $f, (), (), "us") }</s>
-        }
-      </time>
+      {
+        for $t in $times
+        return <s>{ format-dateTime($t, $f, (), (), "us") }</s>
+      }
+    </time>
   }
 </out>

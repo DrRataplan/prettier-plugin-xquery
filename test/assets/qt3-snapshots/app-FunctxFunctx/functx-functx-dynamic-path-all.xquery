@@ -15,9 +15,9 @@ declare function functx:dynamic-path (
       $parent/@*[functx:name-test(name(), substring-after($nextStep, "@"))]
     )
   return if ($restOfSteps) then
-      functx:dynamic-path($child, $restOfSteps)
-    else
-      $child
+    functx:dynamic-path($child, $restOfSteps)
+  else
+    $child
 };
 
 (:~
@@ -72,10 +72,10 @@ let $in-xml := <authors>
   <author><first>John</first><a:last xmlns:a="http://a">Doe</a:last></author>
 </authors>
 return document {
-    (
-      functx:dynamic-path($in-xml, "author/first"),
-      name(functx:dynamic-path($in-xml, "author/@test")),
-      functx:dynamic-path($in-xml, "author"),
-      functx:dynamic-path($in-xml, "author/a:last")
-    )
-  }
+  (
+    functx:dynamic-path($in-xml, "author/first"),
+    name(functx:dynamic-path($in-xml, "author/@test")),
+    functx:dynamic-path($in-xml, "author"),
+    functx:dynamic-path($in-xml, "author/a:last")
+  )
+}

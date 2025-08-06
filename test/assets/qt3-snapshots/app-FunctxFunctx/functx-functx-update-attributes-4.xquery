@@ -10,14 +10,14 @@ declare function functx:update-attributes (
 ) as element()? {
   for $element in $elements
   return element {node-name($element)} {
-      for $attrName at $seq in $attrNames
-      return if ($element/@*[node-name(.) = $attrName]) then
-          attribute {$attrName} { $attrValues[$seq] }
-        else (
-        ),
-      $element/@*[not(node-name(.) = $attrNames)],
-      $element/node()
-    }
+    for $attrName at $seq in $attrNames
+    return if ($element/@*[node-name(.) = $attrName]) then
+      attribute {$attrName} { $attrValues[$seq] }
+    else (
+    ),
+    $element/@*[not(node-name(.) = $attrNames)],
+    $element/node()
+  }
 };
 
 let $in-xml := <in-xml xmlns:new='http://new'>
@@ -26,5 +26,5 @@ let $in-xml := <in-xml xmlns:new='http://new'>
   <c new:att1='def'>x</c>
 </in-xml>
 return (
-    functx:update-attributes($in-xml/c, QName("http://new", "prefix:att1"), 123)
-  )
+  functx:update-attributes($in-xml/c, QName("http://new", "prefix:att1"), 123)
+)

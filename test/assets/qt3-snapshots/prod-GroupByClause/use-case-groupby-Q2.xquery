@@ -7,9 +7,9 @@
     group by $state, $category
     order by $state , $category
     return <group>
-        <state>{ $state }</state>
-        <category>{ $category }</category>
-        <total-qty>{ sum($sales/qty) }</total-qty>
-      </group>
+      <state>{ $state }</state>
+      <category>{ $category }</category>
+      <total-qty>{ sum($sales/qty) }</total-qty>
+    </group>
   }
 </result>

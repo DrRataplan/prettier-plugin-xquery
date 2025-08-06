@@ -10,25 +10,25 @@ declare function functx:change-element-ns-deep (
 ) as node()* {
   for $node in $nodes
   return if ($node instance of element()) then (
-      element {
-        QName(
-          $newns,
-          concat(
-            $prefix,
-            if ($prefix = "") then
-              ""
-            else
-              ":",
-            local-name($node)
-          )
+    element {
+      QName(
+        $newns,
+        concat(
+          $prefix,
+          if ($prefix = "") then
+            ""
+          else
+            ":",
+          local-name($node)
         )
-        } {
-        $node/@*, functx:change-element-ns-deep($node/node(), $newns, $prefix)
-      }
-    ) else if ($node instance of document-node()) then
-      functx:change-element-ns-deep($node/node(), $newns, $prefix)
-    else
-      $node
+      )
+      } {
+      $node/@*, functx:change-element-ns-deep($node/node(), $newns, $prefix)
+    }
+  ) else if ($node instance of document-node()) then
+    functx:change-element-ns-deep($node/node(), $newns, $prefix)
+  else
+    $node
 };
 
 let $in-xml := <bar:a xmlns:bar="http://bar">

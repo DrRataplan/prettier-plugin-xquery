@@ -20,7 +20,7 @@ let $in-xml := <prices>
   <price discount="" value="49.99" />
 </prices>
 return (
-    data(functx:if-absent($in-xml//price[1]/@discount, 0)),
-    data(functx:if-absent($in-xml//price[3]/@discount, 0)),
-    data(functx:if-absent($in-xml//price[4]/@discount, 0))
-  )
+  data(functx:if-absent($in-xml//price[1]/@discount, 0)),
+  data(functx:if-absent($in-xml//price[3]/@discount, 0)),
+  data(functx:if-absent($in-xml//price[4]/@discount, 0))
+)

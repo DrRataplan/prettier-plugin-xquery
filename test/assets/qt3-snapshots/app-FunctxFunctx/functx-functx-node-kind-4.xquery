@@ -6,19 +6,19 @@ declare namespace functx = "http://www.example.com/";
 declare function functx:node-kind ($nodes as node()*) as xs:string* {
   for $node in $nodes
   return if ($node instance of element()) then
-      "element"
-    else if ($node instance of attribute()) then
-      "attribute"
-    else if ($node instance of text()) then
-      "text"
-    else if ($node instance of document-node()) then
-      "document-node"
-    else if ($node instance of comment()) then
-      "comment"
-    else if ($node instance of processing-instruction()) then
-      "processing-instruction"
-    else
-      "unknown"
+    "element"
+  else if ($node instance of attribute()) then
+    "attribute"
+  else if ($node instance of text()) then
+    "text"
+  else if ($node instance of document-node()) then
+    "document-node"
+  else if ($node instance of comment()) then
+    "comment"
+  else if ($node instance of processing-instruction()) then
+    "processing-instruction"
+  else
+    "unknown"
 };
 
 let $in-xml := <in-xml>

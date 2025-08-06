@@ -12,6 +12,6 @@ let $in-xml := <authors>
   <author><fName>John</fName><lName>Doe</lName></author>
 </authors>
 return (
-    functx:path-to-node($in-xml//lName[. = "Doe"]),
-    functx:path-to-node($in-xml/*[1])
-  )
+  functx:path-to-node($in-xml//lName[. = "Doe"]),
+  functx:path-to-node($in-xml/*[1])
+)

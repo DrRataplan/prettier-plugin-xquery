@@ -20,10 +20,10 @@ let $in-xml := <prices>
   <price discount="">49.99</price>
 </prices>
 return (
-    functx:if-empty($in-xml//price[1], 0),
-    functx:if-empty($in-xml//price[3], 0),
-    functx:if-empty($in-xml//price[99], 0),
-    functx:if-empty($in-xml//price[1]/@discount, 0),
-    functx:if-empty($in-xml//price[3]/@discount, 0),
-    functx:if-empty($in-xml//price[4]/@discount, 0)
-  )
+  functx:if-empty($in-xml//price[1], 0),
+  functx:if-empty($in-xml//price[3], 0),
+  functx:if-empty($in-xml//price[99], 0),
+  functx:if-empty($in-xml//price[1]/@discount, 0),
+  functx:if-empty($in-xml//price[3]/@discount, 0),
+  functx:if-empty($in-xml//price[4]/@discount, 0)
+)

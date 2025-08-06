@@ -23,8 +23,8 @@ return let $anAuthor := <author><fName>John</fName><lName>Doe</lName></author>
       <fName>John</fName>
     </author>
     return (
-        functx:is-node-among-descendants-deep-equal($in-xml/author[1], $in-xml),
-        functx:is-node-among-descendants-deep-equal($anAuthor, $in-xml),
-        functx:is-node-among-descendants-deep-equal($anotherAuthor, $in-xml),
-        functx:is-node-among-descendants-deep-equal($anAuthor, $in-xml/author)
-      )
+      functx:is-node-among-descendants-deep-equal($in-xml/author[1], $in-xml),
+      functx:is-node-among-descendants-deep-equal($anAuthor, $in-xml),
+      functx:is-node-among-descendants-deep-equal($anotherAuthor, $in-xml),
+      functx:is-node-among-descendants-deep-equal($anAuthor, $in-xml/author)
+    )

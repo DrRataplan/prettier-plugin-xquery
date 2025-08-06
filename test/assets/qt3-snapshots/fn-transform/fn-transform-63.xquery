@@ -7,10 +7,10 @@ let $xsl :=
                 </xsl:template>
             </xsl:stylesheet>"
 return transform(
-    map {
-      "stylesheet-text": $xsl,
-      "source-node": parse-xml("<one><two/><three/><four/></one>"),
-      "initial-template": QName("", "main"),
-      "delivery-format": "raw"
-    }
-  )
+  map {
+    "stylesheet-text": $xsl,
+    "source-node": parse-xml("<one><two/><three/><four/></one>"),
+    "initial-template": QName("", "main"),
+    "delivery-format": "raw"
+  }
+)

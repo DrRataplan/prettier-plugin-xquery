@@ -22,6 +22,6 @@ return let $expected := parse-xml("<b>89</b>")/*
       }
     )
     return deep-equal(
-        trace($trans-result("output"), "actual"),
-        "<out><a><b>8..."
-      )
+      trace($trans-result("output"), "actual"),
+      "<out><a><b>8..."
+    )

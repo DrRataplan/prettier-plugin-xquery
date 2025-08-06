@@ -15,15 +15,15 @@ declare function local:random-sequence (
 let $r := local:random-sequence(200)
 
 return if (not(count(distinct-values($r)) >= 0.5 * count($r))) then
-    fn:false()
-  else if (not(not(deep-equal($r, fn:sort($r))))) then
-    fn:false()
-  else if (
-    not(
-      count($r[. lt 0.5]) > 0.2 * count($r) and
-        count($r[. gt 0.5]) > 0.2 * count($r)
-    )
-  ) then
-    fn:false()
-  else
-    fn:true()
+  fn:false()
+else if (not(not(deep-equal($r, fn:sort($r))))) then
+  fn:false()
+else if (
+  not(
+    count($r[. lt 0.5]) > 0.2 * count($r) and
+      count($r[. gt 0.5]) > 0.2 * count($r)
+  )
+) then
+  fn:false()
+else
+  fn:true()

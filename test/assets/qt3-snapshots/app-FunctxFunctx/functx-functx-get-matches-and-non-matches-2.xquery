@@ -9,23 +9,23 @@ declare function functx:get-matches-and-non-matches (
 ) as element()* {
   let $iomf := functx:index-of-match-first($string, $regex)
   return if (empty($iomf)) then
-      <non-match>{ $string }</non-match>
-    else if ($iomf > 1) then (
-      <non-match>{ substring($string, 1, $iomf - 1) }</non-match>,
-      functx:get-matches-and-non-matches(substring($string, $iomf), $regex)
-    ) else
-      let $length := string-length($string) -
-        string-length(functx:replace-first($string, $regex, ""))
-      return (
-          <match>{ substring($string, 1, $length) }</match>,
-          if (string-length($string) > $length) then
-            functx:get-matches-and-non-matches(
-              substring($string, $length + 1),
-              $regex
-            )
-          else (
-          )
+    <non-match>{ $string }</non-match>
+  else if ($iomf > 1) then (
+    <non-match>{ substring($string, 1, $iomf - 1) }</non-match>,
+    functx:get-matches-and-non-matches(substring($string, $iomf), $regex)
+  ) else
+    let $length := string-length($string) -
+      string-length(functx:replace-first($string, $regex, ""))
+    return (
+      <match>{ substring($string, 1, $length) }</match>,
+      if (string-length($string) > $length) then
+        functx:get-matches-and-non-matches(
+          substring($string, $length + 1),
+          $regex
         )
+      else (
+      )
+    )
 };
 
 (:~

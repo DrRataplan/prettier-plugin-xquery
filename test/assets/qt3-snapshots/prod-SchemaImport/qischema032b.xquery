@@ -5,5 +5,5 @@ import schema namespace q =  "http://schema.highwire.org/Publishing/Fragment" at
 
 let $e := ./*
 return validate {
-    element {"res:resource"} { $e/@*, attribute {"frg:fragility"} { 3 }, $e/* }
-    }
+  element {"res:resource"} { $e/@*, attribute {"frg:fragility"} { 3 }, $e/* }
+  }

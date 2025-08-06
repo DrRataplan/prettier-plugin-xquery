@@ -4,9 +4,9 @@ declare function local:primes ($n as xs:integer) {
   else
     for $i in 2 to $n
     return if (every $x in 2 to ($i - 1) satisfies ($i mod $x ne 0)) then
-        $i
-      else (
-      )
+      $i
+    else (
+    )
 };
 
 count(local:primes(100)) lt xs:float("25.5")

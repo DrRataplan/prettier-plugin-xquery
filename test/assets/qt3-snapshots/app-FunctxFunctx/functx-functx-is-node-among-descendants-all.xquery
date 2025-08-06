@@ -20,8 +20,8 @@ let $in-xml := <prices>
 </prices>
 return let $aPrice := <price discount="" value="49.99" />
   return (
-      functx:is-node-among-descendants($in-xml/price[1], $in-xml),
-      functx:is-node-among-descendants($in-xml, $in-xml/price[1]),
-      functx:is-node-among-descendants($in-xml, $in-xml),
-      functx:is-node-among-descendants($aPrice, $in-xml)
-    )
+    functx:is-node-among-descendants($in-xml/price[1], $in-xml),
+    functx:is-node-among-descendants($in-xml, $in-xml/price[1]),
+    functx:is-node-among-descendants($in-xml, $in-xml),
+    functx:is-node-among-descendants($aPrice, $in-xml)
+  )

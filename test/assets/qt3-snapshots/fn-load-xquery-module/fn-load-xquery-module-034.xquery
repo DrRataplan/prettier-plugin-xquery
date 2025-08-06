@@ -19,12 +19,12 @@ return let $module := fn:load-xquery-module(
     }
   )
   return (
-      $module("variables")($qn-var1),
-      $module("variables")($qn-var2),
-      $module("variables")($qn-var3)("functions")(
-        QName($module-ns, "get-var1")
-      )(0)(),
-      $module("variables")($qn-var3)("functions")(
-        QName($module-ns, "get-var2")
-      )(0)()
-    )
+    $module("variables")($qn-var1),
+    $module("variables")($qn-var2),
+    $module("variables")($qn-var3)("functions")(QName($module-ns, "get-var1"))(
+      0
+    )(),
+    $module("variables")($qn-var3)("functions")(QName($module-ns, "get-var2"))(
+      0
+    )()
+  )

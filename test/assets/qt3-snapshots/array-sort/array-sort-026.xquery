@@ -28,4 +28,4 @@ declare function local:permute (
 let $s := ("A", "B", "C")
 
 return array:sort(local:permute($s), (), function ($s) { $s!. })
-    => array:for-each(string-join#1)
+  => array:for-each(string-join#1)

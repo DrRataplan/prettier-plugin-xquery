@@ -11,11 +11,11 @@ let $numbers := (
   comment { "3" }
 )
 return (
-    for $i in $numbers
-    order by xs:double($i/text()) empty least
-    return xs:double($i/text()),
-    "SEP",
-    for $i in $numbers
-    order by xs:double($i/text()) empty greatest
-    return xs:double($i/text())
-  )
+  for $i in $numbers
+  order by xs:double($i/text()) empty least
+  return xs:double($i/text()),
+  "SEP",
+  for $i in $numbers
+  order by xs:double($i/text()) empty greatest
+  return xs:double($i/text())
+)

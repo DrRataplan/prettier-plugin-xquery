@@ -10,18 +10,18 @@ declare function functx:change-element-ns (
 ) as element()? {
   for $element in $elements
   return element {
-      QName(
-        $newns,
-        concat(
-          $prefix,
-          if ($prefix = "") then
-            ""
-          else
-            ":",
-          local-name($element)
-        )
+    QName(
+      $newns,
+      concat(
+        $prefix,
+        if ($prefix = "") then
+          ""
+        else
+          ":",
+        local-name($element)
       )
-      } { $element/@*, $element/node() }
+    )
+    } { $element/@*, $element/node() }
 };
 
 let $in-xml := <bar:a xmlns:bar="http://bar">

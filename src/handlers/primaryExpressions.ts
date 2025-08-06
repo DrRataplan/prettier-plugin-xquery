@@ -3,7 +3,7 @@ import printIfExist from "./util/printIfExists.ts";
 import space from "./util/space.ts";
 import type { Handler } from "./util/Handler.ts";
 
-const { join, line, group, indent, hardline, softline, hardlineWithoutBreakParent } = doc.builders;
+const { join, line, group, indent, hardline, softline } = doc.builders;
 
 const primaryExpressionHandlers: Record<string, Handler> = {
 	ParenthesizedExpr: (path, print, options) => {

@@ -9,16 +9,16 @@ declare function local:in-scope-namespace-bindings ($arg) {
   for $i in in-scope-prefixes($arg)
   order by $i
   return concat(
-      "xmlns",
-      if (string-length($i) = 0) then
-        ""
-      else
-        ":",
-      $i,
-      '="',
-      namespace-uri-for-prefix($i, $arg),
-      '"'
-    )
+    "xmlns",
+    if (string-length($i) = 0) then
+      ""
+    else
+      ":",
+    $i,
+    '="',
+    namespace-uri-for-prefix($i, $arg),
+    '"'
+  )
 };
 
 <a:outer xmlns:c="http://example.com/3" b:outer="attr" c:outer="attr">

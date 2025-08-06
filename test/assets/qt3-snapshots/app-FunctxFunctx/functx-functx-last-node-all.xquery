@@ -12,6 +12,6 @@ let $in-xml := <authors>
   <author><fName>John</fName><lName>Doe</lName></author>
 </authors>
 return (
-    functx:last-node($in-xml//fName),
-    functx:last-node(($in-xml//lName, $in-xml//fName))
-  )
+  functx:last-node($in-xml//fName),
+  functx:last-node(($in-xml//lName, $in-xml//fName))
+)
