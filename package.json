@@ -27,7 +27,7 @@
 	},
 	"type": "module",
 	"devDependencies": {
-		"@types/node": "^22.14.1",
+		"@types/node": "^24.2.1",
 		"fontoxpath": "^3.33.2",
 		"slimdom": "^4.3.5",
 		"typescript": "^5.8.3",
