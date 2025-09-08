@@ -4,7 +4,7 @@
     "build": "vite build"
   },
   "dependencies": {
-    "@codemirror/view": "^6.38.1",
+    "@codemirror/view": "^6.38.2",
     "@jinntec/jinn-codemirror": "^1.17.6",
     "@picocss/pico": "^2.1.1",
     "codemirror": "^6.0.1",
