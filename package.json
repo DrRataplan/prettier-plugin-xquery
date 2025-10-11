@@ -27,14 +27,14 @@
 	},
 	"type": "module",
 	"devDependencies": {
-		"@commitlint/cli": "^19.8.0",
-		"@commitlint/config-conventional": "^19.8.0",
-		"@semantic-release/github": "^11.0.1",
-		"@types/node": "^22.14.1",
-		"conventional-changelog-conventionalcommits": "^8.0.0",
+		"@commitlint/cli": "^20.1.0",
+		"@commitlint/config-conventional": "^20.0.0",
+		"@semantic-release/github": "^11.0.6",
+		"@types/node": "^24.7.1",
+		"conventional-changelog-conventionalcommits": "^9.1.0",
 		"fontoxpath": "^3.33.2",
 		"semantic-release": "^24.2.3",
 		"slimdom": "^4.3.5",
-		"typescript": "^5.8.3"
+		"typescript": "^5.9.3"
 	}
 }
