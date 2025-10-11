@@ -1,5 +1,7 @@
 import prettier from "prettier";
 import prettierPluginXQuery from "../src/main.ts";
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
 
 import "@picocss/pico";
 
@@ -133,3 +135,19 @@ const decodeState = async (compressedState: string): Promise<{ version: number; 
 decodeState(new URLSearchParams(location.search).get("state")!).then(({ version, xquery }) => {
 	codemirror.content = xquery;
 });
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+	apiKey: "AIzaSyCnBH39vVJZXfUlgC0Q_-Lu2wq5WIx3xqA",
+	authDomain: "prettier-plugin-xquery-demo.firebaseapp.com",
+	projectId: "prettier-plugin-xquery-demo",
+	storageBucket: "prettier-plugin-xquery-demo.firebasestorage.app",
+	messagingSenderId: "1003582319356",
+	appId: "1:1003582319356:web:80f1667eb40e51d2048579",
+	measurementId: "G-RF8RC1161V",
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
