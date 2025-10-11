@@ -23,7 +23,8 @@
 	"types": "./dist/main.d.ts",
 	"description": "",
 	"dependencies": {
-		"prettier": "^3.5.3"
+		"prettier": "^3.5.3",
+		"xquery-parser": "*"
 	},
 	"type": "module",
 	"devDependencies": {

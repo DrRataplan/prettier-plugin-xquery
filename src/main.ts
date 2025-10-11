@@ -1,6 +1,14 @@
 import { type Printer, type Parser, type Plugin, type AstPath, doc, util } from "prettier";
-import { Parser as XQueryParser, ParseException } from "./generated/parser.ts";
-import { Tree, Node, LeafNode, NonTerminalNode, CommentNode, NonCommentNode } from "./tree.ts";
+
+import {
+	LeafNode,
+	NonTerminalNode,
+	CommentNode,
+	NonCommentNode,
+	Node,
+	type NonTerminalName,
+	type TerminalName,
+} from "./tree.ts";
 import type { Print } from "./handlers/util/Print.ts";
 import flworExpressions from "./handlers/flworExpressions.ts";
 import otherExpressionHandlers from "./handlers/otherExpressions.ts";
@@ -18,10 +26,11 @@ import sequenceExpressionHandlers from "./handlers/sequenceExpressions.ts";
 import typeHandlers from "./handlers/types.ts";
 import validateExpressionHandlers from "./handlers/validateExpressions.ts";
 import type { Handler } from "./handlers/util/Handler.ts";
-import isPreviousLineEmpty from "./handlers/util/isPreviousLineEmpty.ts";
 import printComment from "./handlers/util/printComment.ts";
+import { XQuery31Full, XQuery4Full, type Node as ParserNode } from "xquery-parser";
+import { NonTerminal, Terminal } from "../../ebnf-combinator/dist/shared/Node.js";
 
-const { line, group, hardlineWithoutBreakParent, literallineWithoutBreakParent, join } = doc.builders;
+const { line, group } = doc.builders;
 const { getPreferredQuote } = util;
 
 // Handlers are split up based on their placement in the XQuery specification. FLWOR by FLWOR,
@@ -44,67 +53,73 @@ const allHandlers: Record<string, Handler> = {
 	...validateExpressionHandlers,
 };
 
+const simplifyNode = (node: ParserNode): NonCommentNode[] => {
+	if (node instanceof Terminal) {
+		return [new LeafNode(node.type as TerminalName, node.start, node.end, node.value)];
+	}
+
+	const nonTerminal = node as NonTerminal;
+
+	const children = nonTerminal.children.flatMap(simplifyNode);
+	if (
+		[
+			"RangeExpr",
+			"StringConcatExpr",
+			"ComparisonExpr",
+			"IntersectExceptExpr",
+			"UnionExpr",
+			"OrExpr",
+			"AndExpr",
+			"MultiplicativeExpr",
+			"AdditiveExpr",
+			"InstanceofExpr",
+			"TreatExpr",
+			"CastableExpr",
+			"CastExpr",
+			"ArrowExpr",
+			"UnaryExpr",
+			"ValueExpr",
+			"SimpleMapExpr",
+			"PathExpr",
+			"RelativePathExpr",
+			"StepExpr",
+			"PostfixExpr",
+			"PrimaryExpr",
+		].includes(nonTerminal.type) &&
+		nonTerminal.children.length === 1
+	) {
+		// This is just a fallthrough. Remove the node.
+		return children;
+	}
+
+	return [new NonTerminalNode(nonTerminal.type as NonTerminalName, nonTerminal.start, nonTerminal.end)];
+};
+
 const xqueryParser: Parser<Node> = {
 	parse(text, _options) {
-		const handler = new Tree();
-		var parser = new XQueryParser(text, handler);
-		try {
-			parser.parse_XQuery();
-		} catch (pe) {
-			if (!(pe instanceof ParseException)) {
-				throw pe;
-			}
-			const offset = pe.getBegin();
-			const before = text.substring(0, offset);
-			const lines = before.split("\n");
-			const line = lines.length;
-			const column = lines[lines.length - 1].length;
+		const result = XQuery31Full(text);
 
-			throw new SyntaxError(`${parser.getErrorMessage(pe)} (${line}:${column})`);
-		}
+		const [newRoot] = simplifyNode(result);
 
-		const simplifyNode = (node: NonCommentNode): NonCommentNode[] => {
-			if (!(node instanceof NonTerminalNode)) {
-				return [node];
-			}
+		return newRoot;
+	},
+	astFormat: "xquery",
+	locStart(node) {
+		return node.begin;
+	},
+	locEnd(node) {
+		return node.end!;
+	},
+	preprocess(text) {
+		return text.trimStart();
+	},
+};
 
-			const children = node.children.flatMap(simplifyNode);
-			if (
-				[
-					"RangeExpr",
-					"StringConcatExpr",
-					"ComparisonExpr",
-					"IntersectExceptExpr",
-					"UnionExpr",
-					"OrExpr",
-					"AndExpr",
-					"MultiplicativeExpr",
-					"AdditiveExpr",
-					"InstanceofExpr",
-					"TreatExpr",
-					"CastableExpr",
-					"CastExpr",
-					"ArrowExpr",
-					"UnaryExpr",
-					"ValueExpr",
-					"SimpleMapExpr",
-					"PathExpr",
-					"RelativePathExpr",
-					"StepExpr",
-					"PostfixExpr",
-					"PrimaryExpr",
-				].includes(node.name) &&
-				node.children.length === 1
-			) {
-				// This is just a fallthrough. Remove the node.
-				return children;
-			}
+const xquery4Parser: Parser<Node> = {
+	parse(text, _options) {
+		const result = XQuery4Full(text);
 
-			node.children = children;
-
-			return [node];
-		};
-		const [newRoot] = simplifyNode(handler.root);
+		const [newRoot] = simplifyNode(result);
 
 		return newRoot;
 	},
@@ -263,6 +278,7 @@ const pluginDefinition: Plugin<Node> = {
 	},
 	parsers: {
 		xquery: xqueryParser,
+		xquery4: xquery4Parser,
 	},
 	printers: {
 		xquery: xqueryPrinter,
