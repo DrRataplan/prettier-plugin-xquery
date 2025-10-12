@@ -24,7 +24,7 @@
 	"description": "",
 	"dependencies": {
 		"prettier": "^3.5.3",
-		"xquery-parser": "*"
+		"xq-parser": "^0.1.1"
 	},
 	"type": "module",
 	"devDependencies": {

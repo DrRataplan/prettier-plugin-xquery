@@ -25,7 +25,7 @@ let amountOfTypeErrors = 0;
 let amountOfTests = 0;
 let amountOfRoundtripFailures = 0;
 
-describe("Roundtripping all the QT3 tests", () => {
+describe("Roundtripping all the QT4 tests", () => {
 	for (const testset of testsets) {
 		const testSetName = testset.getAttribute("name")!;
 		describe(testSetName, async () => {
@@ -49,7 +49,7 @@ describe("Roundtripping all the QT3 tests", () => {
 					const isKnownFailure = name in (ignoreList[testSetName] ?? {});
 					try {
 						const firstPrettification = prettier.format(script, {
-							parser: "xquery",
+							parser: "xquery4",
 							plugins: [xqueryPlugin],
 						});
 						try {
