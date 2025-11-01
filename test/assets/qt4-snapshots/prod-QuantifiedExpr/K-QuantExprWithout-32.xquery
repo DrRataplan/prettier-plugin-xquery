@@ -1,1 +1,1 @@
-some $var in (false(), xs:hexBinary("FF"), true()) satisfies $var
+some $var in (false(), xs:hexBinary("FF")) satisfies $var

@@ -1,1 +1,1 @@
-fn:string-length(())
+"ᾧ" => string-length()

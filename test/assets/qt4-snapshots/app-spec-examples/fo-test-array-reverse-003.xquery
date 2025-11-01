@@ -1,1 +1,1 @@
-array:reverse([(1 to 5)])
+array:reverse([1 to 5])

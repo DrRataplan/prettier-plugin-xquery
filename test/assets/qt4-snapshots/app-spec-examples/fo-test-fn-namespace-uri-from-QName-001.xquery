@@ -1,3 +1,1 @@
-fn:namespace-uri-from-QName(
-  fn:QName("http://www.example.com/example", "person")
-)
+namespace-uri-from-QName(QName("http://www.example.com/example", "person"))

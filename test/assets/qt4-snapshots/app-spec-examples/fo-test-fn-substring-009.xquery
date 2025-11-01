@@ -1,1 +1,1 @@
-fn:substring((), 1, 3)
+substring((), 1, 3)

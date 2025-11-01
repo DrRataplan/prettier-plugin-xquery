@@ -1,0 +1,1 @@
+parse-uri("ldap://[2001:db8::7]/c=GB?objectClass?one")

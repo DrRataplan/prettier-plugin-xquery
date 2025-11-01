@@ -1,1 +1,1 @@
-fn:substring("12345", -3, 5)
+substring("12345", -3, 5)

@@ -1,1 +1,1 @@
-fn:replace("abracadabra", "a(.)", "a$1$1")
+replace("abracadabra", "a(.)", "a$1$1")

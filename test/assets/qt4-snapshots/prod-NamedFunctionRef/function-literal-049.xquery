@@ -1,1 +1,1 @@
-exists(Q{http://www.w3.org/2005/xpath-functions}number#0)
+"1234"!exists(Q{http://www.w3.org/2005/xpath-functions}number#0)

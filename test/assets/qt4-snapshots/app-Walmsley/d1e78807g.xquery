@@ -10,7 +10,6 @@ deep-equal(
 }',
     map {
       "duplicates": "use-first",
-      "validate": false(),
       "escape": false(),
       "fallback": function ($s) { "ERROR!!" }
     }

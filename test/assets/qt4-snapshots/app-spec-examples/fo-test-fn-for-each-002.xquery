@@ -1,1 +1,1 @@
-fn:for-each(("john", "jane"), fn:string-to-codepoints#1)
+for-each(("john", "jane"), string-to-codepoints#1)

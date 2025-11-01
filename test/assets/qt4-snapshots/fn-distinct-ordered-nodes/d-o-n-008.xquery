@@ -1,0 +1,5 @@
+let $x1 := parse-xml("<p><a q='1'/><b r='2'/><c s='3'/><d t='4'/></p>")
+let $x2 := parse-xml("<p><a q='11'/><b r='12'/><c s='13'/><d t='14'/></p>")
+let $y := random-number-generator()?permute($x1//* | $x2//@* | $x2//* | $x1//@*)
+let $z := distinct-ordered-nodes($y)
+return $z!local-name()

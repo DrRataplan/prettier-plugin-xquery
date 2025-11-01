@@ -1,1 +1,1 @@
-fn:function-arity(fn:substring#2)
+function-arity(substring#2)

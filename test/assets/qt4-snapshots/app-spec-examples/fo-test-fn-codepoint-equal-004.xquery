@@ -1,1 +1,1 @@
-fn:codepoint-equal("", ())
+codepoint-equal("", ())

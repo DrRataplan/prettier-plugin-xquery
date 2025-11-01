@@ -1,1 +1,1 @@
-fn:exists(fn:has-children#0)
+/*/fn:exists(fn:has-children#0)

@@ -1,0 +1,1 @@
+-3 => (function-lookup(xs:QName("fn:abs"), 1))()

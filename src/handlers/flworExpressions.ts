@@ -135,20 +135,46 @@ const flworExpressionHandlers: Record<string, Handler> = {
 		];
 		return group(result);
 	},
-	LetBinding: (path, print) => {
+	LetBinding: (path, print, options) => {
 		const toReturn: Doc[] = [];
-		const varNamePart = path.map(print, "childrenByName", "VarName");
-		const typeDeclPart = printIfExist(path, print, "TypeDeclaration");
-		const walrusKeyword = path.map(print, "childrenByName", "':='");
+		const varNamePart =
+			options.parser === "xquery4"
+				? path.map(
+						print,
+						"childrenByName",
+						"LetValueBinding",
+						"0",
+						"childrenByName",
+						"VarNameAndType",
+						"0",
+						"childrenByName",
+						"EQName",
+					)
+				: path.map(print, "childrenByName", "VarName");
+		const typeDeclPart =
+			options.parser === "xquery4"
+				? printIfExist(path, print, "LetValueBinding", "VarNameAndType", "TypeDeclaration")
+				: printIfExist(path, print, "TypeDeclaration");
+		const walrusKeyword =
+			options.parser === "xquery4"
+				? path.map(print, "childrenByName", "LetValueBinding", "0", "childrenByName", "':='")
+				: path.map(print, "childrenByName", "':='");
 
-		const exprSinglePart = path.map(print, "childrenByName", "ExprSingle");
+		const exprSinglePart =
+			options.parser === "xquery4"
+				? path.map(print, "childrenByName", "LetValueBinding", "0", "childrenByName", "ExprSingle")
+				: path.map(print, "childrenByName", "ExprSingle");
 
 		toReturn.push("$", varNamePart, space);
 		if (typeDeclPart) {
 			toReturn.push(typeDeclPart, space);
 		}
 		// If we are outputting a nested FLWOR expression, force an indent. those indents are needed for readability
-		const childIsFLWOR = path.node.childrenByName.ExprSingle[0].childrenByName.FLWORExpr;
+		const exprSingleAstNode =
+			options.parser === "xquery4"
+				? path.node.childrenByName.LetValueBinding[0].childrenByName.ExprSingle[0]
+				: path.node.childrenByName.ExprSingle[0];
+		const childIsFLWOR = exprSingleAstNode.childrenByName.FLWORExpr;
 		// Break here as a last resort, if the variable value really cannot be cut down. Just output a space otherwise
 		const valuePart = childIsFLWOR ? [indent([line, exprSinglePart])] : [group(line), exprSinglePart];
 		toReturn.push(walrusKeyword, valuePart);

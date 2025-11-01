@@ -1,6 +1,3 @@
 let $tz-10 := xs:dayTimeDuration("-PT10H")
 
-return fn:adjust-dateTime-to-timezone(
-    xs:dateTime("2002-03-07T10:00:00"),
-    $tz-10
-  )
+return adjust-dateTime-to-timezone(xs:dateTime("2002-03-07T10:00:00"), $tz-10)

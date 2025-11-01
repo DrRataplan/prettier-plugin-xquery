@@ -1,0 +1,1 @@
+"cafebabe"!xs:hexBinary()

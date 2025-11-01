@@ -1,1 +1,1 @@
-fn:starts-with("tattoo", "att")
+starts-with("tattoo", "att")

@@ -23,12 +23,12 @@ import switchExpressionHandlers from "./handlers/switchExpressions.ts";
 import modulesAndPrologsHandlers from "./handlers/modulesAndPrologs.ts";
 import arrowOperatorHandlers from "./handlers/arrowOperator.ts";
 import sequenceExpressionHandlers from "./handlers/sequenceExpressions.ts";
+import existDBUpdateNodeHandlers from "./handlers/existDB/updateNodeExpressions.ts";
 import typeHandlers from "./handlers/types.ts";
 import validateExpressionHandlers from "./handlers/validateExpressions.ts";
 import type { Handler } from "./handlers/util/Handler.ts";
 import printComment from "./handlers/util/printComment.ts";
 import { XQuery31Full, XQuery4Full, type Node as ParserNode } from "xq-parser";
-import { NonTerminal, Terminal } from "../../ebnf-combinator/dist/shared/Node.js";
 
 const { line, group } = doc.builders;
 const { getPreferredQuote } = util;
@@ -51,16 +51,15 @@ const allHandlers: Record<string, Handler> = {
 	...sequenceExpressionHandlers,
 	...typeHandlers,
 	...validateExpressionHandlers,
+	...existDBUpdateNodeHandlers,
 };
 
 const simplifyNode = (node: ParserNode): NonCommentNode[] => {
-	if (node instanceof Terminal) {
+	if (node.isTerminal) {
 		return [new LeafNode(node.type as TerminalName, node.start, node.end, node.value)];
 	}
 
-	const nonTerminal = node as NonTerminal;
-
-	const children = nonTerminal.children.flatMap(simplifyNode);
+	const children = node.children.flatMap(simplifyNode);
 	if (
 		[
 			"RangeExpr",
@@ -85,21 +84,24 @@ const simplifyNode = (node: ParserNode): NonCommentNode[] => {
 			"StepExpr",
 			"PostfixExpr",
 			"PrimaryExpr",
-		].includes(nonTerminal.type) &&
-		nonTerminal.children.length === 1
+		].includes(node.type) &&
+		node.children.length === 1
 	) {
 		// This is just a fallthrough. Remove the node.
 		return children;
 	}
 
-	return [new NonTerminalNode(nonTerminal.type as NonTerminalName, nonTerminal.start, nonTerminal.end)];
+	return [new NonTerminalNode(node.type as NonTerminalName, node.start, node.end, children)];
 };
 
 const xqueryParser: Parser<Node> = {
 	parse(text, _options) {
 		const result = XQuery31Full(text);
 
-		const [newRoot] = simplifyNode(result);
+		const [newRoot] = simplifyNode(result.ast);
+		newRoot.comments = result.comments.map(
+			(commentNode) => new CommentNode(commentNode.start, commentNode.end, commentNode.value),
+		);
 
 		return newRoot;
 	},
@@ -119,7 +121,11 @@ const xquery4Parser: Parser<Node> = {
 	parse(text, _options) {
 		const result = XQuery4Full(text);
 
-		const [newRoot] = simplifyNode(result);
+		const [newRoot] = simplifyNode(result.ast);
+		debugger;
+		newRoot.comments = result.comments.map(
+			(commentNode) => new CommentNode(commentNode.start, commentNode.end, commentNode.value),
+		);
 
 		return newRoot;
 	},
@@ -251,7 +257,7 @@ const pluginDefinition: Plugin<Node> = {
 	languages: [
 		{
 			name: "XQuery",
-			parsers: ["xquery"],
+			parsers: ["xquery", "xquery4"],
 			extensions: ["xq", "xqm", "xqy", "xql", "xquery"],
 		},
 	],

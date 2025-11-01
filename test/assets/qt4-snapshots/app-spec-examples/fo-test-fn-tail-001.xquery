@@ -1,1 +1,1 @@
-fn:tail(1 to 5)
+tail(1 to 5)

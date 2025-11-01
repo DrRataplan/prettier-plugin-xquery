@@ -1,1 +1,1 @@
-fn:not(fn:true())
+not(true())

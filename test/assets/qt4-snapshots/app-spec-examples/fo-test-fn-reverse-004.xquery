@@ -1,1 +1,1 @@
-fn:reverse([1, 2, 3])
+reverse([1, 2, 3])

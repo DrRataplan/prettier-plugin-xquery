@@ -1,1 +1,1 @@
-fn:contains-token(("red", "green", "blue"), " red ")
+contains-token(("red", "green", "blue"), " red ")

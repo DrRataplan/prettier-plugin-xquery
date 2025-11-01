@@ -1,0 +1,1 @@
+seconds(xs:double("INF"))

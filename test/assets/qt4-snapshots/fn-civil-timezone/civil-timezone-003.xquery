@@ -1,0 +1,1 @@
+civil-timezone(xs:dateTime("2024-11-05T12:00:00Z"), "Europe/Paris")

@@ -1,4 +1,4 @@
-declare default collation "http://www.w3.org/2010/09/qt-fots-catalog/collation/caseblind";
+declare default collation "http://www.w3.org/2005/xpath-functions/collation/html-ascii-case-insensitive";
 
 declare namespace array = "http://www.w3.org/2005/xpath-functions/array";
 declare namespace map = "http://www.w3.org/2005/xpath-functions/map";

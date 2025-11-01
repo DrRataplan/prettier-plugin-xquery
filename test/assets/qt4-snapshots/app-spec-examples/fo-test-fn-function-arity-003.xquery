@@ -1,2 +1,2 @@
-let $initial := fn:substring(?, 1, 1)
-return fn:function-arity($initial)
+let $initial := substring(?, 1, 1)
+return function-arity($initial)

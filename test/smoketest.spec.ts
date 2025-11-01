@@ -87,4 +87,21 @@ return $y + sum(($q))
 
 		assert.strictEqual(result, code, "The input was already formatted correctly");
 	});
+
+	describe.only("XQuery 4", () => {
+		it("can format some simple examples", async () => {
+			const code = `let $a :=
+              ancestor-or-self::(div|section) otherwise
+              descendant-or-self::(div|section)
+              return $a => exists()
+`;
+
+			const result = await prettier.format(code, {
+				parser: "xquery4",
+				plugins: [xqueryPlugin],
+			});
+
+			assert.ok(result, code, "The code manages to format");
+		});
+	});
 });

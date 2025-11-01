@@ -1,0 +1,1 @@
+hash(xs:hexBinary("")) => string()

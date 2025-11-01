@@ -1,1 +1,1 @@
-fn:string-join((), "separator")
+string-join((), "separator")

@@ -1,1 +1,1 @@
-fn:ends-with("tattoo", "atto")
+ends-with("tattoo", "atto")

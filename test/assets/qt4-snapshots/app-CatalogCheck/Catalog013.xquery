@@ -11,14 +11,17 @@ return $testsets//fots:dependency[@type = "spec"][exists(
           "XP30+",
           "XP31",
           "XP31+",
+          "XP40+",
           "XQ10",
           "XQ10+",
           "XQ30",
           "XQ30+",
           "XQ31",
           "XQ31+",
+          "XQ40+",
           "XT30",
-          "XT30+"
+          "XT30+",
+          "XT40+"
         )
     )]
   )]/concat(../@name, " => ", @value)

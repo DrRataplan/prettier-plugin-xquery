@@ -1,1 +1,1 @@
-fn:compare("abc", "abc")
+compare("abc", "abc")

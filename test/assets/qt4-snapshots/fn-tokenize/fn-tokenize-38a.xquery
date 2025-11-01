@@ -1,0 +1,1 @@
+fn:tokenize(concat("Mary", codepoints-to-string(10), "Jones"), "^[\s]*$", "m")

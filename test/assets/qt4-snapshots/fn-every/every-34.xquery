@@ -1,0 +1,1 @@
+every(([true()], [true()], [false()]))

@@ -1,0 +1,1 @@
+empty(duplicate-values(()))

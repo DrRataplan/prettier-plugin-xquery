@@ -1,1 +1,1 @@
-fn:iri-to-uri("http://www.example.com/~bébé")
+iri-to-uri("http://www.example.com/~bébé")

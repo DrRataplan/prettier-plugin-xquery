@@ -1,1 +1,1 @@
-fn:fold-right(1 to 5, "", fn:concat(?, ".", ?))
+fold-right(1 to 5, "", concat(?, ".", ?))

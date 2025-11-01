@@ -1,1 +1,1 @@
-fn:empty(fn:remove(("hello", "world"), 1))
+empty(remove(("hello", "world"), 1))

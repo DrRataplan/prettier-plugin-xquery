@@ -1,1 +1,1 @@
-fn:tokenize(" red green blue ")
+tokenize(" red green blue ")

@@ -1,0 +1,1 @@
+characters(<?_ ABC?>)[last()]

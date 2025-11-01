@@ -1,1 +1,1 @@
-fn:empty([])
+empty([])

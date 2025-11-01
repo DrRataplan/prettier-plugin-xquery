@@ -1,1 +1,1 @@
-fn:string-join(1 to 5, ", ")
+string-join(1 to 5, ", ")

@@ -4,6 +4,6 @@ declare function local:key ($n as xs:integer) as xs:string {
 
 fn:sort(
   (1 to 5),
-  "http://www.w3.org/2010/09/qt-fots-catalog/collation/caseblind",
+  "http://www.w3.org/2005/xpath-functions/collation/html-ascii-case-insensitive",
   local:key#1
 )

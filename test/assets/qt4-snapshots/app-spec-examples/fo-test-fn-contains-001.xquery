@@ -1,1 +1,1 @@
-fn:contains("tattoo", "t")
+contains("tattoo", "t")

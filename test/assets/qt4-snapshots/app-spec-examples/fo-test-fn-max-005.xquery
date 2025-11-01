@@ -1,1 +1,1 @@
-fn:max(("a", "b", "c"))
+max((current-date(), xs:date("2100-01-01")))

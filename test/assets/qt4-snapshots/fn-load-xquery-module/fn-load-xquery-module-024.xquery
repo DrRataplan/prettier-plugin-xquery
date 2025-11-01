@@ -3,4 +3,4 @@ let $module-ns := "http://www.w3.org/fots/fn/load-xquery-module/import/module",
   $mod1-ns := "http://www.w3.org/TestModules/module1",
   $mod2-ns := "http://www.w3.org/TestModules/module2"
 return let $fns := $module("functions")
-  return $fns(QName($mod2-ns, "y"))(0)()
+  return exists($fns(QName($mod2-ns, "y"))(0))

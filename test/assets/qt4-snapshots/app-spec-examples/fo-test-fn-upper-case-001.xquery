@@ -1,1 +1,1 @@
-fn:upper-case("abCd0")
+upper-case("abCd0")

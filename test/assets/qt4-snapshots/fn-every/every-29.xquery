@@ -1,0 +1,1 @@
+every((), false#0)

@@ -1,4 +1,4 @@
-fn:distinct-values(
+distinct-values(
   (
     xs:untypedAtomic("cherry"),
     xs:untypedAtomic("plum"),

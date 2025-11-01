@@ -1,1 +1,1 @@
-fn:tokenize(" red green blue ", "\s+")
+tokenize(" red green blue ", "\s+")

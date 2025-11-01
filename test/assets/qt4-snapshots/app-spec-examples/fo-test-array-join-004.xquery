@@ -1,1 +1,1 @@
-array:join((["a", "b"], ["c", "d"], []))
+array:join((["a", "b"], ["c"], []))

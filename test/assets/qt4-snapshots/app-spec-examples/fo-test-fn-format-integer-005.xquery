@@ -1,1 +1,1 @@
-format-integer(1234, "#;##0;")
+format-integer(57, "I")

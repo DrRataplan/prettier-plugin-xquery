@@ -1,1 +1,1 @@
-fn:seconds-from-duration(xs:dayTimeDuration("-PT256S"))
+seconds-from-duration(xs:dayTimeDuration("-PT256S"))

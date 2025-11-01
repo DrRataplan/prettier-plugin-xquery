@@ -1,1 +1,1 @@
-fn:function-name(fn:lang#1)
+subsequence(?, ?, ?) => function-name()

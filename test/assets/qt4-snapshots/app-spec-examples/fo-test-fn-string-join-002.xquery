@@ -1,1 +1,1 @@
-fn:string-join(("Now", "is", "the", "time", "..."), " ")
+string-join(("Now", "is", "the", "time", "..."), " ")

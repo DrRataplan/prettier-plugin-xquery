@@ -1,1 +1,1 @@
-fn:substring-after("tattoo", "tattoo")
+substring-after("tattoo", "tattoo")

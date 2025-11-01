@@ -1,1 +1,1 @@
-fn:min((fn:current-date(), xs:date("1900-01-01")))
+min((xs:float(0.0E0), xs:float(-0.0E0)))

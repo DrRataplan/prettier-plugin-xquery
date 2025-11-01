@@ -1,4 +1,4 @@
-for sliding window $w in (1 to 10)
+ for sliding window $w in (1 to 10)
   start $s
   at $x
   previous $sp

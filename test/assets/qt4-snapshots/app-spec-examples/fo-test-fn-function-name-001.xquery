@@ -1,1 +1,1 @@
-fn:function-name(fn:substring#2)
+function-name(substring#2)

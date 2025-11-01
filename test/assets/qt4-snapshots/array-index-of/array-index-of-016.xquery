@@ -1,0 +1,10 @@
+array:index-of(
+  [
+    parse-xml("<doc>a</doc>"),
+    parse-xml("<doc>b</doc>"),
+    parse-xml("<doc>A</doc>"),
+    parse-xml("<doc>B</doc>")
+  ],
+  parse-xml("<doc>A</doc>"),
+  "http://www.w3.org/2005/xpath-functions/collation/html-ascii-case-insensitive"
+)

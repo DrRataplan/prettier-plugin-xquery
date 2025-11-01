@@ -1,0 +1,1 @@
+replace("#banana#", "#", "%", "c")

@@ -1,1 +1,1 @@
-fn:count([])
+count([])

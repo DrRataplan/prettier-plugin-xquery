@@ -1,1 +1,1 @@
-fn:codepoint-equal("abcd", "abcd ")
+codepoint-equal("abcd", "abcd ")

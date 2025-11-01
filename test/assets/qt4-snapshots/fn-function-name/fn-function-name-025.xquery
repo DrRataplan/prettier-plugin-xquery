@@ -1,1 +1,1 @@
-fn:function-name(fn:node-name#0)
+count(?) => function-name()

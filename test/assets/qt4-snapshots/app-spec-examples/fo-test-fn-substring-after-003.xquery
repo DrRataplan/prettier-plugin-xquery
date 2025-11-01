@@ -1,1 +1,1 @@
-fn:substring-after((), ())
+substring-after((), ())

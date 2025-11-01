@@ -1,0 +1,5 @@
+replicate("yv66", 50000)
+  => string-join()
+  => xs:base64Binary()
+  => hash("MD5")
+  => string()

@@ -1,0 +1,5 @@
+declare variable $zls external;
+
+declare variable $empty external;
+
+fn:ends-with($empty, "A Character String")

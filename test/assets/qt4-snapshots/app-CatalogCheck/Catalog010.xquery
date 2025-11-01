@@ -7,14 +7,9 @@ let $testset := $testfile/fots:test-set
 let $testcases := $testset/fots:test-case
 for $token in
   distinct-values(
-    (
-      tokenize($testset/@covers-30, " "),
-      $testcases/@covers-30/tokenize(., " "),
-      tokenize($testset/@covers, " "),
-      $testcases/@covers/tokenize(., " ")
-    )
+    (tokenize($testset/@covers-40, " "), $testcases/@covers-40/tokenize(., " "))
   )
-where not($token = $changes)
+where not($token = $changes or matches($token, "PR[0-9]+"))
 return <out
     bad-covers-value="{ $token }"
     test-set="{ string($testset/@name) }" />

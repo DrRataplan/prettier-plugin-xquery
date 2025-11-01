@@ -1,1 +1,1 @@
-fn:exists(fn:remove(("hello"), 1))
+exists(remove(("hello"), 1))

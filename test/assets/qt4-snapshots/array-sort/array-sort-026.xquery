@@ -1,4 +1,3 @@
-declare namespace array = "http://www.w3.org/2005/xpath-functions/array";
 declare namespace serialization = "http://www.w3.org/2010/xslt-xquery-serialization";
 
 (: declare option serialization:method "adaptive"; :)

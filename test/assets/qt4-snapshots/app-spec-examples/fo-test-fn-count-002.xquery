@@ -1,3 +1,3 @@
 let $seq3 := ()
 
-return fn:count($seq3)
+return count($seq3)

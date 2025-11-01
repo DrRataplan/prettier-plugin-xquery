@@ -1,1 +1,1 @@
-fn:string-length("Harp not on that string, madam; that is past.")
+string-length("As long as a piece of string")

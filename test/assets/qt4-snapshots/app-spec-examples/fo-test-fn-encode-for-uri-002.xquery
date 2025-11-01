@@ -1,1 +1,1 @@
-concat("http://www.example.com/", encode-for-uri("~bébé"))
+concat("http://example.com/", encode-for-uri("~bébé"))

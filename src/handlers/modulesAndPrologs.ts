@@ -219,15 +219,18 @@ const modulesAndPrologsHandlers: Record<string, Handler> = {
 		]);
 	},
 	MainModule: (path, print) => {
-		const prologPart = path.map(print, "childrenByName", "Prolog");
+		const prologPart = printIfExist(path, print, "Prolog");
 		const queryBodyPart = path.map(print, "childrenByName", "QueryBody");
 
 		// Skip newlines after empty prologs. But still print them in case they have comments
-		if ((path.node.childrenByName.Prolog[0] as NonTerminalNode).children.length === 0) {
-			return group([prologPart, queryBodyPart]);
+		if (!prologPart) {
+			return queryBodyPart;
+		}
+		if (path.node.childrenByName.Prolog![0].children.length === 0) {
+			return group([prologPart!, queryBodyPart]);
 		}
 
-		return group([prologPart.length ? [prologPart, hardline, hardline] : [], queryBodyPart]);
+		return group([prologPart ? [prologPart, hardline, hardline] : [], queryBodyPart]);
 	},
 	OptionDecl: (path, print) => {
 		const declareKeyword = path.map(print, "childrenByName", "'declare'");

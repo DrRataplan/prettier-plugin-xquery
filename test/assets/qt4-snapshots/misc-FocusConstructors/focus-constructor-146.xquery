@@ -1,0 +1,1 @@
+"FF"!xs:hexBinary()

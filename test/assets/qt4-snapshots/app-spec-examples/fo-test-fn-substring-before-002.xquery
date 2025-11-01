@@ -1,1 +1,1 @@
-fn:substring-before("tattoo", "tatto")
+substring-before("tattoo", "tatto")

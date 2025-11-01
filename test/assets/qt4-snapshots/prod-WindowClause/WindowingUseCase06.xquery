@@ -1,4 +1,4 @@
-for sliding window $w in ./stream/event
+ for sliding window $w in ./stream/event
   start $s_curr when fn:true()
   only end next $next when $next/@time > $s_curr/@time + 3
 return let $avg := fn:avg($w/@temp)

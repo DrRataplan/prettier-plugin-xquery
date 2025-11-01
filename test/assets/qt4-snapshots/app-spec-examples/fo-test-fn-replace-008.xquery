@@ -1,1 +1,1 @@
-fn:replace("darted", "^(.*?)d(.*)$", "$1c$2")
+replace("In the beginning was the Word", "\b", "|")

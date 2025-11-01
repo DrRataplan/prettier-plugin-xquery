@@ -1,0 +1,5 @@
+bin:unpack-double(
+  bin:from-octets($double.1.octets),
+  0,
+  "most-significant-first"
+)

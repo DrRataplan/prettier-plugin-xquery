@@ -1,0 +1,41 @@
+every(
+  for $s in
+    (
+      ",",
+      "and",
+      "or",
+      "+",
+      "-",
+      "*",
+      "div",
+      "idiv",
+      "mod",
+      "=",
+      "<",
+      "<=",
+      ">",
+      ">=",
+      "!=",
+      "eq",
+      "lt",
+      "le",
+      "gt",
+      "ge",
+      "ne",
+      "<<",
+      ">>",
+      "is",
+      "is-not",
+      "precedes",
+      "follows",
+      "||",
+      "|",
+      "union",
+      "except",
+      "intersect",
+      "to",
+      "otherwise"
+    )
+  return let $f := op($s)((), ?)
+    return ((() => $f() => $f() => $f())!not(.))
+)

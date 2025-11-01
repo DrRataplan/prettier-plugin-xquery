@@ -1,0 +1,1 @@
+bin:not($empty.bin)

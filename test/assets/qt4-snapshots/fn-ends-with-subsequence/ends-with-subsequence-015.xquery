@@ -1,0 +1,4 @@
+ends-with-subsequence(
+  replicate(parse-xml('<a><b xmlns:p="q"/><c/></a>'), 4),
+  replicate(parse-xml("<a><b/><c/></a>"), 2)
+)

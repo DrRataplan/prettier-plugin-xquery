@@ -1,0 +1,1 @@
+atomic-type-annotation(//*:a)

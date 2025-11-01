@@ -1,3 +1,3 @@
 let $abc := ("a", "b", "")
 
-return fn:boolean($abc[0])
+return boolean($abc[0])

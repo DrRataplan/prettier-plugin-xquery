@@ -1,6 +1,4 @@
 deep-equal(
-  "a string",
-  "a string",
-  "http://www.w3.org/2005/xpath-functions/collation/codepoint",
-  "wrong param"
+  "a string", <_>a string</_>,
+  "http://www.w3.org/2005/xpath-functions/collation/codepoint", "wrong param"
 )

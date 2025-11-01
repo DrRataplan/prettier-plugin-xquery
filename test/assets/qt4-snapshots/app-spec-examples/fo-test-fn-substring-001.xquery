@@ -1,1 +1,1 @@
-fn:substring("motor car", 6)
+substring("motor car", 6)

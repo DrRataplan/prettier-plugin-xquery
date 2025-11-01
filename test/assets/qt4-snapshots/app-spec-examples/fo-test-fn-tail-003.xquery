@@ -1,1 +1,1 @@
-fn:tail("a")
+tail("a")

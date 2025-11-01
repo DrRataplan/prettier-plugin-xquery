@@ -1,1 +1,1 @@
-fn:string-join(("Blow, ", "blow, ", "thou ", "winter ", "wind!"), "")
+string-join(("Blow, ", "blow, ", "thou ", "winter ", "wind!"), "")

@@ -1,1 +1,1 @@
-/ordered{ bid }
+/count(bid)

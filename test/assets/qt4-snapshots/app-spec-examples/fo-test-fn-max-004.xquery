@@ -1,1 +1,1 @@
-fn:max((fn:current-date(), xs:date("2100-01-01")))
+max((xs:float(0.0E0), xs:float(-0.0E0)))

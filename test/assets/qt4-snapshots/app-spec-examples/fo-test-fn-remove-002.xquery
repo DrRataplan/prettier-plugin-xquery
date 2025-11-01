@@ -1,3 +1,3 @@
 let $abc := ("a", "b", "c")
 
-return fn:remove($abc, 1)
+return remove($abc, 1)

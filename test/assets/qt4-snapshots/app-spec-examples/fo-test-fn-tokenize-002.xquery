@@ -1,1 +1,1 @@
-fn:tokenize("The cat sat on the mat", "\s+")
+tokenize("The cat sat on the mat", "\s+")

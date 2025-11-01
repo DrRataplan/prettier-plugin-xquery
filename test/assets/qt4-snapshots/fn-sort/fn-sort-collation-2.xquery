@@ -1,3 +1,3 @@
-declare default collation "http://www.w3.org/2010/09/qt-fots-catalog/collation/caseblind";
+declare default collation "http://www.w3.org/2005/xpath-functions/collation/html-ascii-case-insensitive";
 
 fn:sort(("Red", "green", "blUE", "PINK", "ORanGE"), ())

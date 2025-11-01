@@ -1,1 +1,1 @@
-fn:month-from-date(xs:date("2000-01-01+05:00"))
+month-from-date(xs:date("2000-01-01+05:00"))

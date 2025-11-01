@@ -1,1 +1,1 @@
-fn:error()
+error()

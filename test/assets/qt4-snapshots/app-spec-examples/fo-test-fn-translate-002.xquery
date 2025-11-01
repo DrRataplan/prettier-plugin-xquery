@@ -1,1 +1,1 @@
-fn:translate("--aaa--", "abc-", "ABC")
+translate("--aaa--", "abc-", "ABC")

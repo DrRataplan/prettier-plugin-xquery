@@ -1,4 +1,4 @@
-fn:normalize-space(
+normalize-space(
   " The    wealthy curled darlings
-                                        of    our    nation. "
+           of    our    nation. "
 )

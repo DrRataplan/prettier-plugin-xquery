@@ -1,1 +1,1 @@
-fn:normalize-space(())
+normalize-space(())

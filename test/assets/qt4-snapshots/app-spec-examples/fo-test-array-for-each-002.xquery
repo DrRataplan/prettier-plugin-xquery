@@ -1,1 +1,1 @@
-array:for-each(["the cat", "sat", "on the mat"], fn:tokenize#1)
+array:for-each(["the cat", "sat", "on the mat"], tokenize#1)

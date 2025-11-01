@@ -1,1 +1,1 @@
-fn:codepoints-to-string(0)
+codepoints-to-string(0)

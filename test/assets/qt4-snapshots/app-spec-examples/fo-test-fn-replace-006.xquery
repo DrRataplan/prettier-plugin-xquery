@@ -1,1 +1,1 @@
-fn:replace("AAAA", "A+", "b")
+replace("AAAA", "A+", "b")

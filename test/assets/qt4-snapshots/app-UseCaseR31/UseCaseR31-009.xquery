@@ -1,5 +1,3 @@
-declare namespace map = "http://www.w3.org/2005/xpath-functions/map";
-
 declare variable $book := (
   <book>
     <isbn>0470192747</isbn>

@@ -1,1 +1,1 @@
-fn:reverse(("hello"))
+reverse(("hello"))

@@ -1,1 +1,1 @@
-fn:lower-case("ABc!D")
+lower-case("ABc!D")

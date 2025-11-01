@@ -1,1 +1,1 @@
-fn:for-each-pair(("a", "b", "c"), ("x", "y", "z"), concat#2)
+for-each-pair(("a", "b", "c"), ("x", "y", "z"), concat#2)

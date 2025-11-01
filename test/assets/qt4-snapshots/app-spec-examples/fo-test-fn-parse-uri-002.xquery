@@ -1,0 +1,1 @@
+parse-uri("http://www.ietf.org/rfc/rfc2396.txt")

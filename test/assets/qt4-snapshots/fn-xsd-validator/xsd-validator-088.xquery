@@ -1,0 +1,1 @@
+xsd-validator()(document { "text" })

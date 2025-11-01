@@ -1,1 +1,1 @@
-fn:compare("Strasse", "Straße")
+compare("Strasse", "Straße")

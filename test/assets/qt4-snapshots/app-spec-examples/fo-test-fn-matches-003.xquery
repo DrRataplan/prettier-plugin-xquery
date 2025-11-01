@@ -1,1 +1,1 @@
-fn:matches("abracadabra", "^bra")
+matches("abracadabra", "^bra")

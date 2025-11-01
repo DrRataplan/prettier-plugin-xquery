@@ -1,1 +1,1 @@
-fn:head(1 to 5)
+head(1 to 5)

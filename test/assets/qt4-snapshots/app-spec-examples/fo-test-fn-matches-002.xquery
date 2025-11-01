@@ -1,1 +1,1 @@
-fn:matches("abracadabra", "^a.*a$")
+matches("abracadabra", "^a.*a$")

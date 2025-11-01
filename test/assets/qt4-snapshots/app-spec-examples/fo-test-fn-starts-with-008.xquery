@@ -1,5 +1,3 @@
-fn:starts-with(
-  "-abcdefghi",
-  "-abc",
-  "http://www.w3.org/2013/collation/UCA?lang=en;alternate=blanked;strength=primary"
-)
+let $coll :=
+"http://www.w3.org/2013/collation/UCA?lang=en;alternate=blanked;strength=primary"
+return starts-with("-abcdefghi", "-abc", $coll)

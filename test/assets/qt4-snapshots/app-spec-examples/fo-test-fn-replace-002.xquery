@@ -1,1 +1,1 @@
-fn:replace("abracadabra", "a.*a", "*")
+replace("abracadabra", "a.*a", "*")

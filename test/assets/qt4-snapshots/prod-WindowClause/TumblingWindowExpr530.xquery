@@ -1,4 +1,4 @@
-for tumbling window $w in ()
+ for tumbling window $w in ()
   start $s
   at $x
   previous $sp

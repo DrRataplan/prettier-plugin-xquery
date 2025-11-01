@@ -1,1 +1,1 @@
-fn:string-to-codepoints("Thérèse")
+string-to-codepoints("Thérèse")

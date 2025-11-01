@@ -1,1 +1,1 @@
-fn:index-of([1, [5, 6], [6, 7]], 6)
+index-of(current-date(), 23)

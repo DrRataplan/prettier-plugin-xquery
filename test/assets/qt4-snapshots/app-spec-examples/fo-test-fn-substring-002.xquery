@@ -1,1 +1,1 @@
-fn:substring("metadata", 4, 3)
+substring("metadata", 4, 3)

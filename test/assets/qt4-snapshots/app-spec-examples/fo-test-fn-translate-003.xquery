@@ -1,1 +1,1 @@
-fn:translate("abcdabc", "abc", "AB")
+translate("abcdabc", "abc", "AB")
