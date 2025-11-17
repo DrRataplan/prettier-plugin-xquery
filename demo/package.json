@@ -5,7 +5,7 @@
   },
   "dependencies": {
     "@codemirror/view": "^6.38.1",
-    "@jinntec/jinn-codemirror": "^1.17.6",
+    "@jinntec/jinn-codemirror": "^1.18.0",
     "@picocss/pico": "^2.1.1",
     "prettier": "^3.6.2"
   },
