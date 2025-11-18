@@ -1,14 +1,22 @@
 # Prettier for XQuery
-[![NPM version](https://badge.fury.io/js/prettier-plugin-xquery.svg)](http://badge.fury.io/js/prettier-plugin-xquery) [![Tests](https://github.com/DrRataplan/prettier-plugin-xquery/actions/workflows/test.yml/badge.svg)](https://github.com/DrRataplan/prettier-plugin-xquery/actions/workflows/test.yml) [![Coverage Status](https://coveralls.io/repos/github/DrRataplan/prettier-plugin-xquery/badge.svg)](https://coveralls.io/github/DrRataplan/prettier-plugin-xquery)
+[![NPM
+version](https://badge.fury.io/js/prettier-plugin-xquery.svg)](http://badge.fury.io/js/prettier-plugin-xquery)
+[![Tests](https://github.com/DrRataplan/prettier-plugin-xquery/actions/workflows/test.yml/badge.svg)](https://github.com/DrRataplan/prettier-plugin-xquery/actions/workflows/test.yml)
+[![Coverage
+Status](https://coveralls.io/repos/github/DrRataplan/prettier-plugin-xquery/badge.svg)](https://coveralls.io/github/DrRataplan/prettier-plugin-xquery)
 
-`prettier-plugin-xquery` is a [prettier](https://prettier.io/) plugin for XQuery. `prettier` is an opinionated code formatter that supports multiple languages and integrates with most editors. The idea is to eliminate discussions of style in code review and allow developers to get back to thinking about code design instead.
+`prettier-plugin-xquery` is a [prettier](https://prettier.io/) plugin for XQuery. `prettier` is an
+opinionated code formatter that supports multiple languages and integrates with most editors. The
+idea is to eliminate discussions of style in code review and allow developers to get back to
+thinking about code design instead.
 
 ## Demo
 A demo page lives at [xquery.elliat.nl](https://xquery.elliat.nl).
 
 ## Getting started
 
-To run `prettier` with the XQuery plugin, you're going to need [`node`](https://nodejs.org/en/download/).
+To run `prettier` with the XQuery plugin, you're going to need
+[`node`](https://nodejs.org/en/download/).
 
 If you're using the `npm` CLI, then add the plugin by:
 
@@ -66,6 +74,31 @@ Or, they can be passed to `prettier` as arguments:
 
 ```bash
 prettier --plugin=prettier-plugin-xquery --tab-width 4 --write '**/*.xq*'
+```
+
+## Ignoring
+
+A `prettier-ignore` comment marks code as ignored for formatting. Like this:
+
+```xquery
+module namespace el = "http://www.elliat.nl";
+
+declare function el:reverse (
+  $a as xs:integer,
+  $b as xs:integer,
+  $c as xs:integer,
+  $d as xs:integer
+) {
+  ($d, $c, $b, $a)
+};
+
+(: prettier-ignore :)
+declare function el:swap (
+  $a as xs:integer, $b as xs:integer,
+  $c as xs:integer, $b as xs:integer
+) {
+  ($b, $a, $d, $c)
+};
 ```
 
 ## Contributing

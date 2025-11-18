@@ -131,12 +131,21 @@ const xqueryParser: Parser<Node> = {
 	},
 };
 
+const hasPrettierIgnore = (path: AstPath<Node>): boolean => {
+	const node = path.node as NonCommentNode;
+
+	return node.hasComments() && node.comments!.some((c) => c.value.includes("prettier-ignore"));
+};
+
 const xqueryPrinter: Printer<Node> = {
-	getVisitorKeys(node, nonTraversableKeys) {
+	getVisitorKeys(_node, _nonTraversableKeys) {
 		// Only traverse into children, not childrenByName
 		return ["children"];
 	},
 	willPrintOwnComments(path: AstPath<Node>) {
+		if (hasPrettierIgnore(path)) {
+			return false;
+		}
 		if (path.node.name === "IntermediateClause") {
 			return true;
 		}
@@ -193,6 +202,7 @@ const xqueryPrinter: Printer<Node> = {
 		const node = path.node as CommentNode;
 		return printComment(node);
 	},
+	hasPrettierIgnore,
 	print(path: AstPath<Node>, options, print: Print, _args) {
 		if (path.node instanceof LeafNode) {
 			switch (path.node.name) {
