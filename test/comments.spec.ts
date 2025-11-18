@@ -274,4 +274,54 @@ xxx:yyy()
 			});
 		}
 	});
+
+	describe("prettier-ignore", () => {
+		it("handles the prettier-ignore comment to ignore the root node", async () => {
+			const script = `
+(: prettier-ignore :)
+let $tree := (  1,
+               2,3,
+              4,5,6,
+             7,8,9,0
+)
+return sum($tree)
+`;
+			const result = await prettier.format(script, {
+				parser: "xquery",
+				plugins: [xqueryPlugin],
+			});
+
+			assert.equal(result.trim(), script.trim());
+		});
+
+		it("handles the prettier-ignore comment to ignore just a part", async () => {
+			const script = `
+let $normal := (  1,
+               2,3,
+              4,5,6,
+             7,8,9,0)
+(: prettier-ignore :)
+let $tree := (  1,
+               2,3,
+              4,5,6,
+             7,8,9,0
+)
+return sum($tree)
+`;
+			const expectedOutput = `let $normal := (1, 2, 3, 4, 5, 6, 7, 8, 9, 0)
+(: prettier-ignore :)
+let $tree := (  1,
+               2,3,
+              4,5,6,
+             7,8,9,0
+)
+return sum($tree)`;
+			const result = await prettier.format(script, {
+				parser: "xquery",
+				plugins: [xqueryPlugin],
+			});
+
+			assert.equal(result.trim(), expectedOutput.trim());
+		});
+	});
 });
