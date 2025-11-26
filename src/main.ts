@@ -126,8 +126,9 @@ const xqueryParser: Parser<Node> = {
 	locEnd(node) {
 		return node.end!;
 	},
-	preprocess(text) {
-		return text.trimStart();
+	hasIgnorePragma(text) {
+		// A noprettier or noformat can occur anywhere in the first comment block
+		return /^\s*\(:([^:]|(:(?!\))))*(@noprettier|@noformat).*/.test(text);
 	},
 };
 
@@ -201,6 +202,9 @@ const xqueryPrinter: Printer<Node> = {
 	printComment(path: AstPath<Node>, options) {
 		const node = path.node as CommentNode;
 		return printComment(node);
+	},
+	insertPragma(text) {
+		return `(: noformat :)\n${text}`;
 	},
 	hasPrettierIgnore,
 	print(path: AstPath<Node>, options, print: Print, _args) {
