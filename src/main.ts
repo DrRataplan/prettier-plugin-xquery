@@ -56,7 +56,7 @@ function findFirstCommentBlock(text: string): string | null {
 	if (!result) {
 		return null;
 	}
-	return result.groups!.comment || null;
+	return result.groups!.comment;
 }
 
 const xqueryParser: Parser<Node> = {
