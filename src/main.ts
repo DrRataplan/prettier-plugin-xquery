@@ -54,17 +54,9 @@ const allHandlers: Record<string, Handler> = {
 	...existDBUpdateNodeHandlers,
 };
 
-function offsetToCoords(text: string, offset: number) {
-	const before = text.substring(0, offset);
-	const lines = before.split("\n");
-	const line = lines.length;
-	const column = lines[lines.length - 1].length;
-	return { line, column };
-}
-
 const simplifyNode = (node: ParserNode): NonCommentNode[] => {
 	if (node.isTerminal) {
-		return [new LeafNode(node.type as TerminalName, node.start, node.end, node.value)];
+		return [new LeafNode(node.type as TerminalName, node.start, node.end!, node.value)];
 	}
 
 	const children = node.children.flatMap(simplifyNode);
@@ -99,7 +91,7 @@ const simplifyNode = (node: ParserNode): NonCommentNode[] => {
 		return children;
 	}
 
-	return [new NonTerminalNode(node.type as NonTerminalName, node.start, node.end, children)];
+	return [new NonTerminalNode(node.type as NonTerminalName, node.start, node.end!, children)];
 };
 
 const xqueryParser: Parser<Node> = {
@@ -108,7 +100,7 @@ const xqueryParser: Parser<Node> = {
 
 		const [newRoot] = simplifyNode(result.ast);
 		newRoot.comments = result.comments.map(
-			(commentNode) => new CommentNode(commentNode.start, commentNode.end, commentNode.value),
+			(commentNode) => new CommentNode(commentNode.start, commentNode.end!, commentNode.value),
 		);
 
 		return newRoot;
@@ -132,7 +124,7 @@ const xquery4Parser: Parser<Node> = {
 		const [newRoot] = simplifyNode(result.ast);
 		debugger;
 		newRoot.comments = result.comments.map(
-			(commentNode) => new CommentNode(commentNode.start, commentNode.end, commentNode.value),
+			(commentNode) => new CommentNode(commentNode.start, commentNode.end!, commentNode.value),
 		);
 
 		return newRoot;
