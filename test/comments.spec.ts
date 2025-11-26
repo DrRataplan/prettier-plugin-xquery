@@ -416,4 +416,109 @@ if (true()) then 1 else 2
 			assert.notEqual(result.trim(), script.trim());
 		});
 	});
+
+	describe("pragma: prettier for opting in for formatting", () => {
+		it("detects a pragma", async () => {
+			const script = `
+(: @format :)
+if (true()) then 1 else 2
+`;
+			const result = await prettier.format(script, {
+				parser: "xquery",
+				plugins: [xqueryPlugin],
+				requirePragma: true,
+			});
+
+			assert.notEqual(result.trim(), script.trim());
+		});
+
+		it("detects the absence of a pragma", async () => {
+			const script = `
+if (true()) then 1 else 2
+`;
+			const result = await prettier.format(script, {
+				parser: "xquery",
+				plugins: [xqueryPlugin],
+				requirePragma: true,
+			});
+
+			assert.equal(result.trim(), script.trim());
+		});
+
+		it("can place a pragma when there is no commentblock yet", async () => {
+			const script = `
+if (true()) then 1 else 2
+`.trim();
+			const result = await prettier.format(script, {
+				parser: "xquery",
+				plugins: [xqueryPlugin],
+				insertPragma: true,
+			});
+
+			assert.equal(
+				result.trim(),
+				`
+(: @format :)
+if (true()) then
+  1
+else
+  2
+`.trim(),
+			);
+		});
+
+		it("can place a pragma if there is already a single-line commentblock", async () => {
+			const script = `
+(: This file can be formatted right? :)
+if (true()) then 1 else 2
+`.trim();
+			const result = await prettier.format(script, {
+				parser: "xquery",
+				plugins: [xqueryPlugin],
+				insertPragma: true,
+			});
+
+			assert.equal(
+				result.trim(),
+				`
+(:~
+ : @format
+ : This file can be formatted right?
+ :)
+if (true()) then
+  1
+else
+  2
+`.trim(),
+			);
+		});
+
+		it("can place a pragma if there is already a multi-line commentblock", async () => {
+			const script = `
+(:~
+ : This file can be formatted right?
+ :)
+if (true()) then 1 else 2
+`.trim();
+			const result = await prettier.format(script, {
+				parser: "xquery",
+				plugins: [xqueryPlugin],
+				insertPragma: true,
+			});
+
+			assert.equal(
+				result.trim(),
+				`
+(:~
+ : @format
+ : This file can be formatted right?
+ :)
+if (true()) then
+  1
+else
+  2
+`.trim(),
+			);
+		});
+	});
 });
