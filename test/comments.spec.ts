@@ -415,6 +415,19 @@ if (true()) then 1 else 2
 
 			assert.notEqual(result.trim(), script.trim());
 		});
+
+		it("handles the absence comment block at the start", async () => {
+			const script = `
+if (true()) then 1 else 2
+`;
+			const result = await prettier.format(script, {
+				parser: "xquery",
+				plugins: [xqueryPlugin],
+				checkIgnorePragma: true,
+			});
+
+			assert.notEqual(result.trim(), script.trim());
+		});
 	});
 
 	describe("pragma: prettier for opting in for formatting", () => {
