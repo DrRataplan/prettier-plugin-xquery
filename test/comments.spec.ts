@@ -6,8 +6,7 @@ import xqueryPlugin from "../src/main.ts";
 describe("comments", async (d) => {
 	it("retains comments", async () => {
 		const code = `
-(: A :)
-1 (: B :) eq (: C :) 1
+(: A :) 1 (: B :) eq (: C :) 1
 `.trimStart();
 
 		const result = await prettier.format(code, {
