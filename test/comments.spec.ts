@@ -324,4 +324,96 @@ return sum($tree)`;
 			assert.equal(result.trim(), expectedOutput.trim());
 		});
 	});
+
+	describe("pragma: noformat and noprettier", () => {
+		it("ignores anything that has a comment with prettier-ignore before the prolog", async () => {
+			const script = `
+(: @noprettier :)
+let $tree := (  1,
+               2,3,
+              4,5,6,
+             7,8,9,0
+)
+return sum($tree)
+`;
+			const result = await prettier.format(script, {
+				parser: "xquery",
+				plugins: [xqueryPlugin],
+				checkIgnorePragma: true,
+			});
+
+			assert.equal(result.trim(), script.trim());
+		});
+
+		it("ignores anything that has a comment with prettier-ignore before the prolog", async () => {
+			const script = `
+(: @noformat :)
+let $tree := (  1,
+               2,3,
+              4,5,6,
+             7,8,9,0
+)
+return sum($tree)
+`;
+			const result = await prettier.format(script, {
+				parser: "xquery",
+				plugins: [xqueryPlugin],
+				checkIgnorePragma: true,
+			});
+
+			assert.equal(result.trim(), script.trim());
+		});
+
+		it("allows invalid scripts", async () => {
+			const script = `
+(: @noprettier :)
+
+I am not a valid XQuery module!
+`;
+			const result = await prettier.format(script, {
+				parser: "xquery",
+				plugins: [xqueryPlugin],
+				checkIgnorePragma: true,
+			});
+
+			assert.equal(result.trim(), script.trim());
+		});
+
+		it("Scans the whole first comment block", async () => {
+			const script = `
+(:
+ : This module has syntax errors
+ : @noprettier
+ :)
+
+I am not a valid XQuery module!
+`;
+			const result = await prettier.format(script, {
+				parser: "xquery",
+				plugins: [xqueryPlugin],
+				checkIgnorePragma: true,
+			});
+
+			assert.equal(result.trim(), script.trim());
+		});
+
+		it("Only checks the first comment block", async () => {
+			const script = `
+(: A new comment! :)
+(:
+ : This module has syntax errors
+ : @noprettier
+ :)
+
+if (true()) then 1 else 2
+`;
+			const result = await prettier.format(script, {
+				parser: "xquery",
+				plugins: [xqueryPlugin],
+				checkIgnorePragma: true,
+			});
+
+			assert.notEqual(result.trim(), script.trim());
+		});
+	});
 });
