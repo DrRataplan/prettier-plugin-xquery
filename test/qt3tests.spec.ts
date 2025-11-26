@@ -20,7 +20,7 @@ const testsets = evaluateXPathToNodes<Element>("//test-set", catalog);
 
 const abort = new AbortController();
 
-let amountOfCommentErors = 0;
+let amountOfCommentErrors = 0;
 let amountOfTypeErrors = 0;
 let amountOfTests = 0;
 let amountOfRoundtripFailures = 0;
@@ -103,7 +103,7 @@ Result of first round: ${resultOfFirstPrettification}`,
 						if (e) {
 							const message = e.toString() as string;
 							if (/^Error: Comment ".*" was not printed/.test(message)) {
-								amountOfCommentErors++;
+								amountOfCommentErrors++;
 							} else if (e instanceof TypeError) {
 								amountOfTypeErrors++;
 							}
@@ -137,11 +137,11 @@ Result of first round: ${resultOfFirstPrettification}`,
 * Automatically generated test report from running prettier over all ${amountOfTests} test cases in the QT3 tests.
 *
 * The ignore list contains ${totalFailureCount} known failing tests.
-* Tests that fail because a comment failed to be printed: ${amountOfCommentErors}
+* Tests that fail because a comment failed to be printed: ${amountOfCommentErrors}
 * Tests that fail because of a type error: ${amountOfTypeErrors}
 * Tests that fail because the prettified result is not stable: ${amountOfRoundtripFailures}
 *
-* Other failures: ${totalFailureCount - amountOfRoundtripFailures - amountOfTypeErrors - amountOfCommentErors}
+* Other failures: ${totalFailureCount - amountOfRoundtripFailures - amountOfTypeErrors - amountOfCommentErrors}
 */
 export default ${JSON.stringify(ignoreList, null, "\t")} as Record<string,Record<string,string[]>>;
 `,
