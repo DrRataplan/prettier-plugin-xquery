@@ -5,15 +5,15 @@ export abstract class Node<NameType extends NonTerminalName | TerminalName = Non
 	public readonly begin: number;
 	public end: number | undefined;
 
-	constructor(name: NameType, begin: number, end?: number) {
-		this.name = name;
+	constructor(type: NameType, begin: number, end?: number) {
+		this.name = type;
 		this.begin = begin;
 		this.end = end;
 	}
 }
 
-type TerminalName = `'${string}'` | "StringLiteral";
-type NonTerminalName = Capitalize<string>;
+export type TerminalName = `'${string}'` | "StringLiteral";
+export type NonTerminalName = Capitalize<string>;
 
 export abstract class NonCommentNode<
 	T extends NonTerminalName | TerminalName = NonTerminalName | TerminalName,
@@ -31,8 +31,8 @@ export abstract class NonCommentNode<
 export class NonTerminalNode extends NonCommentNode<NonTerminalName> {
 	public children: NonCommentNode[];
 
-	constructor(name: NonTerminalName, begin: number, end?: number, children: NonCommentNode[] = []) {
-		super(name, begin, end);
+	constructor(type: NonTerminalName, begin: number, end?: number, children: NonCommentNode[] = []) {
+		super(type, begin, end);
 		this.children = children;
 	}
 
@@ -61,8 +61,8 @@ export class NonTerminalNode extends NonCommentNode<NonTerminalName> {
 export class LeafNode extends NonCommentNode<TerminalName> {
 	public readonly value: string;
 
-	constructor(name: TerminalName, begin: number, end: number, value: string) {
-		super(name, begin, end);
+	constructor(type: TerminalName, begin: number, end: number, value: string) {
+		super(type, begin, end);
 		this.value = value;
 	}
 
@@ -107,20 +107,20 @@ export class Tree {
 		this.stack = [this.root];
 	}
 
-	startNonterminal(name: string, begin: number) {
-		const current = new NonTerminalNode(name as NonTerminalName, begin);
+	startNonterminal(type: string, begin: number) {
+		const current = new NonTerminalNode(type as NonTerminalName, begin);
 
 		const parent = this.peek();
 		parent.children.push(current);
 		this.stack.push(current);
 	}
-	endNonterminal(_name: string, end: number) {
+	endNonterminal(_type: string, end: number) {
 		const current = this.stack.pop()!;
 		current.end = end;
 	}
 
-	terminal(name: string, begin: number, end: number) {
-		const leaf = new LeafNode(name as TerminalName, begin, end, this.code.substring(begin, end));
+	terminal(type: string, begin: number, end: number) {
+		const leaf = new LeafNode(type as TerminalName, begin, end, this.code.substring(begin, end));
 		const parent = this.peek();
 		parent.children.push(leaf);
 	}
