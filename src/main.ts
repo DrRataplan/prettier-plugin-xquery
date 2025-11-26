@@ -18,10 +18,9 @@ import sequenceExpressionHandlers from "./handlers/sequenceExpressions.ts";
 import typeHandlers from "./handlers/types.ts";
 import validateExpressionHandlers from "./handlers/validateExpressions.ts";
 import type { Handler } from "./handlers/util/Handler.ts";
-import isPreviousLineEmpty from "./handlers/util/isPreviousLineEmpty.ts";
 import printComment from "./handlers/util/printComment.ts";
 
-const { line, group, hardlineWithoutBreakParent, literallineWithoutBreakParent, join } = doc.builders;
+const { line, group } = doc.builders;
 const { getPreferredQuote } = util;
 
 // Handlers are split up based on their placement in the XQuery specification. FLWOR by FLWOR,
@@ -50,6 +49,14 @@ function offsetToCoords(text: string, offset: number) {
 	const line = lines.length;
 	const column = lines[lines.length - 1].length;
 	return { line, column };
+}
+
+function findFirstCommentBlock(text: string): string | null {
+	const result = text.match(/^\s*(?<comment>\(:([^:]|(:(?!\))))*:\))/);
+	if (!result) {
+		return null;
+	}
+	return result.groups!.comment || null;
 }
 
 const xqueryParser: Parser<Node> = {
@@ -128,7 +135,19 @@ const xqueryParser: Parser<Node> = {
 	},
 	hasIgnorePragma(text) {
 		// A noprettier or noformat can occur anywhere in the first comment block
-		return /^\s*\(:([^:]|(:(?!\))))*(@noprettier|@noformat).*/.test(text);
+		const commentBlock = findFirstCommentBlock(text);
+		if (!commentBlock) {
+			return false;
+		}
+		return commentBlock.includes("@noprettier") || commentBlock.includes("@noformat");
+	},
+	hasPragma(text) {
+		// A format pragma can occur anywhere in the first comment block
+		const commentBlock = findFirstCommentBlock(text);
+		if (!commentBlock) {
+			return false;
+		}
+		return commentBlock.includes("@format");
 	},
 };
 
@@ -204,7 +223,12 @@ const xqueryPrinter: Printer<Node> = {
 		return printComment(node);
 	},
 	insertPragma(text) {
-		return `(: noformat :)\n${text}`;
+		const firstCommentBlock = findFirstCommentBlock(text);
+		if (firstCommentBlock) {
+			const textWithoutCommentBlock = text.substring(firstCommentBlock.length);
+			return firstCommentBlock.replace(/\(:~?\n?/, "(:~\n@format\n") + textWithoutCommentBlock;
+		}
+		return `(: @format :)\n${text.trimStart()}`;
 	},
 	hasPrettierIgnore,
 	print(path: AstPath<Node>, options, print: Print, _args) {
