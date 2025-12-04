@@ -102,6 +102,35 @@ const simplifyNode = (node: ParserNode): NonCommentNode[] => {
 	return [new NonTerminalNode(node.type as NonTerminalName, node.start, node.end!, children)];
 };
 
+const commonParser = {
+	astFormat: "xquery",
+	locStart(node: Node) {
+		return node.begin;
+	},
+	locEnd(node: Node) {
+		return node.end!;
+	},
+	preprocess(text: string) {
+		return text.trimStart();
+	},
+	hasIgnorePragma(text: string) {
+		// A noprettier or noformat can occur anywhere in the first comment block
+		const commentBlock = findFirstCommentBlock(text);
+		if (!commentBlock) {
+			return false;
+		}
+		return commentBlock.includes("@noprettier") || commentBlock.includes("@noformat");
+	},
+	hasPragma(text: string) {
+		// A format pragma can occur anywhere in the first comment block
+		const commentBlock = findFirstCommentBlock(text);
+		if (!commentBlock) {
+			return false;
+		}
+		return commentBlock.includes("@format");
+	},
+};
+
 const xqueryParser: Parser<Node> = {
 	parse(text, _options) {
 		const result = XQuery31Full(text);
@@ -113,16 +142,7 @@ const xqueryParser: Parser<Node> = {
 
 		return newRoot;
 	},
-	astFormat: "xquery",
-	locStart(node) {
-		return node.begin;
-	},
-	locEnd(node) {
-		return node.end!;
-	},
-	preprocess(text) {
-		return text.trimStart();
-	},
+	...commonParser,
 };
 
 const xquery4Parser: Parser<Node> = {
@@ -130,36 +150,13 @@ const xquery4Parser: Parser<Node> = {
 		const result = XQuery4Full(text);
 
 		const [newRoot] = simplifyNode(result.ast);
-		debugger;
 		newRoot.comments = result.comments.map(
 			(commentNode) => new CommentNode(commentNode.start, commentNode.end!, commentNode.value),
 		);
 
 		return newRoot;
 	},
-	astFormat: "xquery",
-	locStart(node) {
-		return node.begin;
-	},
-	locEnd(node) {
-		return node.end!;
-	},
-	hasIgnorePragma(text) {
-		// A noprettier or noformat can occur anywhere in the first comment block
-		const commentBlock = findFirstCommentBlock(text);
-		if (!commentBlock) {
-			return false;
-		}
-		return commentBlock.includes("@noprettier") || commentBlock.includes("@noformat");
-	},
-	hasPragma(text) {
-		// A format pragma can occur anywhere in the first comment block
-		const commentBlock = findFirstCommentBlock(text);
-		if (!commentBlock) {
-			return false;
-		}
-		return commentBlock.includes("@format");
-	},
+	...commonParser,
 };
 
 const hasPrettierIgnore = (path: AstPath<Node>): boolean => {
