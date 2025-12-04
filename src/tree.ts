@@ -71,12 +71,6 @@ export class LeafNode extends NonCommentNode<TerminalName> {
 	}
 }
 
-export class RootNode extends NonTerminalNode {
-	public readonly comments: CommentNode[] = [];
-	constructor(begin: number, end?: number) {
-		super("Root", begin, end);
-	}
-}
 export class CommentNode extends Node {
 	public readonly value: string;
 
