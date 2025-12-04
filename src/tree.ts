@@ -5,15 +5,15 @@ export abstract class Node<NameType extends NonTerminalName | TerminalName = Non
 	public readonly begin: number;
 	public end: number | undefined;
 
-	constructor(name: NameType, begin: number, end?: number) {
-		this.name = name;
+	constructor(type: NameType, begin: number, end?: number) {
+		this.name = type;
 		this.begin = begin;
 		this.end = end;
 	}
 }
 
-type TerminalName = `'${string}'` | "StringLiteral";
-type NonTerminalName = Capitalize<string>;
+export type TerminalName = `'${string}'` | "StringLiteral";
+export type NonTerminalName = Capitalize<string>;
 
 export abstract class NonCommentNode<
 	T extends NonTerminalName | TerminalName = NonTerminalName | TerminalName,
@@ -31,8 +31,8 @@ export abstract class NonCommentNode<
 export class NonTerminalNode extends NonCommentNode<NonTerminalName> {
 	public children: NonCommentNode[];
 
-	constructor(name: NonTerminalName, begin: number, end?: number, children: NonCommentNode[] = []) {
-		super(name, begin, end);
+	constructor(type: NonTerminalName, begin: number, end?: number, children: NonCommentNode[] = []) {
+		super(type, begin, end);
 		this.children = children;
 	}
 
@@ -61,8 +61,8 @@ export class NonTerminalNode extends NonCommentNode<NonTerminalName> {
 export class LeafNode extends NonCommentNode<TerminalName> {
 	public readonly value: string;
 
-	constructor(name: TerminalName, begin: number, end: number, value: string) {
-		super(name, begin, end);
+	constructor(type: TerminalName, begin: number, end: number, value: string) {
+		super(type, begin, end);
 		this.value = value;
 	}
 
@@ -71,12 +71,6 @@ export class LeafNode extends NonCommentNode<TerminalName> {
 	}
 }
 
-export class RootNode extends NonTerminalNode {
-	public readonly comments: CommentNode[] = [];
-	constructor(begin: number, end?: number) {
-		super("Root", begin, end);
-	}
-}
 export class CommentNode extends Node {
 	public readonly value: string;
 
@@ -88,52 +82,5 @@ export class CommentNode extends Node {
 	constructor(begin: number, end: number, value: string) {
 		super("Comment", begin, end);
 		this.value = value;
-	}
-}
-
-export class Tree {
-	public stack: NonTerminalNode[];
-	public code: string;
-	public root: RootNode;
-	constructor() {
-		this.code = "";
-		this.root = new RootNode(0);
-		this.stack = [this.root];
-	}
-
-	reset(code: string) {
-		this.code = code;
-		this.root = new RootNode(0, code.length);
-		this.stack = [this.root];
-	}
-
-	startNonterminal(name: string, begin: number) {
-		const current = new NonTerminalNode(name as NonTerminalName, begin);
-
-		const parent = this.peek();
-		parent.children.push(current);
-		this.stack.push(current);
-	}
-	endNonterminal(_name: string, end: number) {
-		const current = this.stack.pop()!;
-		current.end = end;
-	}
-
-	terminal(name: string, begin: number, end: number) {
-		const leaf = new LeafNode(name as TerminalName, begin, end, this.code.substring(begin, end));
-		const parent = this.peek();
-		parent.children.push(leaf);
-	}
-
-	whitespace(begin: number, end: number) {
-		const contents = this.code.substring(begin, end);
-		const comments = findCommentsInWhitespace(contents, begin);
-		for (const comment of comments) {
-			this.root.comments.push(comment);
-		}
-	}
-
-	peek(): NonTerminalNode {
-		return this.stack[this.stack.length - 1];
 	}
 }

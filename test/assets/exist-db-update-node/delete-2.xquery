@@ -1,0 +1,2 @@
+for $address in //address
+return update delete $address
