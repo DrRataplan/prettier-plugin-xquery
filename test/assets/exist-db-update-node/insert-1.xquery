@@ -1,0 +1,2 @@
+let $node := <root><a /></root>
+return update insert <b /> into $node/a

@@ -1,0 +1,2 @@
+for $city in //address/city
+return update delete $city

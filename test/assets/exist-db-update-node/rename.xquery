@@ -1,0 +1,2 @@
+for $city in //address/city
+return update rename $city as "locale"

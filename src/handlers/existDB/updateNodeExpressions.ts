@@ -8,6 +8,10 @@ import joinChildrenWithSpaces from "../util/joinChildrenWithSpaces.ts";
 const existDBUpdateNodeHandlers: Record<string, Handler> = {
 	ExistDB_UpdateExpr: joinChildrenWithSpaces,
 	ExistDB_UpdateInsertExpr: joinChildrenWithSpaces,
+	ExistDB_UpdateDeleteExpr: joinChildrenWithSpaces,
+	ExistDB_UpdateRenameExpr: joinChildrenWithSpaces,
+	ExistDB_UpdateReplacExpr: joinChildrenWithSpaces,
+	ExistDB_UpdateValueExpr: joinChildrenWithSpaces,
 };
 
 export default existDBUpdateNodeHandlers;
