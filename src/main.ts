@@ -26,6 +26,7 @@ import sequenceExpressionHandlers from "./handlers/sequenceExpressions.ts";
 import existDBUpdateNodeHandlers from "./handlers/existDB/updateNodeExpressions.ts";
 import typeHandlers from "./handlers/types.ts";
 import validateExpressionHandlers from "./handlers/validateExpressions.ts";
+import otherwiseExpressionHandlers from "./handlers/otherwiseExpressions.ts";
 import type { Handler } from "./handlers/util/Handler.ts";
 import printComment from "./handlers/util/printComment.ts";
 import { XQuery31Full, XQuery4Full, type Node as ParserNode } from "xq-parser";
@@ -52,6 +53,7 @@ const allHandlers: Record<string, Handler> = {
 	...typeHandlers,
 	...validateExpressionHandlers,
 	...existDBUpdateNodeHandlers,
+	...otherwiseExpressionHandlers,
 };
 
 function findFirstCommentBlock(text: string): string | null {
