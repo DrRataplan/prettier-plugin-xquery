@@ -1,1 +1,1 @@
-update replace//fname[. = "Andrew"]with<fname>Andy</fname>
+update replace //fname[. = "Andrew"] with <fname>Andy</fname>
