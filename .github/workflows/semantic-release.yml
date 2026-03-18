@@ -7,12 +7,20 @@ on:
     types:
       - completed
 
+permissions:
+  contents: read # for checkout
+
 jobs:
   release:
     # check Test success
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
     name: Release
     runs-on: ubuntu-latest
+    permissions:
+      contents: write # to be able to publish a GitHub release
+      issues: write # to be able to comment on released issues
+      pull-requests: write # to be able to comment on released pull requests
+      id-token: write # to enable use of OIDC for trusted publishing and npm provenance
     steps:
       - uses: actions/checkout@v4
         with:
@@ -26,4 +34,4 @@ jobs:
       - run: npx semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}
