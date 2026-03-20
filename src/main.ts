@@ -24,6 +24,7 @@ import modulesAndPrologsHandlers from "./handlers/modulesAndPrologs.ts";
 import arrowOperatorHandlers from "./handlers/arrowOperator.ts";
 import sequenceExpressionHandlers from "./handlers/sequenceExpressions.ts";
 import existDBUpdateNodeHandlers from "./handlers/existDB/updateNodeExpressions.ts";
+import XQUF_Handlers from "./handlers/xquf/xqufExpressions.ts";
 import typeHandlers from "./handlers/types.ts";
 import validateExpressionHandlers from "./handlers/validateExpressions.ts";
 import otherwiseExpressionHandlers from "./handlers/otherwiseExpressions.ts";
@@ -53,6 +54,7 @@ const allHandlers: Record<string, Handler> = {
 	...typeHandlers,
 	...validateExpressionHandlers,
 	...existDBUpdateNodeHandlers,
+	...XQUF_Handlers,
 	...otherwiseExpressionHandlers,
 };
 
