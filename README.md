@@ -101,6 +101,13 @@ declare function el:swap (
 };
 ```
 
+## Dialects
+
+The following different extensions to XQuery will be picked up and formatted:
+
+ - The update node syntax in Exist DB: `update insert element div {} into /`, sponsored by [ExistSolutions](https://www.existsolutions.com/)
+ - XQuery Update Facility 3.0: `insert node  element div {} into /`
+
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at
@@ -108,9 +115,7 @@ Bug reports and pull requests are welcome on GitHub at
 
 This plugin is under development, the following features are planned:
 
-* Extensible parsers, for the different dialects of XQuery, like XQuery Update Facility, the ExistDB
-  update syntax or the customizations in MarkLogic
-* Support for XQuery 4.0
+* Extensible parsers, for the different dialects of XQuery, like the customizations in MarkLogic
 * General stability. Refer to [list of known test failures](test/assets/ignoreList.ts) for a report
   of current known failing tests.
 
