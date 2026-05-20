@@ -1,4 +1,4 @@
-declare function local:test ($test as xs:integer) as xs:integer? {
+declare function local:test($test as xs:integer) as xs:integer? {
   if ($test = 1) then (
     0
   ) else if ($test = 2) then (

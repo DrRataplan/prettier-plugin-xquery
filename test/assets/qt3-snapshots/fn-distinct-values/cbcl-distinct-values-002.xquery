@@ -1,4 +1,4 @@
-declare function local:create ($arg) as xs:anyAtomicType* {
+declare function local:create($arg) as xs:anyAtomicType* {
   (
     if ($arg castable as xs:untypedAtomic) then
       $arg cast as xs:untypedAtomic

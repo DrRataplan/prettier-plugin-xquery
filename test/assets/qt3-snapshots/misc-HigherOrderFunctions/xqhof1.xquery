@@ -1,14 +1,14 @@
 declare namespace map = "http://snelson.org.uk/functions/map";
 
-declare function map:key ($pair as function () as item()+) as item() {
+declare function map:key($pair as function () as item()+) as item() {
   $pair()[1]
 };
 
-declare function map:value ($pair as function () as item()+) as item()* {
+declare function map:value($pair as function () as item()+) as item()* {
   subsequence($pair(), 2)
 };
 
-declare function map:contains (
+declare function map:contains(
   $map as (function () as item()+)*,
   $key as item()
 ) as xs:boolean {
@@ -21,14 +21,14 @@ declare function map:contains (
   )
 };
 
-declare function map:get (
+declare function map:get(
   $map as (function () as item()+)*,
   $key as item()
 ) as item()* {
   map:process($map, $key, map:value#1, (), function ($a) { () })
 };
 
-declare function map:process (
+declare function map:process(
   $map as (function () as item()+)*,
   $key as item(),
   $found as function (function () as item()+) as item()*,
@@ -67,14 +67,14 @@ declare function map:process (
     )
 };
 
-declare function map:pair (
+declare function map:pair(
   $key as item(),
   $value as item()*
 ) as function () as item()+ {
   function () { $key, $value }
 };
 
-declare function map:put (
+declare function map:put(
   $map as (function () as item()+)*,
   $key as item(),
   $value as item()*

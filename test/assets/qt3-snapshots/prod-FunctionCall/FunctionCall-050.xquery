@@ -8,7 +8,7 @@ declare variable $elem := validate strict {
   </lu:elementContainingApproximateDate>
   };
 
-declare function local:hof (
+declare function local:hof(
   $f as function (element(*, lu:approximateDate)) as xs:integer,
   $e as node()
 ) as xs:boolean {

@@ -1,4 +1,4 @@
-declare function local:_ ($arg as node()) {
+declare function local:_($arg as node()) {
   $arg
 };
 

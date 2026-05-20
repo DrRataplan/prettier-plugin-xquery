@@ -1,4 +1,4 @@
-declare function wrongNS () {
+declare function wrongNS() {
   1
 };
 

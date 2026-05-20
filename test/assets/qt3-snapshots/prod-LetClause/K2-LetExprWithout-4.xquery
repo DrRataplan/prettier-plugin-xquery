@@ -1,4 +1,4 @@
-declare function local:myFunc ($arg as node()) {
+declare function local:myFunc($arg as node()) {
   let $v := .
   return $arg/$v
 };

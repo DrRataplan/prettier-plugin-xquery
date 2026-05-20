@@ -1,4 +1,4 @@
-declare function local:nan () {
+declare function local:nan() {
   xs:float("NaN")
 };
 

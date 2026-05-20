@@ -1,4 +1,4 @@
-declare function local:fact ($n as xs:integer) as xs:integer {
+declare function local:fact($n as xs:integer) as xs:integer {
   if ($n < 2) then
     1
   else

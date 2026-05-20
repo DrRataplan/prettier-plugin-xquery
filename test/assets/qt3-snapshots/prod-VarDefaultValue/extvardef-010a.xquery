@@ -2,7 +2,7 @@ declare variable $a external;
 
 declare variable $b external;
 
-declare function local:foo () {
+declare function local:foo() {
   $b + 10
 };
 

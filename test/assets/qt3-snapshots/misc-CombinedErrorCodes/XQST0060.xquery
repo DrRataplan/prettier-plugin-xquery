@@ -1,6 +1,6 @@
 declare default function namespace "";
 
-declare function foo () {
+declare function foo() {
   1
 };
 

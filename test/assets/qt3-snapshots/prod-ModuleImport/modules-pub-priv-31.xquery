@@ -1,4 +1,4 @@
-declare %public %public function local:foo () {
+declare %public %public function local:foo() {
   ()
 };
 

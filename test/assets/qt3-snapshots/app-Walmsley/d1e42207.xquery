@@ -1,4 +1,4 @@
-declare function local:larger-values (
+declare function local:larger-values(
   $arrayarg as array(xs:integer)
 ) as xs:integer* {
   array:flatten($arrayarg)[. > 15]

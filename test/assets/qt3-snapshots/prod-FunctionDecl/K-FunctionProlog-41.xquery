@@ -1,4 +1,4 @@
-declare function local:myFunction ($local:myVar) {
+declare function local:myFunction($local:myVar) {
   $local:myVar + 1
 };
 

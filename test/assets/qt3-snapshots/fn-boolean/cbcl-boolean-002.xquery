@@ -1,4 +1,4 @@
-declare function local:generate ($count as xs:integer) {
+declare function local:generate($count as xs:integer) {
   for $x in 1 to $count
   return if ($x mod 3 = 0) then
     <a />

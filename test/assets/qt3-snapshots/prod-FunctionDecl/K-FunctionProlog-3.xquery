@@ -1,4 +1,4 @@
-declare function xml:wrongNS () {
+declare function xml:wrongNS() {
   1
 };
 

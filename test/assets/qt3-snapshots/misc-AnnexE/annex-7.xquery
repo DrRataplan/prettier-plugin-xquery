@@ -1,6 +1,6 @@
 declare namespace eg = "http://example.org";
 
-declare function eg:string-pad (
+declare function eg:string-pad(
   $padString as xs:string?,
   $padCount as xs:integer
 ) as xs:string {

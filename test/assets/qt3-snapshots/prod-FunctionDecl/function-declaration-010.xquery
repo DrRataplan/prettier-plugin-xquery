@@ -1,4 +1,4 @@
-declare function local:prnt (
+declare function local:prnt(
   $n as xs:integer,
   $n2 as xs:string,
   $n3 as xs:date,

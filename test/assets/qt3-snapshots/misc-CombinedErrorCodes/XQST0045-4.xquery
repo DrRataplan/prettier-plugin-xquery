@@ -1,4 +1,4 @@
-declare function xsi:foo () {
+declare function xsi:foo() {
   1
 };
 

@@ -1,4 +1,4 @@
-declare function local:coerce (
+declare function local:coerce(
   $arg as function (item()*) as item()*
 ) as function (item()*) as item()* {
   $arg

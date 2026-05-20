@@ -1,6 +1,6 @@
 declare namespace my = "urn:foo";
 
-declare function my:fact ($n as xs:integer) as xs:integer {
+declare function my:fact($n as xs:integer) as xs:integer {
   if ($n < 2) then
     1
   else

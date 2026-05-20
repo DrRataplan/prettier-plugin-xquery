@@ -1,4 +1,4 @@
-declare function local:foo ($arg) as xs:boolean* {
+declare function local:foo($arg) as xs:boolean* {
   $arg
 };
 

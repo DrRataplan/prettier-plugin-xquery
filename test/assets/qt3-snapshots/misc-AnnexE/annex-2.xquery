@@ -1,6 +1,6 @@
 declare namespace eg = "http://example.org";
 
-declare function eg:if-absent (
+declare function eg:if-absent(
   $node as node()?,
   $value as xs:anyAtomicType
 ) as xs:anyAtomicType* {

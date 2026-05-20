@@ -1,4 +1,4 @@
-declare function local:myFunction ($local:myVar as xs:integer) {
+declare function local:myFunction($local:myVar as xs:integer) {
   for $local:myVar in ($local:myVar, 3)
   return $local:myVar
 };

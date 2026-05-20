@@ -1,438 +1,438 @@
 declare default function namespace "http://www.w3.org/2005/xquery-local-functions";
 
-declare function NaN () {
+declare function NaN() {
   1
 };
 
-declare function allowing () {
+declare function allowing() {
   2
 };
 
-declare function ancestor-or-self () {
+declare function ancestor-or-self() {
   3
 };
 
-declare function ancestor () {
+declare function ancestor() {
   4
 };
 
-declare function and () {
+declare function and() {
   5
 };
 
-declare function as () {
+declare function as() {
   6
 };
 
-declare function ascending () {
+declare function ascending() {
   7
 };
 
-declare function at () {
+declare function at() {
   8
 };
 
-declare function base-uri () {
+declare function base-uri() {
   9
 };
 
-declare function boundary-space () {
+declare function boundary-space() {
   10
 };
 
-declare function by () {
+declare function by() {
   11
 };
 
-declare function case () {
+declare function case() {
   12
 };
 
-declare function cast () {
+declare function cast() {
   13
 };
 
-declare function castable () {
+declare function castable() {
   14
 };
 
-declare function catch () {
+declare function catch() {
   15
 };
 
-declare function child () {
+declare function child() {
   16
 };
 
-declare function collation () {
+declare function collation() {
   17
 };
 
-declare function construction () {
+declare function construction() {
   18
 };
 
-declare function context () {
+declare function context() {
   19
 };
 
-declare function copy-namespaces () {
+declare function copy-namespaces() {
   20
 };
 
-declare function count () {
+declare function count() {
   21
 };
 
-declare function decimal-format () {
+declare function decimal-format() {
   22
 };
 
-declare function decimal-separator () {
+declare function decimal-separator() {
   23
 };
 
-declare function declare () {
+declare function declare() {
   24
 };
 
-declare function default () {
+declare function default() {
   25
 };
 
-declare function descendant-or-self () {
+declare function descendant-or-self() {
   26
 };
 
-declare function descendant () {
+declare function descendant() {
   27
 };
 
-declare function descending () {
+declare function descending() {
   28
 };
 
-declare function digit () {
+declare function digit() {
   29
 };
 
-declare function div () {
+declare function div() {
   30
 };
 
-declare function document () {
+declare function document() {
   31
 };
 
-declare function else () {
+declare function else() {
   32
 };
 
-declare function empty () {
+declare function empty() {
   33
 };
 
-declare function encoding () {
+declare function encoding() {
   34
 };
 
-declare function end () {
+declare function end() {
   35
 };
 
-declare function eq () {
+declare function eq() {
   36
 };
 
-declare function every () {
+declare function every() {
   37
 };
 
-declare function except () {
+declare function except() {
   38
 };
 
-declare function external () {
+declare function external() {
   39
 };
 
-declare function following-sibling () {
+declare function following-sibling() {
   40
 };
 
-declare function following () {
+declare function following() {
   41
 };
 
-declare function for () {
+declare function for() {
   42
 };
 
-declare function ge () {
+declare function ge() {
   43
 };
 
-declare function greatest () {
+declare function greatest() {
   44
 };
 
-declare function group () {
+declare function group() {
   45
 };
 
-declare function grouping-separator () {
+declare function grouping-separator() {
   46
 };
 
-declare function gt () {
+declare function gt() {
   47
 };
 
-declare function idiv () {
+declare function idiv() {
   48
 };
 
-declare function import () {
+declare function import() {
   49
 };
 
-declare function in () {
+declare function in() {
   50
 };
 
-declare function infinity () {
+declare function infinity() {
   51
 };
 
-declare function inherit () {
+declare function inherit() {
   52
 };
 
-declare function instance () {
+declare function instance() {
   53
 };
 
-declare function intersect () {
+declare function intersect() {
   54
 };
 
-declare function is () {
+declare function is() {
   55
 };
 
-declare function lax () {
+declare function lax() {
   56
 };
 
-declare function le () {
+declare function le() {
   57
 };
 
-declare function least () {
+declare function least() {
   58
 };
 
-declare function let () {
+declare function let() {
   59
 };
 
-declare function lt () {
+declare function lt() {
   60
 };
 
-declare function minus-sign () {
+declare function minus-sign() {
   61
 };
 
-declare function mod () {
+declare function mod() {
   62
 };
 
-declare function module () {
+declare function module() {
   63
 };
 
-declare function namespace () {
+declare function namespace() {
   64
 };
 
-declare function ne () {
+declare function ne() {
   65
 };
 
-declare function next () {
+declare function next() {
   66
 };
 
-declare function no-inherit () {
+declare function no-inherit() {
   67
 };
 
-declare function no-preserve () {
+declare function no-preserve() {
   68
 };
 
-declare function of () {
+declare function of() {
   69
 };
 
-declare function only () {
+declare function only() {
   70
 };
 
-declare function option () {
+declare function option() {
   71
 };
 
-declare function or () {
+declare function or() {
   72
 };
 
-declare function order () {
+declare function order() {
   73
 };
 
-declare function ordered () {
+declare function ordered() {
   74
 };
 
-declare function ordering () {
+declare function ordering() {
   75
 };
 
-declare function parent () {
+declare function parent() {
   76
 };
 
-declare function pattern-separator () {
+declare function pattern-separator() {
   77
 };
 
-declare function per-mille () {
+declare function per-mille() {
   78
 };
 
-declare function percent () {
+declare function percent() {
   79
 };
 
-declare function preceding-sibling () {
+declare function preceding-sibling() {
   80
 };
 
-declare function preceding () {
+declare function preceding() {
   81
 };
 
-declare function preserve () {
+declare function preserve() {
   82
 };
 
-declare function previous () {
+declare function previous() {
   83
 };
 
-declare function return () {
+declare function return() {
   84
 };
 
-declare function satisfies () {
+declare function satisfies() {
   85
 };
 
-declare function schema () {
+declare function schema() {
   86
 };
 
-declare function self () {
+declare function self() {
   87
 };
 
-declare function sliding () {
+declare function sliding() {
   88
 };
 
-declare function some () {
+declare function some() {
   89
 };
 
-declare function stable () {
+declare function stable() {
   90
 };
 
-declare function start () {
+declare function start() {
   91
 };
 
-declare function strict () {
+declare function strict() {
   92
 };
 
-declare function strip () {
+declare function strip() {
   93
 };
 
-declare function then () {
+declare function then() {
   94
 };
 
-declare function to () {
+declare function to() {
   95
 };
 
-declare function treat () {
+declare function treat() {
   96
 };
 
-declare function try () {
+declare function try() {
   97
 };
 
-declare function tumbling () {
+declare function tumbling() {
   98
 };
 
-declare function type () {
+declare function type() {
   99
 };
 
-declare function union () {
+declare function union() {
   100
 };
 
-declare function unordered () {
+declare function unordered() {
   101
 };
 
-declare function validate () {
+declare function validate() {
   102
 };
 
-declare function variable () {
+declare function variable() {
   103
 };
 
-declare function version () {
+declare function version() {
   104
 };
 
-declare function when () {
+declare function when() {
   105
 };
 
-declare function where () {
+declare function where() {
   106
 };
 
-declare function window () {
+declare function window() {
   107
 };
 
-declare function xquery () {
+declare function xquery() {
   108
 };
 
-declare function zero-digit () {
+declare function zero-digit() {
   109
 };
 

@@ -1,4 +1,4 @@
-declare function local:unique ($in as xs:integer*) as xs:boolean {
+declare function local:unique($in as xs:integer*) as xs:boolean {
   count($in) = count(distinct-values($in))
 };
 

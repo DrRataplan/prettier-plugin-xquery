@@ -1,4 +1,4 @@
-declare function local:index-of ($seq as xs:double*, $item as xs:double) {
+declare function local:index-of($seq as xs:double*, $item as xs:double) {
   for $x at $p in $seq
   return if ($x eq $item) then
     $p
@@ -6,7 +6,7 @@ declare function local:index-of ($seq as xs:double*, $item as xs:double) {
   )
 };
 
-declare function local:sequence ($x as xs:integer) {
+declare function local:sequence($x as xs:integer) {
   ("string", 1, 2.0, xs:float(3))[$x]
 };
 

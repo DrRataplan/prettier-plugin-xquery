@@ -20,7 +20,7 @@ declare variable $span := <root>
   <span class="ocr_word" title="bbox 257 566 462 607">erastinus</span>
 </root>;
 
-declare function local:extract-text ($spans) {
+declare function local:extract-text($spans) {
   for $s in $spans//span
   return string($s)
 };

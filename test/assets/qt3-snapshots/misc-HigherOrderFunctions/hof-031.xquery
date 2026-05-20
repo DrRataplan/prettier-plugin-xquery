@@ -1,4 +1,4 @@
-declare function local:splitter (
+declare function local:splitter(
   $sep as xs:string
 ) as (function (xs:string) as xs:string*) {
   function ($x as xs:string) {

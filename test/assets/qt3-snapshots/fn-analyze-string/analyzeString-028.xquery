@@ -1,4 +1,4 @@
-declare function local:namespaces (
+declare function local:namespaces(
   $e as element(*)
 ) as map(xs:string, xs:anyURI) {
   map:merge(in-scope-prefixes($e)!map {.: namespace-uri-for-prefix(., $e)})

@@ -1,4 +1,4 @@
-declare function local:func ($choose, $whenTrue, $whenFalse) {
+declare function local:func($choose, $whenTrue, $whenFalse) {
   if ($choose) then
     $whenTrue
   else

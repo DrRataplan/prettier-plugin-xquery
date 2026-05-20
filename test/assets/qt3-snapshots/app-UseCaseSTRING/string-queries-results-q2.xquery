@@ -2,7 +2,7 @@ declare variable $input-context1 := $string;
 
 declare variable $input-context2 := $company-data;
 
-declare function local:partners ($company as xs:string) as element()* {
+declare function local:partners($company as xs:string) as element()* {
   let $c := $input-context2//company[name = $company]
   return $c//partner
 };

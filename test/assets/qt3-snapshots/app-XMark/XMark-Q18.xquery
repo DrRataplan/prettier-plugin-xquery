@@ -1,7 +1,7 @@
 (: Purpose: Convert the currency of the reserve of all open auctions to another currency. :)
 declare namespace local = "http://www.example.com/";
 
-declare function local:convert ($v as xs:decimal?) as xs:decimal? {
+declare function local:convert($v as xs:decimal?) as xs:decimal? {
   2.20371 * $v
 };
 

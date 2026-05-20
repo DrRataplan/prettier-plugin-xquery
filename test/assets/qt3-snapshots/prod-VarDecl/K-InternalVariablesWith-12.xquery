@@ -1,6 +1,6 @@
 declare variable $var1 := local:myFunc();
 
-declare function local:myFunc () {
+declare function local:myFunc() {
   1
 };
 

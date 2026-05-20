@@ -1,8 +1,8 @@
-declare function local:random-sequence ($length as xs:integer) as xs:double* {
+declare function local:random-sequence($length as xs:integer) as xs:double* {
   local:random-sequence($length, fn:random-number-generator())
 };
 
-declare function local:random-sequence (
+declare function local:random-sequence(
   $length as xs:integer,
   $G as map(xs:string, item())
 ) {

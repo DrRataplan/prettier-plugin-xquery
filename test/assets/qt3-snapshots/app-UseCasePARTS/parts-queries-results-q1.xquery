@@ -1,6 +1,6 @@
 declare variable $input-context := .;
 
-declare function local:one_level ($p as element()) as element() {
+declare function local:one_level($p as element()) as element() {
   <part name="{ $p/@name }" partid="{ $p/@partid }">
     {
       for $s in ($input-context//part)

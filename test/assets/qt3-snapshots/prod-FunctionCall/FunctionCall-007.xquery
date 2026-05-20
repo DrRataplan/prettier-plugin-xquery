@@ -1,4 +1,4 @@
-declare function local:f ($in as xs:anyAtomicType) as xs:boolean {
+declare function local:f($in as xs:anyAtomicType) as xs:boolean {
   $in instance of xs:decimal
 };
 

@@ -1,6 +1,6 @@
 declare variable $local:myVar := local:myFunction();
 
-declare function local:myFunction () {
+declare function local:myFunction() {
   if (current-date() gt xs:date("1990-01-01")) then
     $local:myVar + 1
   else

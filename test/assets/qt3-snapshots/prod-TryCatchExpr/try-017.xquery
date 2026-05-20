@@ -1,4 +1,4 @@
-declare function local:f () {
+declare function local:f() {
   a
 };
 

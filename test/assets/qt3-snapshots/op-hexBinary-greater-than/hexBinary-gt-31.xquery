@@ -1,4 +1,4 @@
-declare function local:hexBinary-value ($arg as xs:boolean) as xs:hexBinary {
+declare function local:hexBinary-value($arg as xs:boolean) as xs:hexBinary {
   if ($arg) then
     xs:hexBinary("68656c6c6f")
   else

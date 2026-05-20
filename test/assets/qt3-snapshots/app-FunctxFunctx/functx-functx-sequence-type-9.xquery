@@ -3,7 +3,7 @@ declare namespace functx = "http://www.example.com/";
 (:~
  : The built-in type of an atomic value : : @author Priscilla Walmsley, Datypic : @version 1.0 : @see http://www.xqueryfunctions.com/xq/functx_atomic-type.html : @param $values the value(s) whose type you want to determine
  :)
-declare function functx:atomic-type (
+declare function functx:atomic-type(
   $values as xs:anyAtomicType*
 ) as xs:string* {
   for $val in $values
@@ -100,7 +100,7 @@ declare function functx:atomic-type (
 (:~
  : The XML node kind (element, attribute, text, etc.) : : @author Priscilla Walmsley, Datypic : @version 1.0 : @see http://www.xqueryfunctions.com/xq/functx_node-kind.html : @param $nodes the node(s) whose kind you want to determine
  :)
-declare function functx:node-kind ($nodes as node()*) as xs:string* {
+declare function functx:node-kind($nodes as node()*) as xs:string* {
   for $node in $nodes
   return if ($node instance of element()) then
     "element"
@@ -121,7 +121,7 @@ declare function functx:node-kind ($nodes as node()*) as xs:string* {
 (:~
  : The sequence type that represents a sequence of nodes or values : : @author Priscilla Walmsley, Datypic : @version 1.0 : @see http://www.xqueryfunctions.com/xq/functx_sequence-type.html : @param $items the items whose sequence type you want to determine
  :)
-declare function functx:sequence-type ($items as item()*) as xs:string {
+declare function functx:sequence-type($items as item()*) as xs:string {
   concat(
     if (empty($items)) then
       "empty-sequence()"

@@ -1,4 +1,4 @@
-declare function local:durationOrFloat ($i as xs:integer) {
+declare function local:durationOrFloat($i as xs:integer) {
   (xs:float(123), xs:float(234), xs:duration("P1D"))[$i]
 };
 

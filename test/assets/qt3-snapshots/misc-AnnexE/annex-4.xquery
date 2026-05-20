@@ -1,6 +1,6 @@
 declare namespace eg = "http://example.org";
 
-declare function eg:value-intersect (
+declare function eg:value-intersect(
   $arg1 as xs:anyAtomicType*,
   $arg2 as xs:anyAtomicType*
 ) as xs:anyAtomicType* {

@@ -1,4 +1,4 @@
-declare function local:gYear ($year as xs:integer) {
+declare function local:gYear($year as xs:integer) {
   xs:gYear(string(2000 + $year))
 };
 

@@ -1,4 +1,4 @@
-declare function local:bid_summary () as element()* {
+declare function local:bid_summary() as element()* {
   for $i in distinct-values($bids//itemno)
   let $b := $bids//bid_tuple[itemno = $i]
   return <bid_count>

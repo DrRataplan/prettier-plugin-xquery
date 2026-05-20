@@ -1,500 +1,500 @@
-declare function local:NaN () {
+declare function local:NaN() {
   1
 };
 
-declare function local:allowing () {
+declare function local:allowing() {
   2
 };
 
-declare function local:ancestor-or-self () {
+declare function local:ancestor-or-self() {
   3
 };
 
-declare function local:ancestor () {
+declare function local:ancestor() {
   4
 };
 
-declare function local:and () {
+declare function local:and() {
   5
 };
 
-declare function local:as () {
+declare function local:as() {
   6
 };
 
-declare function local:ascending () {
+declare function local:ascending() {
   7
 };
 
-declare function local:at () {
+declare function local:at() {
   8
 };
 
-declare function local:attribute () {
+declare function local:attribute() {
   9
 };
 
-declare function local:base-uri () {
+declare function local:base-uri() {
   10
 };
 
-declare function local:boundary-space () {
+declare function local:boundary-space() {
   11
 };
 
-declare function local:by () {
+declare function local:by() {
   12
 };
 
-declare function local:case () {
+declare function local:case() {
   13
 };
 
-declare function local:cast () {
+declare function local:cast() {
   14
 };
 
-declare function local:castable () {
+declare function local:castable() {
   15
 };
 
-declare function local:catch () {
+declare function local:catch() {
   16
 };
 
-declare function local:child () {
+declare function local:child() {
   17
 };
 
-declare function local:collation () {
+declare function local:collation() {
   18
 };
 
-declare function local:comment () {
+declare function local:comment() {
   19
 };
 
-declare function local:construction () {
+declare function local:construction() {
   20
 };
 
-declare function local:context () {
+declare function local:context() {
   21
 };
 
-declare function local:copy-namespaces () {
+declare function local:copy-namespaces() {
   22
 };
 
-declare function local:count () {
+declare function local:count() {
   23
 };
 
-declare function local:decimal-format () {
+declare function local:decimal-format() {
   24
 };
 
-declare function local:decimal-separator () {
+declare function local:decimal-separator() {
   25
 };
 
-declare function local:declare () {
+declare function local:declare() {
   26
 };
 
-declare function local:default () {
+declare function local:default() {
   27
 };
 
-declare function local:descendant-or-self () {
+declare function local:descendant-or-self() {
   28
 };
 
-declare function local:descendant () {
+declare function local:descendant() {
   29
 };
 
-declare function local:descending () {
+declare function local:descending() {
   30
 };
 
-declare function local:digit () {
+declare function local:digit() {
   31
 };
 
-declare function local:div () {
+declare function local:div() {
   32
 };
 
-declare function local:document-node () {
+declare function local:document-node() {
   33
 };
 
-declare function local:document () {
+declare function local:document() {
   34
 };
 
-declare function local:element () {
+declare function local:element() {
   35
 };
 
-declare function local:else () {
+declare function local:else() {
   36
 };
 
-declare function local:empty-sequence () {
+declare function local:empty-sequence() {
   37
 };
 
-declare function local:empty () {
+declare function local:empty() {
   38
 };
 
-declare function local:encoding () {
+declare function local:encoding() {
   39
 };
 
-declare function local:end () {
+declare function local:end() {
   40
 };
 
-declare function local:eq () {
+declare function local:eq() {
   41
 };
 
-declare function local:every () {
+declare function local:every() {
   42
 };
 
-declare function local:except () {
+declare function local:except() {
   43
 };
 
-declare function local:external () {
+declare function local:external() {
   44
 };
 
-declare function local:following-sibling () {
+declare function local:following-sibling() {
   45
 };
 
-declare function local:following () {
+declare function local:following() {
   46
 };
 
-declare function local:for () {
+declare function local:for() {
   47
 };
 
-declare function local:function () {
+declare function local:function() {
   48
 };
 
-declare function local:ge () {
+declare function local:ge() {
   49
 };
 
-declare function local:greatest () {
+declare function local:greatest() {
   50
 };
 
-declare function local:group () {
+declare function local:group() {
   51
 };
 
-declare function local:grouping-separator () {
+declare function local:grouping-separator() {
   52
 };
 
-declare function local:gt () {
+declare function local:gt() {
   53
 };
 
-declare function local:idiv () {
+declare function local:idiv() {
   54
 };
 
-declare function local:if () {
+declare function local:if() {
   55
 };
 
-declare function local:import () {
+declare function local:import() {
   56
 };
 
-declare function local:in () {
+declare function local:in() {
   57
 };
 
-declare function local:infinity () {
+declare function local:infinity() {
   58
 };
 
-declare function local:inherit () {
+declare function local:inherit() {
   59
 };
 
-declare function local:instance () {
+declare function local:instance() {
   60
 };
 
-declare function local:intersect () {
+declare function local:intersect() {
   61
 };
 
-declare function local:is () {
+declare function local:is() {
   62
 };
 
-declare function local:item () {
+declare function local:item() {
   63
 };
 
-declare function local:lax () {
+declare function local:lax() {
   64
 };
 
-declare function local:le () {
+declare function local:le() {
   65
 };
 
-declare function local:least () {
+declare function local:least() {
   66
 };
 
-declare function local:let () {
+declare function local:let() {
   67
 };
 
-declare function local:lt () {
+declare function local:lt() {
   68
 };
 
-declare function local:minus-sign () {
+declare function local:minus-sign() {
   69
 };
 
-declare function local:mod () {
+declare function local:mod() {
   70
 };
 
-declare function local:module () {
+declare function local:module() {
   71
 };
 
-declare function local:namespace-node () {
+declare function local:namespace-node() {
   72
 };
 
-declare function local:namespace () {
+declare function local:namespace() {
   73
 };
 
-declare function local:ne () {
+declare function local:ne() {
   74
 };
 
-declare function local:next () {
+declare function local:next() {
   75
 };
 
-declare function local:no-inherit () {
+declare function local:no-inherit() {
   76
 };
 
-declare function local:no-preserve () {
+declare function local:no-preserve() {
   77
 };
 
-declare function local:node () {
+declare function local:node() {
   78
 };
 
-declare function local:of () {
+declare function local:of() {
   79
 };
 
-declare function local:only () {
+declare function local:only() {
   80
 };
 
-declare function local:option () {
+declare function local:option() {
   81
 };
 
-declare function local:or () {
+declare function local:or() {
   82
 };
 
-declare function local:order () {
+declare function local:order() {
   83
 };
 
-declare function local:ordered () {
+declare function local:ordered() {
   84
 };
 
-declare function local:ordering () {
+declare function local:ordering() {
   85
 };
 
-declare function local:parent () {
+declare function local:parent() {
   86
 };
 
-declare function local:pattern-separator () {
+declare function local:pattern-separator() {
   87
 };
 
-declare function local:per-mille () {
+declare function local:per-mille() {
   88
 };
 
-declare function local:percent () {
+declare function local:percent() {
   89
 };
 
-declare function local:preceding-sibling () {
+declare function local:preceding-sibling() {
   90
 };
 
-declare function local:preceding () {
+declare function local:preceding() {
   91
 };
 
-declare function local:preserve () {
+declare function local:preserve() {
   92
 };
 
-declare function local:previous () {
+declare function local:previous() {
   93
 };
 
-declare function local:processing-instruction () {
+declare function local:processing-instruction() {
   94
 };
 
-declare function local:return () {
+declare function local:return() {
   95
 };
 
-declare function local:satisfies () {
+declare function local:satisfies() {
   96
 };
 
-declare function local:schema-attribute () {
+declare function local:schema-attribute() {
   97
 };
 
-declare function local:schema-element () {
+declare function local:schema-element() {
   98
 };
 
-declare function local:schema () {
+declare function local:schema() {
   99
 };
 
-declare function local:self () {
+declare function local:self() {
   100
 };
 
-declare function local:sliding () {
+declare function local:sliding() {
   101
 };
 
-declare function local:some () {
+declare function local:some() {
   102
 };
 
-declare function local:stable () {
+declare function local:stable() {
   103
 };
 
-declare function local:start () {
+declare function local:start() {
   104
 };
 
-declare function local:strict () {
+declare function local:strict() {
   105
 };
 
-declare function local:strip () {
+declare function local:strip() {
   106
 };
 
-declare function local:switch () {
+declare function local:switch() {
   107
 };
 
-declare function local:text () {
+declare function local:text() {
   108
 };
 
-declare function local:then () {
+declare function local:then() {
   109
 };
 
-declare function local:to () {
+declare function local:to() {
   110
 };
 
-declare function local:treat () {
+declare function local:treat() {
   111
 };
 
-declare function local:try () {
+declare function local:try() {
   112
 };
 
-declare function local:tumbling () {
+declare function local:tumbling() {
   113
 };
 
-declare function local:type () {
+declare function local:type() {
   114
 };
 
-declare function local:typeswitch () {
+declare function local:typeswitch() {
   115
 };
 
-declare function local:union () {
+declare function local:union() {
   116
 };
 
-declare function local:unordered () {
+declare function local:unordered() {
   117
 };
 
-declare function local:validate () {
+declare function local:validate() {
   118
 };
 
-declare function local:variable () {
+declare function local:variable() {
   119
 };
 
-declare function local:version () {
+declare function local:version() {
   120
 };
 
-declare function local:when () {
+declare function local:when() {
   121
 };
 
-declare function local:where () {
+declare function local:where() {
   122
 };
 
-declare function local:window () {
+declare function local:window() {
   123
 };
 
-declare function local:xquery () {
+declare function local:xquery() {
   124
 };
 
-declare function local:zero-digit () {
+declare function local:zero-digit() {
   125
 };
 

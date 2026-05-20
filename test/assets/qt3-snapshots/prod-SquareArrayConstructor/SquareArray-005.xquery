@@ -1,4 +1,4 @@
-declare function local:fun () {
+declare function local:fun() {
   1 to 5
 };
 

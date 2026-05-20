@@ -1,8 +1,8 @@
-declare function local:myName ($var as xs:integer) as xs:integer {
+declare function local:myName($var as xs:integer) as xs:integer {
   $var
 };
 
-declare function local:myName () as xs:integer {
+declare function local:myName() as xs:integer {
   1
 };
 

@@ -1,16 +1,16 @@
-declare function local:children ($n as node()) as node()* {
+declare function local:children($n as node()) as node()* {
   $n/child::node()
 };
 
-declare function local:attributes ($e as node()) as node()* {
+declare function local:attributes($e as node()) as node()* {
   $e/attribute::node()
 };
 
-declare function local:self ($e as node()) as node() {
+declare function local:self($e as node()) as node() {
   $e
 };
 
-declare function local:union (
+declare function local:union(
   $f as function (node()) as node()*,
   $g as function (node()) as node()*
 ) as function (node()) as node()* {

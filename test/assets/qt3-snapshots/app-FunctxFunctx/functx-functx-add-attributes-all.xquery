@@ -9,7 +9,7 @@ declare namespace new = "http://new";
  : @param $attrNames the name(s) of the attribute(s) to add
  : @param $attrValues the value(s) of the attribute(s) to add
  :)
-declare function functx:add-attributes (
+declare function functx:add-attributes(
   $elements as element()*,
   $attrNames as xs:QName*,
   $attrValues as xs:anyAtomicType*

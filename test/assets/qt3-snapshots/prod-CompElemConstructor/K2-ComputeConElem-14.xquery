@@ -1,4 +1,4 @@
-declare function local:addNamespace (
+declare function local:addNamespace(
   $argElement as element(),
   $argPrefix as xs:string,
   $namespaceURI as xs:string

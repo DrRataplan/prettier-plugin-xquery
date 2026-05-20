@@ -1,4 +1,4 @@
-declare function local:f ($x) {
+declare function local:f($x) {
   if ($x mod 2 = 1) then
     <a />
   else

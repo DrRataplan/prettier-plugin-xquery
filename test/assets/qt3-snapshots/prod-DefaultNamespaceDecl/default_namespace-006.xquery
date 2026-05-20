@@ -1,11 +1,11 @@
 declare default function namespace "http://example.org";
 
-declare function mysum ($i as xs:integer, $j as xs:integer) {
+declare function mysum($i as xs:integer, $j as xs:integer) {
   let $j := $i + $j
   return $j
 };
 
-declare function invoke_mysum ($st) {
+declare function invoke_mysum($st) {
   for $d in (1, 2, 3, 4, 5)
   let $st := mysum($d, $st)
   return $st

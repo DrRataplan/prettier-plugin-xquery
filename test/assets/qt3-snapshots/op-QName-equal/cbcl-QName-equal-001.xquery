@@ -1,4 +1,4 @@
-declare function local:QName-value ($arg as xs:boolean) as xs:QName {
+declare function local:QName-value($arg as xs:boolean) as xs:QName {
   if ($arg) then
     QName("example.com/", "p:ncname")
   else

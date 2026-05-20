@@ -1,4 +1,4 @@
-declare function local:function () {
+declare function local:function() {
   let $b := (i/a)
   return 1
 };

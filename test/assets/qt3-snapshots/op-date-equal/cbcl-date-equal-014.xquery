@@ -1,4 +1,4 @@
-declare function local:date ($date as xs:date, $null as xs:boolean) {
+declare function local:date($date as xs:date, $null as xs:boolean) {
   if ($null) then (
   ) else
     $date

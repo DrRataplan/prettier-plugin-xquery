@@ -1,8 +1,8 @@
-declare function local:f1 () {
+declare function local:f1() {
   $a
 };
 
-declare function local:f2 () {
+declare function local:f2() {
   $a
 };
 

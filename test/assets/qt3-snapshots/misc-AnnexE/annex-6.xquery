@@ -1,6 +1,6 @@
 declare namespace eg = "http://example.org";
 
-declare function eg:index-of-node (
+declare function eg:index-of-node(
   $sequence as node()*,
   $srch as node()
 ) as xs:integer* {

@@ -1,4 +1,4 @@
-declare function local:computeSum () {
+declare function local:computeSum() {
   $myVariable
 };
 

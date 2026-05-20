@@ -1,4 +1,4 @@
-declare function local:f ($arg as xs:anyAtomicType?) {
+declare function local:f($arg as xs:anyAtomicType?) {
   $arg
 };
 

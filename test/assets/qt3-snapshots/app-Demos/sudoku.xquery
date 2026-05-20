@@ -170,7 +170,7 @@ declare variable $groups := (
   9
 );
 
-declare function fn:getRow (
+declare function fn:getRow(
   $board as xs:integer+,
   $index as xs:integer
 ) as xs:integer+ {
@@ -180,7 +180,7 @@ declare function fn:getRow (
   )
 };
 
-declare function fn:getCol (
+declare function fn:getCol(
   $board as xs:integer+,
   $index as xs:integer
 ) as xs:integer+ {
@@ -191,7 +191,7 @@ declare function fn:getCol (
   return one-or-more($board[position() = $colIndexes])
 };
 
-declare function fn:getGroup (
+declare function fn:getGroup(
   $board as xs:integer+,
   $index as xs:integer
 ) as xs:integer+ {
@@ -202,7 +202,7 @@ declare function fn:getGroup (
   )
 };
 
-declare function fn:getAllowedValues (
+declare function fn:getAllowedValues(
   $board as xs:integer+,
   $index as xs:integer
 ) as xs:integer* {
@@ -218,7 +218,7 @@ declare function fn:getAllowedValues (
     )
 };
 
-declare function fn:tryValues (
+declare function fn:tryValues(
   $board as xs:integer+,
   $emptyCells as xs:integer+,
   $possibleValues as xs:integer+
@@ -246,7 +246,7 @@ declare function fn:tryValues (
     $result
 };
 
-declare function fn:populateValues (
+declare function fn:populateValues(
   $board as xs:integer+,
   $emptyCells as xs:integer*
 ) as xs:integer* {
@@ -274,7 +274,7 @@ declare function fn:populateValues (
     $board
 };
 
-declare function fn:solveSudoku ($startBoard as xs:integer+) as xs:integer+ {
+declare function fn:solveSudoku($startBoard as xs:integer+) as xs:integer+ {
   let $emptyCells as xs:integer* :=
       for $x in (1 to 81)
       return if ($startBoard[$x] = 0) then
@@ -288,7 +288,7 @@ declare function fn:solveSudoku ($startBoard as xs:integer+) as xs:integer+ {
     one-or-more($endBoard)
 };
 
-declare function fn:drawResult ($board as xs:integer+) as element() {
+declare function fn:drawResult($board as xs:integer+) as element() {
   <html>
     <head>
       <title>Sudoku - XSLT</title>
@@ -299,7 +299,7 @@ declare function fn:drawResult ($board as xs:integer+) as element() {
   </html>
 };
 
-declare function fn:drawBoard ($board as xs:integer+) as element() {
+declare function fn:drawBoard($board as xs:integer+) as element() {
   <table>
     {
       for $i in 1 to 9

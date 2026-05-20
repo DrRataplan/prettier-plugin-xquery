@@ -1,6 +1,6 @@
 declare variable $local:foo := 1 to 5;
 
-declare function local:window () {
+declare function local:window() {
   for tumbling window $w1 in $local:foo
     start $s when true()
     end $e when $e - $s eq 3

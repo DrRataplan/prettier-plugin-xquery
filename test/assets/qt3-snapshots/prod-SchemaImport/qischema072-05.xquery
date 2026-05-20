@@ -1,6 +1,6 @@
 import schema namespace res =  "http://schema.highwire.org/Publishing/Resource/qischema072";
 
-declare function local:test () as schema-element(res:uni) {
+declare function local:test() as schema-element(res:uni) {
   (
     validate {
       document {

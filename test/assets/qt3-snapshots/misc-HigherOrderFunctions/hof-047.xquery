@@ -1,4 +1,4 @@
-declare function local:splitter (
+declare function local:splitter(
   $x as xs:string
 ) as (function () as xs:string*)* {
   for $sep in ("\s", ",", "!")

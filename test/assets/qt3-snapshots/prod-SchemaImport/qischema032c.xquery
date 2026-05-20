@@ -3,7 +3,7 @@ declare namespace res = "http://schema.highwire.org/Publishing/Resource";
 
 import schema namespace q =  "http://schema.highwire.org/Publishing/Fragment" at  "qischema032.xsd";
 
-declare function local:f () {
+declare function local:f() {
   <e
     xmlns:frg="http://schema.highwire.org/Publishing/Different"
     frg:fragrance="4" />/@*

@@ -1,4 +1,4 @@
-declare function local:myFunction ($unusedArg) {
+declare function local:myFunction($unusedArg) {
   true()
 };
 

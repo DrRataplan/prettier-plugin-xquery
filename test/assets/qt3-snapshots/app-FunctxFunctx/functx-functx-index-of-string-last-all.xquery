@@ -3,7 +3,7 @@ declare namespace functx = "http://www.example.com/";
 (:~
  : The last position of a substring : : @author Priscilla Walmsley, Datypic : @version 1.0 : @see http://www.xqueryfunctions.com/xq/functx_index-of-string-last.html : @param $arg the string : @param $substring the substring to find
  :)
-declare function functx:index-of-string-last (
+declare function functx:index-of-string-last(
   $arg as xs:string?,
   $substring as xs:string
 ) as xs:integer? {
@@ -13,7 +13,7 @@ declare function functx:index-of-string-last (
 (:~
  : The position(s) of a substring : : @author Priscilla Walmsley, Datypic : @version 1.0 : @see http://www.xqueryfunctions.com/xq/functx_index-of-string.html : @param $arg the string : @param $substring the substring to find
  :)
-declare function functx:index-of-string (
+declare function functx:index-of-string(
   $arg as xs:string?,
   $substring as xs:string
 ) as xs:integer* {

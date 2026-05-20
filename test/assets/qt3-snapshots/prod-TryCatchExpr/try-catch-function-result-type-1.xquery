@@ -1,4 +1,4 @@
-declare function local:thrice ($x as xs:integer) as xs:integer {
+declare function local:thrice($x as xs:integer) as xs:integer {
   try {
     if (current-date() gt xs:date("2000-01-01")) then
       "three"

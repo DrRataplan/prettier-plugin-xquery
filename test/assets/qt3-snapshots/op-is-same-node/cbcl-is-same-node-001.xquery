@@ -1,4 +1,4 @@
-declare function local:f () as node() {
+declare function local:f() as node() {
   <a />
 };
 

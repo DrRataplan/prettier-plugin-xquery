@@ -9,7 +9,7 @@ declare namespace functx = "http://www.example.com/";
  : @param $length the desired length
  :)
 
-declare function functx:pad-string-to-length (
+declare function functx:pad-string-to-length(
   $stringToPad as xs:string?,
   $padChar as xs:string,
   $length as xs:integer

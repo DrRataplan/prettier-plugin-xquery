@@ -1,4 +1,4 @@
-declare function local:primes ($n as xs:integer) {
+declare function local:primes($n as xs:integer) {
   if ($n lt 2) then
     1
   else

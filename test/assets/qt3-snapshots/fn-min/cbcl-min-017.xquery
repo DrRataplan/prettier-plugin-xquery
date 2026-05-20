@@ -1,4 +1,4 @@
-declare function local:f ($x as xs:integer) as xs:duration {
+declare function local:f($x as xs:integer) as xs:duration {
   if ($x = 1) then
     xs:duration("P1Y")
   else

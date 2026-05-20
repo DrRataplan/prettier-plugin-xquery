@@ -1,4 +1,4 @@
-declare function local:foo () {
+declare function local:foo() {
   $x
 };
 

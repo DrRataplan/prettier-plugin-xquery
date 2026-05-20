@@ -1,4 +1,4 @@
-declare function local:date ($date as xs:string, $timezone as xs:string) {
+declare function local:date($date as xs:string, $timezone as xs:string) {
   xs:date(concat($date, $timezone))
 };
 

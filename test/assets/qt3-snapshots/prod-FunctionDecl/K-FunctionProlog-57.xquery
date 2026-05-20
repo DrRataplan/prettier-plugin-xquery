@@ -1,4 +1,4 @@
-declare function local:error () as none {
+declare function local:error() as none {
   1
 };
 

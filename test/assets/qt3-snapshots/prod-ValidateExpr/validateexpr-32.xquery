@@ -1,6 +1,6 @@
 import schema default element namespace  "http://www.w3.org/XQueryTestOrderBy";
 
-declare function local:numbers ($positive) {
+declare function local:numbers($positive) {
   if ($positive) then
     <PositiveNumbers><orderData>1</orderData></PositiveNumbers>
   else

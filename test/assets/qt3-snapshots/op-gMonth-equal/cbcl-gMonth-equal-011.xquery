@@ -1,4 +1,4 @@
-declare function local:gMonth ($gMonth as xs:gMonth, $null as xs:boolean) {
+declare function local:gMonth($gMonth as xs:gMonth, $null as xs:boolean) {
   if ($null) then (
   ) else
     $gMonth

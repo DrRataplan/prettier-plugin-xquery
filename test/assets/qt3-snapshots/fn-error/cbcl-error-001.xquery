@@ -1,4 +1,4 @@
-declare function local:ignore ($arg) {
+declare function local:ignore($arg) {
   true()
 };
 

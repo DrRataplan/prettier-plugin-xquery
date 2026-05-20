@@ -1,4 +1,4 @@
-declare function local:generate ($count as xs:integer) {
+declare function local:generate($count as xs:integer) {
   if ($count < 0) then
     "string"
   else

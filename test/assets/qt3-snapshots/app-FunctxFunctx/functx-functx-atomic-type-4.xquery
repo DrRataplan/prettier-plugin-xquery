@@ -3,7 +3,7 @@ declare namespace functx = "http://www.example.com/";
 (:~
  : The built-in type of an atomic value : : @author Priscilla Walmsley, Datypic : @version 1.0 : @see http://www.xqueryfunctions.com/xq/functx_atomic-type.html : @param $values the value(s) whose type you want to determine
  :)
-declare function functx:atomic-type (
+declare function functx:atomic-type(
   $values as xs:anyAtomicType*
 ) as xs:string* {
   for $val in $values

@@ -1,4 +1,4 @@
-declare function local:error () as xs:error {
+declare function local:error() as xs:error {
   1
 };
 

@@ -1,4 +1,4 @@
-declare function local:apply (
+declare function local:apply(
   $fns as (function (xs:string) as xs:string)*,
   $s as xs:string
 ) as xs:string* {

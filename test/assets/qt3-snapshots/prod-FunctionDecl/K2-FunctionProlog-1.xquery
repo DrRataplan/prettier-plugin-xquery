@@ -1,4 +1,4 @@
-declare function local:myFunction ($arg as xs:integer) as xs:integer {
+declare function local:myFunction($arg as xs:integer) as xs:integer {
   (
     (
       if ($arg eq 1) then

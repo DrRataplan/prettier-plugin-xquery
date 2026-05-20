@@ -1,4 +1,4 @@
-declare function local:myFunction () as xs:integer {
+declare function local:myFunction() as xs:integer {
   1.0
 };
 

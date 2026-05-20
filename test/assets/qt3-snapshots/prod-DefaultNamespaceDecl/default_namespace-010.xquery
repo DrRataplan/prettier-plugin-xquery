@@ -1,6 +1,6 @@
 declare default function namespace "http://example.org";
 
-declare function prnt (
+declare function prnt(
   $n as xs:integer,
   $n2 as xs:string,
   $n3 as xs:date,

@@ -1,4 +1,4 @@
-declare function local:myFunction () as xs:anyURI {
+declare function local:myFunction() as xs:anyURI {
   1
 };
 

@@ -1,7 +1,7 @@
 declare namespace fots = "http://www.w3.org/2010/09/qt-fots-catalog";
 
 (: ask whether a test is XQuery-only :)
-declare function local:needs-xq ($t as element(fots:test-case)) as xs:boolean {
+declare function local:needs-xq($t as element(fots:test-case)) as xs:boolean {
   let $spec := $t/fots:dependency[@type = "spec"][1]
   return exists($spec) and
     contains($spec/@value, "XQ") and

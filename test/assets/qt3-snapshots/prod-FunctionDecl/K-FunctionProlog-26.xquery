@@ -1,8 +1,8 @@
-declare function local:myName () {
+declare function local:myName() {
   1
 };
 
-declare function local:myName () {
+declare function local:myName() {
   1
 };
 

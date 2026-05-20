@@ -3,7 +3,7 @@ declare namespace functx = "http://www.example.com/";
 (:~
  : Whether an element has element-only content : : @author Priscilla Walmsley, Datypic : @version 1.0 : @see http://www.xqueryfunctions.com/xq/functx_has-element-only-content.html : @param $element the XML element to test
  :)
-declare function functx:has-element-only-content (
+declare function functx:has-element-only-content(
   $element as element()
 ) as xs:boolean {
   not($element/text()[normalize-space(.) != ""]) and $element/*

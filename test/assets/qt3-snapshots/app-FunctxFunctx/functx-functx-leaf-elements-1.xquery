@@ -1,6 +1,6 @@
 declare namespace functx = "http://www.example.com/";
 
-declare function functx:leaf-elements ($root as node()?) as element()* {
+declare function functx:leaf-elements($root as node()?) as element()* {
   $root/descendant-or-self::*[not(*)]
 };
 

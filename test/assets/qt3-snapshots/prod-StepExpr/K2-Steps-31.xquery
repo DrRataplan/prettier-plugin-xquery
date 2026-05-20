@@ -1,6 +1,6 @@
 declare variable $root := <root><c /></root>;
 
-declare function local:function ($arg) {
+declare function local:function($arg) {
   $root[$arg]
 };
 

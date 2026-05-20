@@ -1,4 +1,4 @@
-declare function local:myFunc () as attribute(foo) {
+declare function local:myFunc() as attribute(foo) {
   <foo />
 };
 

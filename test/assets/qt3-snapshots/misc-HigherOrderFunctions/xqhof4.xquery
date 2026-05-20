@@ -1,4 +1,4 @@
-declare function local:hof ($s, $f as function(*)) {
+declare function local:hof($s, $f as function(*)) {
   $f($s[1], $s[2])
 };
 

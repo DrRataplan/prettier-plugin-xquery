@@ -1,4 +1,4 @@
-declare function local:f ($m as map(xs:integer, xs:string)) as xs:integer {
+declare function local:f($m as map(xs:integer, xs:string)) as xs:integer {
   map:size($m)
 };
 

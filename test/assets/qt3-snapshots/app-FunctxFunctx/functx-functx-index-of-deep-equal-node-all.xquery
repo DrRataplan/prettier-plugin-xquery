@@ -7,7 +7,7 @@ declare namespace functx = "http://www.example.com/";
  : @param $nodes the node sequence : @param $nodeToFind the node to find in the sequence
  :)
 
-declare function functx:index-of-deep-equal-node (
+declare function functx:index-of-deep-equal-node(
   $nodes as node()*,
   $nodeToFind as node()
 ) as xs:integer* {

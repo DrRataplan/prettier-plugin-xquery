@@ -1,4 +1,4 @@
-declare function local:myFunction () as item() {
+declare function local:myFunction() as item() {
   ()
 };
 

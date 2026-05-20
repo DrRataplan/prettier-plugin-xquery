@@ -1,4 +1,4 @@
-declare function local:generate ($arg as xs:integer?) as xs:string* {
+declare function local:generate($arg as xs:integer?) as xs:string* {
   if ($arg = 0) then (
   ) else
     "id1",

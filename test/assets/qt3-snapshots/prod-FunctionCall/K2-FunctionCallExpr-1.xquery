@@ -1,8 +1,8 @@
-declare function local:bar ($c, $d, $e, $f, $g, $h, $i, $j, $a, $b) {
+declare function local:bar($c, $d, $e, $f, $g, $h, $i, $j, $a, $b) {
   1
 };
 
-declare function local:moo ($k) {
+declare function local:moo($k) {
   $k
 };
 

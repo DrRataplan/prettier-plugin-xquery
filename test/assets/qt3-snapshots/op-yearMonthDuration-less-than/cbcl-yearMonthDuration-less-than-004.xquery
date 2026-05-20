@@ -1,4 +1,4 @@
-declare function local:yearMonthDuration (
+declare function local:yearMonthDuration(
   $yearMonthDuration as xs:yearMonthDuration,
   $null as xs:boolean
 ) {

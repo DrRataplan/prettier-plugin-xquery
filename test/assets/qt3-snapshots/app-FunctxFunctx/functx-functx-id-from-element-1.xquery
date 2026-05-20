@@ -1,6 +1,6 @@
 declare namespace functx = "http://www.example.com/";
 
-declare function functx:id-from-element ($element as element()?) as xs:string? {
+declare function functx:id-from-element($element as element()?) as xs:string? {
   data(($element/@*[id(.) is ..])[1])
 };
 

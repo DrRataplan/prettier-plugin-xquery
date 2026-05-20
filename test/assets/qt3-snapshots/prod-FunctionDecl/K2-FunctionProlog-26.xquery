@@ -1,4 +1,4 @@
-declare function local:myFunc () as element(foo) {
+declare function local:myFunc() as element(foo) {
   <bar />
 };
 

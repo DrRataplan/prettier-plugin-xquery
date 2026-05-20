@@ -1,4 +1,4 @@
-declare function local:myFunc ($recurse as xs:integer) {
+declare function local:myFunc($recurse as xs:integer) {
   attribute {concat("name", $recurse)} { "content" },
   if ($recurse = 0) then (
   ) else

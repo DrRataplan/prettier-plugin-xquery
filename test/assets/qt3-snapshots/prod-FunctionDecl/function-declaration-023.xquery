@@ -1,4 +1,4 @@
-declare function foo ($n as xs:integer) {
+declare function foo($n as xs:integer) {
   $n
 };
 

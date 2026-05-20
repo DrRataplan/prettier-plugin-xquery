@@ -1,6 +1,6 @@
 declare variable $local:myName := 1;
 
-declare function local:myName () as xs:integer {
+declare function local:myName() as xs:integer {
   1
 };
 

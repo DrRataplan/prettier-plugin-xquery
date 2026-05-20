@@ -1,4 +1,4 @@
-declare function local:words-only ($s) {
+declare function local:words-only($s) {
   for $w in $s
   where not($w(2) = (".", ",", ";", ":"))
   return $w(1)

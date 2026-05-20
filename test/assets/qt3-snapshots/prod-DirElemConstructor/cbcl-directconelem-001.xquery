@@ -5,7 +5,7 @@ declare copy-namespaces preserve ,  no-inherit;
 declare namespace a = "http://example.com/1";
 declare namespace b = "http://example.com/2";
 
-declare function local:in-scope-namespace-bindings ($arg) {
+declare function local:in-scope-namespace-bindings($arg) {
   for $i in in-scope-prefixes($arg)
   order by $i
   return concat(

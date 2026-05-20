@@ -1,4 +1,4 @@
-declare function local:generate ($arg as xs:integer?) {
+declare function local:generate($arg as xs:integer?) {
   if ($arg = 0) then (
   ) else if ($arg = 1) then
     $arg

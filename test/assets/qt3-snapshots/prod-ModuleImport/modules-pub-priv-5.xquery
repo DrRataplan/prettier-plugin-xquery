@@ -1,4 +1,4 @@
-declare %public function local:inc ($i as xs:integer) {
+declare %public function local:inc($i as xs:integer) {
   $i + 1
 };
 

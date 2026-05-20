@@ -1,4 +1,4 @@
-declare function local:f ($x as xs:integer) {
+declare function local:f($x as xs:integer) {
   (xs:decimal(1.1), xs:float(1.2), xs:double(0.4), xs:integer("-3"))[$x]
 };
 

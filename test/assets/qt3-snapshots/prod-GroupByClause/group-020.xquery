@@ -11,7 +11,7 @@ declare variable $in := <Folder Name="root">
   </Folder>
 </Folder>;
 
-declare function local:pathName ($resource as element()) as xs:string {
+declare function local:pathName($resource as element()) as xs:string {
   string-join($resource/ancestor-or-self::*/@Name, "/")
 };
 

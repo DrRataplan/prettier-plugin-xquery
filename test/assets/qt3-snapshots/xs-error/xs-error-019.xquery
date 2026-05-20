@@ -1,4 +1,4 @@
-declare function local:constant ($arg as xs:error) {
+declare function local:constant($arg as xs:error) {
   fn:true()
 };
 

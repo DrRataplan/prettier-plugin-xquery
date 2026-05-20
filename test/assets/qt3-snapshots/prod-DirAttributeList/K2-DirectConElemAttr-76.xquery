@@ -1,4 +1,4 @@
-declare function local:t () {
+declare function local:t() {
   text { "" }, text { "[" }, text { "3" }, text { "]" }, text { "" }
 };
 

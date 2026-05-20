@@ -1,4 +1,4 @@
-declare function local:doReplace (
+declare function local:doReplace(
   $input as xs:string?,
   $pattern as xs:string,
   $replacement as xs:string
