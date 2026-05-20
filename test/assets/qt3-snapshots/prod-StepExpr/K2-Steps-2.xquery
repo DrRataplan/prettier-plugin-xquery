@@ -1,4 +1,4 @@
-declare function local:myFunc () {
+declare function local:myFunc() {
   e[928]
 };
 

@@ -1,4 +1,4 @@
-declare function local:sequence ($arg as xs:integer) as item()* {
+declare function local:sequence($arg as xs:integer) as item()* {
   if ($arg mod 2 eq 0) then (
     1, 3, 5, 7, 9, "cheese"
   ) else (

@@ -1,4 +1,4 @@
-declare function local:tag ($arg) as element() {
+declare function local:tag($arg) as element() {
   element {"tag"} { $arg }
 };
 

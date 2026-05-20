@@ -1,4 +1,4 @@
-declare function local:time ($arg as xs:boolean) {
+declare function local:time($arg as xs:boolean) {
   if ($arg) then
     xs:time("12:00:00Z")
   else

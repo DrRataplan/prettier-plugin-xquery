@@ -1,4 +1,4 @@
-declare function local:price ($i as element()) as element()? {
+declare function local:price($i as element()) as element()? {
   $i/price
 };
 

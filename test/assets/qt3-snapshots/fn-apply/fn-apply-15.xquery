@@ -1,8 +1,8 @@
-declare function local:l ($x as xs:string) {
+declare function local:l($x as xs:string) {
   lower-case($x)
 };
 
-declare function local:u ($x as xs:string) {
+declare function local:u($x as xs:string) {
   upper-case($x)
 };
 

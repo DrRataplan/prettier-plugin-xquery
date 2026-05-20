@@ -5,7 +5,7 @@ declare variable $f := (
     round#2
 );
 
-declare function local:plus ($x, $y) {
+declare function local:plus($x, $y) {
   $x + $y + $a
 };
 

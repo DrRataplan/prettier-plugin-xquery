@@ -1,4 +1,4 @@
-declare function xs:gYear ($arg as xs:anyAtomicType?) as xs:gYear? {
+declare function xs:gYear($arg as xs:anyAtomicType?) as xs:gYear? {
   xs:gYear($arg)
 };
 

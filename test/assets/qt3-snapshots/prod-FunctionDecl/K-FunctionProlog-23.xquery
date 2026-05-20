@@ -1,4 +1,4 @@
-declare function local:func ($a as xs:integer, $b as xs:integer, $unused) {
+declare function local:func($a as xs:integer, $b as xs:integer, $unused) {
   $a + $b
 };
 

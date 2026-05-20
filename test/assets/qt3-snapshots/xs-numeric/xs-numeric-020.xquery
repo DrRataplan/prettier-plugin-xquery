@@ -1,4 +1,4 @@
-declare function local:f ($n as xs:numeric) as xs:numeric {
+declare function local:f($n as xs:numeric) as xs:numeric {
   $n + 1
 };
 

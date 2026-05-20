@@ -1,4 +1,4 @@
-declare function local:dayTimeDuration (
+declare function local:dayTimeDuration(
   $dayTimeDuration as xs:dayTimeDuration,
   $null as xs:boolean
 ) {

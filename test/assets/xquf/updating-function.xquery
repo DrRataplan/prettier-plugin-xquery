@@ -1,4 +1,4 @@
-declare %updating function upsert (
+declare %updating function upsert(
   $e as element(),
   $an as xs:QName,
   $av as xs:anyAtomicType

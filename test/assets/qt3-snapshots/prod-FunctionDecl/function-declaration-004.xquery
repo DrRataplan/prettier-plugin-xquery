@@ -1,4 +1,4 @@
-declare function local:summary ($emps as element(employee)*) as element(dept)* {
+declare function local:summary($emps as element(employee)*) as element(dept)* {
   for $d in distinct-values($emps/deptno)
   let $e := $emps[deptno = $d]
   return <dept>

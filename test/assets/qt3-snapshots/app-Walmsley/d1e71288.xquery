@@ -1,4 +1,4 @@
-declare function local:random-sequence (
+declare function local:random-sequence(
   $length as xs:integer,
   $rng as map(xs:string, item())
 ) {

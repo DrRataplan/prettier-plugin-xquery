@@ -1,4 +1,4 @@
-declare function local:window ($seq) {
+declare function local:window($seq) {
   for tumbling window $w in $seq
     start $s when true()
     end $e when $e - $s eq 3

@@ -1,4 +1,4 @@
-declare function local:gDay ($day as xs:integer) {
+declare function local:gDay($day as xs:integer) {
   if ($day lt 10) then
     xs:gDay(concat("---0", $day))
   else

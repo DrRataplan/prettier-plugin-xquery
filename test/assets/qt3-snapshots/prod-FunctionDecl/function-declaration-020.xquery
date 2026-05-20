@@ -1,18 +1,18 @@
 declare namespace foo = "http://www..oracle.com/xquery/test";
 
-declare function foo:price () as xs:integer+ {
+declare function foo:price() as xs:integer+ {
   100
 };
 
-declare function foo:price ($z as xs:integer) as xs:integer+ {
+declare function foo:price($z as xs:integer) as xs:integer+ {
   $z
 };
 
-declare function foo:price ($x as xs:integer, $y as xs:integer) as xs:integer+ {
+declare function foo:price($x as xs:integer, $y as xs:integer) as xs:integer+ {
   $x, $y
 };
 
-declare function foo:price (
+declare function foo:price(
   $x as xs:integer,
   $y as xs:integer,
   $z as xs:integer

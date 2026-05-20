@@ -1,6 +1,6 @@
 declare variable $root := <root><b d="" /><c><c d="" /><c /></c></root>;
 
-declare function local:function ($object) {
+declare function local:function($object) {
   $root[$object/@d]
 };
 

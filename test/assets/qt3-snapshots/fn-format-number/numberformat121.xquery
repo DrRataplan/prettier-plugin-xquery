@@ -1,4 +1,4 @@
-declare function local:timesTenToThe (
+declare function local:timesTenToThe(
   $n as xs:decimal,
   $exp as xs:integer
 ) as xs:decimal {

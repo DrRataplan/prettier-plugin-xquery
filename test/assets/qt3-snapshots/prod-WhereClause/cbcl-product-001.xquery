@@ -1,4 +1,4 @@
-declare function local:odds ($arg as xs:integer*) as xs:integer* {
+declare function local:odds($arg as xs:integer*) as xs:integer* {
   $arg[. mod 2 eq 1]
 };
 

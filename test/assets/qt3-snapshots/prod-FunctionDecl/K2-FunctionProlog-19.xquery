@@ -1,4 +1,4 @@
-declare function local:func () as xs:integer {
+declare function local:func() as xs:integer {
   document { "1" }
 };
 

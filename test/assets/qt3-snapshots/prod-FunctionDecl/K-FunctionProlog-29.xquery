@@ -1,8 +1,8 @@
-declare function local:myName ($myvar) {
+declare function local:myName($myvar) {
   1
 };
 
-declare function local:myName ($myvar2) {
+declare function local:myName($myvar2) {
   1
 };
 

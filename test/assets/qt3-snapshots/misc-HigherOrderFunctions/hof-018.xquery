@@ -1,11 +1,11 @@
-declare function local:scramble (
+declare function local:scramble(
   $x as function (xs:string) as xs:string,
   $y as xs:string
 ) as xs:string {
   $x($y)
 };
 
-declare function local:rot13 ($x as xs:string) as xs:string {
+declare function local:rot13($x as xs:string) as xs:string {
   translate($x, "abcdefghijklmnopqrstuvwxyz", "nopqrstuvwxyzabcdefghijklm")
 };
 

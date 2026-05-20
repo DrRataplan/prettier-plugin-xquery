@@ -1,4 +1,4 @@
-declare function local:dateTime (
+declare function local:dateTime(
   $dateTime as xs:string,
   $timezone as xs:string
 ) {

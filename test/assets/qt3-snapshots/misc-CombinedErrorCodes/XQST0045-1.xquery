@@ -1,4 +1,4 @@
-declare function foo () {
+declare function foo() {
   1
 };
 

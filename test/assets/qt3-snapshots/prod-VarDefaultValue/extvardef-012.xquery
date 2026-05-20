@@ -1,10 +1,10 @@
-declare function local:aaa () {
+declare function local:aaa() {
   1
 };
 
 declare variable $x external;
 
-declare function local:bbb () {
+declare function local:bbb() {
   2
 };
 

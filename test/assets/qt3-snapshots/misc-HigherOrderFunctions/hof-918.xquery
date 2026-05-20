@@ -1,4 +1,4 @@
-declare function local:round (
+declare function local:round(
   $x as xs:double,
   $algorithm as (function (xs:double) as xs:double)
 ) as xs:double {

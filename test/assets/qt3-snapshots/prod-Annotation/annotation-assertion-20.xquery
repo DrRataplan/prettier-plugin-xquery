@@ -1,6 +1,6 @@
 declare namespace eg = "http://example.com";
 
-declare %public function local:three () as xs:integer {
+declare %public function local:three() as xs:integer {
   3
 };
 

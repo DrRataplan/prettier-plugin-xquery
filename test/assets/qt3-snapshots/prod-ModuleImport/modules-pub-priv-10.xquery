@@ -1,8 +1,8 @@
-declare %private function local:inc ($i as xs:integer) {
+declare %private function local:inc($i as xs:integer) {
   $i + 1
 };
 
-declare function local:test () {
+declare function local:test() {
   local:inc(1)
 };
 

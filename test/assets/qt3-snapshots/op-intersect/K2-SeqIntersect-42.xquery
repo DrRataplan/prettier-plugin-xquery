@@ -1,4 +1,4 @@
-declare function local:function ($c as node()) {
+declare function local:function($c as node()) {
   $c intersect $c
 };
 

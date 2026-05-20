@@ -1,6 +1,6 @@
 declare namespace eg = "http://example.org";
 
-declare function eg:value-except (
+declare function eg:value-except(
   $arg1 as xs:anyAtomicType*,
   $arg2 as xs:anyAtomicType*
 ) as xs:anyAtomicType* {

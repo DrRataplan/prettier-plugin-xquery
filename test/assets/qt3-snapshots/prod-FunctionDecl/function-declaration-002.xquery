@@ -1,4 +1,4 @@
-declare function local:foo ($n as xs:integer) {
+declare function local:foo($n as xs:integer) {
   <tr>{ $n }</tr>
 };
 

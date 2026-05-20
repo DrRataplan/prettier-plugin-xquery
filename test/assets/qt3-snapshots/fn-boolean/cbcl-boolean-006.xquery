@@ -1,4 +1,4 @@
-declare function local:repeat (
+declare function local:repeat(
   $count as xs:integer,
   $arg as xs:string
 ) as item()* {

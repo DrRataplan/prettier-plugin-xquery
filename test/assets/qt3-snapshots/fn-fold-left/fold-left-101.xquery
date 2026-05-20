@@ -1,4 +1,4 @@
-declare function local:fold-left (
+declare function local:fold-left(
   $seq as item()*,
   $zero as item()*,
   $f as function (item()*, item()) as item()*

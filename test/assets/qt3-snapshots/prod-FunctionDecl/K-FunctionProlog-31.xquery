@@ -1,4 +1,4 @@
-declare function fn:count ($var) {
+declare function fn:count($var) {
   fn:count($var)
 };
 

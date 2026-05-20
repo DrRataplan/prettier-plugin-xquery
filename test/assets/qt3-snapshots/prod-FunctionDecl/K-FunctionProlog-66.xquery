@@ -1,4 +1,4 @@
-declare function local:myFunction () {
+declare function local:myFunction() {
   fn:error()
 };
 

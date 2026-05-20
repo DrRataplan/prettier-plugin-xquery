@@ -1,12 +1,12 @@
-declare function local:f ($x as xs:integer) as xs:integer {
+declare function local:f($x as xs:integer) as xs:integer {
   $x + 3
 };
 
-declare function local:g ($x as xs:integer) as xs:integer {
+declare function local:g($x as xs:integer) as xs:integer {
   $x + 4
 };
 
-declare function local:h ($x as xs:integer) as xs:integer {
+declare function local:h($x as xs:integer) as xs:integer {
   $x + 5
 };
 

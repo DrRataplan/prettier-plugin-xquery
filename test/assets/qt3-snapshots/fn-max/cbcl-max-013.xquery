@@ -1,4 +1,4 @@
-declare function local:f ($x as xs:integer) {
+declare function local:f($x as xs:integer) {
   if ($x = 2) then
     xs:time("12:00:00-01:00")
   else

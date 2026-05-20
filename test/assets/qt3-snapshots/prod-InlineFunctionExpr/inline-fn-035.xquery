@@ -1,6 +1,6 @@
 declare variable $p external;
 
-declare function local:negate ($x) {
+declare function local:negate($x) {
   -$x
 };
 

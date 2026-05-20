@@ -1,4 +1,4 @@
-declare function local:distinct-nodes-stable ($seq as node()*) {
+declare function local:distinct-nodes-stable($seq as node()*) {
   fold-left(
     $seq,
     (),

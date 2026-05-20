@@ -1,4 +1,4 @@
-declare function local:levenshtein (
+declare function local:levenshtein(
   $arg1 as xs:string,
   $arg2 as xs:string
 ) as xs:decimal {

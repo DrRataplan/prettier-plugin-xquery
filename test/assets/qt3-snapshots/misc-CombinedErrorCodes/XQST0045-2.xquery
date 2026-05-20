@@ -1,4 +1,4 @@
-declare function xml:foo () {
+declare function xml:foo() {
   1
 };
 

@@ -1,6 +1,6 @@
 declare variable $global := node();
 
-declare function local:function () {
+declare function local:function() {
   exists($global)
 };
 

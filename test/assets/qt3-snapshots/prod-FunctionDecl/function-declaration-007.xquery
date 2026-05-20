@@ -1,6 +1,6 @@
 declare variable $a := 1;
 
-declare function local:foo ($a as xs:integer) {
+declare function local:foo($a as xs:integer) {
   if ($a > 100) then
     $a
   else

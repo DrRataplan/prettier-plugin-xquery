@@ -1,6 +1,6 @@
 declare default function namespace "";
 
-declare function foo ($n as xs:integer, $m as xs:integer) {
+declare function foo($n as xs:integer, $m as xs:integer) {
   $n
 };
 

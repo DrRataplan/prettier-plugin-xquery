@@ -87,7 +87,7 @@ module namespace x = "y";
 
 declare variable $foo := "bar";
 
-declare function foo () {
+declare function foo() {
   "bar"
 };
 `.trimStart();

@@ -1,4 +1,4 @@
-declare function local:myFunc ($recurse as xs:integer) {
+declare function local:myFunc($recurse as xs:integer) {
   <nested>
     {
       if ($recurse = 0) then (

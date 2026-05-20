@@ -5,7 +5,7 @@ declare variable $my:error-qname := QName(
   "my:qName"
 );
 
-declare function my:error ($choice, $msg as xs:string) as empty-sequence() {
+declare function my:error($choice, $msg as xs:string) as empty-sequence() {
   if ($choice) then
     error($my:error-qname, concat("No luck: ", $msg))
   else (

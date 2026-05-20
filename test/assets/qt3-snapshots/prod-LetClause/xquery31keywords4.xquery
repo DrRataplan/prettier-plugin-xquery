@@ -1,4 +1,4 @@
-declare function local:exponent-separator () {
+declare function local:exponent-separator() {
   126
 };
 

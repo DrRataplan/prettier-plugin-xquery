@@ -1,4 +1,4 @@
-declare function local:canon ($arg) {
+declare function local:canon($arg) {
   for $i in
     for $s in $arg
     return string($s)

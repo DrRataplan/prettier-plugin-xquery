@@ -1,4 +1,4 @@
-declare function local:section-summary (
+declare function local:section-summary(
   $book-or-section as element()*
 ) as element()* {
   for $section in $book-or-section

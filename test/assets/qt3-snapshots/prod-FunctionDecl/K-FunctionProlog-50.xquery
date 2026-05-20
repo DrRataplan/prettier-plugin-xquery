@@ -1,4 +1,4 @@
-declare function local:myFunction ($arg) as empty-sequence() {
+declare function local:myFunction($arg) as empty-sequence() {
   $arg
 };
 

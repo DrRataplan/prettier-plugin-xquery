@@ -1,4 +1,4 @@
-declare function local:f ($in as xs:integer) as xs:integer {
+declare function local:f($in as xs:integer) as xs:integer {
   $in + 1
 };
 

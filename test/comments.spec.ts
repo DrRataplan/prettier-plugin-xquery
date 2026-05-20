@@ -243,7 +243,7 @@ declare function xxx:yyy(){
 
 xxx:yyy()`,
 				output: `
-declare function xxx:yyy () {
+declare function xxx:yyy() {
   (
     (:~
      : ASDASD ASD ASD ASD

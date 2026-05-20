@@ -1,4 +1,4 @@
-declare %fn:x function local:foo () {
+declare %fn:x function local:foo() {
   "bar"
 };
 

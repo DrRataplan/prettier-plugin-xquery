@@ -1,4 +1,4 @@
-declare function local:yearMonthDuration (
+declare function local:yearMonthDuration(
   $years as xs:integer,
   $months as xs:integer
 ) {

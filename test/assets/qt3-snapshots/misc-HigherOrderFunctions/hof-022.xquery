@@ -1,4 +1,4 @@
-declare function local:scramble (
+declare function local:scramble(
   $x as function (xs:string) as xs:string,
   $y as xs:string
 ) as xs:string {

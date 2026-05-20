@@ -1,4 +1,4 @@
-declare function local:partners ($c as xs:string) as element()* {
+declare function local:partners($c as xs:string) as element()* {
   let $c := $company-data//company[name = $c]
   return $c//partner
 };

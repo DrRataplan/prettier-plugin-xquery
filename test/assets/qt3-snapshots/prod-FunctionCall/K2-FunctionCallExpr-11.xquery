@@ -1,4 +1,4 @@
-declare function local:compare ($arg1 as xs:string, $arg2 as xs:string) {
+declare function local:compare($arg1 as xs:string, $arg2 as xs:string) {
   let $cps1 := string-to-codepoints($arg1), $cps2 := string-to-codepoints($arg2)
   return abs(count($cps1) - count($cps2)) +
     sum(

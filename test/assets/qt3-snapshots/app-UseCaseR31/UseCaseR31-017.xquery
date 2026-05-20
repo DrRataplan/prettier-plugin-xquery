@@ -34,7 +34,7 @@ declare variable $s := [
   [".", "."]
 ];
 
-declare function local:filter (
+declare function local:filter(
   $s as item()*,
   $p as function (item()) as xs:boolean
 ) {

@@ -14,7 +14,7 @@ declare
   (: Lorem ipsum dolor sit amet. :)
   %eg:three(1)
   %Q{http://example.com}four
-function local:foo ($arg) {
+function local:foo($arg) {
   $arg
 };
 

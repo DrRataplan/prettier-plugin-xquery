@@ -1,4 +1,4 @@
-declare function local:q (
+declare function local:q(
   $prefix as xs:string,
   $local as xs:string
 ) as xs:QName {

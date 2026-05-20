@@ -1,4 +1,4 @@
-declare function local:gYear ($gYear as xs:gYear, $null as xs:boolean) {
+declare function local:gYear($gYear as xs:gYear, $null as xs:boolean) {
   if ($null) then (
   ) else
     $gYear

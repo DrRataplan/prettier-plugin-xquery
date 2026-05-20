@@ -1,3 +1,3 @@
-declare function foo () external;
+declare function foo() external;
 
 1

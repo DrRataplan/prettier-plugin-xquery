@@ -1,6 +1,6 @@
 declare namespace functx = "http://www.example.com/";
 
-declare function functx:left-trim ($arg as xs:string?) as xs:string {
+declare function functx:left-trim($arg as xs:string?) as xs:string {
   replace($arg, "^\s+", "")
 };
 

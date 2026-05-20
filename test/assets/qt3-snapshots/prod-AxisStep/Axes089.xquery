@@ -46,7 +46,7 @@ declare variable $start-column := xs:integer(
 
 declare variable $start-row := 8 - xs:integer(substring($start, 2, 1));
 
-declare function tour:main () as element() {
+declare function tour:main() as element() {
   (: This function controls the processing. It does not access the source document. :)
 
   (: Validate the input parameter :)
@@ -84,7 +84,7 @@ declare function tour:main () as element() {
     return tour:print-board($final-board)
 };
 
-declare function tour:place-knight (
+declare function tour:place-knight(
   $move as xs:integer,
   $board as xs:integer*,
   $square as xs:integer (: range 0 to 63 :)
@@ -100,7 +100,7 @@ declare function tour:place-knight (
     $board[$i]
 };
 
-declare function tour:make-moves (
+declare function tour:make-moves(
   $move as xs:integer,
   $board as xs:integer*,
   $square as xs:integer (: range 0 to 63 :)
@@ -120,7 +120,7 @@ declare function tour:make-moves (
   return tour:try-possible-moves($move, $board, $square, $possible-move-list)
 };
 
-declare function tour:try-possible-moves (
+declare function tour:try-possible-moves(
   $move as xs:integer,
   $board as xs:integer*,
   $square as xs:integer (: range 0 to 63 :),
@@ -142,7 +142,7 @@ declare function tour:try-possible-moves (
              of the board, to indicate to the caller that we got stuck :)
 };
 
-declare function tour:make-best-move (
+declare function tour:make-best-move(
   $move as xs:integer,
   $board as xs:integer*,
   $square as xs:integer (: range 0 to 63 :),
@@ -186,7 +186,7 @@ declare function tour:make-best-move (
     $final-board
 };
 
-declare function tour:find-best-move (
+declare function tour:find-best-move(
   $board as xs:integer*,
   $possible-moves as xs:integer*,
   $fewest-exits as xs:integer,
@@ -236,7 +236,7 @@ declare function tour:find-best-move (
     $new-best-so-far
 };
 
-declare function tour:list-possible-moves (
+declare function tour:list-possible-moves(
   $board as xs:integer*,
   $square as xs:integer
 ) as xs:integer* {
@@ -282,7 +282,7 @@ declare function tour:list-possible-moves (
   )
 };
 
-declare function tour:print-board ($board as xs:integer*) as element() {
+declare function tour:print-board($board as xs:integer*) as element() {
   (: Output the board in HTML format :)
 
   <html>

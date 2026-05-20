@@ -1,4 +1,4 @@
-declare function local:multiplySequence ($input as xs:integer*) as xs:integer {
+declare function local:multiplySequence($input as xs:integer*) as xs:integer {
   if (empty($input)) then
     1
   else

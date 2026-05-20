@@ -1,4 +1,4 @@
-declare function local:nothing () as empty-sequence() {
+declare function local:nothing() as empty-sequence() {
   ()
 };
 

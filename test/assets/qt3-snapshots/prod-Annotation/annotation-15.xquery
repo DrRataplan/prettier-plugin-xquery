@@ -1,4 +1,4 @@
-declare %xml:x function local:foo () {
+declare %xml:x function local:foo() {
   "bar"
 };
 

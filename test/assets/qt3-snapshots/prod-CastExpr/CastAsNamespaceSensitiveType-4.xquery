@@ -1,4 +1,4 @@
-declare function local:clarkname ($q as xs:NOTATION) as xs:string {
+declare function local:clarkname($q as xs:NOTATION) as xs:string {
   $q cast as xs:string
 };
 

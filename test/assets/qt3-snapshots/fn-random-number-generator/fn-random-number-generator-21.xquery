@@ -1,12 +1,12 @@
 declare namespace r = "http://example.com/random/";
 
-declare %public function r:random-sequence (
+declare %public function r:random-sequence(
   $length as xs:integer
 ) as xs:double* {
   r:random-sequence($length, fn:random-number-generator())
 };
 
-declare %private function r:random-sequence (
+declare %private function r:random-sequence(
   $length as xs:integer,
   $G as map(xs:string, item())
 ) {

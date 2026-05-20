@@ -1,4 +1,4 @@
-declare function local:square ($arg as xs:integer) as xs:integer {
+declare function local:square($arg as xs:integer) as xs:integer {
   $arg * $arg
 };
 

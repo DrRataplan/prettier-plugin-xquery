@@ -2,7 +2,7 @@ import schema namespace fpml =  "http://www.fpml.org/2005/FpML-4-2"(: at "mini-f
 
 declare variable $v := "4.2";
 
-declare function local:write () as schema-element(fpml:FpML) {
+declare function local:write() as schema-element(fpml:FpML) {
   validate strict {
     <FpML
       xmlns="http://www.fpml.org/2005/FpML-4-2"

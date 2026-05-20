@@ -1,4 +1,4 @@
-declare function local:f ($d as xs:integer) {
+declare function local:f($d as xs:integer) {
   10 div $d
 };
 

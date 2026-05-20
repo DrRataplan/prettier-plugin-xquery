@@ -1,11 +1,11 @@
-declare function local:f ($x) {
+declare function local:f($x) {
   if ($x) then
     xs:duration("P1D")
   else
     xs:dayTimeDuration("P1D")
 };
 
-declare function local:g ($x) {
+declare function local:g($x) {
   if ($x) then
     xs:duration("P1M")
   else

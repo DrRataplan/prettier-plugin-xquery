@@ -3,18 +3,18 @@ declare namespace serialization = "http://www.w3.org/2010/xslt-xquery-serializat
 
 (: declare option serialization:method "adaptive"; :)
 
-declare function local:fact ($n as xs:integer) {
+declare function local:fact($n as xs:integer) {
   if ($n eq 1) then
     1
   else
     $n * local:fact($n - 1)
 };
 
-declare function local:permute ($seq as item()*) as array(item()*) {
+declare function local:permute($seq as item()*) as array(item()*) {
   local:permute($seq, local:fact(count($seq)), random-number-generator())
 };
 
-declare function local:permute (
+declare function local:permute(
   $seq as item()*,
   $n as xs:integer,
   $rng as map(*)

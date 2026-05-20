@@ -1,4 +1,4 @@
-declare function local:case (
+declare function local:case(
   $x as xs:boolean
 ) as function (xs:string?) as xs:string {
   if ($x) then

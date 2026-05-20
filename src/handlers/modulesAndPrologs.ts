@@ -289,7 +289,6 @@ const modulesAndPrologsHandlers: Record<string, Handler> = {
 				functionKeyword,
 				space,
 				eQNamePart,
-				space,
 				parenOpenKeyword,
 				indent([softline, paramListPart]),
 				softline,

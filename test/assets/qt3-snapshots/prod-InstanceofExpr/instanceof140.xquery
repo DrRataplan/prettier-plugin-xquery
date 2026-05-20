@@ -1,6 +1,6 @@
 import schema namespace s =  "http://www.w3.org/XQueryTest/unionListDefined";
 
-declare function local:f ($a as xs:integer) as xs:boolean {
+declare function local:f($a as xs:integer) as xs:boolean {
   true()
 };
 

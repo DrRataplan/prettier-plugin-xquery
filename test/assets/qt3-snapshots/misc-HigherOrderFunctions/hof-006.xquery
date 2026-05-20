@@ -1,6 +1,6 @@
 declare default function namespace "http://example.com/hof-006";
 
-declare function g ($x as xs:integer) as xs:integer {
+declare function g($x as xs:integer) as xs:integer {
   $x + 1
 };
 

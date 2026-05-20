@@ -1,4 +1,4 @@
-declare function local:gMonth ($month as xs:integer) {
+declare function local:gMonth($month as xs:integer) {
   if ($month lt 10) then
     xs:gMonth(concat("--0", $month))
   else

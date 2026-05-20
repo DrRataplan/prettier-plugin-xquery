@@ -3,7 +3,7 @@ declare namespace functx = "http://www.example.com/";
 (:~
  : Sorts a sequence of numeric values or nodes : : @author Priscilla Walmsley, Datypic : @version 1.0 : @see http://www.xqueryfunctions.com/xq/functx_sort-as-numeric.html : @param $seq the sequence to sort
  :)
-declare function functx:sort-as-numeric ($seq as item()*) as item()* {
+declare function functx:sort-as-numeric($seq as item()*) as item()* {
   for $item in $seq
   order by number($item)
   return $item

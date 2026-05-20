@@ -1,6 +1,6 @@
 declare variable $local:foo := 1 to 10;
 
-declare function local:window () {
+declare function local:window() {
   for tumbling window $w in $local:foo
     start $s when false()
     end $e when false()

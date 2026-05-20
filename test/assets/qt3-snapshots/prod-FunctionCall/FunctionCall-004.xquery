@@ -1,4 +1,4 @@
-declare function local:f ($in as xs:boolean) as xs:boolean {
+declare function local:f($in as xs:boolean) as xs:boolean {
   $in
 };
 

@@ -1,4 +1,4 @@
-declare function local:time ($time as xs:time, $null as xs:boolean) {
+declare function local:time($time as xs:time, $null as xs:boolean) {
   if ($null) then (
   ) else
     $time

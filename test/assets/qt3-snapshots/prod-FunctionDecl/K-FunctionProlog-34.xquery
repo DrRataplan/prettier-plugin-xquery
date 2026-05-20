@@ -1,4 +1,4 @@
-declare function local:MyFunction () {
+declare function local:MyFunction() {
   1
 };
 

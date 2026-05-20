@@ -6,7 +6,7 @@ declare namespace functx = "http://www.example.com/";
  : @see http://www.xqueryfunctions.com/xq/functx_node-kind.html
  : @param $nodes the node(s) whose kind you want to determine
  :)
-declare function functx:node-kind ($nodes as node()*) as xs:string* {
+declare function functx:node-kind($nodes as node()*) as xs:string* {
   for $node in $nodes
   return if ($node instance of element()) then
     "element"

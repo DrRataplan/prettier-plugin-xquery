@@ -7,7 +7,7 @@ declare variable $root := doc($uri)/root/QObject;
 declare variable $metaObjects :=
   $root/preceding-sibling::metaObjects/metaObject;
 
-declare function local:recurseMetaObject (
+declare function local:recurseMetaObject(
   $object as element(metaObject),
   $count as xs:integer
 ) {
@@ -20,7 +20,7 @@ declare function local:recurseMetaObject (
   >{ string($object/@className) }</s:text>
 };
 
-declare function local:drawDiagram (
+declare function local:drawDiagram(
   $object as element(QObject)
 ) as element(s:g) {
   <s:g>

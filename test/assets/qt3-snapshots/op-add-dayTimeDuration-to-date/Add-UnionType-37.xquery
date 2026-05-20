@@ -1,6 +1,6 @@
 import schema namespace s =  "http://www.w3.org/XQueryTest/unionListDefined";
 
-declare function local:f ($a as s:dateOrDateTime) as s:dateOrDateTime {
+declare function local:f($a as s:dateOrDateTime) as s:dateOrDateTime {
   xs:dayTimeDuration("P1D") + $a
 };
 

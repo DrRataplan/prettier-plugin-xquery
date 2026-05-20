@@ -1,4 +1,4 @@
-declare function local:case (
+declare function local:case(
   $x as function (xs:string?) as xs:string,
   $y as xs:string
 ) as xs:string {

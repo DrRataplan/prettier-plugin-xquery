@@ -1,4 +1,4 @@
-declare function local:play (
+declare function local:play(
   $secret-number as xs:integer,
   $guessed-number as xs:integer,
   $translator as function (xs:string) as xs:string

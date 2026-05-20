@@ -1,6 +1,6 @@
 declare default function namespace "http://www.example.com/";
 
-declare function unordered () {
+declare function unordered() {
   1
 };
 

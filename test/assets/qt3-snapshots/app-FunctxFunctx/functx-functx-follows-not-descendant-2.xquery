@@ -3,7 +3,7 @@ declare namespace functx = "http://www.example.com/";
 (:~
  : Whether an XML node follows another without being its descendant : : @author W3C XML Query Working Group : @version 1.0 : @see http://www.xqueryfunctions.com/xq/functx_follows-not-descendant.html : @param $a the first node : @param $b the second node
  :)
-declare function functx:follows-not-descendant (
+declare function functx:follows-not-descendant(
   $a as node()?,
   $b as node()?
 ) as xs:boolean {

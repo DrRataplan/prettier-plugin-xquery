@@ -1,4 +1,4 @@
-declare function local:gMonthDay ($day as xs:integer) {
+declare function local:gMonthDay($day as xs:integer) {
   if ($day lt 10) then
     xs:gMonthDay(concat("--12-0", $day))
   else

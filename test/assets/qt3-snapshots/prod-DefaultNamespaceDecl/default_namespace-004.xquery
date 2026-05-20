@@ -1,6 +1,6 @@
 declare default function namespace "http://example.org";
 
-declare function summary ($emps as element(employee)*) as element(dept)* {
+declare function summary($emps as element(employee)*) as element(dept)* {
   for $d in fn:distinct-values($emps/deptno)
   let $e := $emps[deptno = $d]
   return <dept>

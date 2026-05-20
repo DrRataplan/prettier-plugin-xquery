@@ -1,4 +1,4 @@
-declare function local:type ($n) {
+declare function local:type($n) {
   if ($n instance of xs:integer) then
     "integer"
   else if ($n instance of xs:double) then

@@ -1,6 +1,6 @@
 declare namespace eg = "http://example.org";
 
-declare function eg:value-union (
+declare function eg:value-union(
   $arg1 as xs:anyAtomicType*,
   $arg2 as xs:anyAtomicType*
 ) as xs:anyAtomicType* {

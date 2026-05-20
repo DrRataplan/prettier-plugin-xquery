@@ -1,4 +1,4 @@
-declare function local:foo () as xs:boolean {
+declare function local:foo() as xs:boolean {
   text { local:doesNotExist() }
 };
 

@@ -1,4 +1,4 @@
-declare function local:add ($arg1, $arg2, $arg3) {
+declare function local:add($arg1, $arg2, $arg3) {
   $arg1 + $arg2 + $arg3
 };
 

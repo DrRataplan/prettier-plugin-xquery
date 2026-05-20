@@ -1,4 +1,4 @@
-declare function local:tf ($i as xs:integer) as function () as xs:boolean {
+declare function local:tf($i as xs:integer) as function () as xs:boolean {
   if ($i) then
     true#0
   else

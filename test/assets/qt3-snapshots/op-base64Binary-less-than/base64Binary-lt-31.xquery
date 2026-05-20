@@ -1,4 +1,4 @@
-declare function local:base64Binary-value (
+declare function local:base64Binary-value(
   $arg as xs:boolean
 ) as xs:base64Binary {
   if ($arg) then

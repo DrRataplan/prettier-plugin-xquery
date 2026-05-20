@@ -7,7 +7,7 @@ declare variable $f := (
     fn:round#2
 );
 
-declare function plus ($x, $y) {
+declare function plus($x, $y) {
   $x + $y
 };
 

@@ -3,7 +3,7 @@ declare namespace functx = "http://www.example.com/";
 (:~
  : The siblings of an XML node : : @author Priscilla Walmsley, Datypic : @version 1.0 : @see http://www.xqueryfunctions.com/xq/functx_siblings.html : @param $node the node
  :)
-declare function functx:siblings ($node as node()?) as node()* {
+declare function functx:siblings($node as node()?) as node()* {
   $node/../node() except $node
 };
 

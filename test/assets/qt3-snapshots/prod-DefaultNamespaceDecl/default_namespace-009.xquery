@@ -1,6 +1,6 @@
 declare default function namespace "http://example.org";
 
-declare function fact ($n as xs:integer) as xs:integer {
+declare function fact($n as xs:integer) as xs:integer {
   if ($n < 2) then
     1
   else

@@ -1,4 +1,4 @@
-declare function local:square ($arg as xs:float) as xs:float {
+declare function local:square($arg as xs:float) as xs:float {
   $arg * $arg
 };
 

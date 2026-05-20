@@ -1,4 +1,4 @@
-declare function local:get-words () {
+declare function local:get-words() {
   tokenize("she sells sea shells by the sea shore", "\s+")
 };
 

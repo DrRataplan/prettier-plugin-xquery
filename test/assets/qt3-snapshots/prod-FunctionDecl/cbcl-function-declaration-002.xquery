@@ -1,4 +1,4 @@
-declare function local:count ($x) {
+declare function local:count($x) {
   count($x)
 };
 

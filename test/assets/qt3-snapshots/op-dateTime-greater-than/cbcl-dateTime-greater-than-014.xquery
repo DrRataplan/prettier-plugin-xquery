@@ -1,7 +1,4 @@
-declare function local:dateTime (
-  $dateTime as xs:dateTime,
-  $null as xs:boolean
-) {
+declare function local:dateTime($dateTime as xs:dateTime, $null as xs:boolean) {
   if ($null) then (
   ) else
     $dateTime

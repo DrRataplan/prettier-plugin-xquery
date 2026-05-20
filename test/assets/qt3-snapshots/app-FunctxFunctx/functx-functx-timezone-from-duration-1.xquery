@@ -3,7 +3,7 @@ declare namespace functx = "http://www.example.com/";
 (:~
  : Converts an xs:dayTimeDuration into a timezone like "-05:00" or "Z" : : @author Priscilla Walmsley, Datypic : @version 1.0 : @see http://www.xqueryfunctions.com/xq/functx_timezone-from-duration.html : @param $duration the duration
  :)
-declare function functx:timezone-from-duration (
+declare function functx:timezone-from-duration(
   $duration as xs:dayTimeDuration
 ) as xs:string {
   if (string($duration) = ("PT0S", "-PT0S")) then

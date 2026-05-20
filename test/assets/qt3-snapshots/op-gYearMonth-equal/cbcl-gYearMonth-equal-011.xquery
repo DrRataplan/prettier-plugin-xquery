@@ -1,4 +1,4 @@
-declare function local:gYearMonth (
+declare function local:gYearMonth(
   $gYearMonth as xs:gYearMonth,
   $null as xs:boolean
 ) {

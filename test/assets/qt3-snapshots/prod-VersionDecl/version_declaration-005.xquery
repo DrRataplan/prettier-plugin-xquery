@@ -16,7 +16,7 @@ import schema default element namespace  "http://comment";
 
 declare variable $x := 7;
 
-declare function local:sumOf1toN ($i) as xs:integer {
+declare function local:sumOf1toN($i) as xs:integer {
   if ($i = 1) then
     $i
   else

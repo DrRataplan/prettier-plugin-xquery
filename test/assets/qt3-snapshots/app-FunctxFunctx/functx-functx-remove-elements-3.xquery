@@ -7,7 +7,7 @@ declare namespace functx = "http://www.example.com/";
  : @param $testname the name to test
  : @param $names the list of names or name wildcards
  :)
-declare function functx:name-test (
+declare function functx:name-test(
   $testname as xs:string?,
   $names as xs:string*
 ) as xs:boolean {
@@ -32,7 +32,7 @@ declare function functx:name-test (
  : @param $elements the element(s) from which you wish to remove the children
  : @param $names the names of the child elements to remove
  :)
-declare function functx:remove-elements (
+declare function functx:remove-elements(
   $elements as element()*,
   $names as xs:string*
 ) as element()* {
@@ -49,7 +49,7 @@ declare function functx:remove-elements (
  : @param $arg the string to substring
  : @param $delim the delimiter
  :)
-declare function functx:substring-after-if-contains (
+declare function functx:substring-after-if-contains(
   $arg as xs:string?,
   $delim as xs:string
 ) as xs:string? {

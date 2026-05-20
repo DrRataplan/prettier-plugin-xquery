@@ -1,4 +1,4 @@
-declare function local:integer ($x as xs:decimal) {
+declare function local:integer($x as xs:decimal) {
   if ($x mod 1 eq 0) then
     xs:integer($x)
   else

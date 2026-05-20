@@ -2,7 +2,7 @@ declare variable $p1 := "http://example.com/one";
 
 declare variable $p2 := "http://example.com/two";
 
-declare function local:f ($ns as namespace-node()) as element() {
+declare function local:f($ns as namespace-node()) as element() {
   <namespace
     is-item="{ $ns instance of item() }"
     is-namespace="{ $ns instance of namespace-node() }"

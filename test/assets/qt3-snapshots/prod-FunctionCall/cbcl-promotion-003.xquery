@@ -1,4 +1,4 @@
-declare function local:index-of (
+declare function local:index-of(
   $seq as xs:integer*,
   $item as xs:integer?
 ) as xs:float* {

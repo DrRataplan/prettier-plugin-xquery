@@ -1,4 +1,4 @@
-declare function local:large-keys (
+declare function local:large-keys(
   $maparg as map(xs:integer, item()*)
 ) as xs:integer* {
   map:keys($maparg)[. > 50]

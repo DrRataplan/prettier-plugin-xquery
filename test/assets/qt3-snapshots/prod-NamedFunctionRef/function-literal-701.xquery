@@ -1,4 +1,4 @@
-declare function local:plus ($x, $y) {
+declare function local:plus($x, $y) {
   $x + $y
 };
 

@@ -1,4 +1,4 @@
-declare function xs:foo () {
+declare function xs:foo() {
   1
 };
 

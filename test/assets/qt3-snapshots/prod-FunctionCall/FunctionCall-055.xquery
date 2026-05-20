@@ -1,4 +1,4 @@
-declare function local:product ($s as xs:double+) as xs:double {
+declare function local:product($s as xs:double+) as xs:double {
   if (not($s[2])) then
     $s[1]
   else

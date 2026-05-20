@@ -1,4 +1,4 @@
-declare function local:date ($arg as xs:boolean) {
+declare function local:date($arg as xs:boolean) {
   if ($arg) then
     xs:date("1970-01-01Z")
   else

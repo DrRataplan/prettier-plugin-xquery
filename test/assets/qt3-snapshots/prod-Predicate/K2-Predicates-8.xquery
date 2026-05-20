@@ -1,4 +1,4 @@
-declare function local:foo ($arg as item()) {
+declare function local:foo($arg as item()) {
   $arg[@arg]
 };
 

@@ -1,6 +1,6 @@
 import schema namespace s =  "http://www.w3.org/XQueryTest/substitution";
 
-declare function local:f ($p as schema-element(s:D)) as xs:integer {
+declare function local:f($p as schema-element(s:D)) as xs:integer {
   3
 };
 

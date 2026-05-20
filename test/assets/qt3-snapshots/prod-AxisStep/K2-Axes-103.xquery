@@ -1,4 +1,4 @@
-declare function local:isComplexType ($typeID) {
+declare function local:isComplexType($typeID) {
   string($typeID)
 };
 

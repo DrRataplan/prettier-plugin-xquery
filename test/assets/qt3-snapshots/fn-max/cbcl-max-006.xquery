@@ -1,4 +1,4 @@
-declare function local:f ($x as xs:integer) {
+declare function local:f($x as xs:integer) {
   if ($x < 3) then
     current-dateTime()
   else

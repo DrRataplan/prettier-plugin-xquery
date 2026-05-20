@@ -1,4 +1,4 @@
-declare function local:ops () as (function (xs:string) as xs:string)* {
+declare function local:ops() as (function (xs:string) as xs:string)* {
   (
     upper-case#1,
     lower-case#1,

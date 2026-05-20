@@ -1,4 +1,4 @@
-declare function local:sum ($n) {
+declare function local:sum($n) {
   if (empty($n)) then
     0
   else

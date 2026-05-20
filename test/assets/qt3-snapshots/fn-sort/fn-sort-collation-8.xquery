@@ -1,4 +1,4 @@
-declare function local:key ($n as xs:integer) as xs:string {
+declare function local:key($n as xs:integer) as xs:string {
   ("Red", "green", "blUE", "PINK", "ORanGE")[$n]
 };
 

@@ -1,4 +1,4 @@
-declare function local:yes-empty ($arg as xs:boolean) as xs:string? {
+declare function local:yes-empty($arg as xs:boolean) as xs:string? {
   if ($arg) then
     "yes"
   else (

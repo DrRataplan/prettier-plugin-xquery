@@ -1,23 +1,23 @@
 declare namespace i = "http://example.com/compound-values";
 
-declare function i:complex (
+declare function i:complex(
   $real as xs:double,
   $imaginary as xs:double
 ) as map(xs:boolean, xs:double) {
   map {true(): $real, false(): $imaginary}
 };
 
-declare function i:real ($complex as map(xs:boolean, xs:double)) as xs:double {
+declare function i:real($complex as map(xs:boolean, xs:double)) as xs:double {
   $complex(true())
 };
 
-declare function i:imaginary (
+declare function i:imaginary(
   $complex as map(xs:boolean, xs:double)
 ) as xs:double {
   $complex(false())
 };
 
-declare function i:add (
+declare function i:add(
   $arg1 as map(xs:boolean, xs:double),
   $arg2 as map(xs:boolean, xs:double)
 ) as map(xs:boolean, xs:double) {
@@ -27,7 +27,7 @@ declare function i:add (
   )
 };
 
-declare function i:multiply (
+declare function i:multiply(
   $arg1 as map(xs:boolean, xs:double),
   $arg2 as map(xs:boolean, xs:double)
 ) as map(xs:boolean, xs:double) {

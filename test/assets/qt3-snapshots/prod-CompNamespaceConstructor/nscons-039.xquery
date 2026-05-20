@@ -1,6 +1,6 @@
 declare copy-namespaces preserve ,  inherit;
 
-declare function local:rec-add ($level as xs:integer) as element() {
+declare function local:rec-add($level as xs:integer) as element() {
   if ($level > 0) then
     element {concat("e", $level)} {
       namespace { concat("pre", $level) } { concat("uri", $level) },

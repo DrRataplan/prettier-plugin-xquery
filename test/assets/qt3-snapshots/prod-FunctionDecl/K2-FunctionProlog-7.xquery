@@ -1,4 +1,4 @@
-declare function local:myFunction () as xs:float {
+declare function local:myFunction() as xs:float {
   4.0
 };
 

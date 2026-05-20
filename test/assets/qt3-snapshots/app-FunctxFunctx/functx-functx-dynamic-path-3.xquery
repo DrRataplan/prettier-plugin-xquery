@@ -3,7 +3,7 @@ declare namespace functx = "http://www.example.com/";
 (:~
  : Dynamically evaluates a simple XPath path : : @author Priscilla Walmsley, Datypic : @version 1.0 : @see http://www.xqueryfunctions.com/xq/functx_dynamic-path.html : @param $parent the root to start from : @param $path the path expression
  :)
-declare function functx:dynamic-path (
+declare function functx:dynamic-path(
   $parent as node(),
   $path as xs:string
 ) as item()* {
@@ -23,7 +23,7 @@ declare function functx:dynamic-path (
 (:~
  : Whether a name matches a list of names or name wildcards : : @author Priscilla Walmsley, Datypic : @version 1.0 : @see http://www.xqueryfunctions.com/xq/functx_name-test.html : @param $testname the name to test : @param $names the list of names or name wildcards
  :)
-declare function functx:name-test (
+declare function functx:name-test(
   $testname as xs:string?,
   $names as xs:string*
 ) as xs:boolean {
@@ -44,7 +44,7 @@ declare function functx:name-test (
 (:~
  : Performs substring-after, returning the entire string if it does not contain the delimiter : : @author Priscilla Walmsley, Datypic : @version 1.0 : @see http://www.xqueryfunctions.com/xq/functx_substring-after-if-contains.html : @param $arg the string to substring : @param $delim the delimiter
  :)
-declare function functx:substring-after-if-contains (
+declare function functx:substring-after-if-contains(
   $arg as xs:string?,
   $delim as xs:string
 ) as xs:string? {
@@ -57,7 +57,7 @@ declare function functx:substring-after-if-contains (
 (:~
  : Performs substring-before, returning the entire string if it does not contain the delimiter : : @author Priscilla Walmsley, Datypic : @version 1.0 : @see http://www.xqueryfunctions.com/xq/functx_substring-before-if-contains.html : @param $arg the string to substring : @param $delim the delimiter
  :)
-declare function functx:substring-before-if-contains (
+declare function functx:substring-before-if-contains(
   $arg as xs:string?,
   $delim as xs:string
 ) as xs:string? {

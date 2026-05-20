@@ -1,4 +1,4 @@
-declare function local:_ ($arg as attribute()?) {
+declare function local:_($arg as attribute()?) {
   1
 };
 

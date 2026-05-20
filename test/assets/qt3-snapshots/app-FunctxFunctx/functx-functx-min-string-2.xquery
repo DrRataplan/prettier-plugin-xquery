@@ -3,7 +3,7 @@ declare namespace functx = "http://www.example.com/";
 (:~
  : The minimum of a sequence of values, treating them like strings : : @author Priscilla Walmsley, Datypic : @version 1.0 : @see http://www.xqueryfunctions.com/xq/functx_min-string.html : @param $strings the sequence of strings
  :)
-declare function functx:min-string (
+declare function functx:min-string(
   $strings as xs:anyAtomicType*
 ) as xs:string? {
   min(

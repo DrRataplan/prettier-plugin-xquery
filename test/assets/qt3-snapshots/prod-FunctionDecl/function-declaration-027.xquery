@@ -1,3 +1,3 @@
-declare function local:function () {};
+declare function local:function() {};
 
 local:function()

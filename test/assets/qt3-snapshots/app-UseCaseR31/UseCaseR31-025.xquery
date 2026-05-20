@@ -1,6 +1,6 @@
 declare namespace map = "http://www.w3.org/2005/xpath-functions/map";
 
-declare function local:deep-put (
+declare function local:deep-put(
   $input as item()*,
   $key as xs:string,
   $value as item()*

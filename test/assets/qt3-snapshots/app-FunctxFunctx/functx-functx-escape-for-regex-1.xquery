@@ -3,7 +3,7 @@ declare namespace functx = "http://www.example.com/";
 (:~
  : Escapes regex special characters : : @author Priscilla Walmsley, Datypic : @version 1.0 : @see http://www.xqueryfunctions.com/xq/functx_escape-for-regex.html : @param $arg the string to escape
  :)
-declare function functx:escape-for-regex ($arg as xs:string?) as xs:string {
+declare function functx:escape-for-regex($arg as xs:string?) as xs:string {
   replace($arg, "(\.|\[|\]|\\|\||\-|\^|\$|\?|\*|\+|\{|\}|\(|\))", "\\$1")
 };
 

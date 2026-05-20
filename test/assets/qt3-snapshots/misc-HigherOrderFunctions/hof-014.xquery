@@ -1,4 +1,4 @@
-declare function local:case ($x as xs:boolean) as function(*) {
+declare function local:case($x as xs:boolean) as function(*) {
   if ($x) then
     fn:upper-case#1
   else

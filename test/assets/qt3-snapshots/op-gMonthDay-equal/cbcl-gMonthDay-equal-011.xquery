@@ -1,4 +1,4 @@
-declare function local:gMonthDay (
+declare function local:gMonthDay(
   $gMonthDay as xs:gMonthDay,
   $null as xs:boolean
 ) {

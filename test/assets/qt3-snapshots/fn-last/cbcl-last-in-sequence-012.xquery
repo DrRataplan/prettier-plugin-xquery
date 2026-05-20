@@ -1,4 +1,4 @@
-declare function local:generate ($arg as xs:boolean) as xs:string+ {
+declare function local:generate($arg as xs:boolean) as xs:string+ {
   if ($arg) then (
     "a", "b", "c"
   ) else (

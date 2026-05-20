@@ -1,4 +1,4 @@
-declare function local:gYearMonth ($year as xs:integer) {
+declare function local:gYearMonth($year as xs:integer) {
   xs:gYearMonth(concat(string(2000 + $year), "-01"))
 };
 

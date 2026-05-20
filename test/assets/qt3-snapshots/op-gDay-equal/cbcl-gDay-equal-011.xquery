@@ -1,4 +1,4 @@
-declare function local:gDay ($gDay as xs:gDay, $null as xs:boolean) {
+declare function local:gDay($gDay as xs:gDay, $null as xs:boolean) {
   if ($null) then (
   ) else
     $gDay

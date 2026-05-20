@@ -2,7 +2,7 @@ declare default collation "http://www.w3.org/2010/09/qt-fots-catalog/collation/c
 
 declare namespace array = "http://www.w3.org/2005/xpath-functions/array";
 
-declare function local:key ($n as xs:integer) as xs:string {
+declare function local:key($n as xs:integer) as xs:string {
   ("Red", "green", "blUE", "PINK", "ORanGE")[$n]
 };
 

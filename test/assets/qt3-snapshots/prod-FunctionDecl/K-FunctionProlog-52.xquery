@@ -1,4 +1,4 @@
-declare function local:myFunction () as empty-sequence() {
+declare function local:myFunction() as empty-sequence() {
   fn:error()
 };
 

@@ -1,4 +1,4 @@
-declare function local:f (
+declare function local:f(
   $x as xs:long,
   $y as xs:NCName
 ) as element(e, xs:anyAtomicType) {

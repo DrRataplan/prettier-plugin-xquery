@@ -1,4 +1,4 @@
-declare function local:factorial ($n as xs:integer) as xs:integer? {
+declare function local:factorial($n as xs:integer) as xs:integer? {
   if ($n lt 1) then (
   ) else if ($n eq 1) then
     1

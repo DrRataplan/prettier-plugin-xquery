@@ -1,4 +1,4 @@
-declare function local:value ($number as xs:boolean) {
+declare function local:value($number as xs:boolean) {
   if ($number) then
     1
   else

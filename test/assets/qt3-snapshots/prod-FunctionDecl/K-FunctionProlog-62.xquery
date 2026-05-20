@@ -1,6 +1,6 @@
 declare variable $my := 3;
 
-declare function local:myFunction ($my, $arg2, $arg4) {
+declare function local:myFunction($my, $arg2, $arg4) {
   1
 };
 

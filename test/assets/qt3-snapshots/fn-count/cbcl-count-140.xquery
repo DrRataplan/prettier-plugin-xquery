@@ -1,4 +1,4 @@
-declare function local:primes ($n as xs:integer) {
+declare function local:primes($n as xs:integer) {
   if ($n lt 2) then
     1
   else
@@ -9,7 +9,7 @@ declare function local:primes ($n as xs:integer) {
     )
 };
 
-declare function local:square ($n as xs:float) {
+declare function local:square($n as xs:float) {
   $n * $n
 };
 

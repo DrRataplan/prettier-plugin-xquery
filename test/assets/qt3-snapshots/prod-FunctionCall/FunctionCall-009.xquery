@@ -1,4 +1,4 @@
-declare function local:f ($in as xs:decimal*) as xs:decimal {
+declare function local:f($in as xs:decimal*) as xs:decimal {
   sum($in, 0.0)
 };
 

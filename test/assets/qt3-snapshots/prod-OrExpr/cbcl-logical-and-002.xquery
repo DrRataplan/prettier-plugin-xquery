@@ -1,4 +1,4 @@
-declare function local:times-table ($n as xs:integer) as xs:integer* {
+declare function local:times-table($n as xs:integer) as xs:integer* {
   for $x in 1 to 12
   return $x * $n
 };

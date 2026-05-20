@@ -2,7 +2,7 @@ declare namespace lu = "http://www.w3.org/XQueryTest/ListUnionTypes";
 
 import schema  "http://www.w3.org/XQueryTest/ListUnionTypes";
 
-declare function local:makeDate (
+declare function local:makeDate(
   $in as xs:string,
   $year as xs:integer
 ) as lu:unionOfUnionType {

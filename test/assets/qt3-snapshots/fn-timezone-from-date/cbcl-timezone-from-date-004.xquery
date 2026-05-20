@@ -1,4 +1,4 @@
-declare function local:timezone ($arg as xs:integer) {
+declare function local:timezone($arg as xs:integer) {
   if ($arg gt 0) then
     xs:dayTimeDuration(concat("PT", $arg, "H"))
   else if ($arg lt 0) then

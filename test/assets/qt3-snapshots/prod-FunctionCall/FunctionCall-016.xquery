@@ -1,4 +1,4 @@
-declare function local:f ($in as xs:QName) as xs:integer {
+declare function local:f($in as xs:QName) as xs:integer {
   string-length(local-name-from-QName($in))
 };
 

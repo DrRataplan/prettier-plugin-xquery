@@ -1,4 +1,4 @@
-declare %private %private function local:foo () {
+declare %private %private function local:foo() {
   ()
 };
 

@@ -1,6 +1,6 @@
 xquery version "3.0";
 
-declare %private function local:square ($i as xs:integer) as xs:integer {
+declare %private function local:square($i as xs:integer) as xs:integer {
   $i * $i
 };
 

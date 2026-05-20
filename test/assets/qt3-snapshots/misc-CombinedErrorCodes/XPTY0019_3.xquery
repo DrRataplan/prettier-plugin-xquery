@@ -1,6 +1,6 @@
 declare namespace foo = "http://www.example.org";
 
-declare function foo:something ($pos as xs:integer) {
+declare function foo:something($pos as xs:integer) {
   if ($pos eq 1) then
     1
   else

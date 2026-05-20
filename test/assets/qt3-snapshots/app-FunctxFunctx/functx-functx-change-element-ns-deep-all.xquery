@@ -3,7 +3,7 @@ declare namespace functx = "http://www.example.com/";
 (:~
  : Changes the namespace of XML elements and its descendants : : @author Priscilla Walmsley, Datypic : @version 1.0 : @see http://www.xqueryfunctions.com/xq/functx_change-element-ns-deep.html : @param $nodes the nodes to change : @param $newns the new namespace : @param $prefix the prefix to use for the new namespace
  :)
-declare function functx:change-element-ns-deep (
+declare function functx:change-element-ns-deep(
   $nodes as node()*,
   $newns as xs:string,
   $prefix as xs:string
