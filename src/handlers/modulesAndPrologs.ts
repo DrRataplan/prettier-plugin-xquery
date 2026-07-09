@@ -210,8 +210,8 @@ const modulesAndPrologsHandlers: Record<string, Handler> = {
 					namespaceDeclPart,
 					importPart,
 					contextItemDeclPart,
-					annotatedDeclPart,
 					optionDeclPart,
+					annotatedDeclPart,
 				]
 					.filter((p) => p !== null)
 					.map((p) => p!),

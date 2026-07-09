@@ -1,9 +1,9 @@
 declare namespace output = "http://www.w3.org/2010/xslt-xquery-serialization";
 
-declare variable $chunk-size external;
-
 declare option output:method "xml";
 declare option output:indent "yes";
+
+declare variable $chunk-size external;
 
 let $results :=
   for tumbling window $chunk in /*/*

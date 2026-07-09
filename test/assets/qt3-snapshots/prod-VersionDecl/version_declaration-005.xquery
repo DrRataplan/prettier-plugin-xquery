@@ -14,6 +14,8 @@ declare namespace bar = "http://bar.org";
 
 import schema default element namespace  "http://comment";
 
+declare option foo:strip-comments "true";
+
 declare variable $x := 7;
 
 declare function local:sumOf1toN($i) as xs:integer {
@@ -22,7 +24,5 @@ declare function local:sumOf1toN($i) as xs:integer {
   else
     $i + local:sumOf1toN($i - 1)
 };
-
-declare option foo:strip-comments "true";
 
 local:sumOf1toN(5)
