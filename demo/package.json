@@ -7,7 +7,7 @@
     "@codemirror/view": "^6.38.1",
     "@jinntec/jinn-codemirror": "^1.18.0",
     "@picocss/pico": "^2.1.1",
-    "prettier": "^3.8.1"
+    "prettier": "^3.8.3"
   },
   "devDependencies": {
     "firebase": "^12.4.0",
