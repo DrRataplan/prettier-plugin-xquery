@@ -1,6 +1,6 @@
 declare namespace fn = "sudoku";
 
-declare variable $board := (
+declare variable $board as xs:integer+ := (
   1,
   0,
   0,
@@ -84,9 +84,11 @@ declare variable $board := (
   1
 );
 
-declare variable $rowStarts := (1, 10, 19, 28, 37, 46, 55, 64, 73);
+declare variable $rowStarts as xs:integer+ := (
+  1, 10, 19, 28, 37, 46, 55, 64, 73
+);
 
-declare variable $groups := (
+declare variable $groups as xs:integer+ := (
   1,
   1,
   1,

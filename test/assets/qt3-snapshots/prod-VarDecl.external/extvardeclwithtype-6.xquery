@@ -1,3 +1,3 @@
-declare variable $x external;
+declare variable $x as xs:float external;
 
 $x

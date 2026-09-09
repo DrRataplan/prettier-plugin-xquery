@@ -1,5 +1,5 @@
-declare variable $var := $e + 1;
+declare variable $var as xs:integer := $e + 1;
 
-declare variable $e := 10;
+declare variable $e as xs:integer := 10;
 
 $var

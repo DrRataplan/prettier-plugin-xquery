@@ -1,3 +1,3 @@
-declare variable $var := xs:double(1267.43233E12);
+declare variable $var as xs:double := xs:double(1267.43233E12);
 
 $var

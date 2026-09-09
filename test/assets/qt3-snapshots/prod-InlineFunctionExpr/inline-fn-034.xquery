@@ -1,4 +1,4 @@
-declare variable $p external;
+declare variable $p as xs:integer external;
 
 declare variable $f := function ($a) { $a + $p };
 

@@ -1,3 +1,3 @@
-declare variable $i := 1.1;
+declare variable $i as xs:float := 1.1;
 
 $i

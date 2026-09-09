@@ -1,4 +1,4 @@
-declare variable $var1 := local:myFunc();
+declare variable $var1 as xs:string := local:myFunc();
 
 declare function local:myFunc() as xs:integer {
   1

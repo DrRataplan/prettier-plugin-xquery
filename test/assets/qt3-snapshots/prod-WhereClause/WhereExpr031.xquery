@@ -1,4 +1,4 @@
-declare variable $n external;
+declare variable $n external := 0;
 
 for $x allowing empty in 1 to $n
 where not($x = 5)
