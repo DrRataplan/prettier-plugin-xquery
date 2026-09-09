@@ -16,7 +16,7 @@ import schema default element namespace  "http://comment";
 
 declare option foo:strip-comments "true";
 
-declare variable $x := 7;
+declare variable $x as xs:integer := 7;
 
 declare function local:sumOf1toN($i) as xs:integer {
   if ($i = 1) then

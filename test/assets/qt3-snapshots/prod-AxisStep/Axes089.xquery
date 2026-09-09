@@ -30,21 +30,22 @@ declare namespace tour = "http://wrox.com/tour";
 
  :)
 
-declare variable $start := "a1";
+declare variable $start as xs:string := "a1";
 
-declare variable $end := "64";
+declare variable $end as xs:string := "64";
 
-declare variable $endd := xs:integer($end);
+declare variable $endd as xs:integer := xs:integer($end);
 
 (: start-column is an integer in the range 0-7 :)
 
-declare variable $start-column := xs:integer(
+declare variable $start-column as xs:integer := xs:integer(
   translate(substring($start, 1, 1), "abcdefgh", "01234567")
 );
 
 (: start-row is an integer in the range 0-7, with zero at the top :)
 
-declare variable $start-row := 8 - xs:integer(substring($start, 2, 1));
+declare variable $start-row as xs:integer := 8 -
+  xs:integer(substring($start, 2, 1));
 
 declare function tour:main() as element() {
   (: This function controls the processing. It does not access the source document. :)

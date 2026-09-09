@@ -1,3 +1,3 @@
-declare variable $var := "abc";
+declare variable $var as xs:string := "abc";
 
 $var

@@ -1,4 +1,4 @@
-declare variable $root := . treat as document-node();
+declare variable $root as document-node() := . treat as document-node();
 
 <out>
   <empty>

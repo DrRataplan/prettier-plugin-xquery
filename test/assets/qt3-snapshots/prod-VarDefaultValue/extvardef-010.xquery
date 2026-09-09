@@ -1,7 +1,7 @@
 declare variable $a := 1;
 
-declare variable $x external;
+declare variable $x external := $a + $b;
 
-declare variable $b external;
+declare variable $b external := 2;
 
 $x

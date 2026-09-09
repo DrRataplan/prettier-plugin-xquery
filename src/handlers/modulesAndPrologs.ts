@@ -303,27 +303,29 @@ const modulesAndPrologsHandlers: Record<string, Handler> = {
 	VarDecl: (path, print) => {
 		const variableKeyword = path.map(print, "childrenByName", "'variable'");
 		const eQNamePart = path.map(print, "childrenByName", "VarName");
-		const asKeyword = printIfExist(path, print, "'as'");
-		const typeDeclarationPart = path.node.childrenByName["SequenceType"]
-			? [asKeyword!, space, path.map(print, "childrenByName", "SequenceType"), space]
+		const typeDeclarationPart = path.node.childrenByName["TypeDeclaration"]
+			? [path.map(print, "childrenByName", "TypeDeclaration"), space]
 			: [];
-
-		const varValuePart = printIfExist(path, print, "VarValue");
 		const toReturn: Doc[] = [variableKeyword, space, "$", eQNamePart, space, typeDeclarationPart];
 		const externalKeyword = printIfExist(path, print, "'external'");
 		if (externalKeyword) {
 			toReturn.push(externalKeyword);
+			const varValuePart = printIfExist(path, print, "VarDefaultValue");
 			if (varValuePart) {
+				const walrusKeyword = path.map(print, "childrenByName", "':='");
 				toReturn.push(space);
+				// Break here as a last resort, if the variable value really cannot be cut down. Just output a space otherwise
+				toReturn.push(walrusKeyword, ifBreak(indent(group(line)), space), varValuePart);
+			}
+		} else {
+			const varValuePart = printIfExist(path, print, "VarValue");
+
+			if (varValuePart) {
+				const walrusKeyword = path.map(print, "childrenByName", "':='");
+				// Break here as a last resort, if the variable value really cannot be cut down. Just output a space otherwise
+				toReturn.push(walrusKeyword, ifBreak(indent(group(line)), space), varValuePart);
 			}
 		}
-
-		if (varValuePart) {
-			const walrusKeyword = path.map(print, "childrenByName", "':='");
-			// Break here as a last resort, if the variable value really cannot be cut down. Just output a space otherwise
-			toReturn.push(walrusKeyword, ifBreak(indent(group(line)), space), varValuePart);
-		}
-
 		return group(toReturn);
 	},
 	Param: (path, print) => {

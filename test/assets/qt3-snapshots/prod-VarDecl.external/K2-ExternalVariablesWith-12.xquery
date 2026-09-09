@@ -1,3 +1,3 @@
-declare variable $i := xs:untypedAtomic("1");
+declare variable $i as xs:integer := xs:untypedAtomic("1");
 
 $i

@@ -1,3 +1,3 @@
-declare variable $myVar := 2006;
+declare variable $myVar as xs:gYear := 2006;
 
 $myVar

@@ -1,4 +1,4 @@
-declare variable $n external;
+declare variable $n as xs:integer external := 0;
 
 <out>
   {

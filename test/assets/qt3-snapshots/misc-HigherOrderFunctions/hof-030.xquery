@@ -1,4 +1,4 @@
-declare variable $sep := "\s";
+declare variable $sep as xs:string := "\s";
 
 declare function local:splitter() as (function (xs:string) as xs:string*)? {
   function ($x as xs:string) {

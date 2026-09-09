@@ -1,3 +1,4 @@
-declare variable $exampleComThisVarIsNotRecognized external;
+declare
+variable $exampleComThisVarIsNotRecognized as processing-instruction()? external;
 
 1

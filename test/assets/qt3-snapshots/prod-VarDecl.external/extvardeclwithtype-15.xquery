@@ -1,3 +1,3 @@
-declare variable $x external;
+declare variable $x as xs:integer external;
 
 $x mod xs:integer(2)

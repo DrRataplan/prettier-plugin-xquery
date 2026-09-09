@@ -1,3 +1,3 @@
-declare variable $var := fn:string-length("ABC");
+declare variable $var as xs:integer := fn:string-length("ABC");
 
 $var

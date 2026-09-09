@@ -1,3 +1,3 @@
-declare variable $var := fn:false();
+declare variable $var as xs:boolean := fn:false();
 
 $var

@@ -63,6 +63,24 @@ declare variable $foo := "bar";
 			assert.strictEqual(result, code, "The input was already formatted correctly");
 		});
 
+		it("formats a simple case with external and internal typed variables", async () => {
+			const code = `
+module namespace x = "y";
+
+declare variable $foo as xs:string := "bar";
+
+declare variable $bar as xs:string external := "bar";
+
+declare variable $baz external := "bar";
+`.trimStart();
+			const result = await prettier.format(code, {
+				parser: "xquery",
+				plugins: [xqueryPlugin],
+			});
+
+			assert.strictEqual(result, code, "The input was already formatted correctly");
+		});
+
 		it("formats a simple case with a version declaration", async () => {
 			const code = `
 xquery version "3.0";

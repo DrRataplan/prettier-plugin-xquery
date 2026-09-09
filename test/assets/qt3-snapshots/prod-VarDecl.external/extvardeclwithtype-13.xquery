@@ -1,3 +1,3 @@
-declare variable $x external;
+declare variable $x as xs:integer external;
 
 $x idiv xs:integer(2)

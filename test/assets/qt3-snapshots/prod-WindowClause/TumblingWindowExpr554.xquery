@@ -1,4 +1,4 @@
-declare variable $local:foo := 1 to 5;
+declare variable $local:foo as xs:integer* := 1 to 5;
 
 declare function local:window() {
   for tumbling window $w1 in $local:foo

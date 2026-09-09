@@ -1,3 +1,3 @@
-declare variable $var external;
+declare variable $var external := 1;
 
 1

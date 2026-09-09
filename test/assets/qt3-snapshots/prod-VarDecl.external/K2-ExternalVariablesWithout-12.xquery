@@ -1,4 +1,4 @@
-declare variable $a := (
+declare variable $a as attribute()* := (
   attribute name1 { () }, attribute name2 { () }, attribute name3 { () }
 );
 

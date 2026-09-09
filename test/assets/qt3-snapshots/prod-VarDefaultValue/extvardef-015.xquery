@@ -2,6 +2,6 @@ declare context item := $y[9];
 
 declare variable $y := /works/employee;
 
-declare variable $x external;
+declare variable $x external := fn:position();
 
 $x

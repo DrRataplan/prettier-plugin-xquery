@@ -1,4 +1,4 @@
-declare variable $input := <Events>
+declare variable $input as element(Events) := <Events>
   <EventList>
     <DATA action="leave" datetime="2022-02-04 15:00:00" name="mr john" />
     <DATA action="leave" datetime="2022-02-04 15:00:00" name="jane doe" />

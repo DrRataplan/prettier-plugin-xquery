@@ -1,6 +1,6 @@
 xquery version "3.0";
 
-declare variable $animal := "Cat";
+declare variable $animal as xs:string := "Cat";
 
 <out>
   {

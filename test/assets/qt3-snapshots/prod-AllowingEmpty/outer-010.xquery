@@ -1,6 +1,6 @@
-declare variable $m external;
+declare variable $m as xs:integer external := 0;
 
-declare variable $n external;
+declare variable $n as xs:integer external := 0;
 
 <out>
   {

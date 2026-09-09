@@ -1,3 +1,3 @@
-declare variable $x external;
+declare variable $x external := $a + 10;
 
 $x

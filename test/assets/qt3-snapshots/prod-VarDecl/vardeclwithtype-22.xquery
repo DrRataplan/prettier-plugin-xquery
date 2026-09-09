@@ -1,3 +1,3 @@
-declare variable $var := fn:empty((1, 2, 3));
+declare variable $var as xs:boolean := fn:empty((1, 2, 3));
 
 $var

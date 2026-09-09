@@ -13,6 +13,6 @@ declare variable $y := (
   <a>10</a>
 );
 
-declare variable $x external;
+declare variable $x external := fn:position();
 
 $x
