@@ -1,10 +1,10 @@
-declare variable $codepoints := (
+declare variable $codepoints as xs:integer+ := (
   9, 10, 13, 32 to 55295, 57344 to 65532, 65536 to 1114111
 );
 
-declare variable $count := count($codepoints);
+declare variable $count as xs:integer := count($codepoints);
 
-declare variable $lineWidth := 70;
+declare variable $lineWidth as xs:integer := 70;
 
 <allCodepoints><r>{ codepoints-to-string($codepoints) }</r></allCodepoints>
 (: <allCodepoints>{

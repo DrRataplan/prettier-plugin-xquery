@@ -1,4 +1,4 @@
-declare variable $n external;
+declare variable $n external := xs:QName("local:return-v");
 
 declare variable $v := function-lookup($n, 0)();
 

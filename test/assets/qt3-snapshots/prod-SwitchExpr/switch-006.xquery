@@ -1,6 +1,6 @@
 xquery version "3.0";
 
-declare variable $number := 42;
+declare variable $number as xs:decimal := 42;
 
 <out>
   {

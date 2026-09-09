@@ -1,3 +1,3 @@
-declare variable $var := fn:count((10, 2));
+declare variable $var as xs:integer := fn:count((10, 2));
 
 $var

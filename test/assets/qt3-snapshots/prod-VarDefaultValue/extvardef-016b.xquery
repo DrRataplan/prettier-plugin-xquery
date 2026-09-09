@@ -5,6 +5,6 @@ declare variable $y := <root>
   >9</a>,<a>10</a>
 </root>;
 
-declare variable $x external;
+declare variable $x external := fn:last();
 
 $x
