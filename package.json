@@ -8,8 +8,8 @@
 		"coverage": "node --test --experimental-test-coverage --test-coverage-exclude='test/**/*.ts' --test-coverage-exclude='src/generated/**/*.ts' --test-reporter=lcov --test-reporter-destination=lcov.info --test-reporter=dot --test-reporter-destination=stdout ./test/**/*.spec.ts",
 		"update-snapshots": "node --test --test-update-snapshots ./test/**/*.spec.ts",
 		"build": "tsc",
-		"lint": "prettier --write ./**/*.ts",
-		"lint-ci": "prettier --check ./**/*.ts"
+		"lint": "prettier --write \"./**/*.ts\"",
+		"lint-ci": "prettier --check \"./**/*.ts\""
 	},
 	"author": "Martin Middel",
 	"license": "MIT",
@@ -22,6 +22,17 @@
 	},
 	"types": "./dist/main.d.ts",
 	"description": "Prettier plugin for XQuery files",
+	"keywords": [
+		"prettier",
+		"prettier-plugin",
+		"xquery",
+		"xpath",
+		"xml",
+		"formatter",
+		"code-formatter",
+		"fonto",
+		"exist-db"
+	],
 	"dependencies": {
 		"prettier": "^3.8.1",
 		"xq-parser": "^0.5.1"

@@ -6,8 +6,8 @@ import { NonTerminalNode } from "../../tree.ts";
 
 const { join } = doc.builders;
 
-const joinChildrenWithSpaces = (path: AstPath<NonTerminalNode>, print: Print): Doc =>{
+const joinChildrenWithSpaces = (path: AstPath<NonTerminalNode>, print: Print): Doc => {
 	return join(space, path.map(print, "children"));
-}
+};
 
 export default joinChildrenWithSpaces;

@@ -3,7 +3,7 @@ import space from "./util/space.ts";
 import type { Handler } from "./util/Handler.ts";
 import isPreviousLineEmpty from "./util/isPreviousLineEmpty.ts";
 
-const { softline, group, indent, hardline,  hardlineWithoutBreakParent } = doc.builders;
+const { softline, group, indent, hardline, hardlineWithoutBreakParent } = doc.builders;
 
 const conditionalExpressionHandlers: Record<string, Handler> = {
 	IfExpr: (path, print, options) => {
@@ -54,7 +54,7 @@ const conditionalExpressionHandlers: Record<string, Handler> = {
 		const formattedElsePart: Doc[] =
 			nestedIfInElse || elsePartIsParenthesized
 				? [elseKeyword, space, elsePart]
-			: [elseKeyword, indent([hardlineWithoutBreakParent, elsePart])];
+				: [elseKeyword, indent([hardlineWithoutBreakParent, elsePart])];
 
 		// If the else had a newline in front of it, try to keep it.
 		/*
@@ -66,7 +66,7 @@ const conditionalExpressionHandlers: Record<string, Handler> = {
 		 */
 		const hadNewLineBeforeElse = isPreviousLineEmpty(path.node.childrenByName["'else'"][0], options);
 		if (hadNewLineBeforeElse) {
-			formattedElsePart.unshift(hardlineWithoutBreakParent)
+			formattedElsePart.unshift(hardlineWithoutBreakParent);
 		}
 
 		return group([
