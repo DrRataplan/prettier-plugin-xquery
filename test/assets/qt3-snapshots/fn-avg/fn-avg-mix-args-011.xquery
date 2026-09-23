@@ -1,1 +1,1 @@
-fn:avg(((xs:float("NaN"), 100, (), 2)))
+fn:avg((xs:float("NaN"), 100, (), 2))

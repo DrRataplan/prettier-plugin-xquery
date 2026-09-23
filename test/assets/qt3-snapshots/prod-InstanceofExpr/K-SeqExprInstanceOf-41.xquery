@@ -1,1 +1,1 @@
-(((()))) instance of empty-sequence()
+() instance of empty-sequence()

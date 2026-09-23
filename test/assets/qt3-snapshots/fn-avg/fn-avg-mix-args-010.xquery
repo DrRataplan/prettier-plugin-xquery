@@ -1,1 +1,1 @@
-fn:avg(((xs:decimal("1.01"), xs:integer("12"))))
+fn:avg((xs:decimal("1.01"), xs:integer("12")))

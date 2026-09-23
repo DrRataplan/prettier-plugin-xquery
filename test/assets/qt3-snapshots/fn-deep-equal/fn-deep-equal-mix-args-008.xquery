@@ -1,1 +1,1 @@
-fn:deep-equal((()), ())
+fn:deep-equal((), ())

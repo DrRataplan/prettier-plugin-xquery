@@ -1,1 +1,1 @@
-fn:avg(((xs:integer("100"), xs:integer("-100"))))
+fn:avg((xs:integer("100"), xs:integer("-100")))

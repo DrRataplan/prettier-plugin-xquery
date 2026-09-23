@@ -1,1 +1,1 @@
-fn:avg(((xs:float("1.01"), xs:string("a"))))
+fn:avg((xs:float("1.01"), xs:string("a")))
