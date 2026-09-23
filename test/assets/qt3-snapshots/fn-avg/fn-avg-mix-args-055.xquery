@@ -1,1 +1,1 @@
-fn:avg(((xs:double("-INF"), xs:integer("-999999999999999999"), "a", (), "3")))
+fn:avg((xs:double("-INF"), xs:integer("-999999999999999999"), "a", (), "3"))

@@ -1,1 +1,1 @@
-empty((())[last()])
+empty(()[last()])

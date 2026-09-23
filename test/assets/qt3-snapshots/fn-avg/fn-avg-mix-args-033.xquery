@@ -1,1 +1,1 @@
-fn:avg(((xs:string("xyz"), (), (), "a", "b")))
+fn:avg((xs:string("xyz"), (), (), "a", "b"))

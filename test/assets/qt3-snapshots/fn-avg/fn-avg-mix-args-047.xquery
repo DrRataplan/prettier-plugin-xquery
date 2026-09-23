@@ -1,1 +1,1 @@
-fn:avg(((xs:float("NaN"), xs:decimal("-999999999999999999"), "a", (), "3")))
+fn:avg((xs:float("NaN"), xs:decimal("-999999999999999999"), "a", (), "3"))

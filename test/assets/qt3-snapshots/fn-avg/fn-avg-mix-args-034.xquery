@@ -1,1 +1,1 @@
-fn:avg(((xs:anyURI("www.example.com"), "a", (""), "b")))
+fn:avg((xs:anyURI("www.example.com"), "a", (""), "b"))

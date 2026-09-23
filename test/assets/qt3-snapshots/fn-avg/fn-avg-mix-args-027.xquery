@@ -1,1 +1,1 @@
-fn:avg(((xs:double("INF"), 2, 3)))
+fn:avg((xs:double("INF"), 2, 3))

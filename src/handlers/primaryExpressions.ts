@@ -1,12 +1,32 @@
-import { doc, util } from "prettier";
+import { doc, util, type Doc } from "prettier";
 import printIfExist from "./util/printIfExists.ts";
 import space from "./util/space.ts";
 import type { Handler } from "./util/Handler.ts";
+import type { NonTerminalNode } from "../tree.ts";
 
 const { join, line, group, indent, hardline, softline } = doc.builders;
 
 const primaryExpressionHandlers: Record<string, Handler> = {
 	ParenthesizedExpr: (path, print, options) => {
+		// Collapse redundantly nested parentheses: `((X))` -> `(X)`, `(((...)))` -> `(...)`.
+		// Only fires when the sole content of these parens is another ParenthesizedExpr, so the
+		// innermost pair is always kept and the meaning never changes. `prettier-ignore` is
+		// handled by Prettier core, which runs before this handler. Comments attached to a node
+		// that gets skipped (the outer parens, the Expr or the ExprSingle) would be dropped, so
+		// bail in that case and keep the redundant parens; comments on the inner
+		// ParenthesizedExpr and below are still printed.
+		const exprNode = path.node.childrenByName["Expr"]?.[0];
+		const exprSingle = exprNode?.children.length === 1 ? (exprNode.children[0] as NonTerminalNode) : undefined;
+		if (
+			exprSingle?.name === "ExprSingle" &&
+			exprSingle.children.length === 1 &&
+			exprSingle.children[0].name === "ParenthesizedExpr" &&
+			// Every node that gets skipped: the outer parens and their tokens, the Expr and the ExprSingle
+			![path.node, ...path.node.children, exprSingle].some((node) => node.hasComments())
+		) {
+			return path.call<Doc, PropertyKey>(print, "childrenByName", "Expr", 0, "children", 0, "children", 0);
+		}
+
 		const shouldBreakAndIndent = options.breakNextParenthesizedExpr;
 		options.breakNextParenthesizedExpr = false;
 		const parenOpenKeyword = path.map(print, "childrenByName", "'('");
