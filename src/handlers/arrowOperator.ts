@@ -20,7 +20,9 @@ const arrowOperatorHandlers: Record<string, Handler> = {
 
 		return group([
 			unaryExprPart,
-			indent(arrowFunctionSpecifierPart.map((afs, i) => [line, arrowKeywords![i], space, afs, argumentListPart![i]])),
+			indent(
+				arrowFunctionSpecifierPart.map((afs, i) => [line, arrowKeywords![i], space, afs, argumentListPart![i]]),
+			),
 		]);
 	},
 };
