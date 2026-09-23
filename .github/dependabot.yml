@@ -9,7 +9,16 @@ updates:
     directory: "/" # Location of package manifests
     schedule:
       interval: "weekly"
+    groups:
+      dependencies:
+        dependency-type: "production"
+      dev-dependencies:
+        dependency-type: "development"
   - package-ecosystem: "npm" # See documentation for possible values
     directory: "demo" # Location of package manifests
     schedule:
       interval: "weekly"
+    groups:
+      demo-dependencies:
+        patterns:
+          - "*"
