@@ -59,6 +59,8 @@ export default config;
 | `tabWidth`                 | `--tab-width`                  |     `2`      | Same as in Prettier ([see prettier docs](https://prettier.io/docs/en/options.html#tab-width)).
 | `singleQuote`              | `--single-quote`               |   `false`    | Same as in Prettier ([see prettier docs](https://prettier.io/docs/en/options.html#quotes)).
 | `useTabs`                  | `--use-tabs`                   |   `false`    | Same as in Prettier ([see prettier docs](https://prettier.io/docs/en/options.html#tabs)).
+| `boundarySpace`            | `--boundary-space`             |   `"strip"`  | How to handle boundary spaces: `strip` assumes the processor strips them (they can be re-added for formatting), `preserve` assumes they are significant. Overruled by `declare boundary-space` in the script.
+| `collapseEmptyElements`    | `--collapse-empty-elements` / `--no-collapse-empty-elements` | `true` | Collapse `<ele></ele>` into `<ele />`. Set to `false` to preserve the author's spelling; this matters when the output is consumed as HTML rather than XML, since HTML5 parsers ignore the `/` on non-void elements.
 
 Any of these can be added to your existing [prettier configuration
 file](https://prettier.io/docs/en/configuration.html). For example:

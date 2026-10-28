@@ -271,3 +271,61 @@ declare boundary-space strip;
 		});
 	}
 });
+
+describe("collapseEmptyElements option", () => {
+	it("collapses empty elements to self-closing ones by default", async (t) => {
+		const result = await format('<ele a="a"></ele>', {
+			parser: "xquery",
+			plugins: [xqueryPlugin],
+		});
+		t.assert.equal(result, '<ele a="a" />\n');
+	});
+
+	it("keeps the open/close spelling when collapseEmptyElements is false", async (t) => {
+		const result = await format('<ele a="a"></ele>', {
+			parser: "xquery",
+			plugins: [xqueryPlugin],
+			collapseEmptyElements: false,
+		});
+		t.assert.equal(result, '<ele a="a"></ele>\n');
+	});
+
+	it("keeps an empty element with an enclosed expression attribute intact when collapseEmptyElements is false", async (t) => {
+		const result = await format('<div id="container{ $id }"></div>', {
+			parser: "xquery",
+			plugins: [xqueryPlugin],
+			collapseEmptyElements: false,
+		});
+		t.assert.equal(result, '<div id="container{ $id }"></div>\n');
+	});
+
+	it("still formats self-closing elements as self-closing when collapseEmptyElements is false", async (t) => {
+		const result = await format("<ele/>", {
+			parser: "xquery",
+			plugins: [xqueryPlugin],
+			collapseEmptyElements: false,
+		});
+		t.assert.equal(result, "<ele />\n");
+	});
+
+	it("does not collapse whitespace-only content when boundary-space is preserve and collapseEmptyElements is false", async (t) => {
+		const result = await format("declare boundary-space preserve;\n\n<a> </a>", {
+			parser: "xquery",
+			plugins: [xqueryPlugin],
+			collapseEmptyElements: false,
+		});
+		t.assert.equal(result, "declare boundary-space preserve;\n\n<a> </a>\n");
+	});
+
+	it("is idempotent when collapseEmptyElements is false", async (t) => {
+		const input = '<div id="container{ $id }"></div>';
+		const options = {
+			parser: "xquery" as const,
+			plugins: [xqueryPlugin],
+			collapseEmptyElements: false,
+		};
+		const first = await format(input, options);
+		const second = await format(first, options);
+		t.assert.equal(first, second);
+	});
+});
