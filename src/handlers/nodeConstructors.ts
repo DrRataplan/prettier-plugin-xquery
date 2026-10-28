@@ -163,6 +163,23 @@ const nodeConstructorHandlers: Record<string, Handler> = {
 
 		if (!hasContent) {
 			// No content. If there would be comments for instance, the comments would show up as DirElemContent.
+			if (options.collapseEmptyElements === false) {
+				// Preserve the open/close spelling. Collapsing to a self-closing tag is not safe when the
+				// output is consumed as HTML: HTML5 parsers ignore the '/' on non-void elements.
+				const [firstAngleBracketClose, secondAngleBracketClose] = path.map(print, "childrenByName", "'>'");
+				const closeElementStart = path.map(print, "childrenByName", "'</'");
+				return group([
+					group([
+						angleBracketOpen,
+						qnamePartOpen,
+						hasAttributes ? indent([line, dirAttributeList]) : [],
+						firstAngleBracketClose,
+					]),
+					closeElementStart,
+					qnamePartClose,
+					secondAngleBracketClose,
+				]);
+			}
 			// Safe to collapse.
 			return group([
 				group([angleBracketOpen, qnamePartOpen, hasAttributes ? indent([line, dirAttributeList]) : []]),

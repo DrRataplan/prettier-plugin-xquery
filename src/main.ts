@@ -321,6 +321,13 @@ const pluginDefinition: Plugin<Node> = {
 				},
 			],
 		},
+		collapseEmptyElements: {
+			description:
+				"Collapse empty elements written as `<ele></ele>` into the self-closing form `<ele />`. Disable to preserve the author's spelling, which matters when the output is consumed as HTML rather than XML",
+			default: true,
+			category: "global",
+			type: "boolean",
+		},
 	},
 	parsers: {
 		xquery: xqueryParser,
